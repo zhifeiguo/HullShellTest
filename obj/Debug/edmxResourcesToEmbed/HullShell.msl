@@ -1,0 +1,424 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="urn:schemas-microsoft-com:windows:storage:mapping:CS">
+  <EntityContainerMapping StorageEntityContainer="HullShellStoreContainer" CdmEntityContainer="HullShellContainer">
+    <EntitySetMapping Name="StdHullShellSet">
+      <EntityTypeMapping TypeName="IsTypeOf(HullShell.StdHullShell)">
+        <MappingFragment StoreEntitySet="StdHullShellSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PlateModel" ColumnName="PlateModel" />
+          <ScalarProperty Name="Thickness" ColumnName="Thickness" />
+          <ScalarProperty Name="Width1" ColumnName="Width1" />
+          <ScalarProperty Name="Length1" ColumnName="Length1" />
+          <ScalarProperty Name="TransverseCurvate" ColumnName="TransverseCurvate" />
+          <ScalarProperty Name="RiblineAmount" ColumnName="RiblineAmount" />
+          <ScalarProperty Name="SideAmount" ColumnName="SideAmount" />
+          <ScalarProperty Name="LongitudinalCurvature" ColumnName="LongitudinalCurvature" />
+          <ScalarProperty Name="CurvePlateKind" ColumnName="CurvePlateKind" />
+          <ScalarProperty Name="Width2" ColumnName="Width2" />
+          <ScalarProperty Name="Length2" ColumnName="Length2" />
+          <ScalarProperty Name="ShipName" ColumnName="ShipName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MaterialSet">
+      <EntityTypeMapping TypeName="IsTypeOf(HullShell.Material)">
+        <MappingFragment StoreEntitySet="MaterialSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="MaterialName" ColumnName="MaterialName" />
+          <ScalarProperty Name="ElasticModulus" ColumnName="ElasticModulus" />
+          <ScalarProperty Name="YieldSrength" ColumnName="YieldSrength" />
+          <ScalarProperty Name="TensileStrength" ColumnName="TensileStrength" />
+          <ScalarProperty Name="UltimateElongation" ColumnName="UltimateElongation" />
+          <ScalarProperty Name="ReductionOfArea" ColumnName="ReductionOfArea" />
+          <ScalarProperty Name="HardenablityValue" ColumnName="HardenablityValue" />
+          <ScalarProperty Name="StrainOfWidthAndThickness" ColumnName="StrainOfWidthAndThickness" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ModelingParameterSet">
+      <EntityTypeMapping TypeName="IsTypeOf(HullShell.ModelingParameter)">
+        <MappingFragment StoreEntitySet="ModelingParameterSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ProcessNumbers" ColumnName="ProcessNumbers" />
+          <ScalarProperty Name="EnvTemperation" ColumnName="EnvTemperation" />
+          <ScalarProperty Name="RecordTime" ColumnName="RecordTime" />
+          <ScalarProperty Name="Coefficient" ColumnName="Coefficient" />
+          <ScalarProperty Name="ResilienceValue" ColumnName="ResilienceValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProcessingEquipmentSet">
+      <EntityTypeMapping TypeName="IsTypeOf(HullShell.ProcessingEquipment)">
+        <MappingFragment StoreEntitySet="ProcessingEquipmentSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EquipMentName" ColumnName="EquipMentName" />
+          <ScalarProperty Name="PressureHeadLength" ColumnName="PressureHeadLength" />
+          <ScalarProperty Name="DriveMode" ColumnName="DriveMode" />
+          <ScalarProperty Name="HeadNumberOfDownDie" ColumnName="HeadNumberOfDownDie" />
+          <ScalarProperty Name="HeadNumberOfUpDie" ColumnName="HeadNumberOfUpDie" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SoftwareSet">
+      <EntityTypeMapping TypeName="IsTypeOf(HullShell.Software)">
+        <MappingFragment StoreEntitySet="SoftwareSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SoftwareName" ColumnName="SoftwareName" />
+          <ScalarProperty Name="RegisterAlgorithm" ColumnName="RegisterAlgorithm" />
+          <ScalarProperty Name="DiffComputer" ColumnName="DiffComputer" />
+          <ScalarProperty Name="SurfaceReconstruction" ColumnName="SurfaceReconstruction" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ScanPointsSet">
+      <EntityTypeMapping TypeName="IsTypeOf(HullShell.ScanPoints)">
+        <MappingFragment StoreEntitySet="ScanPointsSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TheoryPointsSet">
+      <EntityTypeMapping TypeName="IsTypeOf(HullShell.TheoryPoints)">
+        <MappingFragment StoreEntitySet="TheoryPointsSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="RowNumber" ColumnName="RowNumber" />
+          <ScalarProperty Name="ColumnNumber" ColumnName="ColumnNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ExcessPointsSet">
+      <EntityTypeMapping TypeName="IsTypeOf(HullShell.ExcessPoints)">
+        <MappingFragment StoreEntitySet="ExcessPointsSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EdgeEdgePointsSet">
+      <EntityTypeMapping TypeName="IsTypeOf(HullShell.EdgeEdgePoints)">
+        <MappingFragment StoreEntitySet="EdgeEdgePointsSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FirstPointSet">
+      <EntityTypeMapping TypeName="IsTypeOf(HullShell.FirstPoint)">
+        <MappingFragment StoreEntitySet="FirstPointSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SecondPointSet">
+      <EntityTypeMapping TypeName="IsTypeOf(HullShell.SecondPoint)">
+        <MappingFragment StoreEntitySet="SecondPointSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="X" ColumnName="X" />
+          <ScalarProperty Name="Y" ColumnName="Y" />
+          <ScalarProperty Name="Z" ColumnName="Z" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MiddlePointSet">
+      <EntityTypeMapping TypeName="IsTypeOf(HullShell.MiddlePoint)">
+        <MappingFragment StoreEntitySet="MiddlePointSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="X" ColumnName="X" />
+          <ScalarProperty Name="Y" ColumnName="Y" />
+          <ScalarProperty Name="Z" ColumnName="Z" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RiblinePointsSet">
+      <EntityTypeMapping TypeName="IsTypeOf(HullShell.RiblinePoints)">
+        <MappingFragment StoreEntitySet="RiblinePointsSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DetectEquipmentSet">
+      <EntityTypeMapping TypeName="IsTypeOf(HullShell.DetectEquipment)">
+        <MappingFragment StoreEntitySet="DetectEquipmentSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DetectEquipmentName" ColumnName="DetectEquipmentName" />
+          <ScalarProperty Name="CameraResolution" ColumnName="CameraResolution" />
+          <ScalarProperty Name="PixelSize" ColumnName="PixelSize" />
+          <ScalarProperty Name="StdPrecision" ColumnName="StdPrecision" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AdminsSet">
+      <EntityTypeMapping TypeName="IsTypeOf(HullShell.Admins)">
+        <MappingFragment StoreEntitySet="AdminsSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="PassWod" ColumnName="PassWod" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DefectsListSet">
+      <EntityTypeMapping TypeName="IsTypeOf(HullShell.DefectsList)">
+        <MappingFragment StoreEntitySet="DefectsListSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DefectName" ColumnName="DefectName" />
+          <ScalarProperty Name="DefectReason" ColumnName="DefectReason" />
+          <ScalarProperty Name="Solution" ColumnName="Solution" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResilienceFactorSet">
+      <EntityTypeMapping TypeName="IsTypeOf(HullShell.ResilienceFactor)">
+        <MappingFragment StoreEntitySet="ResilienceFactorSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ResilienCoefficient" ColumnName="ResilienCoefficient" />
+          <ScalarProperty Name="CurvatureRange" ColumnName="CurvatureRange" />
+          <ScalarProperty Name="WidthRange" ColumnName="WidthRange" />
+          <ScalarProperty Name="Curvature" ColumnName="Curvature" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PointSet">
+      <EntityTypeMapping TypeName="IsTypeOf(HullShell.Point)">
+        <MappingFragment StoreEntitySet="PointSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="X" ColumnName="X" />
+          <ScalarProperty Name="Y" ColumnName="Y" />
+          <ScalarProperty Name="Z" ColumnName="Z" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AdjustShapeFileSet">
+      <EntityTypeMapping TypeName="IsTypeOf(HullShell.AdjustShapeFile)">
+        <MappingFragment StoreEntitySet="AdjustShapeFileSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HeightValueListSet">
+      <EntityTypeMapping TypeName="IsTypeOf(HullShell.HeightValueList)">
+        <MappingFragment StoreEntitySet="HeightValueListSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="R" ColumnName="R" />
+          <ScalarProperty Name="C" ColumnName="C" />
+          <ScalarProperty Name="Z" ColumnName="Z" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InterpolationFileSet">
+      <EntityTypeMapping TypeName="IsTypeOf(HullShell.InterpolationFile)">
+        <MappingFragment StoreEntitySet="InterpolationFileSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BoundingBoxSet">
+      <EntityTypeMapping TypeName="IsTypeOf(HullShell.BoundingBox)">
+        <MappingFragment StoreEntitySet="BoundingBoxSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="x_Dir" ColumnName="x_Dir" />
+          <ScalarProperty Name="y_Dir" ColumnName="y_Dir" />
+          <ScalarProperty Name="z_Dir" ColumnName="z_Dir" />
+          <ScalarProperty Name="x_Min" ColumnName="x_Min" />
+          <ScalarProperty Name="y_Min" ColumnName="y_Min" />
+          <ScalarProperty Name="z_Min" ColumnName="z_Min" />
+          <ScalarProperty Name="x_Max" ColumnName="x_Max" />
+          <ScalarProperty Name="y_Max" ColumnName="y_Max" />
+          <ScalarProperty Name="z_Max" ColumnName="z_Max" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="MaterialHullShell" TypeName="HullShell.MaterialHullShell" StoreEntitySet="StdHullShellSet">
+      <EndProperty Name="Material">
+        <ScalarProperty Name="Id" ColumnName="Material_Id" />
+      </EndProperty>
+      <EndProperty Name="HullShell">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="stdHullShellTheoryPoints" TypeName="HullShell.stdHullShellTheoryPoints" StoreEntitySet="StdHullShellSet">
+      <EndProperty Name="TheoryPoints">
+        <ScalarProperty Name="Id" ColumnName="TheoryPoints_Id" />
+      </EndProperty>
+      <EndProperty Name="stdHullShell">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ProcessingEquipmentModelingParameter" TypeName="HullShell.ProcessingEquipmentModelingParameter" StoreEntitySet="ModelingParameterSet">
+      <EndProperty Name="ProcessingEquipment">
+        <ScalarProperty Name="Id" ColumnName="ProcessingEquipment_Id" />
+      </EndProperty>
+      <EndProperty Name="ModelingParameter">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="SoftwareModelingParameter" TypeName="HullShell.SoftwareModelingParameter" StoreEntitySet="ModelingParameterSet">
+      <EndProperty Name="Software">
+        <ScalarProperty Name="Id" ColumnName="Software_Id" />
+      </EndProperty>
+      <EndProperty Name="ModelingParameter">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="DetectEquipmentModelingParameter" TypeName="HullShell.DetectEquipmentModelingParameter" StoreEntitySet="ModelingParameterSet">
+      <EndProperty Name="DetectEquipment">
+        <ScalarProperty Name="Id" ColumnName="DetectEquipment_Id" />
+      </EndProperty>
+      <EndProperty Name="ModelingParameter">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ModelingParameterScanPoints" TypeName="HullShell.ModelingParameterScanPoints" StoreEntitySet="ModelingParameterSet">
+      <EndProperty Name="ScanPoints">
+        <ScalarProperty Name="Id" ColumnName="ScanPoints_Id" />
+      </EndProperty>
+      <EndProperty Name="ModelingParameter">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ModelingParameterDefectsList" TypeName="HullShell.ModelingParameterDefectsList" StoreEntitySet="DefectsListSet">
+      <EndProperty Name="ModelingParameter">
+        <ScalarProperty Name="Id" ColumnName="ModelingParameter_Id" />
+      </EndProperty>
+      <EndProperty Name="DefectsList">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="AdminsModelingParameter" TypeName="HullShell.AdminsModelingParameter" StoreEntitySet="ModelingParameterSet">
+      <EndProperty Name="Admins">
+        <ScalarProperty Name="Id" ColumnName="Admins_Id" />
+      </EndProperty>
+      <EndProperty Name="ModelingParameter">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="stdHullShellResilienceFactor" TypeName="HullShell.stdHullShellResilienceFactor" StoreEntitySet="ResilienceFactorSet">
+      <EndProperty Name="stdHullShell">
+        <ScalarProperty Name="Id" ColumnName="stdHullShell_Id" />
+      </EndProperty>
+      <EndProperty Name="ResilienceFactor">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ScanPointsPoint" TypeName="HullShell.ScanPointsPoint" StoreEntitySet="PointSet">
+      <EndProperty Name="ScanPoints">
+        <ScalarProperty Name="Id" ColumnName="ScanPoints_Id" />
+      </EndProperty>
+      <EndProperty Name="Point">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="ScanPoints_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="TheoryPointsPoint" TypeName="HullShell.TheoryPointsPoint" StoreEntitySet="PointSet">
+      <EndProperty Name="TheoryPoints">
+        <ScalarProperty Name="Id" ColumnName="TheoryPoints_Id" />
+      </EndProperty>
+      <EndProperty Name="Point">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="TheoryPoints_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ExcessPointsPoint" TypeName="HullShell.ExcessPointsPoint" StoreEntitySet="PointSet">
+      <EndProperty Name="ExcessPoints">
+        <ScalarProperty Name="Id" ColumnName="ExcessPoints_Id" />
+      </EndProperty>
+      <EndProperty Name="Point">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="ExcessPoints_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="EdgeEdgePointsPoint" TypeName="HullShell.EdgeEdgePointsPoint" StoreEntitySet="PointSet">
+      <EndProperty Name="EdgeEdgePoints">
+        <ScalarProperty Name="Id" ColumnName="EdgeEdgePoints_Id" />
+      </EndProperty>
+      <EndProperty Name="Point">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="EdgeEdgePoints_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="RiblinePointsPoint" TypeName="HullShell.RiblinePointsPoint" StoreEntitySet="PointSet">
+      <EndProperty Name="RiblinePoints">
+        <ScalarProperty Name="Id" ColumnName="RiblinePoints_Id" />
+      </EndProperty>
+      <EndProperty Name="Point">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="RiblinePoints_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ModelingParameterInterpolationFile" TypeName="HullShell.ModelingParameterInterpolationFile" StoreEntitySet="InterpolationFileSet">
+      <EndProperty Name="ModelingParameter">
+        <ScalarProperty Name="Id" ColumnName="ModelingParameter_Id" />
+      </EndProperty>
+      <EndProperty Name="InterpolationFile">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="InterpolationFileHeightValueList" TypeName="HullShell.InterpolationFileHeightValueList" StoreEntitySet="HeightValueListSet">
+      <EndProperty Name="InterpolationFile">
+        <ScalarProperty Name="Id" ColumnName="InterpolationFile_Id" />
+      </EndProperty>
+      <EndProperty Name="HeightValueList">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="InterpolationFile_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="AdjustShapeFileHeightValueList" TypeName="HullShell.AdjustShapeFileHeightValueList" StoreEntitySet="HeightValueListSet">
+      <EndProperty Name="AdjustShapeFile">
+        <ScalarProperty Name="Id" ColumnName="AdjustShapeFile_Id" />
+      </EndProperty>
+      <EndProperty Name="HeightValueList">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="AdjustShapeFile_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="StdHullShellRiblinePoints" TypeName="HullShell.StdHullShellRiblinePoints" StoreEntitySet="RiblinePointsSet">
+      <EndProperty Name="StdHullShell">
+        <ScalarProperty Name="Id" ColumnName="StdHullShell_Id" />
+      </EndProperty>
+      <EndProperty Name="RiblinePoints">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="StdHullShellExcessPoints" TypeName="HullShell.StdHullShellExcessPoints" StoreEntitySet="ExcessPointsSet">
+      <EndProperty Name="StdHullShell">
+        <ScalarProperty Name="Id" ColumnName="StdHullShell_Id" />
+      </EndProperty>
+      <EndProperty Name="ExcessPoints">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="StdHullShellEdgeEdgePoints" TypeName="HullShell.StdHullShellEdgeEdgePoints" StoreEntitySet="EdgeEdgePointsSet">
+      <EndProperty Name="StdHullShell">
+        <ScalarProperty Name="Id" ColumnName="StdHullShell_Id" />
+      </EndProperty>
+      <EndProperty Name="EdgeEdgePoints">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="StdHullShellBoundingBox" TypeName="HullShell.StdHullShellBoundingBox" StoreEntitySet="BoundingBoxSet">
+      <EndProperty Name="StdHullShell">
+        <ScalarProperty Name="Id" ColumnName="StdHullShell_Id" />
+      </EndProperty>
+      <EndProperty Name="BoundingBox">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ModelingParameterAdjustShapeFile" TypeName="HullShell.ModelingParameterAdjustShapeFile" StoreEntitySet="ModelingParameterSet">
+      <EndProperty Name="AdjustShapeFile">
+        <ScalarProperty Name="Id" ColumnName="AdjustShapeFile_Id" />
+      </EndProperty>
+      <EndProperty Name="ModelingParameter">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="StdHullShellModelingParameter" TypeName="HullShell.StdHullShellModelingParameter" StoreEntitySet="ModelingParameterSet">
+      <EndProperty Name="StdHullShell">
+        <ScalarProperty Name="Id" ColumnName="StdHullShell_Id" />
+      </EndProperty>
+      <EndProperty Name="ModelingParameter">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,8 @@
+D:\project\vsproject\HullShellDataBase\src\HullShellTest\bin\x86\Debug\HullShellTest.dll.config
+D:\project\vsproject\HullShellDataBase\src\HullShellTest\bin\x86\Debug\HullShellTest.dll
+D:\project\vsproject\HullShellDataBase\src\HullShellTest\bin\x86\Debug\HullShellTest.pdb
+D:\project\vsproject\HullShellDataBase\src\HullShellTest\obj\x86\Debug\HullShellTest.dll
+D:\project\vsproject\HullShellDataBase\src\HullShellTest\obj\x86\Debug\HullShellTest.pdb
+D:\project\vsproject\HullShellDataBase\src\bin\win32\HullShellTest.dll.config
+D:\project\vsproject\HullShellDataBase\src\bin\win32\HullShellTest.dll
+D:\project\vsproject\HullShellDataBase\src\bin\win32\HullShellTest.pdb

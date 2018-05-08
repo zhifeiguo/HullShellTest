@@ -1,0 +1,51 @@
+K 26
+svn:wc:ra_dav:activity-url
+V 19
+/svn/sbFM/!svn/act/
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/sbFM/!svn/ver/337/src/HullShellTest
+END
+HullShell.Designer.cs
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/sbFM/!svn/ver/340/src/HullShellTest/HullShell.Designer.cs
+END
+App.Config
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/sbFM/!svn/ver/336/src/HullShellTest/App.Config
+END
+ModelParameter.cs
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/sbFM/!svn/ver/336/src/HullShellTest/ModelParameter.cs
+END
+HullShell.edmx.sql
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/sbFM/!svn/ver/336/src/HullShellTest/HullShell.edmx.sql
+END
+HullShell.edmx
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/sbFM/!svn/ver/340/src/HullShellTest/HullShell.edmx
+END
+Class1.cs
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/sbFM/!svn/ver/336/src/HullShellTest/Class1.cs
+END
+HullShellTest.csproj
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/sbFM/!svn/ver/336/src/HullShellTest/HullShellTest.csproj
+END

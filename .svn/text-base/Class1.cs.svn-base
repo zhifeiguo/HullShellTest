@@ -1,0 +1,1443 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+//using System.Runtime;
+using System.Windows.Forms;
+using System.Collections;
+using System.Runtime.InteropServices;
+
+namespace HullShellTest
+{
+    public class Class1
+    {
+        public void addStdPlate()
+        {
+            using (HullShellContainer hullShellEntity = new HullShellContainer())
+            {
+                stdHullShell hs = new stdHullShell { Length = 12, Width = 12, Thickness = 12 };
+
+                Material Ma = new Material { MaterialName = "A32" };
+
+                //hullShellEntity.HullShellSet.AddObject(hs);
+
+                hs.Material = Ma;
+
+                ShipBelonged sp = new ShipBelonged { Ship = "123" };
+
+                hs.ShipBelonged = sp;
+
+                hullShellEntity.AddTostdHullShellSet(hs);
+
+                //hullShellEntity.MaterialSet.Add();
+
+                hullShellEntity.SaveChanges();
+
+            }
+        }
+
+        //材料数据
+        public void addMaterial(String materialMark, String component, double Em, double Ys, double Rs, double MaxElongation, double crossShrink, double rigidIndex, double thicknessIndex)
+        {
+            using (HullShellContainer hullShellEntity = new HullShellContainer())
+            {
+                var c = from x in hullShellEntity.MaterialSet where x.MaterialName == materialMark select x;
+                // List<String> MK = hullShellEntity.MaterialSet.Select;
+                // hullShellEntity
+                if (c != null)
+                {
+                    Material ma = new Material
+                    {
+                        MaterialName = materialMark,
+                        ChemComposition = component,
+                        ElasticModulus = Em,
+                        YieldSrength = Ys,
+                        TensileStrength = Rs,
+                        UltimateElongation = MaxElongation,
+                        ReductionOfArea = crossShrink,
+                        HardenablityValue = rigidIndex,
+                        StrainOfWidthAndThickness = thicknessIndex
+                    };
+
+                    hullShellEntity.AddToMaterialSet(ma);
+
+                    //hullShellEntity.MaterialSet.Add();
+
+                    hullShellEntity.SaveChanges();
+                }
+                else
+                {
+                    //MessageBox.Show("该材料已经存在数据库中！");
+                    return;
+                }
+            }
+        }
+
+
+        public List<String> getMaterialName()
+        {
+            using (HullShellContainer hullShellEntity = new HullShellContainer())
+            {
+                //this->comboBox1->Items -> Clear();
+                List<String> nameStr = new List<String>();
+                var name = from c in hullShellEntity.MaterialSet select c.MaterialName;
+                foreach (var item in name)
+                {
+                    nameStr.Add(item);
+                }
+                return nameStr;
+
+            }
+        }
+
+        public int getMaterialKey(string materialMode)
+        {
+            using (HullShellContainer hullShellEntity = new HullShellContainer())
+            {
+                //int mainKey;
+
+                Material ma = hullShellEntity.MaterialSet.Where(m=>m.MaterialName==materialMode).FirstOrDefault();
+
+                return ma.Id;
+            }
+        }
+
+        public List<Object> searchMaterial(string MaterialMark)
+        {
+
+            //MaterialDataContext
+            using (HullShellContainer hullShellEntity = new HullShellContainer())
+            {
+
+                //Material ma = hullShellEntity.MaterialSet.Where(t=>t.MaterialName==MaterialMark).FirstOrDefault();
+
+                List<Object> MaterialStr = new List<Object>();
+                var q = from c in hullShellEntity.MaterialSet
+                        where c.MaterialName == MaterialMark
+                        select new
+                        {
+                            c.MaterialName,
+                            c.ChemComposition,
+                            c.ElasticModulus,
+                            c.YieldSrength,
+                            c.TensileStrength,
+                            c.UltimateElongation,
+                            c.ReductionOfArea,
+                            c.HardenablityValue,
+                            c.StrainOfWidthAndThickness
+                        };
+
+                foreach (var item in q)
+                {
+                   // Console.WriteLine("{0}",item.MaterialName);
+                    MaterialStr.Add(item.MaterialName);
+                    MaterialStr.Add(item.ChemComposition);
+                    MaterialStr.Add(item.ElasticModulus);
+                    MaterialStr.Add(item.YieldSrength);
+                    MaterialStr.Add(item.TensileStrength);
+                    MaterialStr.Add(item.UltimateElongation);
+                    MaterialStr.Add(item.ReductionOfArea);
+                    MaterialStr.Add(item.HardenablityValue);
+                    MaterialStr.Add(item.StrainOfWidthAndThickness);
+                   // Console.WriteLine("{0}", item.StrainOfWidthAndThickness);
+                }
+                return MaterialStr;
+            }
+        }
+
+        public void deleteMaterial(string MaterialMark)
+        {
+
+            //MaterialDataContext
+            using (HullShellContainer hullShellEntity = new HullShellContainer())
+            {
+                Material Ma = hullShellEntity.MaterialSet.Where(m => m.MaterialName == MaterialMark).FirstOrDefault();
+                hullShellEntity.DeleteObject(Ma);
+                hullShellEntity.SaveChanges();
+            }
+        }
+
+
+        public void modifyMaterial(string oldMaterial,string materialMark, string component, double Em, double Ys, double Rs, double MaxElongation, double crossShrink, double rigidIndex, double thicknessIndex)
+        {
+            //MaterialDataContext
+            using (HullShellContainer hullShellEntity = new HullShellContainer())
+            {
+
+                Material ma = hullShellEntity.MaterialSet.Where(m => m.MaterialName == oldMaterial).FirstOrDefault();
+                if (ma != null)
+                {
+                    ma.MaterialName = materialMark;
+                    ma.ChemComposition = component;
+                    ma.ElasticModulus = Em;
+                    ma.YieldSrength = Ys;
+                    ma.TensileStrength = Rs;
+                    ma.UltimateElongation = MaxElongation;
+                    ma.ReductionOfArea = crossShrink;
+                    ma.HardenablityValue = rigidIndex;
+                    ma.StrainOfWidthAndThickness = thicknessIndex;
+                }
+
+                hullShellEntity.SaveChanges();
+            }
+        }
+
+        public List<String> getShipName()
+        {
+            using (HullShellContainer hullShellEntity = new HullShellContainer())
+            {
+                //this->comboBox1->Items -> Clear();
+                List<String> nameStr = new List<String>();
+                var name = from c in hullShellEntity.ShipBelongedSet select c.Ship;
+                foreach (var item in name)
+                {
+                    nameStr.Add(item);
+                }
+                return nameStr;
+            }
+        }
+
+        public void addShipInformation(string ShipName)
+        {
+            using (HullShellContainer hullShellEntity = new HullShellContainer())
+            {
+                var c = from x in hullShellEntity.ShipBelongedSet where x.Ship == ShipName select x;
+                // List<String> MK = hullShellEntity.MaterialSet.Select;
+                // hullShellEntity
+                if (c != null)
+                {
+                    ShipBelonged sp = new ShipBelonged
+                    {
+                        Ship = ShipName,
+                    };
+
+                    hullShellEntity.AddToShipBelongedSet(sp);
+
+                    //hullShellEntity.MaterialSet.Add();
+
+                    hullShellEntity.SaveChanges();
+                }
+                else
+                {
+                    //MessageBox.Show("该材料已经存在数据库中！");
+                    return;
+                }
+  
+            }
+        }
+
+        public List<Object> SearchShip(string ShipName)
+        {
+            using (HullShellContainer hullShellEntity = new HullShellContainer())
+            {
+                List<Object> ShipStr = new List<Object>();
+                var q = from c in hullShellEntity.ShipBelongedSet
+                        where c.Ship == ShipName
+                        select new
+                        {
+                            c.Ship,
+                        };
+
+                foreach (var item in q)
+                {
+                    // Console.WriteLine("{0}",item.MaterialName);
+                    ShipStr.Add(item.Ship);
+                    // Console.WriteLine("{0}", item.StrainOfWidthAndThickness);
+                }
+                return ShipStr;
+            }
+        }
+
+        public void deleteShip(string ShipName)
+        {
+            using (HullShellContainer hullShellEntity = new HullShellContainer())
+            {
+                ShipBelonged Sp = hullShellEntity.ShipBelongedSet.Where(s => s.Ship == ShipName).FirstOrDefault();
+                hullShellEntity.DeleteObject(Sp);
+                hullShellEntity.SaveChanges();
+            }
+        }
+
+        public void ModifyShipInformation(string oldName, string shipName)
+        {
+            using (HullShellContainer hullShellEntity = new HullShellContainer())
+            {
+                ShipBelonged Sp = hullShellEntity.ShipBelongedSet.Where(s => s.Ship == oldName).FirstOrDefault();
+                Sp.Ship = shipName;
+                //hullShellEntity.DeleteObject(Sp);
+                hullShellEntity.SaveChanges();
+            }
+        }
+
+         //string MaterialMode, string ship,
+        public void addHullShell(String HullShellMode, int Thick, int Len, int Wid, int MaxCur, int RibAmount, int EdgeAmount, string MaterialModel,string shipModel,double[] x_stdPoint, double[] y_stdPoint, double[] z_stdPoint, double[] x_ribPoints, double[] y_ribPoints, double[] z_ribPoints, double[] x_ribStart, double[] y_ribSatart, double[] z_ribStart, double[] x_ribEnd, double[] y_ribEnd, double[] z_ribEnd, double[] x_ribMid, double[] y_ribMid, double[] z_ribMid, double[] x_Excess, double[] y_Excess, double[] z_Excess, double[] x_Side, double[] y_Side, double[] z_Side)
+        {
+            using (HullShellContainer hullShellEntity = new HullShellContainer())
+            {
+                stdHullShell hs = hullShellEntity.stdHullShellSet.Where(h => h.PlateModel == HullShellMode).FirstOrDefault();
+                Material ma = hullShellEntity.MaterialSet.Where(m => m.MaterialName == MaterialModel).FirstOrDefault();
+                ShipBelonged Sp = hullShellEntity.ShipBelongedSet.Where(sp => sp.Ship == shipModel).FirstOrDefault();
+
+                if (hs == null)
+                {
+                    stdHullShell newhs = new stdHullShell
+                    {
+                        PlateModel = HullShellMode,
+                        Thickness = Thick,
+                        Length = Len,
+                        Width = Wid,
+                        MaxCurRadius = MaxCur,
+                        RiblineAmount = RibAmount,
+                        SideAmount = EdgeAmount
+
+                    };
+
+                    newhs.Material = ma;
+                    newhs.ShipBelonged = Sp;
+
+                    //添加理论点
+                    for (int i = 0; i < x_stdPoint.Length; i++)
+                    {
+                        TheoryPoints thePoint = new TheoryPoints
+                        {
+                            X = x_stdPoint[i],
+                            Y = y_stdPoint[i],
+                            Z = z_stdPoint[i]
+                        };
+
+                        newhs.TheoryPoints.Add(thePoint);
+                    }
+
+                    //添加余量点
+                    for (int i = 0; i < x_Excess.Length; i++)
+                    {
+                        ExcessPoints ExcessPoint = new ExcessPoints
+                        {
+                            X = x_Excess[i],
+                            Y = y_Excess[i],
+                            Z = z_Excess[i]
+                        };
+
+                        newhs.ExcessPoints.Add(ExcessPoint);
+                    }
+
+                    //添加边点
+                    for (int i = 0; i < x_Side.Length; i++)
+                    {
+                        SidePoints SidePoint = new SidePoints
+                        {
+                            X = x_Side[i],
+                            Y = y_Side[i],
+                            Z = z_Side[i]
+                        };
+
+                        newhs.SidePoints.Add(SidePoint);
+                    }
+
+                    if (RibAmount > 0)
+                    {
+                        //添加肋位线
+                        int PointsCount = x_ribPoints.Length / RibAmount;
+
+                        for (int i = 0; i < RibAmount; i++)
+                        {
+                            Ribline rib = new Ribline
+                            {
+                                RiblineNumber = i + 1
+                            };
+
+                            //添加肋位线上点
+                            for (int j = 0; j < PointsCount; j++)
+                            {
+                                RiblinePoints RibPs = new RiblinePoints
+                                {
+                                    X = x_ribPoints[j + PointsCount * i],
+                                    Y = y_ribPoints[j + PointsCount * i],
+                                    Z = z_ribPoints[j + PointsCount * i]
+                                };
+
+                                rib.RiblinePoints.Add(RibPs);
+                            }
+                            ////添加肋位线第一点
+
+                            FirstPoint FirPt = new FirstPoint
+                            {
+                                X = x_ribStart[i],
+                                Y = y_ribSatart[i],
+                                Z = z_ribStart[i]
+                            };
+                            rib.FirstPoint = FirPt;
+
+                            ////添加肋位线终止点
+
+                            SecondPoint SecPt = new SecondPoint
+                            {
+                                X = x_ribEnd[i],
+                                Y = y_ribEnd[i],
+                                Z = z_ribEnd[i]
+                            };
+                            rib.SecondPoint = SecPt;
+
+                            ////添加肋位线中点
+
+                            MiddlePoint MidPt = new MiddlePoint
+                            {
+                                X = x_ribMid[i],
+                                Y = y_ribMid[i],
+                                Z = z_ribMid[i]
+                            };
+
+                            rib.MiddlePoint = MidPt;
+
+                            newhs.Ribline.Add(rib);
+
+                        }
+                    }
+                    try
+                    {
+                        hullShellEntity.AddTostdHullShellSet(newhs);
+                        int num = hullShellEntity.SaveChanges();
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e.ToString());
+                    }
+                }
+
+
+                else
+                {
+                    Console.WriteLine("该型号船板已经存在数据库！");
+                    return;
+                }
+
+            }
+        }
+    
+       public List<string> getHullShellName()
+        {
+            using (HullShellContainer hullShellEntity = new HullShellContainer())
+            {
+                //this->comboBox1->Items -> Clear();
+                List<String> nameStr = new List<String>();
+                var name = from c in hullShellEntity.stdHullShellSet select c.PlateModel;
+                foreach (var item in name)
+                {
+                    nameStr.Add(item);
+                }
+                return nameStr;
+            }
+        }
+
+        public List<string> searchHullShell(string HullShellName)
+        {
+            using (HullShellContainer hullShellEntity = new HullShellContainer())
+            {
+                List<string> HullShellStr=new List<string>();
+                stdHullShell hl=hullShellEntity.stdHullShellSet.Where(h=>h.PlateModel==HullShellName).FirstOrDefault();
+
+                HullShellStr.Add(hl.PlateModel);
+                HullShellStr.Add(hl.Thickness.ToString());
+                HullShellStr.Add(hl.Length.ToString());
+                HullShellStr.Add(hl.Width.ToString());
+                HullShellStr.Add(hl.MaxCurRadius.ToString());
+                HullShellStr.Add(hl.RiblineAmount.ToString());
+                HullShellStr.Add(hl.SideAmount.ToString());
+                //HullShellStr.Add
+
+                hl.MaterialReference.Load();
+                hl.ShipBelongedReference.Load();
+                string maName =hl.Material.MaterialName.ToString();
+                string shipNmae = hl.ShipBelonged.Ship.ToString();
+                try
+                {
+                    HullShellStr.Add(maName);
+                    HullShellStr.Add(shipNmae);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.ToString());
+                }
+
+                return HullShellStr;
+            }
+        }
+
+        public double[] getStdHullShellPoints(string HullShellModel, string str)
+        {
+            using (HullShellContainer hullShellEntity = new HullShellContainer())
+            {
+
+                stdHullShell hl = hullShellEntity.stdHullShellSet.Where(h => h.PlateModel == HullShellModel).FirstOrDefault();
+                hl.TheoryPoints.Load();
+                int n = hl.TheoryPoints.Count();
+                if (str == "X")
+                {
+                    double[] x_Point = new double[n];
+                    int i = 0;
+                    foreach (var pt in hl.TheoryPoints.ToList())
+                    {
+                        x_Point[i] = pt.X;
+                        i++;
+                    }
+                    return x_Point;
+                }
+
+                else if (str == "Y")
+                {
+                    double[] y_Point=new double[n];
+                    int i = 0;
+                    //stdHullShell hl = hullShellEntity.stdHullShellSet.Where(h => h.PlateModel == HullShellModel).FirstOrDefault();
+                    foreach (var pt in hl.TheoryPoints.ToList())
+                    {
+                        y_Point[i] = pt.Y;
+                        i++;
+                    }
+                    return y_Point;
+                }
+
+                else
+                {
+                    double[] z_Point=new double[n];
+                    int i = 0;
+                    //stdHullShell hl = hullShellEntity.stdHullShellSet.Where(h => h.PlateModel == HullShellModel).FirstOrDefault();
+                    foreach (var pt in hl.TheoryPoints.ToList())
+                    {
+                        z_Point[i] = pt.Z;
+                        i++;
+                    }
+                    return z_Point;
+                }
+            }
+
+        }
+
+        public int[] getRiblineNumber(string str)
+        {
+            using (HullShellContainer hullShellEntity = new HullShellContainer())
+            {
+                stdHullShell hl = hullShellEntity.stdHullShellSet.Where(h=>h.PlateModel==str).FirstOrDefault();
+                hl.Ribline.Load();
+                int[] ribNumber=new int[hl.Ribline.Count];
+                int i=0;
+                foreach (var item in hl.Ribline)
+                {
+                    ribNumber[i] = item.Id;
+                    i++;
+                }
+                return ribNumber;
+            }
+        }
+
+        public double[] getRiblinePoints(string str,string str1,int i)
+        {
+            using (HullShellContainer hullShellEntity = new HullShellContainer())
+            {
+                int n;
+                List<double> x_list = new List<double>();
+                stdHullShell hl = hullShellEntity.stdHullShellSet.Where(h => h.PlateModel == str).FirstOrDefault();
+                hl.Ribline.Load();
+                foreach (var item in hl.Ribline)      //寻找肋位线
+                {
+                    if (item.Id == i)
+                    {
+                        item.RiblinePoints.Load();         //加载肋位线上点
+                        n = item.RiblinePoints.Count;
+
+                        foreach (var pt in item.RiblinePoints)
+                        {
+                            if (str1 == "X")
+                            {
+                                x_list.Add(pt.X);
+                            }
+                            if (str1 == "Y")
+                            {
+                                x_list.Add(pt.Y);
+                            }
+                            if (str1 == "Z")
+                            {
+                                x_list.Add(pt.Z);
+                            }
+                        }
+                    }
+                }
+                n = x_list.Count;
+                double[] xArray = new double[n];
+                for (int j = 0; j < n; j++)
+                {
+                    xArray[j] = x_list[j];
+                }
+
+                return xArray;
+            }
+        }
+
+        public double[] getRiblineFirstPoint(string str, int i)
+        {
+            using (HullShellContainer hullShellEntity = new HullShellContainer())
+            {
+                double[] PointValue=new double[3];
+                stdHullShell hl = hullShellEntity.stdHullShellSet.Where(h => h.PlateModel == str).FirstOrDefault();
+                hl.Ribline.Load();
+                foreach (var item in hl.Ribline)      //寻找肋位线
+                {
+                    if (item.Id == i)
+                    {
+                        item.FirstPointReference.Load();
+                        FirstPoint pt=item.FirstPoint;         //加载肋位线第一点
+                        PointValue[0] = pt.X;
+                        PointValue[1] = pt.Y;
+                        PointValue[2] = pt.Z;
+                    }
+                }
+
+                return PointValue;
+            }
+        }
+
+        public double[] getRiblineSecondPoint(string str, int i)
+        {
+            using (HullShellContainer hullShellEntity = new HullShellContainer())
+            {
+                double[] PointValue = new double[3];
+                stdHullShell hl = hullShellEntity.stdHullShellSet.Where(h => h.PlateModel == str).FirstOrDefault();
+                hl.Ribline.Load();
+                foreach (var item in hl.Ribline)      //寻找肋位线
+                {
+                    if (item.Id == i)
+                    {
+                        item.SecondPointReference.Load();
+                        SecondPoint pt = item.SecondPoint;         //加载肋位线第一点
+                        PointValue[0] = pt.X;
+                        PointValue[1] = pt.Y;
+                        PointValue[2] = pt.Z;
+                    }
+                }
+
+                return PointValue;
+            }
+        }
+
+        public double[] getRiblineMiddlePoint(string str, int i)
+        {
+            using (HullShellContainer hullShellEntity = new HullShellContainer())
+            {
+                double[] PointValue = new double[3];
+                stdHullShell hl = hullShellEntity.stdHullShellSet.Where(h => h.PlateModel == str).FirstOrDefault();
+                hl.Ribline.Load();
+                foreach (var item in hl.Ribline)      //寻找肋位线
+                {
+                    if (item.Id == i)
+                    {
+                        item.MiddlePointReference.Load();
+                        MiddlePoint pt = item.MiddlePoint;         //加载肋位线第一点
+                        PointValue[0] = pt.X;
+                        PointValue[1] = pt.Y;
+                        PointValue[2] = pt.Z;
+                   
+                    }
+                }
+
+                return PointValue;
+            }
+        }
+
+        public int DeleteHullShell(string str)
+        {
+            using (HullShellContainer hullShellEntity = new HullShellContainer())
+            {
+                stdHullShell hs = hullShellEntity.stdHullShellSet.Where(h=>h.PlateModel==str).FirstOrDefault();
+                //TheoryPoints tp = hs.TheoryPoints;
+                //int index = 
+                hs.TheoryPoints.Load();
+                int n = hs.TheoryPoints.Count;
+                while(hs.TheoryPoints.Count>0)
+                {
+                    hs.TheoryPoints.Load();
+                    TheoryPoints tp = hullShellEntity.TheoryPointsSet.Where(h => h.stdHullShell.Id == hs.Id).FirstOrDefault();
+                    hullShellEntity.DeleteObject(tp);
+                    hullShellEntity.SaveChanges();
+                }
+
+                hs.ExcessPoints.Load();
+                while (hs.ExcessPoints.Count > 0)
+                {
+                    hs.ExcessPoints.Load();
+                    ExcessPoints ep = hullShellEntity.ExcessPointsSet.Where(e => e.stdHullShell.Id == hs.Id).FirstOrDefault();
+                    hullShellEntity.DeleteObject(ep);
+                    hullShellEntity.SaveChanges();
+                    
+                }
+
+                hs.SidePoints.Load();
+                while (hs.SidePoints.Count > 0)
+                {
+                    hs.SidePoints.Load();
+                    SidePoints sp = hullShellEntity.SidePointsSet.Where(s => s.stdHullShell.Id == hs.Id).FirstOrDefault();
+                    hullShellEntity.DeleteObject(sp);
+                    hullShellEntity.SaveChanges();
+
+                }
+
+                hs.Ribline.Load();
+                while (hs.Ribline.Count > 0)
+                {
+                    
+                    var item = hs.Ribline.ElementAt(0);
+                    hs.Ribline.Load();   
+                    item.RiblinePoints.Load();
+                    while (item.RiblinePoints.Count > 0)
+                    {
+                        item.RiblinePoints.Load();
+                        RiblinePoints p = hullShellEntity.RiblinePointsSet.Where(r => r.Ribline.Id == item.Id).FirstOrDefault();
+                        hullShellEntity.DeleteObject(p);
+                        hullShellEntity.SaveChanges();
+                    }
+
+                    item.FirstPointReference.Load();
+                    item.SecondPointReference.Load();
+                    item.MiddlePointReference.Load();
+
+                    FirstPoint fp = hullShellEntity.FirstPointSet.Where(f => f.Ribline.Id == item.Id).FirstOrDefault();
+
+                    hullShellEntity.DeleteObject(fp);
+
+                    SecondPoint sp = hullShellEntity.SecondPointSet.Where(s => s.Ribline.Id == item.Id).FirstOrDefault();
+                    hullShellEntity.DeleteObject(sp);
+
+                    MiddlePoint mp = hullShellEntity.MiddlePointSet.Where(m => m.Ribline.Id == item.Id).FirstOrDefault();
+                    hullShellEntity.DeleteObject(mp);
+
+                    Ribline rb = hullShellEntity.RiblineSet.Where(r => r.Id == item.Id).FirstOrDefault();
+                    hullShellEntity.DeleteObject(rb);
+
+                    try
+                    {
+                        hullShellEntity.SaveChanges();
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e.ToString());
+                    }
+
+                }
+
+                hullShellEntity.DeleteObject(hs);
+
+               int index=hullShellEntity.SaveChanges();
+               return index;
+
+            }
+                   
+        }
+
+        public int ModifyHullShell(string str,string[] modifyStr)
+        {
+            using (HullShellContainer hullShellEntity = new HullShellContainer())
+            {
+                string newPlateModeStr = modifyStr[0];
+                int newThicknewss = Convert.ToInt32(modifyStr[1]);
+                int newLength = Convert.ToInt32(modifyStr[2]);
+                int newWidth = Convert.ToInt32(modifyStr[3]);
+                int newMaxCur = Convert.ToInt32(modifyStr[4]);
+                int newRibCount = Convert.ToInt32(modifyStr[5]);
+                int newSideCount = Convert.ToInt32(modifyStr[6]);
+                string newMaterial = modifyStr[7];
+                string newShipInformation = modifyStr[8];
+
+                string HullShellMode = str;
+
+                stdHullShell hs = hullShellEntity.stdHullShellSet.Where(h => h.PlateModel == HullShellMode).FirstOrDefault();
+
+                hs.PlateModel = newPlateModeStr;
+                hs.Thickness = newThicknewss;
+                hs.Length = newLength;
+                hs.Width = newWidth;
+                hs.MaxCurRadius = newMaxCur;
+                hs.RiblineAmount = newRibCount;
+                hs.SideAmount = newSideCount;
+
+                Material ma = hullShellEntity.MaterialSet.Where(m => m.MaterialName == newMaterial).FirstOrDefault();
+                if (ma != null)
+                {
+                    hs.Material = ma;
+                }
+
+                ShipBelonged sp = hullShellEntity.ShipBelongedSet.Where(s => s.Ship == newShipInformation).FirstOrDefault();
+                if (sp != null)
+                {
+                    hs.ShipBelonged = sp;
+                }
+
+                int index = hullShellEntity.SaveChanges();
+                return index;
+
+            }
+        }
+
+        public string[] getProcessEquipmentName()
+        {
+            using (HullShellContainer hullShellEntity = new HullShellContainer())
+            {
+                List<String> nameList = new List<String>();
+                var name = from c in hullShellEntity.ProcessingEquipmentSet select c.EquipMentName;
+                foreach (var item in name)
+                {
+                    nameList.Add(item);
+                }
+
+                int index = nameList.Count;
+                string[] nameStr = new string[index];
+
+                for (int i = 0; i < index; i++)
+                {
+                    nameStr[i] = nameList[i];
+                }
+
+                return nameStr;
+            }
+        }
+
+        public void addProcessEquipment(string name,int len,int wid,string driveMode1,string driveMode2,int x_up,int y_up,int x_down,int y_down)
+        {
+            using (HullShellContainer hullShellEntity = new HullShellContainer())
+            {
+                ProcessingEquipment pe = hullShellEntity.ProcessingEquipmentSet.Where(p => p.EquipMentName == name).FirstOrDefault();
+                if (pe == null)
+                {
+                    ProcessingEquipment newPe = new ProcessingEquipment
+                    {
+                        EquipMentName=name,
+                        HeadLength=len,
+                        HeadWidth=wid,
+                        DriveModeOfUpDie=driveMode1,
+                        DriveModeDownDie=driveMode2,
+                        HeadNmuberOfUpDieInX=x_up,
+                        HeadNmuberOfUpDieInY=y_up,
+                        HeadNumberOfDownDieInX=x_down,
+                        HeadNumberOfDownDieInY=y_down
+                    };
+
+                    hullShellEntity.AddToProcessingEquipmentSet(newPe);
+                    hullShellEntity.SaveChanges();
+                }
+                else 
+                {
+                    Console.WriteLine("存在该设备！");
+                }
+            }
+        }
+
+        public void DeleteEquipment(string str)
+        {
+            using (HullShellContainer hullShellEntity = new HullShellContainer())
+            {
+                ProcessingEquipment pe = hullShellEntity.ProcessingEquipmentSet.Where(p => p.EquipMentName == str).FirstOrDefault();
+                if (pe != null)
+                {
+                    hullShellEntity.DeleteObject(pe);
+                }
+
+                hullShellEntity.SaveChanges();
+            }
+        }
+
+        public string[] SearchEquipment(string str)
+        {
+            using (HullShellContainer hullShellEntity = new HullShellContainer())
+            {
+                List<string> equipList = new List<string>();
+                ProcessingEquipment pe = hullShellEntity.ProcessingEquipmentSet.Where(p=>p.EquipMentName==str).FirstOrDefault();
+                if (pe != null)
+                {
+                    equipList.Add(pe.EquipMentName);
+                    equipList.Add(Convert.ToString(pe.HeadLength));
+                    equipList.Add(Convert.ToString(pe.HeadWidth));
+                    equipList.Add(pe.DriveModeOfUpDie);
+                    equipList.Add(pe.DriveModeDownDie);
+                    equipList.Add(Convert.ToString(pe.HeadNmuberOfUpDieInX));
+                    equipList.Add(Convert.ToString(pe.HeadNmuberOfUpDieInY));
+                    equipList.Add(Convert.ToString(pe.HeadNumberOfDownDieInX));
+                    equipList.Add(Convert.ToString(pe.HeadNumberOfDownDieInY));
+                }
+
+                int index = equipList.Count;
+                string[] equipStr = new string[index];
+
+                for (int i = 0; i < index; i++)
+                {
+                    equipStr[i] = equipList[i];
+                }
+
+                return equipStr;
+            }
+
+        }
+
+        public int ModifyEquipment(string name,string[] str)
+        {
+            using (HullShellContainer hullShellEntity = new HullShellContainer())
+            {
+                ProcessingEquipment pe = hullShellEntity.ProcessingEquipmentSet.Where(p => p.EquipMentName == name).FirstOrDefault();
+                {
+                    pe.EquipMentName = str[0];
+                    pe.HeadLength = Convert.ToInt32(str[1]);
+                    pe.HeadWidth = Convert.ToInt32(str[2]);
+                    pe.DriveModeOfUpDie = str[3];
+                    pe.DriveModeDownDie = str[4];
+                    pe.HeadNmuberOfUpDieInX = Convert.ToInt32(str[5]);
+                    pe.HeadNmuberOfUpDieInY = Convert.ToInt32(str[6]);
+                    pe.HeadNumberOfDownDieInX = Convert.ToInt32(str[7]);
+                    pe.HeadNumberOfDownDieInY = Convert.ToInt32(str[8]);
+
+                    int index=hullShellEntity.SaveChanges();
+                    return index;
+                }
+            }
+        }
+
+        public string[] getDetectEquipmentName()
+        {
+            using (HullShellContainer hullShellEntity = new HullShellContainer())
+            {
+                List<string> nameStr = new List<string>();
+                var q = from x in hullShellEntity.DetectEquipmentSet select x.DetectEquipmentName;
+                foreach (var item in q)
+                {
+                    nameStr.Add(item);
+                }
+                int index=nameStr.Count;
+                string[] nameArray=new string[index];
+                for (int i = 0; i < index; i++)
+                {
+                    nameArray[i] = nameStr[i];
+                }
+
+                return nameArray;
+
+            }
+        }
+
+        public int addDetectEquipment(string name, string resolution, string pixel, double timeInterval)
+        {
+            using (HullShellContainer hullShellEntity = new HullShellContainer())
+            {
+                DetectEquipment de = new DetectEquipment
+                {
+                    DetectEquipmentName=name,
+                    CameraResolution=resolution,
+                    PixelSize=pixel,
+                    photoTimeInterval=timeInterval
+                };
+
+                hullShellEntity.AddToDetectEquipmentSet(de);
+                int index=hullShellEntity.SaveChanges();
+                return index;
+
+            }
+        }
+
+        public int DeleteDetectEquipment(string str)
+        {
+            using (HullShellContainer hullShellEntity = new HullShellContainer())
+            {
+                DetectEquipment de = hullShellEntity.DetectEquipmentSet.Where(d => d.DetectEquipmentName == str).FirstOrDefault();
+                if (de != null)
+                {
+                    hullShellEntity.DeleteObject(de);
+                }
+
+                int index = hullShellEntity.SaveChanges();
+                return index;
+            }
+        }
+
+        public string[] SearchDetectEquipment(string str)
+        {
+            using (HullShellContainer hullShellEntity = new HullShellContainer())
+            {
+                List<string> EquipmentStr = new List<string>();
+                DetectEquipment de = hullShellEntity.DetectEquipmentSet.Where(d => d.DetectEquipmentName == str).FirstOrDefault();
+                if (de != null)
+                {
+                    EquipmentStr.Add(de.DetectEquipmentName);
+                    EquipmentStr.Add(de.CameraResolution);
+                    EquipmentStr.Add(de.PixelSize);
+                    EquipmentStr.Add(Convert.ToString(de.photoTimeInterval));
+                    //Convert.ToDouble();
+                }
+                string[] EquipmentArray = new string[EquipmentStr.Count];
+
+                for (int i = 0; i < EquipmentStr.Count; i++)
+                {
+                    EquipmentArray[i] = EquipmentStr[i];
+                }
+
+                return EquipmentArray;
+
+            }
+        }
+
+        public int modifyDetectEquipment(string name, string newName, string resolution, string pixel, string time)
+        {
+            using (HullShellContainer hullShellEntity = new HullShellContainer())
+            {
+                DetectEquipment de = hullShellEntity.DetectEquipmentSet.Where(d => d.DetectEquipmentName == name).FirstOrDefault();
+                if (de != null)
+                {
+                    de.DetectEquipmentName = newName;
+                    de.CameraResolution = resolution;
+                    de.PixelSize = pixel;
+                    de.photoTimeInterval = Convert.ToDouble(time);
+                }
+                int index=hullShellEntity.SaveChanges();
+                return index;
+            }
+            
+        }
+
+        public string[] getSotwareName()
+        {
+            using (HullShellContainer hullShellEntity = new HullShellContainer())
+            {
+                var s = from x in hullShellEntity.SoftwareSet select x.SoftwareName;
+                string[] str = new string[s.Count()];
+                int i = 0;
+                foreach (var item in s)
+                {
+                    str[i] = item;
+                    i++;
+                }
+
+                return str;
+            
+            }
+        
+        }
+
+        public int addSoftWare(string str)
+        {
+            using (HullShellContainer hullShellEntity = new HullShellContainer())
+            {
+                Software sf = hullShellEntity.SoftwareSet.Where(s => s.SoftwareName == str).FirstOrDefault();
+                if (sf == null)
+                {
+                    Software newSf = new Software
+                    {
+                        SoftwareName=str
+                    };
+
+                    hullShellEntity.AddToSoftwareSet(newSf);
+                }
+                int index=hullShellEntity.SaveChanges();
+                return index;
+            }
+        }
+
+        public string[] SearchSoftware(string str)
+        {
+            using (HullShellContainer hullShellEntity = new HullShellContainer())
+            {
+                List<string> sfStr = new List<string>();
+                Software sf = hullShellEntity.SoftwareSet.Where(s => s.SoftwareName == str).FirstOrDefault();
+                if (sf != null)
+                {
+                    sfStr.Add(sf.SoftwareName);
+                }
+
+                int n = sfStr.Count;
+
+                string[] sfArray = new string[n];
+
+                for (int i = 0; i < n; i++)
+                {
+                    sfArray[i] = sfStr[i];
+                }
+
+                return sfArray;
+            }
+        }
+
+        public int DeleteSoftware(string str)
+        {
+            using (HullShellContainer hullShellEntity = new HullShellContainer())
+            {
+                Software sf = hullShellEntity.SoftwareSet.Where(s=>s.SoftwareName==str).FirstOrDefault();
+                if (sf != null)
+                {
+                    hullShellEntity.DeleteObject(sf);
+                }
+                int index=hullShellEntity.SaveChanges();
+                return index;
+            }
+        }
+
+        public int ModifySoftware(string name, string newName)
+        {
+            using (HullShellContainer hullShellEntity = new HullShellContainer())
+            {
+                Software sf = hullShellEntity.SoftwareSet.Where(s=>s.SoftwareName==name).FirstOrDefault();
+                if (sf != null)
+                {
+                    sf.SoftwareName = newName;
+                }
+
+                int index = hullShellEntity.SaveChanges();
+                return index;
+            }
+        }
+
+        public string[] getPlateInProcessing()
+        {
+            using (HullShellContainer hullShellEntity = new HullShellContainer())
+            {
+                List<string> nameList = new List<string>();
+                var result = from x in hullShellEntity.ModelingParameterSet select x.PlateModel;
+                foreach (var item in result)
+                {
+                    nameList.Add(item);
+                }
+
+                string[] nameArray=new string[nameList.Count];
+
+                for (int i = 0; i < nameList.Count; i++)
+                {
+                    nameArray[i] = nameList[i];
+                }
+
+                return nameArray;
+             }
+        }
+
+        public int[] getProcessTime(string str)
+        {
+            using (HullShellContainer hullShellEntity = new HullShellContainer())
+            {
+                List<int> times = new List<int>();
+                var result = hullShellEntity.ModelingParameterSet.Where(m => m.PlateModel == str).ToList();
+                //var result = from x in hullShellEntity.ModelingParameterSet where x.PlateModel == str select x;
+                foreach (var item in result)
+                {
+                    int num;
+                    num = Convert.ToInt32(item.ProcessNumbers);
+                    times.Add(Convert.ToInt32(num));
+                }
+                int[] timeArray=new int[times.Count];
+
+                for (int i = 0; i < times.Count; i++)
+                {
+                    timeArray[i] = times[i];
+                }
+
+                return timeArray;
+
+            }
+        }
+
+        public int addProcessParameter(ModelParameter Para)
+        {
+            using (HullShellContainer hullShellEntity = new HullShellContainer())
+            {
+                ModelingParameter mp = hullShellEntity.ModelingParameterSet.Where(m => m.PlateModel == Para.model && m.ProcessNumbers == Para.time).FirstOrDefault();
+                stdHullShell hl = hullShellEntity.stdHullShellSet.Where(h => h.PlateModel == Para.model).FirstOrDefault();
+                ProcessingEquipment pe = hullShellEntity.ProcessingEquipmentSet.Where(p => p.EquipMentName == Para.ProcessEquipmentStr).FirstOrDefault();
+                DetectEquipment de = hullShellEntity.DetectEquipmentSet.Where(d => d.DetectEquipmentName == Para.DetectEquipmentStr).FirstOrDefault();
+                Software sf = hullShellEntity.SoftwareSet.Where(s => s.SoftwareName == Para.SoftwareName).FirstOrDefault();
+
+                //foreach (var p in pm)
+                //{
+
+                //}
+
+                if (mp == null)
+                {
+                    ModelingParameter newMp = new ModelingParameter
+                    {
+                        PlateModel = Para.model,
+                        ProcessNumbers = Para.time,
+                        EnvTemperation = Para.temperature,
+                        illuminationIntensity = Para.illumation,
+                        Pressure = Para.pressure,
+                        NumbersOfScanPoints = Para.pointsSum,
+                        NumbersOfXDirection = Para.pointsInX,
+                        NumbersOfYDirection = Para.pointsInY,
+                    };
+
+                    newMp.HullShell = hl;
+                    newMp.ProcessingEquipment = pe;
+                    newMp.DetectEquipment = de;
+                    newMp.Software = sf;
+                    hullShellEntity.AddToModelingParameterSet(newMp);
+
+                    //添加理论点
+                    for (int i = 0; i < Para.xValue.Length; i++)
+                    {
+                        ScanPoints pt = new ScanPoints
+                        {
+                            X =Para.xValue[i],
+                            Y =Para.yValue[i],
+                            Z = Para.zValue[i],
+                            DiffValue=Para.diffValue[i]
+                            
+                        };
+
+                        newMp.ScanPoints.Add(pt);
+                    }
+
+                }
+
+                int index = hullShellEntity.SaveChanges();
+                return index;
+            }
+        }
+
+        public string[] searchDatabase(string name, int time)
+        {
+            using (HullShellContainer hullShellEntity = new HullShellContainer())
+            {
+                //if (time != 0)
+                //{
+                    ModelingParameter mp = hullShellEntity.ModelingParameterSet.Where(m => m.PlateModel == name && m.ProcessNumbers == time).FirstOrDefault();
+                    var sp = hullShellEntity.ScanPointsSet.Where(s=>s.ModelingParameter.Id==mp.Id&&s.ModelingParameter.ProcessNumbers==mp.ProcessNumbers).ToList();
+
+                    List<string> DatabaseStr = new List<string>();
+                    if (mp != null)
+                    {
+                        DatabaseStr.Add(mp.PlateModel);
+                        DatabaseStr.Add(Convert.ToString(mp.ProcessNumbers));
+                        DatabaseStr.Add(Convert.ToString(mp.EnvTemperation));
+                        DatabaseStr.Add(Convert.ToString(mp.illuminationIntensity));
+                        
+                        DatabaseStr.Add(Convert.ToString(sp.Count));
+                        DatabaseStr.Add(Convert.ToString(50));
+                        DatabaseStr.Add(Convert.ToString(30));
+
+                        DatabaseStr.Add(Convert.ToString(mp.Pressure));
+
+                        mp.ProcessingEquipmentReference.Load();
+                        mp.DetectEquipmentReference.Load();
+                        mp.SoftwareReference.Load();
+                        DatabaseStr.Add(mp.ProcessingEquipment.EquipMentName.ToString());
+                        DatabaseStr.Add(mp.DetectEquipment.DetectEquipmentName.ToString());
+                        DatabaseStr.Add(mp.Software.SoftwareName.ToString());
+                    }
+                    int n = DatabaseStr.Count;
+                    string[] DataBaseArray=new string[n];
+                    for (int i = 0; i < n; i++)
+                    {
+                        DataBaseArray[i] = DatabaseStr[i];
+                    }
+                    return DataBaseArray;
+                //}
+                //else if (time == 0)
+                //{
+                  // var result = hullShellEntity.ModelingParameterSet.Where(m => m.PlateModel == name).ToList();
+                //}
+
+               
+            }
+        }
+
+        public double[] getScanAndDiffValue(string HullShellModel, int time, string str)
+        {
+            using (HullShellContainer hullShellEntity = new HullShellContainer())
+            {
+
+                ModelingParameter mp = hullShellEntity.ModelingParameterSet.Where(m => m.PlateModel == HullShellModel && m.ProcessNumbers == time).FirstOrDefault();
+                mp.ScanPoints.Load();
+                int n = mp.ScanPoints.Count();
+                if (str == "X")
+                {
+                    double[] x_Point = new double[n];
+                    int i = 0;
+                    foreach (var pt in mp.ScanPoints.ToList())
+                    {
+                        x_Point[i] = pt.X;
+                        i++;
+                    }
+                    return x_Point;
+                }
+
+                else if (str == "Y")
+                {
+                    double[] y_Point = new double[n];
+                    int i = 0;
+                    //stdHullShell hl = hullShellEntity.stdHullShellSet.Where(h => h.PlateModel == HullShellModel).FirstOrDefault();
+                    foreach (var pt in mp.ScanPoints.ToList())
+                    {
+                        y_Point[i] = pt.Y;
+                        i++;
+                    }
+                    return y_Point;
+                }
+
+                else if (str == "Z")
+                {
+                    double[] z_Point = new double[n];
+                    int i = 0;
+                    //stdHullShell hl = hullShellEntity.stdHullShellSet.Where(h => h.PlateModel == HullShellModel).FirstOrDefault();
+                    foreach (var pt in mp.ScanPoints.ToList())
+                    {
+                        z_Point[i] = pt.Z;
+                        i++;
+                    }
+                    return z_Point;
+                }
+
+                else
+                {
+                    double[] diff = new double[n];
+                    int i = 0;
+                    foreach (var pt in mp.ScanPoints.ToList())
+                    {
+                        diff[i] = pt.DiffValue;
+                        i++;
+                    }
+
+                    return diff;
+                }
+
+            }
+        }
+
+        public int modifyDataBase(string odlName,string time,string mode,string order,string tem,string sun,string press,string ProcEq,string deEq,string soft)
+        {
+            using (HullShellContainer hullShellEntity = new HullShellContainer())
+            {
+                int oldTime = Convert.ToInt32(time);
+                int ps = Convert.ToInt32(order);
+
+                ModelingParameter mp = hullShellEntity.ModelingParameterSet.Where(m => m.PlateModel == odlName && m.ProcessNumbers == oldTime).FirstOrDefault();
+                ProcessingEquipment pe = hullShellEntity.ProcessingEquipmentSet.Where(p => p.EquipMentName == ProcEq).FirstOrDefault();
+                DetectEquipment de = hullShellEntity.DetectEquipmentSet.Where(d => d.DetectEquipmentName == deEq).FirstOrDefault();
+                Software sf = hullShellEntity.SoftwareSet.Where(s => s.SoftwareName == soft).FirstOrDefault();
+
+                if (mp != null)
+                {
+                    mp.PlateModel = mode;
+                    mp.ProcessNumbers = ps;
+                    mp.EnvTemperation = Convert.ToDouble(tem);
+                    mp.illuminationIntensity = Convert.ToDouble(sun);
+                    mp.Pressure = Convert.ToDouble(press);
+                }
+
+                mp.ProcessingEquipmentReference.Load();
+                if (mp.ProcessingEquipment.EquipMentName.ToString() != pe.EquipMentName)
+                {
+                //if (pe != null)
+                //{
+                    mp.ProcessingEquipment = pe;
+                //}
+                }
+
+                mp.DetectEquipmentReference.Load();
+                if (mp.DetectEquipment.DetectEquipmentName.ToString()!= de.DetectEquipmentName)
+                {
+                //if (de != null)
+                //{
+                    mp.DetectEquipment = de;
+
+               // }
+                }
+
+                mp.SoftwareReference.Load();
+                if (mp.Software.SoftwareName.ToString()!= sf.SoftwareName)
+                {
+                //if (sf != null)
+                //{
+                    mp.Software = sf;
+
+                //}
+                }
+
+                int index=hullShellEntity.SaveChanges();
+                return index;
+            }
+        }
+
+
+        public int DeleteDatabase(string name, int order)
+        {
+            using (HullShellContainer hullShellEntity = new HullShellContainer())
+            {
+                //int order=Convert.ToInt32(orderStr);
+                ModelingParameter mp = hullShellEntity.ModelingParameterSet.Where(m => m.PlateModel == name && m.ProcessNumbers == order).FirstOrDefault();
+                
+                //mp.ScanPoints.Load();
+                //ScanPoints pt = hullShellEntity.ScanPointsSet.Where(p => p.ModelingParameter.Id == mp.Id).FirstOrDefault();
+
+                mp.ScanPoints.Load();
+                int n = mp.ScanPoints.Count;
+                while (mp.ScanPoints.Count > 0)
+                {
+                    mp.ScanPoints.Load();
+                    ScanPoints sp = hullShellEntity.ScanPointsSet.Where(p => p.ModelingParameter.Id == mp.Id).FirstOrDefault();
+                    hullShellEntity.DeleteObject(sp);
+                    hullShellEntity.SaveChanges();
+                }
+
+                //hullShellEntity.DeleteObject(mp.ScanPoints);
+
+                hullShellEntity.DeleteObject(mp);
+
+                int index=hullShellEntity.SaveChanges();
+
+                return index;
+
+            }
+        }
+
+    }
+
+}
+
+
+//while(hs.TheoryPoints.Count>0)
+//{
+//    TheoryPoints tp = hullShellEntity.TheoryPointsSet.Where(h => h.stdHullShell.Id == hs.Id).FirstOrDefault();
+//    hullShellEntity.DeleteObject(tp);
+//}
+// hs.TheoryPoints.Load();
+// while (hs.TheoryPoints.Count > 0)
+// {
+//     hullShellEntity.Attach(hs.TheoryPoints.LastOrDefault());
+//     hs.TheoryPoints.Remove(hs.TheoryPoints.LastOrDefault());
+// }
+
+// hs.ExcessPoints.Load();
+
+// while (hs.ExcessPoints.Count > 0)
+// {
+//     hs.ExcessPoints.Remove(hs.ExcessPoints.LastOrDefault());
+// }
+
+// hs.SidePoints.Load();
+
+// while (hs.SidePoints.Count > 0)
+// {
+//     hs.SidePoints.Remove(hs.SidePoints.LastOrDefault());
+// }
+
+//hs.Ribline.Load();
+//foreach(var item in hs.Ribline)
+// {
+//     item.RiblinePoints.Load();
+//     while (item.RiblinePoints.Count > 0)
+//     {
+//         item.RiblinePoints.Remove(item.RiblinePoints.FirstOrDefault());
+//         //hullShellEntity.DeleteObject((item.RiblinePoints.ToList())[0]);
+//     }
+
+//     item.FirstPointReference.Load();
+//     item.SecondPointReference.Load();
+//     item.MiddlePointReference.Load();
+
+//    //item.FirstPoint
+//     hullShellEntity.DeleteObject(item.FirstPoint);
+//     hullShellEntity.DeleteObject(item.SecondPoint);
+//     hullShellEntity.DeleteObject(item.MiddlePoint);
+
+//     hs.Ribline.Remove(item);
+// }
+
+//hullShellEntity.DeleteObject(hs);

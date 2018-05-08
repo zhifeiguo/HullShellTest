@@ -1,0 +1,37 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace HullShellTest
+{
+    public class ModelParameter
+    {
+        public ModelParameter(int count)
+        {
+            xValue = new double[count];
+            yValue = new double[count];
+            zValue = new double[count];
+            diffValue = new double[count];
+
+        }
+
+        public string model;
+        public int time;
+        public double temperature;
+        public double illumation;
+        public double pressure;
+        public int pointsSum;
+        public int pointsInX;
+        public int pointsInY;
+        public string ProcessEquipmentStr;
+        public string DetectEquipmentStr;
+        public string SoftwareName;
+
+        public double[] xValue;
+        public double[] yValue;
+        public double[] zValue;
+        public double[] diffValue;
+        //public List<double> value;
+    }
+}

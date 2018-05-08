@@ -1,0 +1,624 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HullShell.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2006/04/edm/ssdl">
+  <EntityContainer Name="HullShellStoreContainer">
+    <EntitySet Name="StdHullShellSet" EntityType="HullShell.Store.StdHullShellSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MaterialSet" EntityType="HullShell.Store.MaterialSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ModelingParameterSet" EntityType="HullShell.Store.ModelingParameterSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProcessingEquipmentSet" EntityType="HullShell.Store.ProcessingEquipmentSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SoftwareSet" EntityType="HullShell.Store.SoftwareSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ScanPointsSet" EntityType="HullShell.Store.ScanPointsSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TheoryPointsSet" EntityType="HullShell.Store.TheoryPointsSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ExcessPointsSet" EntityType="HullShell.Store.ExcessPointsSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EdgeEdgePointsSet" EntityType="HullShell.Store.EdgeEdgePointsSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="FirstPointSet" EntityType="HullShell.Store.FirstPointSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SecondPointSet" EntityType="HullShell.Store.SecondPointSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MiddlePointSet" EntityType="HullShell.Store.MiddlePointSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RiblinePointsSet" EntityType="HullShell.Store.RiblinePointsSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DetectEquipmentSet" EntityType="HullShell.Store.DetectEquipmentSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AdminsSet" EntityType="HullShell.Store.AdminsSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DefectsListSet" EntityType="HullShell.Store.DefectsListSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ResilienceFactorSet" EntityType="HullShell.Store.ResilienceFactorSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PointSet" EntityType="HullShell.Store.PointSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AdjustShapeFileSet" EntityType="HullShell.Store.AdjustShapeFileSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="HeightValueListSet" EntityType="HullShell.Store.HeightValueListSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="InterpolationFileSet" EntityType="HullShell.Store.InterpolationFileSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BoundingBoxSet" EntityType="HullShell.Store.BoundingBoxSet" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="MaterialHullShell" Association="HullShell.Store.MaterialHullShell">
+      <End Role="Material" EntitySet="MaterialSet" />
+      <End Role="HullShell" EntitySet="StdHullShellSet" />
+    </AssociationSet>
+    <AssociationSet Name="stdHullShellTheoryPoints" Association="HullShell.Store.stdHullShellTheoryPoints">
+      <End Role="stdHullShell" EntitySet="StdHullShellSet" />
+      <End Role="TheoryPoints" EntitySet="TheoryPointsSet" />
+    </AssociationSet>
+    <AssociationSet Name="ProcessingEquipmentModelingParameter" Association="HullShell.Store.ProcessingEquipmentModelingParameter">
+      <End Role="ProcessingEquipment" EntitySet="ProcessingEquipmentSet" />
+      <End Role="ModelingParameter" EntitySet="ModelingParameterSet" />
+    </AssociationSet>
+    <AssociationSet Name="SoftwareModelingParameter" Association="HullShell.Store.SoftwareModelingParameter">
+      <End Role="Software" EntitySet="SoftwareSet" />
+      <End Role="ModelingParameter" EntitySet="ModelingParameterSet" />
+    </AssociationSet>
+    <AssociationSet Name="DetectEquipmentModelingParameter" Association="HullShell.Store.DetectEquipmentModelingParameter">
+      <End Role="DetectEquipment" EntitySet="DetectEquipmentSet" />
+      <End Role="ModelingParameter" EntitySet="ModelingParameterSet" />
+    </AssociationSet>
+    <AssociationSet Name="ModelingParameterScanPoints" Association="HullShell.Store.ModelingParameterScanPoints">
+      <End Role="ModelingParameter" EntitySet="ModelingParameterSet" />
+      <End Role="ScanPoints" EntitySet="ScanPointsSet" />
+    </AssociationSet>
+    <AssociationSet Name="ModelingParameterDefectsList" Association="HullShell.Store.ModelingParameterDefectsList">
+      <End Role="ModelingParameter" EntitySet="ModelingParameterSet" />
+      <End Role="DefectsList" EntitySet="DefectsListSet" />
+    </AssociationSet>
+    <AssociationSet Name="AdminsModelingParameter" Association="HullShell.Store.AdminsModelingParameter">
+      <End Role="Admins" EntitySet="AdminsSet" />
+      <End Role="ModelingParameter" EntitySet="ModelingParameterSet" />
+    </AssociationSet>
+    <AssociationSet Name="stdHullShellResilienceFactor" Association="HullShell.Store.stdHullShellResilienceFactor">
+      <End Role="stdHullShell" EntitySet="StdHullShellSet" />
+      <End Role="ResilienceFactor" EntitySet="ResilienceFactorSet" />
+    </AssociationSet>
+    <AssociationSet Name="ScanPointsPoint" Association="HullShell.Store.ScanPointsPoint">
+      <End Role="ScanPoints" EntitySet="ScanPointsSet" />
+      <End Role="Point" EntitySet="PointSet" />
+    </AssociationSet>
+    <AssociationSet Name="TheoryPointsPoint" Association="HullShell.Store.TheoryPointsPoint">
+      <End Role="TheoryPoints" EntitySet="TheoryPointsSet" />
+      <End Role="Point" EntitySet="PointSet" />
+    </AssociationSet>
+    <AssociationSet Name="ExcessPointsPoint" Association="HullShell.Store.ExcessPointsPoint">
+      <End Role="ExcessPoints" EntitySet="ExcessPointsSet" />
+      <End Role="Point" EntitySet="PointSet" />
+    </AssociationSet>
+    <AssociationSet Name="EdgeEdgePointsPoint" Association="HullShell.Store.EdgeEdgePointsPoint">
+      <End Role="EdgeEdgePoints" EntitySet="EdgeEdgePointsSet" />
+      <End Role="Point" EntitySet="PointSet" />
+    </AssociationSet>
+    <AssociationSet Name="RiblinePointsPoint" Association="HullShell.Store.RiblinePointsPoint">
+      <End Role="RiblinePoints" EntitySet="RiblinePointsSet" />
+      <End Role="Point" EntitySet="PointSet" />
+    </AssociationSet>
+    <AssociationSet Name="ModelingParameterInterpolationFile" Association="HullShell.Store.ModelingParameterInterpolationFile">
+      <End Role="ModelingParameter" EntitySet="ModelingParameterSet" />
+      <End Role="InterpolationFile" EntitySet="InterpolationFileSet" />
+    </AssociationSet>
+    <AssociationSet Name="InterpolationFileHeightValueList" Association="HullShell.Store.InterpolationFileHeightValueList">
+      <End Role="InterpolationFile" EntitySet="InterpolationFileSet" />
+      <End Role="HeightValueList" EntitySet="HeightValueListSet" />
+    </AssociationSet>
+    <AssociationSet Name="AdjustShapeFileHeightValueList" Association="HullShell.Store.AdjustShapeFileHeightValueList">
+      <End Role="AdjustShapeFile" EntitySet="AdjustShapeFileSet" />
+      <End Role="HeightValueList" EntitySet="HeightValueListSet" />
+    </AssociationSet>
+    <AssociationSet Name="StdHullShellRiblinePoints" Association="HullShell.Store.StdHullShellRiblinePoints">
+      <End Role="StdHullShell" EntitySet="StdHullShellSet" />
+      <End Role="RiblinePoints" EntitySet="RiblinePointsSet" />
+    </AssociationSet>
+    <AssociationSet Name="StdHullShellExcessPoints" Association="HullShell.Store.StdHullShellExcessPoints">
+      <End Role="StdHullShell" EntitySet="StdHullShellSet" />
+      <End Role="ExcessPoints" EntitySet="ExcessPointsSet" />
+    </AssociationSet>
+    <AssociationSet Name="StdHullShellEdgeEdgePoints" Association="HullShell.Store.StdHullShellEdgeEdgePoints">
+      <End Role="StdHullShell" EntitySet="StdHullShellSet" />
+      <End Role="EdgeEdgePoints" EntitySet="EdgeEdgePointsSet" />
+    </AssociationSet>
+    <AssociationSet Name="StdHullShellBoundingBox" Association="HullShell.Store.StdHullShellBoundingBox">
+      <End Role="StdHullShell" EntitySet="StdHullShellSet" />
+      <End Role="BoundingBox" EntitySet="BoundingBoxSet" />
+    </AssociationSet>
+    <AssociationSet Name="ModelingParameterAdjustShapeFile" Association="HullShell.Store.ModelingParameterAdjustShapeFile">
+      <End Role="ModelingParameter" EntitySet="ModelingParameterSet" />
+      <End Role="AdjustShapeFile" EntitySet="AdjustShapeFileSet" />
+    </AssociationSet>
+    <AssociationSet Name="StdHullShellModelingParameter" Association="HullShell.Store.StdHullShellModelingParameter">
+      <End Role="StdHullShell" EntitySet="StdHullShellSet" />
+      <End Role="ModelingParameter" EntitySet="ModelingParameterSet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="StdHullShellSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PlateModel" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Thickness" Type="int" Nullable="false" />
+    <Property Name="Width1" Type="int" Nullable="false" />
+    <Property Name="Length1" Type="int" Nullable="false" />
+    <Property Name="TransverseCurvate" Type="float" Nullable="false" />
+    <Property Name="RiblineAmount" Type="int" Nullable="false" />
+    <Property Name="SideAmount" Type="int" Nullable="false" />
+    <Property Name="LongitudinalCurvature" Type="float" Nullable="false" />
+    <Property Name="CurvePlateKind" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Width2" Type="float" Nullable="false" />
+    <Property Name="Length2" Type="float" Nullable="false" />
+    <Property Name="ShipName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Material_Id" Type="int" Nullable="false" />
+    <Property Name="TheoryPoints_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MaterialSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaterialName" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="ElasticModulus" Type="float" Nullable="true" />
+    <Property Name="YieldSrength" Type="float" Nullable="true" />
+    <Property Name="TensileStrength" Type="float" Nullable="true" />
+    <Property Name="UltimateElongation" Type="float" Nullable="true" />
+    <Property Name="ReductionOfArea" Type="float" Nullable="true" />
+    <Property Name="HardenablityValue" Type="float" Nullable="true" />
+    <Property Name="StrainOfWidthAndThickness" Type="float" Nullable="true" />
+  </EntityType>
+  <EntityType Name="ModelingParameterSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProcessNumbers" Type="int" Nullable="true" />
+    <Property Name="EnvTemperation" Type="float" Nullable="false" />
+    <Property Name="RecordTime" Type="datetime" Nullable="false" />
+    <Property Name="Coefficient" Type="float" Nullable="false" />
+    <Property Name="ResilienceValue" Type="float" Nullable="false" />
+    <Property Name="ProcessingEquipment_Id" Type="int" Nullable="false" />
+    <Property Name="Software_Id" Type="int" Nullable="false" />
+    <Property Name="DetectEquipment_Id" Type="int" Nullable="false" />
+    <Property Name="ScanPoints_Id" Type="int" Nullable="false" />
+    <Property Name="Admins_Id" Type="int" Nullable="false" />
+    <Property Name="AdjustShapeFile_Id" Type="int" Nullable="false" />
+    <Property Name="StdHullShell_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProcessingEquipmentSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EquipMentName" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="PressureHeadLength" Type="int" Nullable="false" />
+    <Property Name="DriveMode" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="HeadNumberOfDownDie" Type="int" Nullable="false" />
+    <Property Name="HeadNumberOfUpDie" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SoftwareSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SoftwareName" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="RegisterAlgorithm" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DiffComputer" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SurfaceReconstruction" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ScanPointsSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FileName" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TheoryPointsSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RowNumber" Type="int" Nullable="false" />
+    <Property Name="ColumnNumber" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ExcessPointsSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StdHullShell_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EdgeEdgePointsSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StdHullShell_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FirstPointSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SecondPointSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="X" Type="real" Nullable="false" />
+    <Property Name="Y" Type="real" Nullable="false" />
+    <Property Name="Z" Type="real" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MiddlePointSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="X" Type="real" Nullable="false" />
+    <Property Name="Y" Type="real" Nullable="false" />
+    <Property Name="Z" Type="real" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RiblinePointsSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StdHullShell_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DetectEquipmentSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DetectEquipmentName" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="CameraResolution" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="PixelSize" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="StdPrecision" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AdminsSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PassWod" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Role" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DefectsListSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DefectName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DefectReason" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Solution" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ModelingParameter_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ResilienceFactorSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ResilienCoefficient" Type="float" Nullable="false" />
+    <Property Name="CurvatureRange" Type="float" Nullable="false" />
+    <Property Name="WidthRange" Type="float" Nullable="false" />
+    <Property Name="Curvature" Type="float" Nullable="false" />
+    <Property Name="stdHullShell_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PointSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="X" Type="float" Nullable="false" />
+    <Property Name="Y" Type="float" Nullable="false" />
+    <Property Name="Z" Type="float" Nullable="false" />
+    <Property Name="ScanPoints_Id" Type="int" Nullable="true" />
+    <Property Name="TheoryPoints_Id" Type="int" Nullable="true" />
+    <Property Name="ExcessPoints_Id" Type="int" Nullable="true" />
+    <Property Name="EdgeEdgePoints_Id" Type="int" Nullable="true" />
+    <Property Name="RiblinePoints_Id" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="AdjustShapeFileSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FileName" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HeightValueListSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="R" Type="int" Nullable="false" />
+    <Property Name="C" Type="int" Nullable="false" />
+    <Property Name="Z" Type="float" Nullable="false" />
+    <Property Name="InterpolationFile_Id" Type="int" Nullable="true" />
+    <Property Name="AdjustShapeFile_Id" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="InterpolationFileSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FileName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ModelingParameter_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BoundingBoxSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="x_Dir" Type="float" Nullable="false" />
+    <Property Name="y_Dir" Type="float" Nullable="false" />
+    <Property Name="z_Dir" Type="float" Nullable="false" />
+    <Property Name="x_Min" Type="float" Nullable="false" />
+    <Property Name="y_Min" Type="float" Nullable="false" />
+    <Property Name="z_Min" Type="float" Nullable="false" />
+    <Property Name="x_Max" Type="float" Nullable="false" />
+    <Property Name="y_Max" Type="float" Nullable="false" />
+    <Property Name="z_Max" Type="float" Nullable="false" />
+    <Property Name="StdHullShell_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="MaterialHullShell">
+    <End Role="Material" Type="HullShell.Store.MaterialSet" Multiplicity="1" />
+    <End Role="HullShell" Type="HullShell.Store.StdHullShellSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Material">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HullShell">
+        <PropertyRef Name="Material_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="stdHullShellTheoryPoints">
+    <End Role="stdHullShell" Type="HullShell.Store.StdHullShellSet" Multiplicity="*" />
+    <End Role="TheoryPoints" Type="HullShell.Store.TheoryPointsSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="TheoryPoints">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="stdHullShell">
+        <PropertyRef Name="TheoryPoints_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProcessingEquipmentModelingParameter">
+    <End Role="ProcessingEquipment" Type="HullShell.Store.ProcessingEquipmentSet" Multiplicity="1" />
+    <End Role="ModelingParameter" Type="HullShell.Store.ModelingParameterSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProcessingEquipment">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ModelingParameter">
+        <PropertyRef Name="ProcessingEquipment_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SoftwareModelingParameter">
+    <End Role="Software" Type="HullShell.Store.SoftwareSet" Multiplicity="1" />
+    <End Role="ModelingParameter" Type="HullShell.Store.ModelingParameterSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Software">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ModelingParameter">
+        <PropertyRef Name="Software_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DetectEquipmentModelingParameter">
+    <End Role="DetectEquipment" Type="HullShell.Store.DetectEquipmentSet" Multiplicity="1" />
+    <End Role="ModelingParameter" Type="HullShell.Store.ModelingParameterSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DetectEquipment">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ModelingParameter">
+        <PropertyRef Name="DetectEquipment_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ModelingParameterScanPoints">
+    <End Role="ModelingParameter" Type="HullShell.Store.ModelingParameterSet" Multiplicity="*" />
+    <End Role="ScanPoints" Type="HullShell.Store.ScanPointsSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="ScanPoints">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ModelingParameter">
+        <PropertyRef Name="ScanPoints_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ModelingParameterDefectsList">
+    <End Role="ModelingParameter" Type="HullShell.Store.ModelingParameterSet" Multiplicity="1" />
+    <End Role="DefectsList" Type="HullShell.Store.DefectsListSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ModelingParameter">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DefectsList">
+        <PropertyRef Name="ModelingParameter_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AdminsModelingParameter">
+    <End Role="Admins" Type="HullShell.Store.AdminsSet" Multiplicity="1" />
+    <End Role="ModelingParameter" Type="HullShell.Store.ModelingParameterSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Admins">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ModelingParameter">
+        <PropertyRef Name="Admins_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="stdHullShellResilienceFactor">
+    <End Role="stdHullShell" Type="HullShell.Store.StdHullShellSet" Multiplicity="1" />
+    <End Role="ResilienceFactor" Type="HullShell.Store.ResilienceFactorSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="stdHullShell">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ResilienceFactor">
+        <PropertyRef Name="stdHullShell_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ScanPointsPoint">
+    <End Role="ScanPoints" Type="HullShell.Store.ScanPointsSet" Multiplicity="0..1" />
+    <End Role="Point" Type="HullShell.Store.PointSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ScanPoints">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Point">
+        <PropertyRef Name="ScanPoints_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TheoryPointsPoint">
+    <End Role="TheoryPoints" Type="HullShell.Store.TheoryPointsSet" Multiplicity="0..1" />
+    <End Role="Point" Type="HullShell.Store.PointSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TheoryPoints">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Point">
+        <PropertyRef Name="TheoryPoints_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ExcessPointsPoint">
+    <End Role="ExcessPoints" Type="HullShell.Store.ExcessPointsSet" Multiplicity="0..1" />
+    <End Role="Point" Type="HullShell.Store.PointSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ExcessPoints">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Point">
+        <PropertyRef Name="ExcessPoints_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EdgeEdgePointsPoint">
+    <End Role="EdgeEdgePoints" Type="HullShell.Store.EdgeEdgePointsSet" Multiplicity="0..1" />
+    <End Role="Point" Type="HullShell.Store.PointSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EdgeEdgePoints">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Point">
+        <PropertyRef Name="EdgeEdgePoints_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RiblinePointsPoint">
+    <End Role="RiblinePoints" Type="HullShell.Store.RiblinePointsSet" Multiplicity="0..1" />
+    <End Role="Point" Type="HullShell.Store.PointSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RiblinePoints">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Point">
+        <PropertyRef Name="RiblinePoints_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ModelingParameterInterpolationFile">
+    <End Role="ModelingParameter" Type="HullShell.Store.ModelingParameterSet" Multiplicity="1" />
+    <End Role="InterpolationFile" Type="HullShell.Store.InterpolationFileSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ModelingParameter">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="InterpolationFile">
+        <PropertyRef Name="ModelingParameter_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="InterpolationFileHeightValueList">
+    <End Role="InterpolationFile" Type="HullShell.Store.InterpolationFileSet" Multiplicity="0..1" />
+    <End Role="HeightValueList" Type="HullShell.Store.HeightValueListSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="InterpolationFile">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HeightValueList">
+        <PropertyRef Name="InterpolationFile_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AdjustShapeFileHeightValueList">
+    <End Role="AdjustShapeFile" Type="HullShell.Store.AdjustShapeFileSet" Multiplicity="0..1" />
+    <End Role="HeightValueList" Type="HullShell.Store.HeightValueListSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AdjustShapeFile">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HeightValueList">
+        <PropertyRef Name="AdjustShapeFile_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="StdHullShellRiblinePoints">
+    <End Role="StdHullShell" Type="HullShell.Store.StdHullShellSet" Multiplicity="1" />
+    <End Role="RiblinePoints" Type="HullShell.Store.RiblinePointsSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StdHullShell">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RiblinePoints">
+        <PropertyRef Name="StdHullShell_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="StdHullShellExcessPoints">
+    <End Role="StdHullShell" Type="HullShell.Store.StdHullShellSet" Multiplicity="1" />
+    <End Role="ExcessPoints" Type="HullShell.Store.ExcessPointsSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StdHullShell">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ExcessPoints">
+        <PropertyRef Name="StdHullShell_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="StdHullShellEdgeEdgePoints">
+    <End Role="StdHullShell" Type="HullShell.Store.StdHullShellSet" Multiplicity="1" />
+    <End Role="EdgeEdgePoints" Type="HullShell.Store.EdgeEdgePointsSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StdHullShell">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EdgeEdgePoints">
+        <PropertyRef Name="StdHullShell_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="StdHullShellBoundingBox">
+    <End Role="StdHullShell" Type="HullShell.Store.StdHullShellSet" Multiplicity="1" />
+    <End Role="BoundingBox" Type="HullShell.Store.BoundingBoxSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StdHullShell">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BoundingBox">
+        <PropertyRef Name="StdHullShell_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ModelingParameterAdjustShapeFile">
+    <End Role="ModelingParameter" Type="HullShell.Store.ModelingParameterSet" Multiplicity="*" />
+    <End Role="AdjustShapeFile" Type="HullShell.Store.AdjustShapeFileSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="AdjustShapeFile">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ModelingParameter">
+        <PropertyRef Name="AdjustShapeFile_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="StdHullShellModelingParameter">
+    <End Role="StdHullShell" Type="HullShell.Store.StdHullShellSet" Multiplicity="1" />
+    <End Role="ModelingParameter" Type="HullShell.Store.ModelingParameterSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StdHullShell">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ModelingParameter">
+        <PropertyRef Name="StdHullShell_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
