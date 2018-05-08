@@ -1,0 +1,12 @@
+D:\sbFM\src\HullShellTest\bin\Release\HullShellTest.dll.config
+D:\sbFM\src\HullShellTest\bin\Release\HullShellTest.dll
+D:\sbFM\src\HullShellTest\bin\Release\HullShellTest.pdb
+D:\sbFM\src\HullShellTest\obj\Release\ResolveAssemblyReference.cache
+D:\sbFM\src\HullShellTest\obj\Release\HullShellTest.dll
+D:\sbFM\src\HullShellTest\obj\Release\HullShellTest.pdb
+D:\project\vsproject\sbFM\src\HullShellTest\bin\Release\HullShellTest.dll.config
+D:\project\vsproject\sbFM\src\HullShellTest\bin\Release\HullShellTest.dll
+D:\project\vsproject\sbFM\src\HullShellTest\bin\Release\HullShellTest.pdb
+D:\project\vsproject\sbFM\src\HullShellTest\obj\Release\HullShellTest.csprojResolveAssemblyReference.cache
+D:\project\vsproject\sbFM\src\HullShellTest\obj\Release\HullShellTest.dll
+D:\project\vsproject\sbFM\src\HullShellTest\obj\Release\HullShellTest.pdb
