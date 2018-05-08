@@ -48,3 +48,6 @@ E:\Files Saved\VS2010Prject\HullShellTest\obj\Debug\HullShellTest.exe.licenses
 E:\Files Saved\VS2010Prject\HullShellTest\obj\Debug\HullShellTest.exe
 E:\Files Saved\VS2010Prject\HullShellTest\obj\Debug\HullShellTest.pdb
 E:\Files Saved\VS2010Prject\HullShellTest\obj\Debug\HullShellTest.csprojResolveAssemblyReference.cache
+D:\project\vsproject\bin\win32\HullShellTest.exe.config
+D:\project\vsproject\HullShellTest\obj\Debug\HullShellTest.exe
+D:\project\vsproject\HullShellTest\obj\Debug\HullShellTest.pdb
