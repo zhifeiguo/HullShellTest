@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using HullShellTest.ModelData;
+using HullShellTest.ModelData.Extent;
 
 namespace HullShellTest.DAL
 {
@@ -67,7 +68,7 @@ namespace HullShellTest.DAL
 
                 }
 
-                //增加边缘点
+                //增加边缘交点
                 EdgeEdgePoints eeps = new EdgeEdgePoints();
                 for (int i = 0; i < StdShell.tpc.EdgeEdgePointsList.Count; i++)
                 {
@@ -100,17 +101,17 @@ namespace HullShellTest.DAL
                 //添加
                 StdHullShell shs = new StdHullShell
                 {
-                    PlateModel = StdShell.PlateModel,
-                    Thickness = StdShell.Thickness,
-                    Width1 = StdShell.Width1,
-                    Length1 = StdShell.Length1,
-                    TransverseCurvate = StdShell.TransverseCurvate,
-                    RiblineAmount = StdShell.RiblineCount,
-                    LongitudinalCurvature = StdShell.LongitudinalCurvature,
-                    CurvePlateKind = StdShell.CurvePlateKind,
-                    Width2 = StdShell.Width2,
-                    Length2 = StdShell.Length2,
-                    ShipName = StdShell.ShipName,
+                    PlateModel = StdShell.StdHullBasicInfo.PlateModel,
+                    Thickness = StdShell.StdHullBasicInfo.Thickness,
+                    Width1 = StdShell.StdHullBasicInfo.Width1,
+                    Length1 = StdShell.StdHullBasicInfo.Length1,
+                    TransverseCurvate = StdShell.StdHullBasicInfo.TransverseCurvate,
+                    RiblineAmount = StdShell.StdHullBasicInfo.RiblineCount,
+                    LongitudinalCurvature = StdShell.StdHullBasicInfo.LongitudinalCurvature,
+                    CurvePlateKind = StdShell.StdHullBasicInfo.CurvePlateKind,
+                    Width2 = StdShell.StdHullBasicInfo.Width2,
+                    Length2 = StdShell.StdHullBasicInfo.Length2,
+                    ShipName = StdShell.StdHullBasicInfo.ShipName,
 
                     TheoryPoints=tps,
                     RiblinePoints=rps,
@@ -187,7 +188,7 @@ namespace HullShellTest.DAL
         {
             using (HullShellContainer hs = new HullShellContainer())
             {
-                StdHullShell shs = hs.StdHullShellSet.Where(s => s.PlateModel == _name).FirstOrDefault();
+                StdHullShell shs = hs.StdHullShellSet.Where(s => s.Id == Id).FirstOrDefault();
 
                 //删除包围盒
                 BoundingBox boundbox = shs.BoundingBox;
@@ -237,24 +238,61 @@ namespace HullShellTest.DAL
         }
 
 
-        //修改,基本信息
-        public int ModifyStdHullShell(StdHullShellCls StdShell)
+        //修改,基本信息，ByName
+        public static int ModifyStdHullShellByName(StdHullShellCls StdShell)
         {
             using (HullShellContainer hs = new HullShellContainer())
             {
-                StdHullShell shs = hs.StdHullShellSet.Where(s => s.PlateModel == StdShell.PlateModel).FirstOrDefault();
+                StdHullShell shs = hs.StdHullShellSet.Where(s => s.PlateModel == StdShell.StdHullBasicInfo.PlateModel).FirstOrDefault();
 
-                shs.PlateModel = StdShell.PlateModel;
-                shs.Thickness = StdShell.Thickness;
-                shs.Width1 = StdShell.Width1;
-                shs.Length1 = StdShell.Length1;
-                shs.TransverseCurvate = StdShell.TransverseCurvate;
-                shs.RiblineAmount = StdShell.RiblineCount;
-                shs.LongitudinalCurvature = StdShell.LongitudinalCurvature;
-                shs.CurvePlateKind = StdShell.CurvePlateKind;
-                shs.Width2 = StdShell.Width2;
-                shs.Length2 = StdShell.Length2;
-                shs.ShipName = StdShell.ShipName;
+                shs.PlateModel = StdShell.StdHullBasicInfo.PlateModel;
+                shs.Thickness = StdShell.StdHullBasicInfo.Thickness;
+                shs.Width1 = StdShell.StdHullBasicInfo.Width1;
+                shs.Length1 = StdShell.StdHullBasicInfo.Length1;
+                shs.TransverseCurvate = StdShell.StdHullBasicInfo.TransverseCurvate;
+                shs.RiblineAmount = StdShell.StdHullBasicInfo.RiblineCount;
+                shs.LongitudinalCurvature = StdShell.StdHullBasicInfo.LongitudinalCurvature;
+                shs.CurvePlateKind = StdShell.StdHullBasicInfo.CurvePlateKind;
+                shs.Width2 = StdShell.StdHullBasicInfo.Width2;
+                shs.Length2 = StdShell.StdHullBasicInfo.Length2;
+                shs.ShipName = StdShell.StdHullBasicInfo.ShipName;
+
+                shs.BoundingBox.x_Dir = StdShell.Dir.x;
+                shs.BoundingBox.y_Dir = StdShell.Dir.y;
+                shs.BoundingBox.z_Dir = StdShell.Dir.z;
+
+                shs.BoundingBox.x_Min = StdShell.Pt_Min.x;
+                shs.BoundingBox.y_Min = StdShell.Pt_Min.y;
+                shs.BoundingBox.z_Min = StdShell.Pt_Min.z;
+
+                shs.BoundingBox.x_Max = StdShell.Pt_Max.x;
+                shs.BoundingBox.y_Max = StdShell.Pt_Max.y;
+                shs.BoundingBox.z_Max = StdShell.Pt_Max.z;
+
+                return hs.SaveChanges();
+
+            }
+
+        }
+
+        //修改,基本信息，ById
+        public static int ModifyStdHullShellById(StdHullShellCls StdShell)
+        {
+            using (HullShellContainer hs = new HullShellContainer())
+            {
+                StdHullShell shs = hs.StdHullShellSet.Where(s => s.Id == StdShell.StdHullBasicInfo.Id).FirstOrDefault();
+
+                shs.PlateModel = StdShell.StdHullBasicInfo.PlateModel;
+                shs.Thickness = StdShell.StdHullBasicInfo.Thickness;
+                shs.Width1 = StdShell.StdHullBasicInfo.Width1;
+                shs.Length1 = StdShell.StdHullBasicInfo.Length1;
+                shs.TransverseCurvate = StdShell.StdHullBasicInfo.TransverseCurvate;
+                shs.RiblineAmount = StdShell.StdHullBasicInfo.RiblineCount;
+                shs.LongitudinalCurvature = StdShell.StdHullBasicInfo.LongitudinalCurvature;
+                shs.CurvePlateKind = StdShell.StdHullBasicInfo.CurvePlateKind;
+                shs.Width2 = StdShell.StdHullBasicInfo.Width2;
+                shs.Length2 = StdShell.StdHullBasicInfo.Length2;
+                shs.ShipName = StdShell.StdHullBasicInfo.ShipName;
 
                 shs.BoundingBox.x_Dir = StdShell.Dir.x;
                 shs.BoundingBox.y_Dir = StdShell.Dir.y;
