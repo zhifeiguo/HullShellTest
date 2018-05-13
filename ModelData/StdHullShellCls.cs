@@ -32,7 +32,7 @@ namespace HullShellTest.ModelData
         public PointCls Pt_Max;
 
         //回弹值
-        //public ResilienceFactorCls rfc;
+        public ResilienceFactorCls rfc;
 
     }
 }

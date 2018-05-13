@@ -31,6 +31,14 @@ namespace HullShellTest.DAL
 
                 };
 
+                //增加回弹属性
+                ResilienceFactor rf = new ResilienceFactor()
+                {
+                    ResilienCoefficient=StdShell.rfc.ResilienCoefficient,
+                    CurvatureRange=StdShell.rfc.CurvatureRange,
+                    WidthRange=StdShell.rfc.WidthRange,
+                    Curvature=StdShell.rfc.Curvature
+                };
 
                 //理论点
                 TheoryPoints tps = new TheoryPoints 
@@ -117,7 +125,9 @@ namespace HullShellTest.DAL
                     RiblinePoints=rps,
                     EdgeEdgePoints=eeps,
                     ExcessPoints=expts,
-                    BoundingBox=boundbox
+                    BoundingBox=boundbox,
+
+                    ResilienceFactor=rf
 
                 };
 
@@ -184,7 +194,7 @@ namespace HullShellTest.DAL
         }
 
         //删除，Id
-        public static int DeleteStdHullShellByName(int Id)
+        public static int DeleteStdHullShellById(int Id)
         {
             using (HullShellContainer hs = new HullShellContainer())
             {
@@ -236,7 +246,6 @@ namespace HullShellTest.DAL
 
             }
         }
-
 
         //修改,基本信息，ByName
         public static int ModifyStdHullShellByName(StdHullShellCls StdShell)
@@ -320,17 +329,22 @@ namespace HullShellTest.DAL
                 StdHullShellCls shscls = new StdHullShellCls();
                 StdHullShell shs = hs.StdHullShellSet.Where(s => s.PlateModel == _name).FirstOrDefault();
 
-                shscls.PlateModel = shs.PlateModel;
-                shscls.Thickness = shs.Thickness;
-                shscls.Width1 = shs.Width1;
-                shscls.Length1 = shs.Length1;
-                shscls.TransverseCurvate = shs.TransverseCurvate;
-                shscls.RiblineCount = shs.RiblineAmount;
-                shscls.LongitudinalCurvature = shs.LongitudinalCurvature;
-                shscls.CurvePlateKind = shs.CurvePlateKind;
-                shscls.Width2 = shs.Width2;
-                shscls.Length2 = shs.Length2;
-                shscls.ShipName = shs.ShipName;
+                shscls.StdHullBasicInfo.PlateModel = shs.PlateModel;
+                shscls.StdHullBasicInfo.Thickness = shs.Thickness;
+                shscls.StdHullBasicInfo.Width1 = shs.Width1;
+                shscls.StdHullBasicInfo.Length1 = shs.Length1;
+
+                shscls.StdHullBasicInfo.PlateModel = shs.PlateModel;
+                shscls.StdHullBasicInfo.Thickness = shs.Thickness;
+                shscls.StdHullBasicInfo.Width1 = shs.Width1;
+                shscls.StdHullBasicInfo.Length1 = shs.Length1;
+                shscls.StdHullBasicInfo.TransverseCurvate = shs.TransverseCurvate;
+                shscls.StdHullBasicInfo.RiblineCount = shs.RiblineAmount;
+                shscls.StdHullBasicInfo.LongitudinalCurvature = shs.LongitudinalCurvature;
+                shscls.StdHullBasicInfo.CurvePlateKind = shs.CurvePlateKind;
+                shscls.StdHullBasicInfo.Width2 = shs.Width2;
+                shscls.StdHullBasicInfo.Length2 = shs.Length2;
+                shscls.StdHullBasicInfo.ShipName = shs.ShipName;
 
                 List<Point> tpsList = shs.TheoryPoints.Point.ToList();
                 for (int i = 0; i < tpsList.Count;i++ )
@@ -386,7 +400,7 @@ namespace HullShellTest.DAL
 
                 for (int i = 0; i < shsList.Count; i++)
                 {
-                    re=DeleteStdHullShell(shsList[i].PlateModel);
+                    re = DeleteStdHullShellById(shsList[i].Id);
                 }
 
                 return re;

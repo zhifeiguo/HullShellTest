@@ -51,3 +51,16 @@ E:\Files Saved\VS2010Prject\HullShellTest\obj\Debug\HullShellTest.csprojResolveA
 D:\project\vsproject\bin\win32\HullShellTest.exe.config
 D:\project\vsproject\HullShellTest\obj\Debug\HullShellTest.exe
 D:\project\vsproject\HullShellTest\obj\Debug\HullShellTest.pdb
+D:\project\vsproject\HullShellTest\obj\Debug\HullShellTest.csprojResolveAssemblyReference.cache
+D:\project\vsproject\HullShellTest\obj\Debug\HullShellTest.Properties.Resources.resources
+D:\project\vsproject\HullShellTest\obj\Debug\HullShellTest.UI.AdminsFrm.resources
+D:\project\vsproject\HullShellTest\obj\Debug\HullShellTest.UI.DetectEquipmentFrm.resources
+D:\project\vsproject\HullShellTest\obj\Debug\HullShellTest.UI.MainForm.resources
+D:\project\vsproject\HullShellTest\obj\Debug\HullShellTest.UI.MaterialFrm.resources
+D:\project\vsproject\HullShellTest\obj\Debug\HullShellTest.UI.ProcessEquipmentFrm.resources
+D:\project\vsproject\HullShellTest\obj\Debug\HullShellTest.UI.ProcessParameterFrm.resources
+D:\project\vsproject\HullShellTest\obj\Debug\HullShellTest.UI.SoftwareFrm.resources
+D:\project\vsproject\HullShellTest\obj\Debug\HullShellTest.UI.StdHullFrm.resources
+D:\project\vsproject\HullShellTest\obj\Debug\HullShellTest.UI.TemplateFrm.resources
+D:\project\vsproject\HullShellTest\obj\Debug\HullShellTest.csproj.GenerateResource.Cache
+D:\project\vsproject\HullShellTest\obj\Debug\HullShellTest.exe.licenses
