@@ -13,12 +13,9 @@ namespace HullShellTest.DAL
         {
             using (HullShellContainer hs = new HullShellContainer())
             {
-                Admins adm = new Admins
-                {
-                    UserName=adc.UserName,
-                    PassWod=adc.PassWord,
-                    Role=adc.Role
-                };
+                Admins adm = new Admins { UserName = adc.UserName,
+                PassWod = adc.PassWord,
+                Role = adc.Role };
 
                 hs.AddToAdminsSet(adm);
 
@@ -35,7 +32,6 @@ namespace HullShellTest.DAL
                 hs.DeleteObject(adm);
 
                 return hs.SaveChanges();
-
             }
         }
 
@@ -47,7 +43,6 @@ namespace HullShellTest.DAL
                 hs.DeleteObject(adm);
 
                 return hs.SaveChanges();
-
             }
         }
 
@@ -58,9 +53,9 @@ namespace HullShellTest.DAL
             {
                 Admins adm = hs.AdminsSet.Where(a => a.Id == adc.Id).FirstOrDefault();
 
-                adm.UserName=adc.UserName;
-                adm.PassWod=adc.PassWord;
-                adm.Role=adc.Role;
+                adm.UserName = adc.UserName;
+                adm.PassWod = adc.PassWord;
+                adm.Role = adc.Role;
 
                 return hs.SaveChanges();
             }
@@ -74,10 +69,10 @@ namespace HullShellTest.DAL
                 Admins adm = hs.AdminsSet.Where(a => a.UserName == _name).FirstOrDefault();
 
                 AdminsCls adc = new AdminsCls();
-                adc.Id=adm.Id;
-                adc.UserName=adm.UserName;
+                adc.Id = adm.Id;
+                adc.UserName = adm.UserName;
                 adc.PassWord = adm.PassWod;
-                adc.Role=adm.Role;
+                adc.Role = adm.Role;
 
                 return adc;
             }
@@ -97,7 +92,6 @@ namespace HullShellTest.DAL
 
                 return hs.SaveChanges();
             }
-
         }
 
         //获得所有的用户
@@ -117,20 +111,15 @@ namespace HullShellTest.DAL
         {
             using (HullShellContainer hs = new HullShellContainer())
             {
-
                 List<AdminsCls> adcList = new List<AdminsCls>();
                 List<Admins> val = hs.AdminsSet.Where(a => a.Id >= 0).ToList();
 
                 foreach (var item in val)
                 {
-                    AdminsCls adc = new AdminsCls
-                    {
-                        Id=item.Id,
-                        UserName=item.UserName,
-                        PassWord=item.PassWod,
-                        Role=item.Role
-
-                    };
+                    AdminsCls adc = new AdminsCls { Id = item.Id,
+                    UserName = item.UserName,
+                    PassWord = item.PassWod,
+                    Role = item.Role };
 
                     adcList.Add(adc);
                 }
@@ -138,6 +127,5 @@ namespace HullShellTest.DAL
                 return adcList;
             }
         }
-
     }
 }

@@ -7,7 +7,7 @@ namespace HullShellTest.Utils
 {
     public class Utils
     {
-        public static bool SetControlValue( DevExpress.XtraLayout.LayoutControl layControl,int i)
+        public static bool SetControlValue( DevExpress.XtraLayout.LayoutControl layControl, int i)
         {
             //try
             //{
@@ -34,6 +34,5 @@ namespace HullShellTest.Utils
 
             return true;
         }
-
     }
 }

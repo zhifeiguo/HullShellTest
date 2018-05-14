@@ -15,11 +15,16 @@ namespace HullShellTest.ModelData
         private string _FileName;
         public string FileName
         {
-            get { return _FileName; }
-            set { _FileName = value; }
+            get
+            {
+                return _FileName;
+            }
+            set
+            {
+                _FileName = value;
+            }
         }
 
         public List<HeightValuesCls> InterpolationList;
-
     }
 }

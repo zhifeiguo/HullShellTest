@@ -9,7 +9,6 @@ using System.Windows.Forms;
 
 namespace HullShellTest.UI
 {
-
     public enum AddOrModifyEnum
     {
         Add = 1,
@@ -18,7 +17,6 @@ namespace HullShellTest.UI
 
     public partial class TemplateFrm : DevExpress.XtraBars.Ribbon.RibbonForm
     {
-
         public AddOrModifyEnum AddorModify;
 
         public TemplateFrm()
@@ -34,7 +32,6 @@ namespace HullShellTest.UI
 
         public virtual bool AddData()
         {
-
             return true;
         }
 
@@ -77,7 +74,6 @@ namespace HullShellTest.UI
         public virtual bool QueryAll()
         {
             return true;
-
         }
 
         private void btn_Delete_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -109,6 +105,5 @@ namespace HullShellTest.UI
         {
             SelectRecord();
         }
-
     }
 }

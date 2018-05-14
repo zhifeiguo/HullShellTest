@@ -13,19 +13,15 @@ namespace HullShellTest.DAL
         {
             using (HullShellContainer hs = new HullShellContainer())
             {
-                ProcessingEquipment pe = new ProcessingEquipment
-                {
-                    EquipMentName=pec.ProcessEquipmentName,
-                    PressureHeadLength=pec.PressureHeadLength,
-                    DriveMode=pec.DirverMode,
-                    HeadNumberOfDownDie=pec.DownDieHeadNumber,
-                    HeadNumberOfUpDie=pec.UpDieHeadNumber
-                };
+                ProcessingEquipment pe = new ProcessingEquipment { EquipMentName = pec.ProcessEquipmentName,
+                PressureHeadLength = pec.PressureHeadLength,
+                DriveMode = pec.DirverMode,
+                HeadNumberOfDownDie = pec.DownDieHeadNumber,
+                HeadNumberOfUpDie = pec.UpDieHeadNumber };
 
                 hs.AddToProcessingEquipmentSet(pe);
 
                 return hs.SaveChanges();
-
             }
         }
 
@@ -38,7 +34,6 @@ namespace HullShellTest.DAL
                 hs.DeleteObject(pe);
 
                 return hs.SaveChanges();
-
             }
         }
 
@@ -50,7 +45,6 @@ namespace HullShellTest.DAL
                 hs.DeleteObject(pe);
 
                 return hs.SaveChanges();
-
             }
         }
 
@@ -59,7 +53,7 @@ namespace HullShellTest.DAL
         {
             using (HullShellContainer hs = new HullShellContainer())
             {
-                ProcessingEquipment pe = hs.ProcessingEquipmentSet.Where(p=>p.EquipMentName==pec.ProcessEquipmentName).FirstOrDefault();
+                ProcessingEquipment pe = hs.ProcessingEquipmentSet.Where(p => p.EquipMentName == pec.ProcessEquipmentName).FirstOrDefault();
 
                 pe.EquipMentName = pec.ProcessEquipmentName;
                 pe.PressureHeadLength = pec.PressureHeadLength;
@@ -68,9 +62,7 @@ namespace HullShellTest.DAL
                 pe.HeadNumberOfDownDie = pec.DownDieHeadNumber;
 
                 return hs.SaveChanges();
-
             }
-
         }
 
         public static int ModifyProcessEquipmentById(ProcessEquipmentCls pec)
@@ -86,9 +78,7 @@ namespace HullShellTest.DAL
                 pe.HeadNumberOfDownDie = pec.DownDieHeadNumber;
 
                 return hs.SaveChanges();
-
             }
-
         }
 
         //查询
@@ -98,17 +88,16 @@ namespace HullShellTest.DAL
             {
                 ProcessingEquipment pe = hs.ProcessingEquipmentSet.Where(p => p.EquipMentName == _name).FirstOrDefault();
 
-                ProcessEquipmentCls pec=new ProcessEquipmentCls();
+                ProcessEquipmentCls pec = new ProcessEquipmentCls();
 
                 pec.Id = pe.Id;
-                pec.ProcessEquipmentName=pe.EquipMentName;
-                pec.PressureHeadLength=pe.PressureHeadLength;
-                pec.DirverMode=pe.DriveMode;
-                pec.DownDieHeadNumber=pe.HeadNumberOfDownDie;
-                pec.UpDieHeadNumber=pe.HeadNumberOfUpDie;
+                pec.ProcessEquipmentName = pe.EquipMentName;
+                pec.PressureHeadLength = pe.PressureHeadLength;
+                pec.DirverMode = pe.DriveMode;
+                pec.DownDieHeadNumber = pe.HeadNumberOfDownDie;
+                pec.UpDieHeadNumber = pe.HeadNumberOfUpDie;
 
                 return pec;
-
             }
         }
 
@@ -128,7 +117,6 @@ namespace HullShellTest.DAL
                 pec.UpDieHeadNumber = pe.HeadNumberOfUpDie;
 
                 return pec;
-
             }
         }
 
@@ -136,10 +124,8 @@ namespace HullShellTest.DAL
         //清空
         public static int ClearProcessEquipment()
         {
-
             using (HullShellContainer hs = new HullShellContainer())
             {
-
                 List<ProcessingEquipment> PeList = hs.ProcessingEquipmentSet.Where(p => p.Id >= 0).ToList();
 
                 for (int i = 0; i < PeList.Count; i++)
@@ -148,10 +134,7 @@ namespace HullShellTest.DAL
                 }
 
                 return hs.SaveChanges();
-
-
             }
-
         }
 
         public static List<ProcessEquipmentCls>  GetAll()
@@ -162,24 +145,18 @@ namespace HullShellTest.DAL
 
                 List<ProcessingEquipment> pe = hs.ProcessingEquipmentSet.Where(p => p.Id > 0).ToList();
 
-                foreach(var item in pe)
+                foreach (var item in pe)
                 {
-                    pecls.Add(new ProcessEquipmentCls
-                    {
-                        Id=item.Id,
-                        ProcessEquipmentName=item.EquipMentName,
-                        PressureHeadLength=item.PressureHeadLength,
-                        DirverMode=item.DriveMode,
-                        UpDieHeadNumber=item.HeadNumberOfUpDie,
-                        DownDieHeadNumber=item.HeadNumberOfDownDie
-                    });
+                    pecls.Add(new ProcessEquipmentCls { Id = item.Id,
+                    ProcessEquipmentName = item.EquipMentName,
+                    PressureHeadLength = item.PressureHeadLength,
+                    DirverMode = item.DriveMode,
+                    UpDieHeadNumber = item.HeadNumberOfUpDie,
+                    DownDieHeadNumber = item.HeadNumberOfDownDie });
                 }
 
                 return pecls;
-
             }
         }
-
-
     }
 }

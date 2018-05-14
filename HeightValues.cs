@@ -7,6 +7,5 @@ namespace HullShellTest
 {
     public class HeightValues
     {
-
     }
 }

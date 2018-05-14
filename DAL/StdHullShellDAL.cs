@@ -15,119 +15,99 @@ namespace HullShellTest.DAL
             using (HullShellContainer hs = new HullShellContainer())
             {
                 //包围盒
-                BoundingBox boundbox = new BoundingBox
-                {
-                    x_Dir = StdShell.Dir.x,
-                    y_Dir = StdShell.Dir.y,
-                    z_Dir = StdShell.Dir.z,
+                BoundingBox boundbox = new BoundingBox { x_Dir = StdShell.Dir.x,
+                y_Dir = StdShell.Dir.y,
+                z_Dir = StdShell.Dir.z,
 
-                    x_Min = StdShell.Pt_Min.x,
-                    y_Min = StdShell.Pt_Min.y,
-                    z_Min = StdShell.Pt_Min.z,
+                x_Min = StdShell.Pt_Min.x,
+                y_Min = StdShell.Pt_Min.y,
+                z_Min = StdShell.Pt_Min.z,
 
-                    x_Max = StdShell.Pt_Max.x,
-                    y_Max = StdShell.Pt_Max.y,
-                    z_Max = StdShell.Pt_Max.z,
-
-                };
+                x_Max = StdShell.Pt_Max.x,
+                y_Max = StdShell.Pt_Max.y,
+                z_Max = StdShell.Pt_Max.z };
 
                 //增加回弹属性
-                ResilienceFactor rf = new ResilienceFactor()
-                {
-                    ResilienCoefficient=StdShell.rfc.ResilienCoefficient,
-                    CurvatureRange=StdShell.rfc.CurvatureRange,
-                    WidthRange=StdShell.rfc.WidthRange,
-                    Curvature=StdShell.rfc.Curvature
-                };
+                ResilienceFactor rf = new ResilienceFactor() { ResilienCoefficient = StdShell.rfc.ResilienCoefficient,
+                CurvatureRange = StdShell.rfc.CurvatureRange,
+                WidthRange = StdShell.rfc.WidthRange,
+                Curvature = StdShell.rfc.Curvature };
 
                 //理论点
-                TheoryPoints tps = new TheoryPoints 
-                {
-                    RowNumber = StdShell.tpc.RowNumberow,
-                    ColumnNumber=StdShell.tpc.ColnumNumber
-                };
+                TheoryPoints tps = new TheoryPoints { RowNumber = StdShell.tpc.RowNumberow,
+                ColumnNumber = StdShell.tpc.ColnumNumber };
 
                 for (int i = 0; i < StdShell.tpc.PointsCloudList.Count; i++)
                 {
-                    Point pt = new Point
-                    {
-                        X = StdShell.tpc.PointsCloudList[i].x,
-                        Y = StdShell.tpc.PointsCloudList[i].y,
-                        Z = StdShell.tpc.PointsCloudList[i].z,
-                    };
+                    Point pt = new Point { X = StdShell.tpc.PointsCloudList[i].x,
+                    Y = StdShell.tpc.PointsCloudList[i].y,
+                    Z = StdShell.tpc.PointsCloudList[i].z };
 
                     tps.Point.Add(pt);
                 }
 
-                
                 //增加肋位线点
                 RiblinePoints rps = new RiblinePoints();
 
-                for (int i=0;i<StdShell.tpc.RiblinePointsList.Count;i++)
+                for (int i = 0; i < StdShell.tpc.RiblinePointsList.Count; i++)
                 {
-                    Point pt = new Point
-                    {
-                        X = StdShell.tpc.RiblinePointsList[i].x,
-                        Y = StdShell.tpc.RiblinePointsList[i].y,
-                        Z = StdShell.tpc.RiblinePointsList[i].z,
-                    };
+                    Point pt = new Point { X = StdShell.tpc.RiblinePointsList[i].x,
+                    Y = StdShell.tpc.RiblinePointsList[i].y,
+                    Z = StdShell.tpc.RiblinePointsList[i].z };
 
                     rps.Point.Add(pt);
-
                 }
 
                 //增加边缘交点
                 EdgeEdgePoints eeps = new EdgeEdgePoints();
                 for (int i = 0; i < StdShell.tpc.EdgeEdgePointsList.Count; i++)
                 {
-                    Point pt = new Point
-                    {
-                        X = StdShell.tpc.EdgeEdgePointsList[i].x,
-                        Y = StdShell.tpc.EdgeEdgePointsList[i].y,
-                        Z = StdShell.tpc.EdgeEdgePointsList[i].z,
-                    };
+                    Point pt = new Point { X = StdShell.tpc.EdgeEdgePointsList[i].x,
+                    Y = StdShell.tpc.EdgeEdgePointsList[i].y,
+                    Z = StdShell.tpc.EdgeEdgePointsList[i].z };
 
                     eeps.Point.Add(pt);
-
                 }
 
                 //增加余量点
                 ExcessPoints expts = new ExcessPoints();
                 for (int i = 0; i < StdShell.tpc.ExcessPointsList.Count; i++)
                 {
-                    Point pt = new Point
-                    {
-                        X = StdShell.tpc.ExcessPointsList[i].x,
-                        Y = StdShell.tpc.ExcessPointsList[i].y,
-                        Z = StdShell.tpc.ExcessPointsList[i].z,
-                    };
+                    Point pt = new Point { X = StdShell.tpc.ExcessPointsList[i].x,
+                    Y = StdShell.tpc.ExcessPointsList[i].y,
+                    Z = StdShell.tpc.ExcessPointsList[i].z };
 
                     expts.Point.Add(pt);
-
                 }
 
+                //查询材料
+                Material mal = hs.MaterialSet.Where(m => m.MaterialName == StdShell.StdHullBasicInfo.MaterialName).FirstOrDefault();
+
                 //添加
-                StdHullShell shs = new StdHullShell
-                {
-                    PlateModel = StdShell.StdHullBasicInfo.PlateModel,
-                    Thickness = StdShell.StdHullBasicInfo.Thickness,
-                    Width1 = StdShell.StdHullBasicInfo.Width1,
-                    Length1 = StdShell.StdHullBasicInfo.Length1,
-                    TransverseCurvate = StdShell.StdHullBasicInfo.TransverseCurvate,
-                    RiblineAmount = StdShell.StdHullBasicInfo.RiblineCount,
-                    LongitudinalCurvature = StdShell.StdHullBasicInfo.LongitudinalCurvature,
-                    CurvePlateKind = StdShell.StdHullBasicInfo.CurvePlateKind,
-                    Width2 = StdShell.StdHullBasicInfo.Width2,
-                    Length2 = StdShell.StdHullBasicInfo.Length2,
-                    ShipName = StdShell.StdHullBasicInfo.ShipName,
+                StdHullShell shs = new StdHullShell {
+                PlateModel = StdShell.StdHullBasicInfo.PlateModel,
+                Thickness = StdShell.StdHullBasicInfo.Thickness,
+                Width1 = StdShell.StdHullBasicInfo.Width1,
+                Length1 = StdShell.StdHullBasicInfo.Length1,
+                TransverseCurvate = StdShell.StdHullBasicInfo.TransverseCurvate,
+                RiblineAmount = StdShell.StdHullBasicInfo.RiblineCount,
+                SideAmount = StdShell.StdHullBasicInfo.SideCount,
+                LongitudinalCurvature = StdShell.StdHullBasicInfo.LongitudinalCurvature,
+                CurvePlateKind = StdShell.StdHullBasicInfo.CurvePlateKind,
+                Width2 = StdShell.StdHullBasicInfo.Width2,
+                Length2 = StdShell.StdHullBasicInfo.Length2,
+                ShipName = StdShell.StdHullBasicInfo.ShipName,
 
-                    TheoryPoints=tps,
-                    RiblinePoints=rps,
-                    EdgeEdgePoints=eeps,
-                    ExcessPoints=expts,
-                    BoundingBox=boundbox,
+                Material=mal,
 
-                    ResilienceFactor=rf
+                TheoryPoints = tps,
+                RiblinePoints = rps,
+                EdgeEdgePoints = eeps,
+                ExcessPoints = expts,
+
+                BoundingBox = boundbox,
+
+                ResilienceFactor = rf 
 
                 };
 
@@ -135,7 +115,6 @@ namespace HullShellTest.DAL
                 hs.AddToStdHullShellSet(shs);
 
                 return hs.SaveChanges();
-
             }
         }
 
@@ -189,7 +168,6 @@ namespace HullShellTest.DAL
                 hs.DeleteObject(shs);
 
                 return hs.SaveChanges();
-
             }
         }
 
@@ -243,7 +221,6 @@ namespace HullShellTest.DAL
                 hs.DeleteObject(shs);
 
                 return hs.SaveChanges();
-
             }
         }
 
@@ -279,9 +256,7 @@ namespace HullShellTest.DAL
                 shs.BoundingBox.z_Max = StdShell.Pt_Max.z;
 
                 return hs.SaveChanges();
-
             }
-
         }
 
         //修改,基本信息，ById
@@ -316,9 +291,7 @@ namespace HullShellTest.DAL
                 shs.BoundingBox.z_Max = StdShell.Pt_Max.z;
 
                 return hs.SaveChanges();
-
             }
-
         }
 
         //查询
@@ -347,7 +320,7 @@ namespace HullShellTest.DAL
                 shscls.StdHullBasicInfo.ShipName = shs.ShipName;
 
                 List<Point> tpsList = shs.TheoryPoints.Point.ToList();
-                for (int i = 0; i < tpsList.Count;i++ )
+                for (int i = 0; i < tpsList.Count; i++ )
                 {
                     shscls.tpc.PointsCloudList.Add(new PointCls { x = tpsList[i].X, y = tpsList[i].Y, z = tpsList[i].Z });
                 }
@@ -383,14 +356,12 @@ namespace HullShellTest.DAL
                 shscls.Pt_Max.z = shs.BoundingBox.z_Max;
 
                 return shscls;
-
             }
         }
 
         //清空
         public int ClearProcessEquipment()
         {
-
             using (HullShellContainer hs = new HullShellContainer())
             {
                 int re = 0;
@@ -404,11 +375,48 @@ namespace HullShellTest.DAL
                 }
 
                 return re;
-
-
             }
-
         }
 
+        //查询所有船板基本信息
+        public static List<StdHullBasicInformationCls> GetAllStdHullShell()
+        {
+            using (HullShellContainer hs = new HullShellContainer())
+            {
+                List<StdHullBasicInformationCls> ShsCls = new List<StdHullBasicInformationCls>();
+
+                int re = 0;
+
+                List<StdHullShell> shsList = hs.StdHullShellSet.Where(p => p.Id >= 0).ToList();
+
+
+
+                for (int i = 0; i < shsList.Count; i++)
+                {
+                    shsList[i].MaterialReference.Load();
+ 
+                    StdHullBasicInformationCls StdHullBasic = new StdHullBasicInformationCls {
+                    Id =shsList[i].Id,
+                    PlateModel = shsList[i].PlateModel,
+                    Thickness = shsList[i].Thickness,
+                    Width1 = shsList[i].Width1,
+                    Length1 = shsList[i].Length1,
+                    Width2 = shsList[i].Width2,
+                    Length2 = shsList[i].Length2,
+                    SideCount = shsList[i].SideAmount,
+                    RiblineCount = shsList[i].RiblineAmount,
+                    TransverseCurvate = shsList[i].TransverseCurvate,
+                    LongitudinalCurvature = shsList[i].LongitudinalCurvature,
+                    CurvePlateKind = shsList[i].CurvePlateKind,
+                    ShipName = shsList[i].ShipName,
+                    MaterialName = shsList[i].Material.MaterialName.ToString()
+                    };
+
+                    ShsCls.Add(StdHullBasic);
+                }
+
+                return ShsCls;
+            }
+        }
     }
 }

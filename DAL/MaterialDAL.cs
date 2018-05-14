@@ -13,17 +13,14 @@ namespace HullShellTest.DAL
         {
             using (HullShellContainer hs = new HullShellContainer())
             {
-                Material mal = new Material
-                {
-                    MaterialName=_mac.MaterialName,
-                    ElasticModulus=_mac.ElasticModulus,
-                    YieldSrength=_mac.YieldSrength,
-                    TensileStrength=_mac.TensileStrength,
-                    UltimateElongation=_mac.UltimateElongation,
-                    ReductionOfArea=_mac.ReductionOfArea,
-                    HardenablityValue=_mac.HardenablityValue,
-                    StrainOfWidthAndThickness=_mac.StrainOfWidthAndThickness
-                };
+                Material mal = new Material { MaterialName = _mac.MaterialName,
+                ElasticModulus = _mac.ElasticModulus,
+                YieldSrength = _mac.YieldSrength,
+                TensileStrength = _mac.TensileStrength,
+                UltimateElongation = _mac.UltimateElongation,
+                ReductionOfArea = _mac.ReductionOfArea,
+                HardenablityValue = _mac.HardenablityValue,
+                StrainOfWidthAndThickness = _mac.StrainOfWidthAndThickness };
 
                 hs.AddToMaterialSet(mal);
                 return hs.SaveChanges();
@@ -40,7 +37,6 @@ namespace HullShellTest.DAL
                 hs.DeleteObject(mal);
 
                 return hs.SaveChanges();
-
             }
         }
 
@@ -53,7 +49,6 @@ namespace HullShellTest.DAL
                 hs.DeleteObject(mal);
 
                 return hs.SaveChanges();
-
             }
         }
 
@@ -81,7 +76,7 @@ namespace HullShellTest.DAL
         {
             using (HullShellContainer hs = new HullShellContainer())
             {
-                Material mal = hs.MaterialSet.Where(m => m.Id== _mac.Id).FirstOrDefault();
+                Material mal = hs.MaterialSet.Where(m => m.Id == _mac.Id).FirstOrDefault();
 
                 mal.MaterialName = _mac.MaterialName;
                 mal.ElasticModulus = _mac.ElasticModulus;
@@ -168,20 +163,17 @@ namespace HullShellTest.DAL
 
                 List<Material> MaterialList = hs.MaterialSet.Where(m => m.Id >= 0).ToList();
 
-                foreach(var item in MaterialList)
+                foreach (var item in MaterialList)
                 {
-                    macls.Add(new MaterialCls
-                    {
-                        Id=item.Id,
-                        MaterialName=item.MaterialName,
-                        ElasticModulus=item.ElasticModulus,
-                        TensileStrength=item.TensileStrength,
-                        YieldSrength=item.YieldSrength,
-                        UltimateElongation=item.UltimateElongation,
-                        ReductionOfArea=item.ReductionOfArea,
-                        HardenablityValue=item.HardenablityValue,
-                        StrainOfWidthAndThickness=item.StrainOfWidthAndThickness
-                    });
+                    macls.Add(new MaterialCls { Id = item.Id,
+                    MaterialName = item.MaterialName,
+                    ElasticModulus = item.ElasticModulus,
+                    TensileStrength = item.TensileStrength,
+                    YieldSrength = item.YieldSrength,
+                    UltimateElongation = item.UltimateElongation,
+                    ReductionOfArea = item.ReductionOfArea,
+                    HardenablityValue = item.HardenablityValue,
+                    StrainOfWidthAndThickness = item.StrainOfWidthAndThickness });
                 }
 
                 return macls;

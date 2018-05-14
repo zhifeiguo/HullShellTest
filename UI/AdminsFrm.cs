@@ -27,7 +27,7 @@ namespace HullShellTest.UI
         {
             cmbObjectList.Items.Clear();
             var val = AdminsDAL.GetAllAdmins().ToList();
-            for (int i=0;i<val.Count;i++)
+            for (int i = 0; i < val.Count; i++)
             {
                 cmbObjectList.Items.Add(val[i].UserName);
             }
@@ -35,7 +35,6 @@ namespace HullShellTest.UI
 
         private void layoutControl1_Click(object sender, EventArgs e)
         {
-
         }
 
         public override bool AddData()
@@ -49,7 +48,6 @@ namespace HullShellTest.UI
                 layoutControlGroup1.Enabled = true;
 
                 return true;
-
             }
             catch (System.Exception ex)
             {
@@ -62,7 +60,7 @@ namespace HullShellTest.UI
         {
             try
             {
-                if(AddorModify==AddOrModifyEnum.Add)
+                if (AddorModify == AddOrModifyEnum.Add)
                 {
                     AdminsCls val = new AdminsCls();
                     val.UserName = this.textEdit1.Text.ToString();
@@ -91,34 +89,33 @@ namespace HullShellTest.UI
                     else
                         return false;
                 }
-                else if (AddorModify == AddOrModifyEnum.Modify)
-                {
-                    adcModify.UserName = textEdit1.Text.ToString();
-                    adcModify.PassWord = textEdit2.Text.ToString();
-                    adcModify.Role = textEdit3.Text.ToString();
-
-                    int re=AdminsDAL.ModifyAdmins(adcModify);
-
-                    this.layoutControlGroup1.Enabled = false;
-
-                    AdminBindingSource.DataSource = adcModify;
-                    gridControl1.DataSource = AdminBindingSource;
-
-                    if (re > 0)
+                else
+                    if (AddorModify == AddOrModifyEnum.Modify)
                     {
-                        MessageBox.Show("修改成功！");
+                        adcModify.UserName = textEdit1.Text.ToString();
+                        adcModify.PassWord = textEdit2.Text.ToString();
+                        adcModify.Role = textEdit3.Text.ToString();
 
-                        return true;
+                        int re = AdminsDAL.ModifyAdmins(adcModify);
+
+                        this.layoutControlGroup1.Enabled = false;
+
+                        AdminBindingSource.DataSource = adcModify;
+                        gridControl1.DataSource = AdminBindingSource;
+
+                        if (re > 0)
+                        {
+                            MessageBox.Show("修改成功！");
+
+                            return true;
+                        }
+                        else
+                            return false;
                     }
                     else
+                    {
                         return false;
-                }
-                else
-                {
-                    return false;
-                }
-                
-
+                    }
             }
             catch (System.Exception ex)
             {
@@ -128,7 +125,6 @@ namespace HullShellTest.UI
 
         public override bool RefreshData()
         {
-
             try
             {
                 string UserName = this.ItemObjectList.EditValue.ToString();
@@ -140,7 +136,6 @@ namespace HullShellTest.UI
                 gridControl1.DataSource = AdminBindingSource;
 
                 return true;
-
             }
             catch (System.Exception ex)
             {
@@ -151,7 +146,6 @@ namespace HullShellTest.UI
 
         public override bool QueryAll()
         {
-
             try
             {
                 List<AdminsCls> adcList = AdminsDAL.GetAllAdminsCls();
@@ -159,9 +153,7 @@ namespace HullShellTest.UI
                 AdminBindingSource.DataSource = adcList;
 
                 gridControl1.DataSource = AdminBindingSource;
-                
                 return true;
-
             }
             catch (System.Exception ex)
             {
@@ -198,7 +190,7 @@ namespace HullShellTest.UI
             }
         }
 
-        public AdminsCls adcModify=new AdminsCls() ;
+        public AdminsCls adcModify = new AdminsCls() ;
 
         public override bool SelectRecord()
         {
@@ -215,9 +207,7 @@ namespace HullShellTest.UI
             catch (System.Exception ex)
             {
                 return false;
-            	
             }
-
         }
 
         public override bool ModifyData()
@@ -232,11 +222,6 @@ namespace HullShellTest.UI
             {
                 return false;
             }
-
-
-            
         }
-
-
     }
 }

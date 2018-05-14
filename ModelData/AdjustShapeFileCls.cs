@@ -16,12 +16,17 @@ namespace HullShellTest.ModelData
         private string _FileName;
         public string FileName
         {
-            get { return _FileName; }
-            set { _FileName = value; }
+            get
+            {
+                return _FileName;
+            }
+            set
+            {
+                _FileName = value;
+            }
         }
 
         //原始调形数据
         public List<HeightValuesCls> HeightValuesList;
-
     }
 }

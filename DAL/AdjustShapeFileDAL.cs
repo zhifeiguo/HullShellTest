@@ -11,21 +11,15 @@ namespace HullShellTest.DAL
         //增加调形文件
         public int AddShapeFile(AdjustShapeFileCls AsFileCls)
         {
-            using(HullShellContainer hs=new HullShellContainer())
+            using (HullShellContainer hs = new HullShellContainer())
             {
-                AdjustShapeFile asf = new AdjustShapeFile
-                {
-                    FileName=AsFileCls.FileName
-                };
+                AdjustShapeFile asf = new AdjustShapeFile { FileName = AsFileCls.FileName };
 
-                for (int i = 0; i < AsFileCls.HeightValuesList.Count;i++ )
+                for (int i = 0; i < AsFileCls.HeightValuesList.Count; i++ )
                 {
-                    HeightValueList hv = new HeightValueList
-                    {
-                        R = AsFileCls.HeightValuesList[i].R,
-                        C = AsFileCls.HeightValuesList[i].C,
-                        Z = AsFileCls.HeightValuesList[i].Z,
-                    };
+                    HeightValueList hv = new HeightValueList { R = AsFileCls.HeightValuesList[i].R,
+                    C = AsFileCls.HeightValuesList[i].C,
+                    Z = AsFileCls.HeightValuesList[i].Z };
 
                     asf.HeightValueList.Add(hv);
                 }
@@ -34,9 +28,5 @@ namespace HullShellTest.DAL
                 return hs.SaveChanges();
             }
         }
-
-
-        
-
     }
 }

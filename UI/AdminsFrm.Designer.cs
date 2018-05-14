@@ -46,6 +46,7 @@
             this.repositoryItemComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.cmbObjectList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AdminsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
@@ -62,6 +63,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.AdminBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // ribbonControl1
+            // 
+            // 
+            // 
+            // 
+            this.ribbonControl1.ExpandCollapseItem.Id = 0;
+            this.ribbonControl1.ExpandCollapseItem.Name = "";
+            this.ribbonControl1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.ribbonControl1.Size = new System.Drawing.Size(887, 184);
             // 
             // dockManager1
             // 
@@ -80,18 +91,20 @@
             this.dockPanel1.Controls.Add(this.dockPanel1_Container);
             this.dockPanel1.Dock = DevExpress.XtraBars.Docking.DockingStyle.Left;
             this.dockPanel1.ID = new System.Guid("b623d0d5-6e4c-40c5-94bd-94d6470fa2e3");
-            this.dockPanel1.Location = new System.Drawing.Point(0, 151);
+            this.dockPanel1.Location = new System.Drawing.Point(0, 184);
+            this.dockPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dockPanel1.Name = "dockPanel1";
             this.dockPanel1.OriginalSize = new System.Drawing.Size(200, 200);
-            this.dockPanel1.Size = new System.Drawing.Size(200, 230);
+            this.dockPanel1.Size = new System.Drawing.Size(200, 415);
             this.dockPanel1.Text = "信息管理";
             // 
             // dockPanel1_Container
             // 
             this.dockPanel1_Container.Controls.Add(this.layoutControl1);
-            this.dockPanel1_Container.Location = new System.Drawing.Point(4, 23);
+            this.dockPanel1_Container.Location = new System.Drawing.Point(4, 30);
+            this.dockPanel1_Container.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dockPanel1_Container.Name = "dockPanel1_Container";
-            this.dockPanel1_Container.Size = new System.Drawing.Size(192, 203);
+            this.dockPanel1_Container.Size = new System.Drawing.Size(192, 381);
             this.dockPanel1_Container.TabIndex = 0;
             // 
             // layoutControl1
@@ -101,34 +114,38 @@
             this.layoutControl1.Controls.Add(this.textEdit1);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(563, 171, 250, 350);
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(192, 203);
+            this.layoutControl1.Size = new System.Drawing.Size(192, 381);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
             // textEdit3
             // 
-            this.textEdit3.Location = new System.Drawing.Point(51, 62);
+            this.textEdit3.Location = new System.Drawing.Point(69, 76);
+            this.textEdit3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textEdit3.Name = "textEdit3";
-            this.textEdit3.Size = new System.Drawing.Size(129, 21);
+            this.textEdit3.Size = new System.Drawing.Size(111, 28);
             this.textEdit3.StyleController = this.layoutControl1;
             this.textEdit3.TabIndex = 6;
             // 
             // textEdit2
             // 
-            this.textEdit2.Location = new System.Drawing.Point(51, 37);
+            this.textEdit2.Location = new System.Drawing.Point(69, 44);
+            this.textEdit2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textEdit2.Name = "textEdit2";
-            this.textEdit2.Size = new System.Drawing.Size(129, 21);
+            this.textEdit2.Size = new System.Drawing.Size(111, 28);
             this.textEdit2.StyleController = this.layoutControl1;
             this.textEdit2.TabIndex = 5;
             // 
             // textEdit1
             // 
-            this.textEdit1.Location = new System.Drawing.Point(51, 12);
+            this.textEdit1.Location = new System.Drawing.Point(69, 12);
+            this.textEdit1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(129, 21);
+            this.textEdit1.Size = new System.Drawing.Size(111, 28);
             this.textEdit1.StyleController = this.layoutControl1;
             this.textEdit1.TabIndex = 4;
             // 
@@ -143,7 +160,7 @@
             this.ItemUserName});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(192, 203);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(192, 381);
             this.layoutControlGroup1.Text = "layoutControlGroup1";
             this.layoutControlGroup1.TextVisible = false;
             // 
@@ -151,21 +168,21 @@
             // 
             this.ItemPassWord.Control = this.textEdit2;
             this.ItemPassWord.CustomizationFormText = "密码";
-            this.ItemPassWord.Location = new System.Drawing.Point(0, 25);
+            this.ItemPassWord.Location = new System.Drawing.Point(0, 32);
             this.ItemPassWord.Name = "ItemPassWord";
-            this.ItemPassWord.Size = new System.Drawing.Size(172, 25);
+            this.ItemPassWord.Size = new System.Drawing.Size(172, 32);
             this.ItemPassWord.Text = "密码";
-            this.ItemPassWord.TextSize = new System.Drawing.Size(36, 14);
+            this.ItemPassWord.TextSize = new System.Drawing.Size(54, 22);
             // 
             // ItemRole
             // 
             this.ItemRole.Control = this.textEdit3;
             this.ItemRole.CustomizationFormText = "角色";
-            this.ItemRole.Location = new System.Drawing.Point(0, 50);
+            this.ItemRole.Location = new System.Drawing.Point(0, 64);
             this.ItemRole.Name = "ItemRole";
-            this.ItemRole.Size = new System.Drawing.Size(172, 133);
+            this.ItemRole.Size = new System.Drawing.Size(172, 297);
             this.ItemRole.Text = "角色";
-            this.ItemRole.TextSize = new System.Drawing.Size(36, 14);
+            this.ItemRole.TextSize = new System.Drawing.Size(54, 22);
             // 
             // ItemUserName
             // 
@@ -173,9 +190,9 @@
             this.ItemUserName.CustomizationFormText = "用户名";
             this.ItemUserName.Location = new System.Drawing.Point(0, 0);
             this.ItemUserName.Name = "ItemUserName";
-            this.ItemUserName.Size = new System.Drawing.Size(172, 25);
+            this.ItemUserName.Size = new System.Drawing.Size(172, 32);
             this.ItemUserName.Text = "用户名";
-            this.ItemUserName.TextSize = new System.Drawing.Size(36, 14);
+            this.ItemUserName.TextSize = new System.Drawing.Size(54, 22);
             // 
             // AdminBindingSource
             // 
@@ -203,15 +220,18 @@
             // 
             // AdminsFrm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(621, 381);
+            this.ClientSize = new System.Drawing.Size(887, 599);
             this.Controls.Add(this.dockPanel1);
+            this.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.Name = "AdminsFrm";
             this.Text = "人员信息管理";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Controls.SetChildIndex(this.ribbonControl1, 0);
             this.Controls.SetChildIndex(this.dockPanel1, 0);
             ((System.ComponentModel.ISupportInitialize)(this.cmbObjectList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AdminsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).EndInit();
             this.dockPanel1.ResumeLayout(false);

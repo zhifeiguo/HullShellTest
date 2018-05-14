@@ -891,7 +891,8 @@
         </EntityType>
         <Association Name="stdHullShellTheoryPoints">
           <End Type="HullShell.StdHullShell" Role="stdHullShell" Multiplicity="1" />
-          <End Type="HullShell.TheoryPoints" Role="TheoryPoints" Multiplicity="1" />
+          <End Type="HullShell.TheoryPoints" Role="TheoryPoints" Multiplicity="1" >
+          </End>
         </Association>
         <EntityType Name="ExcessPoints">
           <Key>
@@ -1034,19 +1035,23 @@
         </Association>
         <Association Name="TheoryPointsPoint">
           <End Type="HullShell.TheoryPoints" Role="TheoryPoints" Multiplicity="0..1" />
-          <End Type="HullShell.Point" Role="Point" Multiplicity="*" />
+          <End Type="HullShell.Point" Role="Point" Multiplicity="*" >
+          </End>
         </Association>
         <Association Name="ExcessPointsPoint">
           <End Type="HullShell.ExcessPoints" Role="ExcessPoints" Multiplicity="0..1" />
-          <End Type="HullShell.Point" Role="Point" Multiplicity="*" />
+          <End Type="HullShell.Point" Role="Point" Multiplicity="*" >
+          </End>
         </Association>
         <Association Name="EdgeEdgePointsPoint">
           <End Type="HullShell.EdgeEdgePoints" Role="EdgeEdgePoints" Multiplicity="0..1" />
-          <End Type="HullShell.Point" Role="Point" Multiplicity="*" />
+          <End Type="HullShell.Point" Role="Point" Multiplicity="*" >
+          </End>
         </Association>
         <Association Name="RiblinePointsPoint">
           <End Type="HullShell.RiblinePoints" Role="RiblinePoints" Multiplicity="0..1" />
-          <End Type="HullShell.Point" Role="Point" Multiplicity="*" />
+          <End Type="HullShell.Point" Role="Point" Multiplicity="*" >
+          </End>
         </Association>
         <EntityType Name="AdjustShapeFile">
           <Key>
@@ -1091,15 +1096,18 @@
         </Association>
         <Association Name="StdHullShellRiblinePoints">
           <End Type="HullShell.StdHullShell" Role="StdHullShell" Multiplicity="1" />
-          <End Type="HullShell.RiblinePoints" Role="RiblinePoints" Multiplicity="0..1" />
+          <End Type="HullShell.RiblinePoints" Role="RiblinePoints" Multiplicity="0..1" >
+          </End>
         </Association>
         <Association Name="StdHullShellExcessPoints">
           <End Type="HullShell.StdHullShell" Role="StdHullShell" Multiplicity="1" />
-          <End Type="HullShell.ExcessPoints" Role="ExcessPoints" Multiplicity="0..1" />
+          <End Type="HullShell.ExcessPoints" Role="ExcessPoints" Multiplicity="0..1" >
+          </End>
         </Association>
         <Association Name="StdHullShellEdgeEdgePoints">
           <End Type="HullShell.StdHullShell" Role="StdHullShell" Multiplicity="1" />
-          <End Type="HullShell.EdgeEdgePoints" Role="EdgeEdgePoints" Multiplicity="0..1" />
+          <End Type="HullShell.EdgeEdgePoints" Role="EdgeEdgePoints" Multiplicity="0..1" >
+          </End>
         </Association>
         <EntityType Name="BoundingBox">
           <Key>
@@ -1119,7 +1127,8 @@
         </EntityType>
         <Association Name="StdHullShellBoundingBox">
           <End Type="HullShell.StdHullShell" Role="StdHullShell" Multiplicity="1" />
-          <End Type="HullShell.BoundingBox" Role="BoundingBox" Multiplicity="0..1" />
+          <End Type="HullShell.BoundingBox" Role="BoundingBox" Multiplicity="0..1" >
+          </End>
         </Association>
         <Association Name="ModelingParameterAdjustShapeFile">
           <End Type="HullShell.ModelingParameter" Role="ModelingParameter" Multiplicity="1" />
@@ -1572,7 +1581,7 @@
     </edmx:Options>
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram Name="HullShell" DisplayType="true" xmlns="http://schemas.microsoft.com/ado/2007/06/edmx" ZoomLevel="111">
+      <Diagram Name="HullShell" DisplayType="true" xmlns="http://schemas.microsoft.com/ado/2007/06/edmx" ZoomLevel="81">
         <EntityTypeShape EntityType="HullShell.StdHullShell" Width="2.75" PointX="12.5" PointY="4" Height="4.2622688802083317" IsExpanded="true" />
         <EntityTypeShape EntityType="HullShell.Material" Width="2.75" PointX="12.75" PointY="0.5" Height="2.9251310221354156" IsExpanded="true" />
         <AssociationConnector Association="HullShell.MaterialHullShell">

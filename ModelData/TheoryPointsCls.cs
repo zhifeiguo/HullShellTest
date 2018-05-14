@@ -7,40 +7,70 @@ namespace HullShellTest.ModelData
 {
     public class TheoryPointsCls
     {
-
         public TheoryPointsCls()
         {
-             ExcessPointsList=new List<PointCls>();
-             EdgeEdgePointsList = new List<PointCls>(); ;
-             PointsCloudList = new List<PointCls>(); ;
-             RiblinePointsList = new List<PointCls>(); ;
+            ExcessPointsList = new List<PointCls>();
+            EdgeEdgePointsList = new List<PointCls>();
+            PointsCloudList = new List<PointCls>();
+            RiblinePointsList = new List<PointCls>();
         }
 
         private int _Id;
         public int Id
         {
-            get { return _Id; }
-            set { _Id = value; }
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                _Id = value;
+            }
+        }
+
+        private string _TheoryPlateName;
+        public string TheoryPlateName
+        {
+            get
+            {
+                return _TheoryPlateName;
+            }
+            set
+            {
+                _TheoryPlateName = value;
+            }
         }
 
         private int _RowNumber;
         public int RowNumberow
         {
-            get { return _RowNumber; }
-            set { _RowNumber = value; }
+            get
+            {
+                return _RowNumber;
+            }
+            set
+            {
+                _RowNumber = value;
+            }
         }
 
         private int _ColnumNumber;
         public int ColnumNumber
         {
-            get { return _ColnumNumber; }
-            set { _ColnumNumber = value; }
+            get
+            {
+                return _ColnumNumber;
+            }
+            set
+            {
+                _ColnumNumber = value;
+            }
         }
 
         public List<PointCls> ExcessPointsList;
         public List<PointCls> EdgeEdgePointsList;
-        public List<PointCls> PointsCloudList;
         public List<PointCls> RiblinePointsList;
 
+        public List<PointCls> PointsCloudList;
     }
 }

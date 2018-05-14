@@ -14,7 +14,6 @@ namespace HullShellTest.UI
 {
     public partial class SoftwareFrm : TemplateFrm
     {
-
         public SoftWareCls sfwcls;
         public List<SoftWareCls> sfwList;
 
@@ -38,13 +37,12 @@ namespace HullShellTest.UI
                 sfwList = new List<SoftWareCls>();
                 sfwList = SoftwareDAL.GetAllSoftware();
 
-                foreach(var val in sfwList)
+                foreach (var val in sfwList)
                 {
                     this.cmbObjectList.Items.Add(val.SoftWareName);
                 }
 
                 return false;
-
             }
             catch (System.Exception ex)
             {
@@ -54,13 +52,12 @@ namespace HullShellTest.UI
 
         //添加
         public override bool AddData()
-        {          
+        {
             try
             {
                 this.layoutControlGroup1.Enabled = true;
 
                 return true;
-
             }
             catch (System.Exception ex)
             {
@@ -76,7 +73,7 @@ namespace HullShellTest.UI
         {
             try
             {
-                if (AddorModify==AddOrModifyEnum.Add)
+                if (AddorModify == AddOrModifyEnum.Add)
                 {
                     sfwcls = new SoftWareCls();
 
@@ -85,7 +82,7 @@ namespace HullShellTest.UI
                     sfwcls.DiffComputer = this.textDiffComputer.Text.ToString();
                     sfwcls.SurfaceReconstruction = this.txtSurfaceReconstruct.Text.ToString();
 
-                    int re=SoftwareDAL.AddSoftware(sfwcls);
+                    int re = SoftwareDAL.AddSoftware(sfwcls);
 
                     if (re > 0)
                     {
@@ -97,7 +94,7 @@ namespace HullShellTest.UI
                         this.textDiffComputer.Text = "";
                         this.textRegistrationMethod.Text = "";
                         this.textSoftwareName.Text = "";
-                        this.txtSurfaceReconstruct.Text="";
+                        this.txtSurfaceReconstruct.Text = "";
 
                         init_cmbBox();
 
@@ -111,39 +108,39 @@ namespace HullShellTest.UI
 
                         return false;
                     }
-
-                }
-                else if (AddorModify == AddOrModifyEnum.Modify)
-                {
-                    sfwcls.SoftWareName = textSoftwareName.Text.ToString();
-                    sfwcls.RegisterAlgorithm = textRegistrationMethod.Text.ToString();
-                    sfwcls.DiffComputer = textDiffComputer.Text.ToString();
-                    sfwcls.SurfaceReconstruction = txtSurfaceReconstruct.Text.ToString();
-
-                    SoftwareDAL.ModifySoftWareById(sfwcls);
-
-                    this.layoutControlGroup1.Enabled = false;
-
-                    init_cmbBox();
-
-
-                    return true;
                 }
                 else
-                {
-                    MessageBox.Show("软件信息添加/修改失败！");
-                    return false;
-                }
+                    if (AddorModify == AddOrModifyEnum.Modify)
+                    {
+                        sfwcls.SoftWareName = textSoftwareName.Text.ToString();
+                        sfwcls.RegisterAlgorithm = textRegistrationMethod.Text.ToString();
+                        sfwcls.DiffComputer = textDiffComputer.Text.ToString();
+                        sfwcls.SurfaceReconstruction = txtSurfaceReconstruct.Text.ToString();
+
+                        SoftwareDAL.ModifySoftWareById(sfwcls);
+
+                        this.layoutControlGroup1.Enabled = false;
+
+                        init_cmbBox();
+
+
+                        return true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("软件信息添加/修改失败！");
+                        return false;
+                    }
             }
             catch (System.Exception ex)
             {
-                MessageBox.Show("软件信息添加失败：{0}！",ex.Message.ToString());
+                MessageBox.Show("软件信息添加失败：{0}！", ex.Message.ToString());
                 return false;
             }
         }
 
         public override bool QueryAll()
-        {           
+        {
             try
             {
                 sfwList = new List<SoftWareCls>();
@@ -217,7 +214,6 @@ namespace HullShellTest.UI
             {
                 this.layoutControlGroup1.Enabled = true;
 
-                
                 return true;
             }
             catch (System.Exception ex)
@@ -231,7 +227,7 @@ namespace HullShellTest.UI
         {
             try
             {
-                sfwcls=new SoftWareCls();
+                sfwcls = new SoftWareCls();
 
                 int[] rows = gridView1.GetSelectedRows();
                 sfwcls = (SoftWareCls)gridView1.GetRow(rows[0]);

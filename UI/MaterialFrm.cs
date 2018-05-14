@@ -43,8 +43,8 @@ namespace HullShellTest.UI
                     this.cmbObjectList.Items.Add(val.MaterialName);
                 }
 
-                return true; ;
-
+                return true;
+                ;
             }
             catch (System.Exception ex)
             {
@@ -99,7 +99,7 @@ namespace HullShellTest.UI
                     macls.MaterialName = this.txtMaterialName.Text.ToString();
                     macls.ElasticModulus = Convert.ToDouble(this.txtElasticModulus.Text.ToString());
                     macls.TensileStrength = Convert.ToDouble(this.txtTensileStrength.Text.ToString());
-                    macls.YieldSrength= Convert.ToDouble(this.txtYieldSrength.Text.ToString());
+                    macls.YieldSrength = Convert.ToDouble(this.txtYieldSrength.Text.ToString());
                     macls.UltimateElongation = Convert.ToDouble(this.txtUltimateElongation.Text.ToString());
                     macls.ReductionOfArea = Convert.ToDouble(this.txtReductionOfArea.Text.ToString());
                     macls.HardenablityValue = Convert.ToDouble(this.txtHardenablityValue.Text.ToString());
@@ -135,33 +135,33 @@ namespace HullShellTest.UI
 
                         return false;
                     }
-
-                }
-                else if (AddorModify == AddOrModifyEnum.Modify)
-                {
-                    macls.MaterialName = this.txtMaterialName.Text.ToString();
-                    macls.ElasticModulus = Convert.ToDouble(this.txtElasticModulus.Text.ToString());
-                    macls.TensileStrength = Convert.ToDouble(this.txtTensileStrength.Text.ToString());
-                    macls.YieldSrength = Convert.ToDouble(this.txtYieldSrength.Text.ToString());
-                    macls.UltimateElongation = Convert.ToDouble(this.txtUltimateElongation.Text.ToString());
-                    macls.ReductionOfArea = Convert.ToDouble(this.txtReductionOfArea.Text.ToString());
-                    macls.HardenablityValue = Convert.ToDouble(this.txtHardenablityValue.Text.ToString());
-                    macls.StrainOfWidthAndThickness = Convert.ToDouble(this.txtStrainOfWidthAndThickness.Text.ToString());
-
-                    MaterialDAL.ModifyMaterialByid(macls);
-
-                    this.layoutControlGroup1.Enabled = false;
-
-                    init_cmbBox();
-
-
-                    return true;
                 }
                 else
-                {
-                    MessageBox.Show("材料信息添加/修改失败！");
-                    return false;
-                }
+                    if (AddorModify == AddOrModifyEnum.Modify)
+                    {
+                        macls.MaterialName = this.txtMaterialName.Text.ToString();
+                        macls.ElasticModulus = Convert.ToDouble(this.txtElasticModulus.Text.ToString());
+                        macls.TensileStrength = Convert.ToDouble(this.txtTensileStrength.Text.ToString());
+                        macls.YieldSrength = Convert.ToDouble(this.txtYieldSrength.Text.ToString());
+                        macls.UltimateElongation = Convert.ToDouble(this.txtUltimateElongation.Text.ToString());
+                        macls.ReductionOfArea = Convert.ToDouble(this.txtReductionOfArea.Text.ToString());
+                        macls.HardenablityValue = Convert.ToDouble(this.txtHardenablityValue.Text.ToString());
+                        macls.StrainOfWidthAndThickness = Convert.ToDouble(this.txtStrainOfWidthAndThickness.Text.ToString());
+
+                        MaterialDAL.ModifyMaterialByid(macls);
+
+                        this.layoutControlGroup1.Enabled = false;
+
+                        init_cmbBox();
+
+
+                        return true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("材料信息添加/修改失败！");
+                        return false;
+                    }
             }
             catch (System.Exception ex)
             {
@@ -177,7 +177,6 @@ namespace HullShellTest.UI
             {
                 if (XtraMessageBox.Show("是否删除选中的数据？", "友情提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                 {
-
                     macls = new MaterialCls();
 
                     int[] rows = gridView1.GetSelectedRows();
@@ -199,7 +198,6 @@ namespace HullShellTest.UI
             {
                 return false;
             }
-
         }
 
         public override bool RefreshData()
@@ -247,8 +245,8 @@ namespace HullShellTest.UI
                 int[] rows = gridView1.GetSelectedRows();
                 macls = (MaterialCls)gridView1.GetRow(rows[0]);
 
-                this.txtMaterialName.Text=macls.MaterialName;
-                this.txtElasticModulus.Text=macls.ElasticModulus.ToString();
+                this.txtMaterialName.Text = macls.MaterialName;
+                this.txtElasticModulus.Text = macls.ElasticModulus.ToString();
                 this.txtTensileStrength.Text = macls.TensileStrength.ToString();
                 this.txtYieldSrength.Text = macls.YieldSrength.ToString();
                 this.txtReductionOfArea.Text = macls.ReductionOfArea.ToString();
@@ -269,6 +267,5 @@ namespace HullShellTest.UI
                 return false;
             }
         }
-
     }
 }

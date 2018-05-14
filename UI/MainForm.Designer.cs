@@ -69,6 +69,7 @@
             this.btn_StdHull,
             this.btn_ProcessParameter});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
+            this.ribbonControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ribbonControl1.MaxItemId = 8;
             this.ribbonControl1.MdiMergeStyle = DevExpress.XtraBars.Ribbon.RibbonMdiMergeStyle.Always;
             this.ribbonControl1.Name = "ribbonControl1";
@@ -76,7 +77,7 @@
             this.ribbonPage1,
             this.ribbonPage2});
             this.ribbonControl1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2010;
-            this.ribbonControl1.Size = new System.Drawing.Size(730, 151);
+            this.ribbonControl1.Size = new System.Drawing.Size(1043, 184);
             // 
             // btn_SoftWare
             // 
@@ -185,13 +186,14 @@
             // 
             this.Appearance.ForeColor = System.Drawing.Color.Transparent;
             this.Appearance.Options.UseForeColor = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayoutStore = System.Windows.Forms.ImageLayout.Tile;
             this.BackgroundImageStore = global::HullShellTest.Properties.Resources.image;
-            this.ClientSize = new System.Drawing.Size(730, 455);
+            this.ClientSize = new System.Drawing.Size(1043, 715);
             this.Controls.Add(this.ribbonControl1);
             this.IsMdiContainer = true;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "MainForm";
             this.Ribbon = this.ribbonControl1;
             this.Text = "曲板加工工艺数据";
