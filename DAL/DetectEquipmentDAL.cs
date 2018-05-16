@@ -13,18 +13,14 @@ namespace HullShellTest.DAL
         {
             using (HullShellContainer hs = new HullShellContainer())
             {
-                DetectEquipment de = new DetectEquipment
-                {
-                    DetectEquipmentName = dec.MeasureDeviceName,
-                    CameraResolution = dec.CameraResolution,
-                    PixelSize = dec.PixelSize,
-                    StdPrecision = dec.StdPrecision
-                };
+                DetectEquipment de = new DetectEquipment { DetectEquipmentName = dec.MeasureDeviceName,
+                CameraResolution = dec.CameraResolution,
+                PixelSize = dec.PixelSize,
+                StdPrecision = dec.StdPrecision };
 
                 hs.AddToDetectEquipmentSet(de);
 
                 return hs.SaveChanges();
-
             }
         }
 
@@ -73,7 +69,7 @@ namespace HullShellTest.DAL
         {
             using (HullShellContainer hs = new HullShellContainer())
             {
-                DetectEquipment de = hs.DetectEquipmentSet.Where(d => d.Id== dec.Id).FirstOrDefault();
+                DetectEquipment de = hs.DetectEquipmentSet.Where(d => d.Id == dec.Id).FirstOrDefault();
 
                 de.DetectEquipmentName = dec.MeasureDeviceName;
                 de.CameraResolution = dec.CameraResolution;
@@ -105,10 +101,8 @@ namespace HullShellTest.DAL
         //清空
         public int ClearDetectEquipment()
         {
-
             using (HullShellContainer hs = new HullShellContainer())
             {
-
                 List<DetectEquipment> DeList = hs.DetectEquipmentSet.Where(d => d.Id >= 0).ToList();
 
                 for (int i = 0; i < DeList.Count; i++)
@@ -117,9 +111,7 @@ namespace HullShellTest.DAL
                 }
 
                 return hs.SaveChanges();
-
             }
-
         }
 
         //查询全部
@@ -130,22 +122,17 @@ namespace HullShellTest.DAL
             {
                 List<DetectEquipment> deList = hs.DetectEquipmentSet.Where(d => d.Id > 0).ToList();
 
-                for (int i = 0; i < deList.Count;i++ )
+                for (int i = 0; i < deList.Count; i++ )
                 {
-                    decList.Add(new DetectEquipmentCls
-                    { 
-                        Id=deList[i].Id,
-                        MeasureDeviceName=deList[i].DetectEquipmentName,
-                        CameraResolution=deList[i].CameraResolution,
-                        PixelSize=deList[i].PixelSize,
-                        StdPrecision=deList[i].StdPrecision
-                    });
+                    decList.Add(new DetectEquipmentCls { Id = deList[i].Id,
+                    MeasureDeviceName = deList[i].DetectEquipmentName,
+                    CameraResolution = deList[i].CameraResolution,
+                    PixelSize = deList[i].PixelSize,
+                    StdPrecision = deList[i].StdPrecision });
                 }
 
-                return decList;                
+                return decList;
             }
         }
-
-
     }
 }

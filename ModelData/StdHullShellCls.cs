@@ -9,11 +9,10 @@ namespace HullShellTest.ModelData
 {
     public class StdHullShellCls
     {
-
         public StdHullShellCls()
         {
             tpc = new TheoryPointsCls();
-            Dir=new PointCls();
+            Dir = new PointCls();
             Pt_Min = new PointCls();
             Pt_Max = new PointCls();
 
@@ -32,7 +31,6 @@ namespace HullShellTest.ModelData
         public PointCls Pt_Max;
 
         //回弹值
-        //public ResilienceFactorCls rfc;
-
+        public ResilienceFactorCls rfc;
     }
 }

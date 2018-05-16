@@ -9,6 +9,8 @@ using System.Windows.Forms;
 using HullShellTest.DAL;
 using HullShellTest.ModelData;
 using DevExpress.XtraEditors;
+using HullShellTest.ModelData.Extent;
+using HullShellTest.Utils;
 
 namespace HullShellTest.UI
 {
@@ -17,11 +19,58 @@ namespace HullShellTest.UI
         public StdHullFrm()
         {
             InitializeComponent();
+
+            StdHullCls = new StdHullShellCls();
+            StdHullClsList = new List<StdHullShellCls>();
+
+            StdHullBis = new StdHullBasicInformationCls();
+            StdHullBisList = new List<StdHullBasicInformationCls>();
+
+            tPtsCls = new TheoryPointsCls();
+            sPtsCls = new ScanPointsCls();
+
+            PtsDir = new PointCls();
+            MaxPnt = new PointCls();
+            MinPnt = new PointCls();
+
+            init_cmbBox();
+
+            init_cmbBox_MaterialName();
+
+            this.layoutControlGroup1.Enabled = false;
+            //this.layoutControlGroup2.Enabled = false;
+
+            this.layoutControlGroup3.Enabled = false;
+            this.layoutControlGroup4.Enabled = false;
+
+            this.txtPointRow.Enabled = false;
+            this.txtPointsCloumn.Enabled = false;
+
+            if (this.cmbObjectList.Items.Count == 0)
+            {
+                MessageBox.Show("数据库中不存在理论曲版！");
+            }
+
         }
 
+        //理论曲版
+        public StdHullShellCls StdHullCls;
+        public List<StdHullShellCls> StdHullClsList;
 
-        public StdHullShellCls pecls;
-        public List<StdHullShellCls> pecList;
+        //曲版基本信息
+        public StdHullBasicInformationCls StdHullBis;
+        public List<StdHullBasicInformationCls> StdHullBisList;
+
+        //理论点
+        public TheoryPointsCls tPtsCls;
+
+        //测量点
+        public ScanPointsCls sPtsCls;
+
+        //包围盒属性
+        public PointCls PtsDir;
+        public PointCls MinPnt;
+        public PointCls MaxPnt;
 
         //下拉框初始化
         public bool init_cmbBox()
@@ -29,21 +78,39 @@ namespace HullShellTest.UI
             try
             {
                 this.cmbObjectList.Items.Clear();
-                pecList = new List<ProcessEquipmentCls>();
-                pecList = ProcessEquipmentDAL.GetAll();
+                StdHullBisList = StdHullShellDAL.GetAllStdHullShell();
 
-                foreach (var val in pecList)
+                foreach (var val in StdHullBisList)
                 {
-                    this.cmbObjectList.Items.Add(val.ProcessEquipmentName);
+                    this.cmbObjectList.Items.Add(val.PlateModel);
                 }
-
-                return true; ;
-
             }
             catch (System.Exception ex)
             {
                 return false;
             }
+
+            return true;
+        }
+
+        public bool init_cmbBox_MaterialName()
+        {
+            try
+            {                
+                this.cbxMaterialName.Items.Clear();
+                List<MaterialCls>  mtcls  = MaterialDAL.GetAll();
+
+                foreach (var val in mtcls)
+                {
+                    this.cbxMaterialName.Items.Add(val.MaterialName);
+                }
+            }
+            catch (System.Exception ex)
+            {
+                return false;
+            }
+
+            return true;
         }
 
         //查询所有
@@ -51,12 +118,10 @@ namespace HullShellTest.UI
         {
             try
             {
-                pecList = new List<ProcessEquipmentCls>();
+                StdHullBisList = StdHullShellDAL.GetAllStdHullShell();
 
-                pecList = ProcessEquipmentDAL.GetAll();
-
-                ProcessEquipmentBindingSource.DataSource = pecList;
-                this.gridControl1.DataSource = ProcessEquipmentBindingSource;
+                StdHullBindingSource.DataSource = StdHullBisList;
+                this.gridControl1.DataSource = StdHullBindingSource;
 
                 return true;
             }
@@ -66,12 +131,172 @@ namespace HullShellTest.UI
             }
         }
 
+        private void btn_OpenStdPoints_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            //OpenFileDialog ofd = new OpenFileDialog();
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.InitialDirectory = "D:\\";//注意这里写路径时要用c:\\而不是c:\
+            //openFileDialog.Filter = "文本文件|*.*|C#文件|*.cs|所有文件|*.*";
+            openFileDialog.Filter = "点云文件|*.asc|文本文件|*.txt|所有文件|*.*";
+            openFileDialog.RestoreDirectory = true;
+            openFileDialog.FilterIndex = 1;
+            string fName=null;
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                fName = openFileDialog.FileName;
+
+                tPtsCls = ReadFile.ReadStdPts(fName);
+                this.cbxStdPoints.SelectedIndex = 0;
+                #region
+                //File fileOpen = new File(fName);
+                //isFileHaveName = true;
+                //richTextBox1.Text = fileOpen.ReadFile();
+                //richTextBox1.AppendText("");\
+                #endregion
+            }
+
+            PtsBindingSource.DataSource = tPtsCls.PointsCloudList;
+            gridControl2.DataSource = PtsBindingSource;
+
+            this.textPlateName.Text = tPtsCls.TheoryPlateName;
+
+
+
+            this.dpPointsCloud.Show();
+        }
+
+        private void btn_OpenScanPts_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            //OpenFileDialog ofd = new OpenFileDialog();
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.InitialDirectory = "D:\\";//注意这里写路径时要用c:\\而不是c:\
+            //openFileDialog.Filter = "文本文件|*.*|C#文件|*.cs|所有文件|*.*";
+            openFileDialog.Filter = "点云文件|*.asc|文本文件|*.txt|所有文件|*.*";
+            openFileDialog.RestoreDirectory = true;
+            openFileDialog.FilterIndex = 1;
+            string fName;
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                fName = openFileDialog.FileName;
+
+                sPtsCls = ReadFile.ReadScanPts(fName);
+            }
+
+
+            ScanPointsBindingSource.DataSource = sPtsCls.SPList;
+            gridControl3.DataSource = ScanPointsBindingSource;
+
+            this.dpScanPoints.Show();
+        }
+
+        private void btn_OpenProcessFile_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            //OpenFileDialog ofd = new OpenFileDialog();
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.InitialDirectory = "D:\\";//注意这里写路径时要用c:\\而不是c:\
+            //openFileDialog.Filter = "文本文件|*.*|C#文件|*.cs|所有文件|*.*";
+            openFileDialog.Filter = "点云文件|*.asc|文本文件|*.txt|所有文件|*.*";
+            openFileDialog.RestoreDirectory = true;
+            openFileDialog.FilterIndex = 1;
+            string fName;
+
+            Dictionary<int, List<string>> dicLine = new Dictionary<int, List<string>>();
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                fName = openFileDialog.FileName;
+
+                dicLine = ReadFile.ReadProcessFile(fName);
+            }
+
+            this.PtsDir.x = Convert.ToDouble(dicLine[1][0]);
+            this.PtsDir.y = Convert.ToDouble(dicLine[1][1]);
+            this.PtsDir.z = Convert.ToDouble(dicLine[1][2]);
+
+            this.MinPnt.x = Convert.ToDouble(dicLine[2][0]);
+            this.MinPnt.y = Convert.ToDouble(dicLine[2][1]);
+            this.MinPnt.z = Convert.ToDouble(dicLine[2][2]);
+
+            this.MaxPnt.x = Convert.ToDouble(dicLine[3][0]);
+            this.MaxPnt.y = Convert.ToDouble(dicLine[3][1]);
+            this.MaxPnt.z = Convert.ToDouble(dicLine[3][2]);
+
+            txtDir.Text = FormateString(PtsDir);
+            txtMin.Text = FormateString(MinPnt);
+            txtMax.Text = FormateString(MaxPnt);
+
+
+            this.dpOtherInfo.Show();
+
+        }
+
+        private string FormateString(PointCls ptcls)
+        {
+            string reStr='('+ptcls.x.ToString()+','+ptcls.y.ToString()+','+ptcls.z.ToString()+')';
+
+            return reStr;
+
+        }
+
+        private void cbxStdPoints_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbxStdPoints_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (tPtsCls.PointsCloudList.Count()==0)
+            {
+                MessageBox.Show("请打开理论点云文件！");
+                return;
+            }
+
+            string strValue = this.cbxStdPoints.EditValue.ToString();
+
+            if (strValue== "理论点云")
+            {
+                PtsBindingSource.DataSource = tPtsCls.PointsCloudList;
+                gridControl2.DataSource = PtsBindingSource;
+
+                this.txtPointRow.Text = tPtsCls.RowNumberow.ToString();
+                this.txtPointsCloumn .Text= tPtsCls.ColnumNumber.ToString();
+            }
+            else if (strValue == "余量点云")
+            {
+                PtsBindingSource.DataSource = tPtsCls.ExcessPointsList;
+                gridControl2.DataSource = PtsBindingSource;
+
+                this.txtPointRow.Text = "";
+                this.txtPointsCloumn.Text = "";
+
+            }
+            else if (strValue == "边边交点")
+            {
+                PtsBindingSource.DataSource = tPtsCls.EdgeEdgePointsList;
+                gridControl2.DataSource = PtsBindingSource;
+
+                this.txtPointRow.Text = "";
+                this.txtPointsCloumn.Text = "";
+            }
+            else
+            {
+                PtsBindingSource.DataSource = tPtsCls.RiblinePointsList;
+                gridControl2.DataSource = PtsBindingSource;
+
+                this.txtPointRow.Text = "";
+                this.txtPointsCloumn.Text = "";
+            }
+
+        }
+
         //增加
         public override bool AddData()
         {
             try
             {
                 this.layoutControlGroup1.Enabled = true;
+                this.layoutControlGroup4.Enabled = true;
+                
                 return true;
             }
             catch (System.Exception ex)
@@ -81,34 +306,82 @@ namespace HullShellTest.UI
         }
 
         //保存
+        //需要增加提示控件为空的程序
         public override bool SaveDataA()
         {
             try
             {
                 if (AddorModify == AddOrModifyEnum.Add)
                 {
-                    pecls = new ProcessEquipmentCls();
+                    StdHullCls = new StdHullShellCls();
 
-                    pecls.ProcessEquipmentName = this.textEquipmentName.Text.ToString();
-                    pecls.DirverMode = this.txtDriveMode.Text.ToString();
-                    pecls.PressureHeadLength = Convert.ToInt32(this.txtPressureSize.Text.ToString());
-                    pecls.UpDieHeadNumber = Convert.ToInt32(this.txtUpCount.Text.ToString());
-                    pecls.DownDieHeadNumber = Convert.ToInt32(this.txtDownCount.Text.ToString());
+                    //添加基本信息
+                    StdHullBis = new StdHullBasicInformationCls();
 
-                    int re = ProcessEquipmentDAL.AddProcessEquipment(pecls);
+                    StdHullBis.PlateModel = this.textPlateName.Text.ToString();
+                    StdHullBis.Thickness = Convert.ToInt32(this.textThickness.Text.ToString());
+                    StdHullBis.Width1 = Convert.ToInt32(this.textWidth1.Text.ToString());
+                    StdHullBis.Width2 = Convert.ToInt32(this.textWidth2.Text.ToString());
+                    StdHullBis.Length1 = Convert.ToInt32(this.textLength1.Text.ToString());
+                    StdHullBis.Length2 = Convert.ToInt32(this.textLength2.Text.ToString());
+                    StdHullBis.TransverseCurvate = Convert.ToInt32(this.textCurve1.Text.ToString());
+                    StdHullBis.LongitudinalCurvature = Convert.ToInt32(this.textCurve2.Text.ToString());
+                    StdHullBis.SideCount = Convert.ToInt32(this.textEdgeCount.Text.ToString());
+                    StdHullBis.RiblineCount = Convert.ToInt32(this.textRiblineCount.Text.ToString());
+                    StdHullBis.ShipName = this.textShipName.Text.ToString();
+                    StdHullBis.MaterialName = this.cbxMaterialName.Text.ToString();
+                    StdHullBis.CurvePlateKind = this.textPlateMode.Text.ToString();
+
+                    StdHullCls.StdHullBasicInfo = StdHullBis;
+
+                    //添加回弹属性
+                    ResilienceFactorCls rfcls = new ResilienceFactorCls();
+                    rfcls.Curvature = Convert.ToDouble(this.txtCurve.Text.ToString());
+                    rfcls.CurvatureRange = Convert.ToDouble(this.txtCurveRange.Text.ToString());
+                    rfcls.ResilienCoefficient = Convert.ToDouble(this.txtResilienceFactor.Text.ToString());
+                    rfcls.WidthRange = Convert.ToDouble(this.txtWidthRange.Text.ToString());
+
+                    StdHullCls.rfc = rfcls;
+
+                    //添加理论点云
+                    StdHullCls.tpc = this.tPtsCls;
+
+                    //添加包围盒
+                    StdHullCls.Dir = this.PtsDir;
+                    StdHullCls.Pt_Max = this.MaxPnt;
+                    StdHullCls.Pt_Min = this.MinPnt;
+
+                    int re = StdHullShellDAL.AddStdHullShell(StdHullCls);
 
                     if (re > 0)
                     {
-                        ProcessEquipmentBindingSource.DataSource = pecls;
-                        this.gridControl1.DataSource = ProcessEquipmentBindingSource;
+                        StdHullBindingSource.DataSource = StdHullBis;
+                        this.gridControl1.DataSource = StdHullBindingSource;
 
                         this.layoutControlGroup1.Enabled = false;
+                        this.layoutControlGroup4.Enabled = false;
 
-                        this.textEquipmentName.Text = "";
-                        this.txtDriveMode.Text = "";
-                        this.txtPressureSize.Text = "";
-                        this.txtUpCount.Text = "";
-                        this.txtDownCount.Text = "";
+                        this.textPlateName.Text="";
+                        this.textThickness.Text = "";
+                        this.textWidth1.Text = "";
+                        this.textWidth1.Text = "";
+                        this.textWidth2.Text = "";
+                        this.textLength1.Text = "";
+                        this.textLength2.Text = "";
+                        this.textCurve1.Text = "";
+                        this.textCurve1.Text = "";
+                        this.textCurve2.Text = "";
+                        this.textEdgeCount.Text = "";
+                        this.textEdgeCount.Text = "";
+                        this.textRiblineCount.Text = "";
+                        this.textShipName.Text = "";
+                        this.cbxMaterialName.Text = "";
+                        this.textPlateMode.Text = "";
+
+                        this.txtCurve.Text = "";
+                        this.txtCurveRange.Text = "";
+                        this.txtResilienceFactor.Text = "";
+                        this.txtWidthRange.Text = "";
 
                         init_cmbBox();
 
@@ -122,34 +395,66 @@ namespace HullShellTest.UI
 
                         return false;
                     }
-
                 }
                 else if (AddorModify == AddOrModifyEnum.Modify)
                 {
-                    pecls.ProcessEquipmentName = this.textEquipmentName.Text.ToString();
-                    pecls.DirverMode = this.txtDriveMode.Text.ToString();
-                    pecls.PressureHeadLength = Convert.ToInt32(this.txtPressureSize.Text.ToString());
-                    pecls.UpDieHeadNumber = Convert.ToInt32(this.txtUpCount.Text.ToString());
-                    pecls.DownDieHeadNumber = Convert.ToInt32(this.txtDownCount.Text.ToString());
+                    #region
+                    //pecls.ProcessEquipmentName = this.textEquipmentName.Text.ToString();
+                    //pecls.DirverMode = this.txtDriveMode.Text.ToString();
+                    //pecls.PressureHeadLength = Convert.ToInt32(this.txtPressureSize.Text.ToString());
+                    //pecls.UpDieHeadNumber = Convert.ToInt32(this.txtUpCount.Text.ToString());
+                    //pecls.DownDieHeadNumber = Convert.ToInt32(this.txtDownCount.Text.ToString());
 
-                    ProcessEquipmentDAL.ModifyProcessEquipmentById(pecls);
+                    //ProcessEquipmentDAL.ModifyProcessEquipmentById(pecls);
 
-                    this.layoutControlGroup1.Enabled = false;
+                    //this.layoutControlGroup1.Enabled = false;
 
-                    init_cmbBox();
+                    //init_cmbBox();
+                    #endregion
 
+                    //添加基本信息
+                   // StdHullBis = new StdHullBasicInformationCls();
+
+                    StdHullBis.PlateModel = this.textPlateName.Text.ToString();
+                    StdHullBis.Thickness = Convert.ToInt32(this.textThickness.Text.ToString());
+                    StdHullBis.Width1 = Convert.ToInt32(this.textWidth1.Text.ToString());
+                    StdHullBis.Width2 = Convert.ToInt32(this.textWidth2.Text.ToString());
+                    StdHullBis.Length1 = Convert.ToInt32(this.textLength1.Text.ToString());
+                    StdHullBis.Length2 = Convert.ToInt32(this.textLength2.Text.ToString());
+                    StdHullBis.TransverseCurvate = Convert.ToInt32(this.textCurve1.Text.ToString());
+                    StdHullBis.LongitudinalCurvature = Convert.ToInt32(this.textCurve2.Text.ToString());
+                    StdHullBis.SideCount = Convert.ToInt32(this.textEdgeCount.Text.ToString());
+                    StdHullBis.RiblineCount = Convert.ToInt32(this.textRiblineCount.Text.ToString());
+                    StdHullBis.ShipName = this.textShipName.Text.ToString();
+                    StdHullBis.MaterialName = this.cbxMaterialName.Text.ToString();
+                    StdHullBis.CurvePlateKind = this.textPlateMode.Text.ToString();
+
+                    StdHullCls.StdHullBasicInfo = StdHullBis;
+
+                    //添加回弹属性
+                    ResilienceFactorCls rfcls = new ResilienceFactorCls();
+                    rfcls.Curvature = Convert.ToDouble(this.txtCurve.Text.ToString());
+                    rfcls.CurvatureRange = Convert.ToDouble(this.txtCurveRange.Text.ToString());
+                    rfcls.ResilienCoefficient = Convert.ToDouble(this.txtResilienceFactor.Text.ToString());
+                    rfcls.WidthRange = Convert.ToDouble(this.txtWidthRange.Text.ToString());
+
+                    StdHullCls.rfc = rfcls;
+
+                    StdHullShellDAL.ModifyStdHullShellById(StdHullCls);
+
+                    RefreshData();
 
                     return true;
                 }
                 else
                 {
-                    MessageBox.Show("加工设备添加/修改失败！");
+                    MessageBox.Show("理论曲板设备添加/修改失败！");
                     return false;
                 }
             }
             catch (System.Exception ex)
             {
-                MessageBox.Show("加工设备添加失败：{0}！", ex.Message.ToString());
+                MessageBox.Show("加工设备添加失败：" + ex.Message.ToString()+"!");
                 return false;
             }
         }
@@ -157,23 +462,29 @@ namespace HullShellTest.UI
         //删除
         public override bool DeleteData()
         {
+            int re = -1;
+
             try
             {
                 if (XtraMessageBox.Show("是否删除选中的数据？", "友情提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                 {
-
-                    pecls = new ProcessEquipmentCls();
+                    StdHullBis = new StdHullBasicInformationCls();
 
                     int[] rows = gridView1.GetSelectedRows();
 
                     for (int i = 0; i < rows.Length; i++)
                     {
-                        pecls = (ProcessEquipmentCls)gridView1.GetRow(rows[i]);
-                        ProcessEquipmentDAL.DeleteProcessEquipmentById(pecls.Id);
+                        StdHullBis = (StdHullBasicInformationCls)gridView1.GetRow(rows[i]);
+                        re = StdHullShellDAL.DeleteStdHullShellById(StdHullBis.Id);
                     }
                 }
 
                 //QueryAll();
+
+                if(re>0)
+                {
+                    MessageBox.Show("删除成功!");
+                }
 
                 init_cmbBox();
 
@@ -183,9 +494,6 @@ namespace HullShellTest.UI
             {
                 return false;
             }
-
-
-            //return base.DeleteData();
         }
 
         public override bool RefreshData()
@@ -194,11 +502,17 @@ namespace HullShellTest.UI
             {
                 string UserName = this.ItemObjectList.EditValue.ToString();
 
-                ProcessEquipmentCls val = ProcessEquipmentDAL.QueryProcessEquipmentByName(UserName);
+                StdHullBasicInformationCls val = StdHullShellDAL.GetStdHullBasicInfoByName(UserName);
+                ResilienceFactorCls rfcls=StdHullShellDAL.GeteResilienceFactorById(val.Id);
 
-                ProcessEquipmentBindingSource.DataSource = val;
+                StdHullBindingSource.DataSource = val;
 
-                gridControl1.DataSource = ProcessEquipmentBindingSource;
+                gridControl1.DataSource = StdHullBindingSource;
+
+                this.txtResilienceFactor.Text = rfcls.ResilienCoefficient.ToString();
+                this.txtWidthRange.Text = rfcls.WidthRange.ToString();
+                this.txtCurve.Text = rfcls.Curvature.ToString();
+                this.txtCurveRange.Text = rfcls.CurvatureRange.ToString();
 
                 return true;
             }
@@ -214,6 +528,7 @@ namespace HullShellTest.UI
             try
             {
                 this.layoutControlGroup1.Enabled = true;
+                this.layoutControlGroup4.Enabled = true;
 
                 return true;
             }
@@ -228,16 +543,35 @@ namespace HullShellTest.UI
         {
             try
             {
-                pecls = new ProcessEquipmentCls();
+                StdHullBis = new StdHullBasicInformationCls();
 
                 int[] rows = gridView1.GetSelectedRows();
-                pecls = (ProcessEquipmentCls)gridView1.GetRow(rows[0]);
+                StdHullBis = (StdHullBasicInformationCls)gridView1.GetRow(rows[0]);
+                //StdHullBis.Id = StdHullShellDAL.GetStdHullBasicInfoByName(StdHullBis.PlateModel).Id;
+                //基本信息
+                this.textPlateName.Text = StdHullBis.PlateModel;
+                this.textThickness.Text = Convert.ToString(StdHullBis.Thickness.ToString());
+                this.textWidth1.Text = StdHullBis.Width1.ToString();
+                this.textLength1.Text = StdHullBis.Length1.ToString();
+                this.textCurve1.Text = StdHullBis.TransverseCurvate.ToString();
+                this.textCurve2.Text = StdHullBis.LongitudinalCurvature.ToString();
+                this.textPlateMode.Text = StdHullBis.PlateModel.ToString();
+                this.textWidth2.Text = StdHullBis.Width1.ToString();
+                this.textLength2.Text = StdHullBis.Length2.ToString();
+                this.textShipName.Text = StdHullBis.ShipName.ToString();
+                this.cbxMaterialName.Text = StdHullBis.MaterialName.ToString();
 
-                textEquipmentName.Text = pecls.ProcessEquipmentName;
-                txtDriveMode.Text = pecls.DirverMode;
-                txtPressureSize.Text = pecls.PressureHeadLength.ToString();
-                txtDownCount.Text = pecls.DownDieHeadNumber.ToString();
-                txtUpCount.Text = pecls.UpDieHeadNumber.ToString();
+                this.textEdgeCount.Text = StdHullBis.SideCount.ToString();
+                this.textRiblineCount.Text = StdHullBis.RiblineCount.ToString();
+
+                int HullId = StdHullShellDAL.GetStdHullBasicInfoByName(StdHullBis.PlateModel).Id;
+                ResilienceFactorCls rfcls = StdHullShellDAL.GeteResilienceFactorById(HullId);
+
+                //回弹属性
+                this.txtResilienceFactor.Text = rfcls.ResilienCoefficient.ToString();
+                this.txtWidthRange.Text = rfcls.WidthRange.ToString();
+                this.txtCurve.Text = rfcls.Curvature.ToString();
+                this.txtCurveRange.Text = rfcls.CurvatureRange.ToString();
 
                 return true;
             }

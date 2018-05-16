@@ -43,8 +43,8 @@ namespace HullShellTest.UI
                     this.cmbObjectList.Items.Add(val.ProcessEquipmentName);
                 }
 
-                return true; ;
-
+                return true;
+                ;
             }
             catch (System.Exception ex)
             {
@@ -68,7 +68,7 @@ namespace HullShellTest.UI
             }
             catch (System.Exception ex)
             {
-            	return false;
+                return false;
             }
         }
 
@@ -128,30 +128,30 @@ namespace HullShellTest.UI
 
                         return false;
                     }
-
-                }
-                else if (AddorModify == AddOrModifyEnum.Modify)
-                {
-                    pecls.ProcessEquipmentName = this.textEquipmentName.Text.ToString();
-                    pecls.DirverMode = this.txtDriveMode.Text.ToString();
-                    pecls.PressureHeadLength = Convert.ToInt32(this.txtPressureSize.Text.ToString());
-                    pecls.UpDieHeadNumber = Convert.ToInt32(this.txtUpCount.Text.ToString());
-                    pecls.DownDieHeadNumber = Convert.ToInt32(this.txtDownCount.Text.ToString());
-
-                    ProcessEquipmentDAL.ModifyProcessEquipmentById(pecls);
-
-                    this.layoutControlGroup1.Enabled = false;
-
-                    init_cmbBox();
-
-
-                    return true;
                 }
                 else
-                {
-                    MessageBox.Show("加工设备添加/修改失败！");
-                    return false;
-                }
+                    if (AddorModify == AddOrModifyEnum.Modify)
+                    {
+                        pecls.ProcessEquipmentName = this.textEquipmentName.Text.ToString();
+                        pecls.DirverMode = this.txtDriveMode.Text.ToString();
+                        pecls.PressureHeadLength = Convert.ToInt32(this.txtPressureSize.Text.ToString());
+                        pecls.UpDieHeadNumber = Convert.ToInt32(this.txtUpCount.Text.ToString());
+                        pecls.DownDieHeadNumber = Convert.ToInt32(this.txtDownCount.Text.ToString());
+
+                        ProcessEquipmentDAL.ModifyProcessEquipmentById(pecls);
+
+                        this.layoutControlGroup1.Enabled = false;
+
+                        init_cmbBox();
+
+
+                        return true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("加工设备添加/修改失败！");
+                        return false;
+                    }
             }
             catch (System.Exception ex)
             {
@@ -167,8 +167,7 @@ namespace HullShellTest.UI
             {
                 if (XtraMessageBox.Show("是否删除选中的数据？", "友情提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                 {
-
-                    pecls=new ProcessEquipmentCls();
+                    pecls = new ProcessEquipmentCls();
 
                     int[] rows = gridView1.GetSelectedRows();
 
@@ -252,6 +251,5 @@ namespace HullShellTest.UI
                 return false;
             }
         }
-
     }
 }

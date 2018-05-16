@@ -168,9 +168,7 @@
     <Property Name="ProcessingEquipment_Id" Type="int" Nullable="false" />
     <Property Name="Software_Id" Type="int" Nullable="false" />
     <Property Name="DetectEquipment_Id" Type="int" Nullable="false" />
-    <Property Name="ScanPoints_Id" Type="int" Nullable="false" />
     <Property Name="Admins_Id" Type="int" Nullable="false" />
-    <Property Name="AdjustShapeFile_Id" Type="int" Nullable="false" />
     <Property Name="StdHullShell_Id" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="ProcessingEquipmentSet">
@@ -200,6 +198,7 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="FileName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ModelingParameter_Id" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="TheoryPointsSet">
     <Key>
@@ -314,6 +313,7 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="FileName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ModelingParameter_Id" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="HeightValueListSet">
     <Key>
@@ -411,14 +411,14 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="ModelingParameterScanPoints">
-    <End Role="ModelingParameter" Type="HullShell.Store.ModelingParameterSet" Multiplicity="*" />
-    <End Role="ScanPoints" Type="HullShell.Store.ScanPointsSet" Multiplicity="1" />
+    <End Role="ModelingParameter" Type="HullShell.Store.ModelingParameterSet" Multiplicity="1" />
+    <End Role="ScanPoints" Type="HullShell.Store.ScanPointsSet" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="ScanPoints">
+      <Principal Role="ModelingParameter">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="ModelingParameter">
-        <PropertyRef Name="ScanPoints_Id" />
+      <Dependent Role="ScanPoints">
+        <PropertyRef Name="ModelingParameter_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -603,14 +603,14 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="ModelingParameterAdjustShapeFile">
-    <End Role="ModelingParameter" Type="HullShell.Store.ModelingParameterSet" Multiplicity="*" />
-    <End Role="AdjustShapeFile" Type="HullShell.Store.AdjustShapeFileSet" Multiplicity="1" />
+    <End Role="ModelingParameter" Type="HullShell.Store.ModelingParameterSet" Multiplicity="1" />
+    <End Role="AdjustShapeFile" Type="HullShell.Store.AdjustShapeFileSet" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="AdjustShapeFile">
+      <Principal Role="ModelingParameter">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="ModelingParameter">
-        <PropertyRef Name="AdjustShapeFile_Id" />
+      <Dependent Role="AdjustShapeFile">
+        <PropertyRef Name="ModelingParameter_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -891,7 +891,8 @@
         </EntityType>
         <Association Name="stdHullShellTheoryPoints">
           <End Type="HullShell.StdHullShell" Role="stdHullShell" Multiplicity="1" />
-          <End Type="HullShell.TheoryPoints" Role="TheoryPoints" Multiplicity="1" />
+          <End Type="HullShell.TheoryPoints" Role="TheoryPoints" Multiplicity="1" >
+          </End>
         </Association>
         <EntityType Name="ExcessPoints">
           <Key>
@@ -966,7 +967,7 @@
         </Association>
         <Association Name="ModelingParameterScanPoints">
           <End Type="HullShell.ModelingParameter" Role="ModelingParameter" Multiplicity="1" />
-          <End Type="HullShell.ScanPoints" Role="ScanPoints" Multiplicity="1" />
+          <End Type="HullShell.ScanPoints" Role="ScanPoints" Multiplicity="0..1" />
         </Association>
         <EntityType Name="Admins">
           <Key>
@@ -1034,19 +1035,23 @@
         </Association>
         <Association Name="TheoryPointsPoint">
           <End Type="HullShell.TheoryPoints" Role="TheoryPoints" Multiplicity="0..1" />
-          <End Type="HullShell.Point" Role="Point" Multiplicity="*" />
+          <End Type="HullShell.Point" Role="Point" Multiplicity="*" >
+          </End>
         </Association>
         <Association Name="ExcessPointsPoint">
           <End Type="HullShell.ExcessPoints" Role="ExcessPoints" Multiplicity="0..1" />
-          <End Type="HullShell.Point" Role="Point" Multiplicity="*" />
+          <End Type="HullShell.Point" Role="Point" Multiplicity="*" >
+          </End>
         </Association>
         <Association Name="EdgeEdgePointsPoint">
           <End Type="HullShell.EdgeEdgePoints" Role="EdgeEdgePoints" Multiplicity="0..1" />
-          <End Type="HullShell.Point" Role="Point" Multiplicity="*" />
+          <End Type="HullShell.Point" Role="Point" Multiplicity="*" >
+          </End>
         </Association>
         <Association Name="RiblinePointsPoint">
           <End Type="HullShell.RiblinePoints" Role="RiblinePoints" Multiplicity="0..1" />
-          <End Type="HullShell.Point" Role="Point" Multiplicity="*" />
+          <End Type="HullShell.Point" Role="Point" Multiplicity="*" >
+          </End>
         </Association>
         <EntityType Name="AdjustShapeFile">
           <Key>
@@ -1091,15 +1096,18 @@
         </Association>
         <Association Name="StdHullShellRiblinePoints">
           <End Type="HullShell.StdHullShell" Role="StdHullShell" Multiplicity="1" />
-          <End Type="HullShell.RiblinePoints" Role="RiblinePoints" Multiplicity="0..1" />
+          <End Type="HullShell.RiblinePoints" Role="RiblinePoints" Multiplicity="0..1" >
+          </End>
         </Association>
         <Association Name="StdHullShellExcessPoints">
           <End Type="HullShell.StdHullShell" Role="StdHullShell" Multiplicity="1" />
-          <End Type="HullShell.ExcessPoints" Role="ExcessPoints" Multiplicity="0..1" />
+          <End Type="HullShell.ExcessPoints" Role="ExcessPoints" Multiplicity="0..1" >
+          </End>
         </Association>
         <Association Name="StdHullShellEdgeEdgePoints">
           <End Type="HullShell.StdHullShell" Role="StdHullShell" Multiplicity="1" />
-          <End Type="HullShell.EdgeEdgePoints" Role="EdgeEdgePoints" Multiplicity="0..1" />
+          <End Type="HullShell.EdgeEdgePoints" Role="EdgeEdgePoints" Multiplicity="0..1" >
+          </End>
         </Association>
         <EntityType Name="BoundingBox">
           <Key>
@@ -1119,11 +1127,12 @@
         </EntityType>
         <Association Name="StdHullShellBoundingBox">
           <End Type="HullShell.StdHullShell" Role="StdHullShell" Multiplicity="1" />
-          <End Type="HullShell.BoundingBox" Role="BoundingBox" Multiplicity="0..1" />
+          <End Type="HullShell.BoundingBox" Role="BoundingBox" Multiplicity="0..1" >
+          </End>
         </Association>
         <Association Name="ModelingParameterAdjustShapeFile">
           <End Type="HullShell.ModelingParameter" Role="ModelingParameter" Multiplicity="1" />
-          <End Type="HullShell.AdjustShapeFile" Role="AdjustShapeFile" Multiplicity="1" />
+          <End Type="HullShell.AdjustShapeFile" Role="AdjustShapeFile" Multiplicity="0..1" />
         </Association>
         <Association Name="StdHullShellModelingParameter">
           <End Type="HullShell.StdHullShell" Role="StdHullShell" Multiplicity="1" />
@@ -1403,11 +1412,11 @@
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="ModelingParameterScanPoints" TypeName="HullShell.ModelingParameterScanPoints" StoreEntitySet="ModelingParameterSet">
-      <EndProperty Name="ScanPoints">
-        <ScalarProperty Name="Id" ColumnName="ScanPoints_Id" />
-      </EndProperty>
+    <AssociationSetMapping Name="ModelingParameterScanPoints" TypeName="HullShell.ModelingParameterScanPoints" StoreEntitySet="ScanPointsSet">
       <EndProperty Name="ModelingParameter">
+        <ScalarProperty Name="Id" ColumnName="ModelingParameter_Id" />
+      </EndProperty>
+      <EndProperty Name="ScanPoints">
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
     </AssociationSetMapping>
@@ -1538,11 +1547,11 @@
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="ModelingParameterAdjustShapeFile" TypeName="HullShell.ModelingParameterAdjustShapeFile" StoreEntitySet="ModelingParameterSet">
-      <EndProperty Name="AdjustShapeFile">
-        <ScalarProperty Name="Id" ColumnName="AdjustShapeFile_Id" />
-      </EndProperty>
+    <AssociationSetMapping Name="ModelingParameterAdjustShapeFile" TypeName="HullShell.ModelingParameterAdjustShapeFile" StoreEntitySet="AdjustShapeFileSet">
       <EndProperty Name="ModelingParameter">
+        <ScalarProperty Name="Id" ColumnName="ModelingParameter_Id" />
+      </EndProperty>
+      <EndProperty Name="AdjustShapeFile">
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
     </AssociationSetMapping>
@@ -1572,7 +1581,7 @@
     </edmx:Options>
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram Name="HullShell" DisplayType="true" xmlns="http://schemas.microsoft.com/ado/2007/06/edmx" ZoomLevel="111">
+      <Diagram Name="HullShell" DisplayType="true" xmlns="http://schemas.microsoft.com/ado/2007/06/edmx" ZoomLevel="60">
         <EntityTypeShape EntityType="HullShell.StdHullShell" Width="2.75" PointX="12.5" PointY="4" Height="4.2622688802083317" IsExpanded="true" />
         <EntityTypeShape EntityType="HullShell.Material" Width="2.75" PointX="12.75" PointY="0.5" Height="2.9251310221354156" IsExpanded="true" />
         <AssociationConnector Association="HullShell.MaterialHullShell">
@@ -1591,7 +1600,7 @@
         <EntityTypeShape EntityType="HullShell.ExcessPoints" Width="1.5" PointX="5.5" PointY="6" Height="1.5879931640624996" IsExpanded="true" />
         <EntityTypeShape EntityType="HullShell.EdgeEdgePoints" Width="1.5" PointX="7.5" PointY="7.125" Height="1.3969734700520817" IsExpanded="true" />
         <EntityTypeShape EntityType="HullShell.FirstPoint" PointX="0.5" PointY="5.5" Width="1.5" Height="0.4" IsExpanded="false" />
-        <EntityTypeShape EntityType="HullShell.SecondPoint" PointX="0.875" PointY="4" Width="1.5" Height="0.4" IsExpanded="false" />
+        <EntityTypeShape EntityType="HullShell.SecondPoint" PointX="0.625" PointY="4" Width="1.5" Height="0.4" IsExpanded="false" />
         <EntityTypeShape EntityType="HullShell.MiddlePoint" PointX="0.5" PointY="4.75" Width="1.5" Height="0.4" IsExpanded="false" />
         <EntityTypeShape EntityType="HullShell.RiblinePoints" Width="1.5" PointX="4" PointY="4" Height="1.5879931640624996" IsExpanded="true" />
         <AssociationConnector Association="HullShell.ProcessingEquipmentModelingParameter">
@@ -1599,27 +1608,28 @@
           <ConnectorPoint PointX="18.25" PointY="4" />
         </AssociationConnector>
         <AssociationConnector Association="HullShell.SoftwareModelingParameter">
-          <ConnectorPoint PointX="25.34375" PointY="2.6610522460937496" />
-          <ConnectorPoint PointX="25.34375" PointY="6.195557104837544" />
-          <ConnectorPoint PointX="19.75" PointY="6.195557104837544" />
+          <ConnectorPoint PointX="26.03125" PointY="2.60502197265625" />
+          <ConnectorPoint PointX="26.03125" PointY="6.1476139322916667" />
+          <ConnectorPoint PointX="20.786458333333332" PointY="6.1476139322916659" />
+          <ConnectorPoint PointX="20.619791666666668" PointY="6.1476139322916667" />
+          <ConnectorPoint PointX="19.75" PointY="6.1476139322916667" />
         </AssociationConnector>
         <EntityTypeShape EntityType="HullShell.DetectEquipment" Width="2.625" PointX="20.375" PointY="0.5" Height="2.16105224609375" IsExpanded="true" />
         <AssociationConnector Association="HullShell.DetectEquipmentModelingParameter" ManuallyRouted="false">
-          <ConnectorPoint PointX="20.703125" PointY="2.66105224609375" />
-          <ConnectorPoint PointX="20.703125" PointY="4.28125" />
-          <ConnectorPoint PointX="19.75" PointY="4.28125" />
+          <ConnectorPoint PointX="20.703125" PointY="2.60502197265625" />
+          <ConnectorPoint PointX="20.703125" PointY="7.1214991984946305" />
+          <ConnectorPoint PointX="19.75" PointY="7.1214991984946305" />
         </AssociationConnector>
         <AssociationConnector Association="HullShell.ModelingParameterScanPoints">
-          <ConnectorPoint PointX="16.875" PointY="7.5623508378618594" />
-          <ConnectorPoint PointX="16.2499995" PointY="7.5623508378618594" />
-          <ConnectorPoint PointX="16.2499995" PointY="8.625" />
+          <ConnectorPoint PointX="17.546601707887344" PointY="7.7681689453125" />
+          <ConnectorPoint PointX="17.546601707887344" PointY="9.4927168782552087" />
+          <ConnectorPoint PointX="17.125" PointY="9.4927168782552087" />
         </AssociationConnector>
         <EntityTypeShape EntityType="HullShell.Admins" Width="2.125" PointX="22.375" PointY="3.625" Height="1.9700325520833335" IsExpanded="true" />
-        <EntityTypeShape EntityType="HullShell.DefectsList" Width="2.125" PointX="21.625" PointY="7.5" Height="1.9700325520833335" IsExpanded="true" />
+        <EntityTypeShape EntityType="HullShell.DefectsList" Width="2.125" PointX="23.75" PointY="6.75" Height="1.9202278645833317" IsExpanded="true" />
         <AssociationConnector Association="HullShell.ModelingParameterDefectsList">
-          <ConnectorPoint PointX="19.75" PointY="6.7276531064818226" />
-          <ConnectorPoint PointX="22.6875" PointY="6.7276531064818226" />
-          <ConnectorPoint PointX="22.6875" PointY="7.5" />
+          <ConnectorPoint PointX="19.75" PointY="7.5073340719035651" />
+          <ConnectorPoint PointX="23.75" PointY="7.5073340719035651" />
         </AssociationConnector>
         <EntityTypeShape EntityType="HullShell.ResilienceFactor" Width="2.5" PointX="12.625" PointY="9.625" Height="2.1610522460937496" IsExpanded="true" />
         <AssociationConnector Association="HullShell.AdminsModelingParameter">
@@ -1632,9 +1642,9 @@
         </AssociationConnector>
         <EntityTypeShape EntityType="HullShell.Point" Width="1.5" PointX="9.25" PointY="9.875" Height="2.5430916341145817" />
         <AssociationConnector Association="HullShell.ScanPointsPoint" ManuallyRouted="false">
-          <ConnectorPoint PointX="16.375" PointY="10.404012858072917" />
-          <ConnectorPoint PointX="16.375" PointY="12.228831787109375" />
-          <ConnectorPoint PointX="10.75" PointY="12.228831787109375" />
+          <ConnectorPoint PointX="16.375" PointY="10.360433756510417" />
+          <ConnectorPoint PointX="16.375" PointY="12.163463134765625" />
+          <ConnectorPoint PointX="10.75" PointY="12.163463134765625" />
         </AssociationConnector>
         <AssociationConnector Association="HullShell.TheoryPointsPoint">
           <ConnectorPoint PointX="10.25" PointY="8.3450325520833335" />
@@ -1655,22 +1665,21 @@
           <ConnectorPoint PointX="4.71875" PointY="11.963078059313652" />
           <ConnectorPoint PointX="9.25" PointY="11.963078059313652" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="HullShell.AdjustShapeFile" Width="1.875" PointX="17.625" PointY="8.875" Height="1.7790128580729174" />
-        <EntityTypeShape EntityType="HullShell.HeightValueList" Width="1.875" PointX="17.625" PointY="11.5" Height="2.1610522460937496" />
-        <EntityTypeShape EntityType="HullShell.InterpolationFile" Width="1.5" PointX="20.5" PointY="9.75" Height="1.7790128580729174" />
+        <EntityTypeShape EntityType="HullShell.AdjustShapeFile" Width="1.875" PointX="17.75" PointY="10.5" Height="1.7354337565104174" />
+        <EntityTypeShape EntityType="HullShell.HeightValueList" Width="1.875" PointX="21.125" PointY="10.375" Height="2.1050219726562496" />
+        <EntityTypeShape EntityType="HullShell.InterpolationFile" Width="1.5" PointX="21" PointY="8" Height="1.7354337565104174" />
         <AssociationConnector Association="HullShell.ModelingParameterInterpolationFile">
-          <ConnectorPoint PointX="19.75" PointY="7.4339406515197926" />
-          <ConnectorPoint PointX="21.03125" PointY="7.4339406515197926" />
-          <ConnectorPoint PointX="21.03125" PointY="9.75" />
+          <ConnectorPoint PointX="19.435945602438153" PointY="7.7681689453125" />
+          <ConnectorPoint PointX="19.435945602438153" PointY="8.8677168782552087" />
+          <ConnectorPoint PointX="21" PointY="8.8677168782552087" />
         </AssociationConnector>
         <AssociationConnector Association="HullShell.InterpolationFileHeightValueList">
-          <ConnectorPoint PointX="21.25" PointY="11.529012858072917" />
-          <ConnectorPoint PointX="21.25" PointY="12.595033052083334" />
-          <ConnectorPoint PointX="19.5" PointY="12.595033052083334" />
+          <ConnectorPoint PointX="21.8125" PointY="9.7354337565104174" />
+          <ConnectorPoint PointX="21.8125" PointY="10.375" />
         </AssociationConnector>
         <AssociationConnector Association="HullShell.AdjustShapeFileHeightValueList">
-          <ConnectorPoint PointX="18.5625" PointY="10.654012858072917" />
-          <ConnectorPoint PointX="18.5625" PointY="11.5" />
+          <ConnectorPoint PointX="19.625" PointY="11.367716878255209" />
+          <ConnectorPoint PointX="21.125" PointY="11.367716878255209" />
         </AssociationConnector>
         <AssociationConnector Association="HullShell.StdHullShellRiblinePoints">
           <ConnectorPoint PointX="12.5" PointY="5.1333219401041656" />
@@ -1692,8 +1701,8 @@
           <ConnectorPoint PointX="9.25" PointY="4.3080753580729159" />
         </AssociationConnector>
         <AssociationConnector Association="HullShell.ModelingParameterAdjustShapeFile">
-          <ConnectorPoint PointX="18.5625" PointY="7.8802294921875" />
-          <ConnectorPoint PointX="18.5625" PointY="8.875" />
+          <ConnectorPoint PointX="18.530472801219076" PointY="7.7681689453125" />
+          <ConnectorPoint PointX="18.530472801219076" PointY="10.5" />
         </AssociationConnector>
         <AssociationConnector Association="HullShell.StdHullShellModelingParameter">
           <ConnectorPoint PointX="15.25" PointY="5.718675418930931" />

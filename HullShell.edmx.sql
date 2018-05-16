@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 05/05/2018 02:11:30
--- Generated from EDMX file: E:\Files Saved\VS2010Prject\HullShellDataBase\src\HullShellTest\HullShell.edmx
+-- Date Created: 05/16/2018 10:55:42
+-- Generated from EDMX file: D:\project\vsproject\HullShellTest\HullShell.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -20,9 +20,6 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_MaterialHullShell]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[StdHullShellSet] DROP CONSTRAINT [FK_MaterialHullShell];
 GO
-IF OBJECT_ID(N'[dbo].[FK_HullShellModelingParameter]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[ModelingParameterSet] DROP CONSTRAINT [FK_HullShellModelingParameter];
-GO
 IF OBJECT_ID(N'[dbo].[FK_stdHullShellTheoryPoints]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[StdHullShellSet] DROP CONSTRAINT [FK_stdHullShellTheoryPoints];
 GO
@@ -36,7 +33,7 @@ IF OBJECT_ID(N'[dbo].[FK_DetectEquipmentModelingParameter]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[ModelingParameterSet] DROP CONSTRAINT [FK_DetectEquipmentModelingParameter];
 GO
 IF OBJECT_ID(N'[dbo].[FK_ModelingParameterScanPoints]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[ModelingParameterSet] DROP CONSTRAINT [FK_ModelingParameterScanPoints];
+    ALTER TABLE [dbo].[ScanPointsSet] DROP CONSTRAINT [FK_ModelingParameterScanPoints];
 GO
 IF OBJECT_ID(N'[dbo].[FK_ModelingParameterDefectsList]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[DefectsListSet] DROP CONSTRAINT [FK_ModelingParameterDefectsList];
@@ -62,9 +59,6 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_RiblinePointsPoint]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[PointSet] DROP CONSTRAINT [FK_RiblinePointsPoint];
 GO
-IF OBJECT_ID(N'[dbo].[FK_ModelingParameterHeightValues]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[ModelingParameterSet] DROP CONSTRAINT [FK_ModelingParameterHeightValues];
-GO
 IF OBJECT_ID(N'[dbo].[FK_ModelingParameterInterpolationFile]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[InterpolationFileSet] DROP CONSTRAINT [FK_ModelingParameterInterpolationFile];
 GO
@@ -85,6 +79,12 @@ IF OBJECT_ID(N'[dbo].[FK_StdHullShellEdgeEdgePoints]', 'F') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[FK_StdHullShellBoundingBox]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[BoundingBoxSet] DROP CONSTRAINT [FK_StdHullShellBoundingBox];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ModelingParameterAdjustShapeFile]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[AdjustShapeFileSet] DROP CONSTRAINT [FK_ModelingParameterAdjustShapeFile];
+GO
+IF OBJECT_ID(N'[dbo].[FK_StdHullShellModelingParameter]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ModelingParameterSet] DROP CONSTRAINT [FK_StdHullShellModelingParameter];
 GO
 
 -- --------------------------------------------------
@@ -207,9 +207,7 @@ CREATE TABLE [dbo].[ModelingParameterSet] (
     [ProcessingEquipment_Id] int  NOT NULL,
     [Software_Id] int  NOT NULL,
     [DetectEquipment_Id] int  NOT NULL,
-    [ScanPoints_Id] int  NOT NULL,
     [Admins_Id] int  NOT NULL,
-    [AdjustShapeFile_Id] int  NOT NULL,
     [StdHullShell_Id] int  NOT NULL
 );
 GO
@@ -238,7 +236,8 @@ GO
 -- Creating table 'ScanPointsSet'
 CREATE TABLE [dbo].[ScanPointsSet] (
     [Id] int IDENTITY(1,1) NOT NULL,
-    [FileName] nvarchar(max)  NOT NULL
+    [FileName] nvarchar(max)  NOT NULL,
+    [ModelingParameter_Id] int  NOT NULL
 );
 GO
 
@@ -352,7 +351,8 @@ GO
 -- Creating table 'AdjustShapeFileSet'
 CREATE TABLE [dbo].[AdjustShapeFileSet] (
     [Id] int IDENTITY(1,1) NOT NULL,
-    [FileName] nvarchar(max)  NOT NULL
+    [FileName] nvarchar(max)  NOT NULL,
+    [ModelingParameter_Id] int  NOT NULL
 );
 GO
 
@@ -601,18 +601,18 @@ ON [dbo].[ModelingParameterSet]
     ([DetectEquipment_Id]);
 GO
 
--- Creating foreign key on [ScanPoints_Id] in table 'ModelingParameterSet'
-ALTER TABLE [dbo].[ModelingParameterSet]
+-- Creating foreign key on [ModelingParameter_Id] in table 'ScanPointsSet'
+ALTER TABLE [dbo].[ScanPointsSet]
 ADD CONSTRAINT [FK_ModelingParameterScanPoints]
-    FOREIGN KEY ([ScanPoints_Id])
-    REFERENCES [dbo].[ScanPointsSet]
+    FOREIGN KEY ([ModelingParameter_Id])
+    REFERENCES [dbo].[ModelingParameterSet]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_ModelingParameterScanPoints'
 CREATE INDEX [IX_FK_ModelingParameterScanPoints]
-ON [dbo].[ModelingParameterSet]
-    ([ScanPoints_Id]);
+ON [dbo].[ScanPointsSet]
+    ([ModelingParameter_Id]);
 GO
 
 -- Creating foreign key on [ModelingParameter_Id] in table 'DefectsListSet'
@@ -825,18 +825,18 @@ ON [dbo].[BoundingBoxSet]
     ([StdHullShell_Id]);
 GO
 
--- Creating foreign key on [AdjustShapeFile_Id] in table 'ModelingParameterSet'
-ALTER TABLE [dbo].[ModelingParameterSet]
+-- Creating foreign key on [ModelingParameter_Id] in table 'AdjustShapeFileSet'
+ALTER TABLE [dbo].[AdjustShapeFileSet]
 ADD CONSTRAINT [FK_ModelingParameterAdjustShapeFile]
-    FOREIGN KEY ([AdjustShapeFile_Id])
-    REFERENCES [dbo].[AdjustShapeFileSet]
+    FOREIGN KEY ([ModelingParameter_Id])
+    REFERENCES [dbo].[ModelingParameterSet]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_ModelingParameterAdjustShapeFile'
 CREATE INDEX [IX_FK_ModelingParameterAdjustShapeFile]
-ON [dbo].[ModelingParameterSet]
-    ([AdjustShapeFile_Id]);
+ON [dbo].[AdjustShapeFileSet]
+    ([ModelingParameter_Id]);
 GO
 
 -- Creating foreign key on [StdHullShell_Id] in table 'ModelingParameterSet'

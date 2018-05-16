@@ -13,8 +13,14 @@ namespace HullShellTest.ModelData
         [DisplayName("序号")]
         public int Id
         {
-            get { return _Id; }
-            set { _Id = value; }
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                _Id = value;
+            }
         }
 
         //加工设备名称
@@ -22,8 +28,14 @@ namespace HullShellTest.ModelData
         [DisplayName("加工设备名称")]
         public string ProcessEquipmentName
         {
-            get { return _ProcessEquipmentName; }
-            set { _ProcessEquipmentName = value; }
+            get
+            {
+                return _ProcessEquipmentName;
+            }
+            set
+            {
+                _ProcessEquipmentName = value;
+            }
         }
 
         //压头长度
@@ -31,8 +43,14 @@ namespace HullShellTest.ModelData
         [DisplayName("压头尺寸")]
         public int PressureHeadLength
         {
-            get { return _PressureHeadLength; }
-            set { _PressureHeadLength = value; }
+            get
+            {
+                return _PressureHeadLength;
+            }
+            set
+            {
+                _PressureHeadLength = value;
+            }
         }
 
         //驱动模式
@@ -40,8 +58,14 @@ namespace HullShellTest.ModelData
         [DisplayName("驱动方式")]
         public string DirverMode
         {
-            get { return _DirverMode; }
-            set { _DirverMode = value; }
+            get
+            {
+                return _DirverMode;
+            }
+            set
+            {
+                _DirverMode = value;
+            }
         }
 
         //下模压头数目
@@ -49,8 +73,14 @@ namespace HullShellTest.ModelData
         [DisplayName("下模压头数目")]
         public int DownDieHeadNumber
         {
-            get { return _DownDieHeadNumber; }
-            set { _DownDieHeadNumber = value; }
+            get
+            {
+                return _DownDieHeadNumber;
+            }
+            set
+            {
+                _DownDieHeadNumber = value;
+            }
         }
 
         //上模压头数目
@@ -58,9 +88,14 @@ namespace HullShellTest.ModelData
         [DisplayName("上模压头数目")]
         public int UpDieHeadNumber
         {
-            get { return _UpDieHeadNumber; }
-            set { _UpDieHeadNumber = value; }
+            get
+            {
+                return _UpDieHeadNumber;
+            }
+            set
+            {
+                _UpDieHeadNumber = value;
+            }
         }
-
     }
 }

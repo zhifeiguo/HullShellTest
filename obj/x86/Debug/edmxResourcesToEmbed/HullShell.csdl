@@ -7,17 +7,7 @@
       <End Role="Material" EntitySet="MaterialSet" />
       <End Role="HullShell" EntitySet="StdHullShellSet" />
     </AssociationSet>
-    <EntitySet Name="RiblineSet" EntityType="HullShell.Ribline" />
-    <EntitySet Name="ShipBelongedSet" EntityType="HullShell.ShipBelonged" />
-    <AssociationSet Name="ShipBelongedHullShell" Association="HullShell.ShipBelongedHullShell">
-      <End EntitySet="ShipBelongedSet" Role="ShipBelonged" />
-      <End EntitySet="StdHullShellSet" Role="HullShell" />
-    </AssociationSet>
     <EntitySet Name="ModelingParameterSet" EntityType="HullShell.ModelingParameter" />
-    <AssociationSet Name="HullShellModelingParameter" Association="HullShell.HullShellModelingParameter">
-      <End Role="HullShell" EntitySet="StdHullShellSet" />
-      <End Role="ModelingParameter" EntitySet="ModelingParameterSet" />
-    </AssociationSet>
     <EntitySet Name="ProcessingEquipmentSet" EntityType="HullShell.ProcessingEquipment" />
     <EntitySet Name="SoftwareSet" EntityType="HullShell.Software" />
     <EntitySet Name="ScanPointsSet" EntityType="HullShell.ScanPoints" />
@@ -27,35 +17,11 @@
       <End Role="TheoryPoints" EntitySet="TheoryPointsSet" />
     </AssociationSet>
     <EntitySet Name="ExcessPointsSet" EntityType="HullShell.ExcessPoints" />
-    <AssociationSet Name="stdHullShellExcessPoints" Association="HullShell.stdHullShellExcessPoints">
-      <End Role="stdHullShell" EntitySet="StdHullShellSet" />
-      <End Role="ExcessPoints" EntitySet="ExcessPointsSet" />
-    </AssociationSet>
-    <EntitySet Name="SidePointsSet" EntityType="HullShell.SidePoints" />
-    <AssociationSet Name="stdHullShellSidePoints" Association="HullShell.stdHullShellSidePoints">
-      <End Role="stdHullShell" EntitySet="StdHullShellSet" />
-      <End Role="SidePoints" EntitySet="SidePointsSet" />
-    </AssociationSet>
+    <EntitySet Name="EdgeEdgePointsSet" EntityType="HullShell.EdgeEdgePoints" />
     <EntitySet Name="FirstPointSet" EntityType="HullShell.FirstPoint" />
-    <AssociationSet Name="RiblineFirstPoint" Association="HullShell.RiblineFirstPoint">
-      <End Role="Ribline" EntitySet="RiblineSet" />
-      <End Role="FirstPoint" EntitySet="FirstPointSet" />
-    </AssociationSet>
     <EntitySet Name="SecondPointSet" EntityType="HullShell.SecondPoint" />
-    <AssociationSet Name="RiblineSecondPoint" Association="HullShell.RiblineSecondPoint">
-      <End Role="Ribline" EntitySet="RiblineSet" />
-      <End Role="SecondPoint" EntitySet="SecondPointSet" />
-    </AssociationSet>
     <EntitySet Name="MiddlePointSet" EntityType="HullShell.MiddlePoint" />
-    <AssociationSet Name="RiblineMiddlePoint" Association="HullShell.RiblineMiddlePoint">
-      <End Role="Ribline" EntitySet="RiblineSet" />
-      <End Role="MiddlePoint" EntitySet="MiddlePointSet" />
-    </AssociationSet>
     <EntitySet Name="RiblinePointsSet" EntityType="HullShell.RiblinePoints" />
-    <AssociationSet Name="RiblineRiblinePoints" Association="HullShell.RiblineRiblinePoints">
-      <End Role="Ribline" EntitySet="RiblineSet" />
-      <End Role="RiblinePoints" EntitySet="RiblinePointsSet" />
-    </AssociationSet>
     <AssociationSet Name="ProcessingEquipmentModelingParameter" Association="HullShell.ProcessingEquipmentModelingParameter">
       <End Role="ProcessingEquipment" EntitySet="ProcessingEquipmentSet" />
       <End Role="ModelingParameter" EntitySet="ModelingParameterSet" />
@@ -73,10 +39,6 @@
       <End Role="ModelingParameter" EntitySet="ModelingParameterSet" />
       <End Role="ScanPoints" EntitySet="ScanPointsSet" />
     </AssociationSet>
-    <AssociationSet Name="stdHullShellRibline" Association="HullShell.stdHullShellRibline">
-      <End Role="stdHullShell" EntitySet="StdHullShellSet" />
-      <End Role="Ribline" EntitySet="RiblineSet" />
-    </AssociationSet>
     <EntitySet Name="AdminsSet" EntityType="HullShell.Admins" />
     <EntitySet Name="DefectsListSet" EntityType="HullShell.DefectsList" />
     <AssociationSet Name="ModelingParameterDefectsList" Association="HullShell.ModelingParameterDefectsList">
@@ -92,31 +54,101 @@
       <End Role="stdHullShell" EntitySet="StdHullShellSet" />
       <End Role="ResilienceFactor" EntitySet="ResilienceFactorSet" />
     </AssociationSet>
+    <EntitySet Name="PointSet" EntityType="HullShell.Point" />
+    <AssociationSet Name="ScanPointsPoint" Association="HullShell.ScanPointsPoint">
+      <End Role="ScanPoints" EntitySet="ScanPointsSet" />
+      <End Role="Point" EntitySet="PointSet" />
+    </AssociationSet>
+    <AssociationSet Name="TheoryPointsPoint" Association="HullShell.TheoryPointsPoint">
+      <End Role="TheoryPoints" EntitySet="TheoryPointsSet" />
+      <End Role="Point" EntitySet="PointSet" />
+    </AssociationSet>
+    <AssociationSet Name="ExcessPointsPoint" Association="HullShell.ExcessPointsPoint">
+      <End Role="ExcessPoints" EntitySet="ExcessPointsSet" />
+      <End Role="Point" EntitySet="PointSet" />
+    </AssociationSet>
+    <AssociationSet Name="EdgeEdgePointsPoint" Association="HullShell.EdgeEdgePointsPoint">
+      <End Role="EdgeEdgePoints" EntitySet="EdgeEdgePointsSet" />
+      <End Role="Point" EntitySet="PointSet" />
+    </AssociationSet>
+    <AssociationSet Name="RiblinePointsPoint" Association="HullShell.RiblinePointsPoint">
+      <End Role="RiblinePoints" EntitySet="RiblinePointsSet" />
+      <End Role="Point" EntitySet="PointSet" />
+    </AssociationSet>
+    <EntitySet Name="AdjustShapeFileSet" EntityType="HullShell.AdjustShapeFile" />
+    <EntitySet Name="HeightValueListSet" EntityType="HullShell.HeightValueList" />
+    <EntitySet Name="InterpolationFileSet" EntityType="HullShell.InterpolationFile" />
+    <AssociationSet Name="ModelingParameterInterpolationFile" Association="HullShell.ModelingParameterInterpolationFile">
+      <End Role="ModelingParameter" EntitySet="ModelingParameterSet" />
+      <End Role="InterpolationFile" EntitySet="InterpolationFileSet" />
+    </AssociationSet>
+    <AssociationSet Name="InterpolationFileHeightValueList" Association="HullShell.InterpolationFileHeightValueList">
+      <End Role="InterpolationFile" EntitySet="InterpolationFileSet" />
+      <End Role="HeightValueList" EntitySet="HeightValueListSet" />
+    </AssociationSet>
+    <AssociationSet Name="AdjustShapeFileHeightValueList" Association="HullShell.AdjustShapeFileHeightValueList">
+      <End Role="AdjustShapeFile" EntitySet="AdjustShapeFileSet" />
+      <End Role="HeightValueList" EntitySet="HeightValueListSet" />
+    </AssociationSet>
+    <AssociationSet Name="StdHullShellRiblinePoints" Association="HullShell.StdHullShellRiblinePoints">
+      <End Role="StdHullShell" EntitySet="StdHullShellSet" />
+      <End Role="RiblinePoints" EntitySet="RiblinePointsSet" />
+    </AssociationSet>
+    <AssociationSet Name="StdHullShellExcessPoints" Association="HullShell.StdHullShellExcessPoints">
+      <End Role="StdHullShell" EntitySet="StdHullShellSet" />
+      <End Role="ExcessPoints" EntitySet="ExcessPointsSet" />
+    </AssociationSet>
+    <AssociationSet Name="StdHullShellEdgeEdgePoints" Association="HullShell.StdHullShellEdgeEdgePoints">
+      <End Role="StdHullShell" EntitySet="StdHullShellSet" />
+      <End Role="EdgeEdgePoints" EntitySet="EdgeEdgePointsSet" />
+    </AssociationSet>
+    <EntitySet Name="BoundingBoxSet" EntityType="HullShell.BoundingBox" />
+    <AssociationSet Name="StdHullShellBoundingBox" Association="HullShell.StdHullShellBoundingBox">
+      <End Role="StdHullShell" EntitySet="StdHullShellSet" />
+      <End Role="BoundingBox" EntitySet="BoundingBoxSet" />
+    </AssociationSet>
+    <AssociationSet Name="ModelingParameterAdjustShapeFile" Association="HullShell.ModelingParameterAdjustShapeFile">
+      <End Role="ModelingParameter" EntitySet="ModelingParameterSet" />
+      <End Role="AdjustShapeFile" EntitySet="AdjustShapeFileSet" />
+    </AssociationSet>
+    <AssociationSet Name="StdHullShellModelingParameter" Association="HullShell.StdHullShellModelingParameter">
+      <End Role="StdHullShell" EntitySet="StdHullShellSet" />
+      <End Role="ModelingParameter" EntitySet="ModelingParameterSet" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="StdHullShell">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Type="Int32" Name="Id" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-    <Property Type="String" Name="PlateModel" Nullable="true" />
-    <Property Type="Int32" Name="Thickness" Nullable="true" />
-    <Property Type="Int32" Name="Width1" Nullable="true" />
-    <Property Type="Int32" Name="Length1" Nullable="true" />
-    <Property Type="Single" Name="TransverseCurvate" Nullable="true" />
-    <Property Type="Int32" Name="RiblineAmount" Nullable="true" />
-    <Property Type="Int32" Name="SideAmount" Nullable="true" />
+    <Property Type="String" Name="PlateModel" Nullable="false" />
+    <Property Type="Int32" Name="Thickness" Nullable="false" />
+    <Property Type="Int32" Name="Width1" Nullable="false" />
+    <Property Type="Int32" Name="Length1" Nullable="false" />
+    <Property Type="Double" Name="TransverseCurvate" Nullable="false">
+      <Documentation>
+        <LongDescription>横向曲率</LongDescription>
+      </Documentation>
+    </Property>
+    <Property Type="Int32" Name="RiblineAmount" Nullable="false" />
+    <Property Type="Int32" Name="SideAmount" Nullable="false" />
     <NavigationProperty Name="Material" Relationship="HullShell.MaterialHullShell" FromRole="HullShell" ToRole="Material" />
-    <NavigationProperty Name="ShipBelonged" Relationship="HullShell.ShipBelongedHullShell" FromRole="HullShell" ToRole="ShipBelonged" />
-    <NavigationProperty Name="ModelingParameter" Relationship="HullShell.HullShellModelingParameter" FromRole="HullShell" ToRole="ModelingParameter" />
     <NavigationProperty Name="TheoryPoints" Relationship="HullShell.stdHullShellTheoryPoints" FromRole="stdHullShell" ToRole="TheoryPoints" />
-    <NavigationProperty Name="ExcessPoints" Relationship="HullShell.stdHullShellExcessPoints" FromRole="stdHullShell" ToRole="ExcessPoints" />
-    <NavigationProperty Name="SidePoints" Relationship="HullShell.stdHullShellSidePoints" FromRole="stdHullShell" ToRole="SidePoints" />
-    <NavigationProperty Name="Ribline" Relationship="HullShell.stdHullShellRibline" FromRole="stdHullShell" ToRole="Ribline" />
-    <Property Type="Single" Name="LongitudinalCurvature" Nullable="false" />
+    <Property Type="Double" Name="LongitudinalCurvature" Nullable="false">
+      <Documentation>
+        <LongDescription>纵向曲率</LongDescription>
+      </Documentation>
+    </Property>
     <Property Type="String" Name="CurvePlateKind" Nullable="false" />
-    <Property Type="Single" Name="Width2" Nullable="false" />
-    <Property Type="Single" Name="Length2" Nullable="false" />
+    <Property Type="Double" Name="Width2" Nullable="false" />
+    <Property Type="Double" Name="Length2" Nullable="false" />
     <NavigationProperty Name="ResilienceFactor" Relationship="HullShell.stdHullShellResilienceFactor" FromRole="stdHullShell" ToRole="ResilienceFactor" />
+    <Property Type="String" Name="ShipName" Nullable="false" />
+    <NavigationProperty Name="RiblinePoints" Relationship="HullShell.StdHullShellRiblinePoints" FromRole="StdHullShell" ToRole="RiblinePoints" />
+    <NavigationProperty Name="ExcessPoints" Relationship="HullShell.StdHullShellExcessPoints" FromRole="StdHullShell" ToRole="ExcessPoints" />
+    <NavigationProperty Name="EdgeEdgePoints" Relationship="HullShell.StdHullShellEdgeEdgePoints" FromRole="StdHullShell" ToRole="EdgeEdgePoints" />
+    <NavigationProperty Name="BoundingBox" Relationship="HullShell.StdHullShellBoundingBox" FromRole="StdHullShell" ToRole="BoundingBox" />
+    <NavigationProperty Name="ModelingParameter" Relationship="HullShell.StdHullShellModelingParameter" FromRole="StdHullShell" ToRole="ModelingParameter" />
   </EntityType>
   <EntityType Name="Material">
     <Key>
@@ -124,45 +156,46 @@
     </Key>
     <Property Type="Int32" Name="Id" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
     <Property Type="String" Name="MaterialName" Nullable="true" />
-    <Property Type="String" Name="ChemComposition" Nullable="true" />
-    <Property Type="Single" Name="ElasticModulus" Nullable="true" />
-    <Property Type="Single" Name="YieldSrength" Nullable="true" />
-    <Property Type="Single" Name="TensileStrength" Nullable="true" />
-    <Property Type="Single" Name="UltimateElongation" Nullable="true" />
-    <Property Type="Single" Name="ReductionOfArea" Nullable="true" />
-    <Property Type="Single" Name="HardenablityValue" Nullable="true" />
-    <Property Type="Single" Name="StrainOfWidthAndThickness" Nullable="true" />
+    <Property Type="Double" Name="ElasticModulus" Nullable="true">
+      <Documentation>
+        <LongDescription>弹性模量</LongDescription>
+      </Documentation>
+    </Property>
+    <Property Type="Double" Name="YieldSrength" Nullable="true">
+      <Documentation>
+        <LongDescription>屈服强度</LongDescription>
+      </Documentation>
+    </Property>
+    <Property Type="Double" Name="TensileStrength" Nullable="true">
+      <Documentation>
+        <LongDescription>抗拉强度</LongDescription>
+      </Documentation>
+    </Property>
+    <Property Type="Double" Name="UltimateElongation" Nullable="true">
+      <Documentation>
+        <LongDescription>极限伸长率</LongDescription>
+      </Documentation>
+    </Property>
+    <Property Type="Double" Name="ReductionOfArea" Nullable="true">
+      <Documentation>
+        <LongDescription>断面收缩率</LongDescription>
+      </Documentation>
+    </Property>
+    <Property Type="Double" Name="HardenablityValue" Nullable="true">
+      <Documentation>
+        <LongDescription>硬化系数</LongDescription>
+      </Documentation>
+    </Property>
+    <Property Type="Double" Name="StrainOfWidthAndThickness" Nullable="true">
+      <Documentation>
+        <LongDescription>厚向异性系数</LongDescription>
+      </Documentation>
+    </Property>
     <NavigationProperty Name="HullShell" Relationship="HullShell.MaterialHullShell" FromRole="Material" ToRole="HullShell" />
   </EntityType>
   <Association Name="MaterialHullShell">
     <End Type="HullShell.Material" Role="Material" Multiplicity="1" />
     <End Type="HullShell.StdHullShell" Role="HullShell" Multiplicity="*" />
-  </Association>
-  <EntityType Name="Ribline">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Type="Int32" Name="Id" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-    <Property Type="Int32" Name="RiblineNumber" Nullable="true" />
-    <NavigationProperty Name="FirstPoint" Relationship="HullShell.RiblineFirstPoint" FromRole="Ribline" ToRole="FirstPoint" />
-    <NavigationProperty Name="SecondPoint" Relationship="HullShell.RiblineSecondPoint" FromRole="Ribline" ToRole="SecondPoint" />
-    <NavigationProperty Name="MiddlePoint" Relationship="HullShell.RiblineMiddlePoint" FromRole="Ribline" ToRole="MiddlePoint" />
-    <NavigationProperty Name="RiblinePoints" Relationship="HullShell.RiblineRiblinePoints" FromRole="Ribline" ToRole="RiblinePoints" />
-    <NavigationProperty Name="stdHullShell" Relationship="HullShell.stdHullShellRibline" FromRole="Ribline" ToRole="stdHullShell" />
-  </EntityType>
-  <EntityType Name="ShipBelonged">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Nullable="false" a:StoreGeneratedPattern="Identity" Type="Int32" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-    <Property Name="ShipName" Nullable="true" Type="String" />
-    <NavigationProperty Name="HullShell" Relationship="HullShell.ShipBelongedHullShell" FromRole="ShipBelonged" ToRole="HullShell" />
-    <Property Type="String" Name="BlockName" Nullable="false" />
-    <Property Type="String" Name="CurvePanelName" Nullable="false" />
-  </EntityType>
-  <Association Name="ShipBelongedHullShell">
-    <End Type="HullShell.ShipBelonged" Multiplicity="1" Role="ShipBelonged" />
-    <End Type="HullShell.StdHullShell" Multiplicity="*" Role="HullShell" />
   </Association>
   <EntityType Name="ModelingParameter">
     <Key>
@@ -170,8 +203,7 @@
     </Key>
     <Property Type="Int32" Name="Id" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
     <Property Type="Int32" Name="ProcessNumbers" Nullable="true" />
-    <Property Type="Double" Name="EnvTemperation" Nullable="true" />
-    <NavigationProperty Name="HullShell" Relationship="HullShell.HullShellModelingParameter" FromRole="ModelingParameter" ToRole="HullShell" />
+    <Property Type="Double" Name="EnvTemperation" Nullable="false" />
     <NavigationProperty Name="ProcessingEquipment" Relationship="HullShell.ProcessingEquipmentModelingParameter" FromRole="ModelingParameter" ToRole="ProcessingEquipment" />
     <NavigationProperty Name="Software" Relationship="HullShell.SoftwareModelingParameter" FromRole="ModelingParameter" ToRole="Software" />
     <NavigationProperty Name="DetectEquipment" Relationship="HullShell.DetectEquipmentModelingParameter" FromRole="ModelingParameter" ToRole="DetectEquipment" />
@@ -179,27 +211,23 @@
     <NavigationProperty Name="DefectsList" Relationship="HullShell.ModelingParameterDefectsList" FromRole="ModelingParameter" ToRole="DefectsList" />
     <NavigationProperty Name="Admins" Relationship="HullShell.AdminsModelingParameter" FromRole="ModelingParameter" ToRole="Admins" />
     <Property Type="DateTime" Name="RecordTime" Nullable="false" />
-    <Property Type="String" Name="Coefficient" Nullable="false" />
-    <Property Type="String" Name="ResilienceValue" Nullable="false" />
-    <Property Type="String" Name="FinalError" Nullable="false" />
+    <Property Type="Double" Name="Coefficient" Nullable="false" />
+    <Property Type="Double" Name="ResilienceValue" Nullable="false" />
+    <NavigationProperty Name="InterpolationFile" Relationship="HullShell.ModelingParameterInterpolationFile" FromRole="ModelingParameter" ToRole="InterpolationFile" />
+    <NavigationProperty Name="AdjustShapeFile" Relationship="HullShell.ModelingParameterAdjustShapeFile" FromRole="ModelingParameter" ToRole="AdjustShapeFile" />
+    <NavigationProperty Name="StdHullShell" Relationship="HullShell.StdHullShellModelingParameter" FromRole="ModelingParameter" ToRole="StdHullShell" />
   </EntityType>
-  <Association Name="HullShellModelingParameter">
-    <End Type="HullShell.StdHullShell" Role="HullShell" Multiplicity="1" />
-    <End Type="HullShell.ModelingParameter" Role="ModelingParameter" Multiplicity="*" />
-  </Association>
   <EntityType Name="ProcessingEquipment">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Type="Int32" Name="Id" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
     <Property Type="String" Name="EquipMentName" Nullable="true" cg:SetterAccess="Internal" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
-    <Property Type="Int32" Name="PressureHeadLength" Nullable="true" />
-    <Property Type="String" Name="DriveMode" Nullable="true" />
-    <Property Type="Int32" Name="HeadNumberOfDownDie" Nullable="true" />
-    <Property Type="Int32" Name="HeadNumberOfUpDie" Nullable="true" />
+    <Property Type="Int32" Name="PressureHeadLength" Nullable="false" />
+    <Property Type="String" Name="DriveMode" Nullable="false" />
+    <Property Type="Int32" Name="HeadNumberOfDownDie" Nullable="false" />
+    <Property Type="Int32" Name="HeadNumberOfUpDie" Nullable="false" />
     <NavigationProperty Name="ModelingParameter" Relationship="HullShell.ProcessingEquipmentModelingParameter" FromRole="ProcessingEquipment" ToRole="ModelingParameter" />
-    <Property Type="String" Name="UpDieWidth" Nullable="false" />
-    <Property Type="String" Name="DownDieWidth" Nullable="false" />
   </EntityType>
   <EntityType Name="Software">
     <Key>
@@ -217,110 +245,72 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Type="Int32" Name="Id" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-    <Property Type="Double" Name="X" Nullable="false" />
-    <Property Type="Double" Name="Y" Nullable="false" />
-    <Property Type="Double" Name="Z" Nullable="false" />
-    <Property Type="Double" Name="DiffValue" Nullable="false" />
     <NavigationProperty Name="ModelingParameter" Relationship="HullShell.ModelingParameterScanPoints" FromRole="ScanPoints" ToRole="ModelingParameter" />
+    <NavigationProperty Name="Point" Relationship="HullShell.ScanPointsPoint" FromRole="ScanPoints" ToRole="Point" />
+    <Property Type="String" Name="FileName" Nullable="false" />
   </EntityType>
   <EntityType Name="TheoryPoints">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Type="Int32" Name="Id" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-    <Property Type="Single" Name="X" Nullable="false" />
-    <Property Type="Single" Name="Y" Nullable="false" />
-    <Property Type="Single" Name="Z" Nullable="false" />
     <NavigationProperty Name="stdHullShell" Relationship="HullShell.stdHullShellTheoryPoints" FromRole="TheoryPoints" ToRole="stdHullShell" />
+    <NavigationProperty Name="Point" Relationship="HullShell.TheoryPointsPoint" FromRole="TheoryPoints" ToRole="Point" />
+    <Property Type="Int32" Name="RowNumber" Nullable="false" />
+    <Property Type="Int32" Name="ColumnNumber" Nullable="false" />
   </EntityType>
   <Association Name="stdHullShellTheoryPoints">
     <End Type="HullShell.StdHullShell" Role="stdHullShell" Multiplicity="1" />
-    <End Type="HullShell.TheoryPoints" Role="TheoryPoints" Multiplicity="*" />
+    <End Type="HullShell.TheoryPoints" Role="TheoryPoints" Multiplicity="1" />
   </Association>
   <EntityType Name="ExcessPoints">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Type="Int32" Name="Id" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-    <Property Type="Single" Name="X" Nullable="true" />
-    <Property Type="Single" Name="Y" Nullable="true" />
-    <Property Type="Single" Name="Z" Nullable="true" />
-    <NavigationProperty Name="stdHullShell" Relationship="HullShell.stdHullShellExcessPoints" FromRole="ExcessPoints" ToRole="stdHullShell" />
+    <NavigationProperty Name="Point" Relationship="HullShell.ExcessPointsPoint" FromRole="ExcessPoints" ToRole="Point" />
+    <NavigationProperty Name="StdHullShell" Relationship="HullShell.StdHullShellExcessPoints" FromRole="ExcessPoints" ToRole="StdHullShell" />
   </EntityType>
-  <Association Name="stdHullShellExcessPoints">
-    <End Type="HullShell.StdHullShell" Role="stdHullShell" Multiplicity="1" />
-    <End Type="HullShell.ExcessPoints" Role="ExcessPoints" Multiplicity="*" />
-  </Association>
-  <EntityType Name="SidePoints">
+  <EntityType Name="EdgeEdgePoints">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Type="Int32" Name="Id" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-    <Property Type="Single" Name="X" Nullable="true" />
-    <Property Type="Single" Name="Y" Nullable="true" />
-    <Property Type="Single" Name="Z" Nullable="true" />
-    <NavigationProperty Name="stdHullShell" Relationship="HullShell.stdHullShellSidePoints" FromRole="SidePoints" ToRole="stdHullShell" />
+    <NavigationProperty Name="Point" Relationship="HullShell.EdgeEdgePointsPoint" FromRole="EdgeEdgePoints" ToRole="Point" />
+    <NavigationProperty Name="StdHullShell" Relationship="HullShell.StdHullShellEdgeEdgePoints" FromRole="EdgeEdgePoints" ToRole="StdHullShell" />
   </EntityType>
-  <Association Name="stdHullShellSidePoints">
-    <End Type="HullShell.StdHullShell" Role="stdHullShell" Multiplicity="1" />
-    <End Type="HullShell.SidePoints" Role="SidePoints" Multiplicity="*" />
-  </Association>
   <EntityType Name="FirstPoint">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Type="Int32" Name="Id" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-    <Property Type="Single" Name="X" Nullable="false" />
-    <Property Type="Single" Name="Y" Nullable="false" />
-    <Property Type="Single" Name="Z" Nullable="false" />
-    <NavigationProperty Name="Ribline" Relationship="HullShell.RiblineFirstPoint" FromRole="FirstPoint" ToRole="Ribline" />
+    <Property xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" Name="Id" Nullable="false" a:StoreGeneratedPattern="Identity" Type="Int32" />
   </EntityType>
-  <Association Name="RiblineFirstPoint">
-    <End Type="HullShell.Ribline" Role="Ribline" Multiplicity="1" />
-    <End Type="HullShell.FirstPoint" Role="FirstPoint" Multiplicity="1" />
-  </Association>
   <EntityType Name="SecondPoint">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Type="Int32" Name="Id" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-    <Property Type="Single" Name="X" Nullable="false" />
-    <Property Type="Single" Name="Y" Nullable="false" />
-    <Property Type="Single" Name="Z" Nullable="false" />
-    <NavigationProperty Name="Ribline" Relationship="HullShell.RiblineSecondPoint" FromRole="SecondPoint" ToRole="Ribline" />
+    <Property xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" Name="Id" Nullable="false" a:StoreGeneratedPattern="Identity" Type="Int32" />
+    <Property Name="X" Nullable="false" Type="Single" />
+    <Property Name="Y" Nullable="false" Type="Single" />
+    <Property Name="Z" Nullable="false" Type="Single" />
   </EntityType>
-  <Association Name="RiblineSecondPoint">
-    <End Type="HullShell.Ribline" Role="Ribline" Multiplicity="1" />
-    <End Type="HullShell.SecondPoint" Role="SecondPoint" Multiplicity="1" />
-  </Association>
   <EntityType Name="MiddlePoint">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Type="Int32" Name="Id" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-    <Property Type="Single" Name="X" Nullable="false" />
-    <Property Type="Single" Name="Y" Nullable="false" />
-    <Property Type="Single" Name="Z" Nullable="false" />
-    <NavigationProperty Name="Ribline" Relationship="HullShell.RiblineMiddlePoint" FromRole="MiddlePoint" ToRole="Ribline" />
+    <Property xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" Name="Id" Nullable="false" a:StoreGeneratedPattern="Identity" Type="Int32" />
+    <Property Name="X" Nullable="false" Type="Single" />
+    <Property Name="Y" Nullable="false" Type="Single" />
+    <Property Name="Z" Nullable="false" Type="Single" />
   </EntityType>
-  <Association Name="RiblineMiddlePoint">
-    <End Type="HullShell.Ribline" Role="Ribline" Multiplicity="1" />
-    <End Type="HullShell.MiddlePoint" Role="MiddlePoint" Multiplicity="1" />
-  </Association>
   <EntityType Name="RiblinePoints">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Type="Int32" Name="Id" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-    <Property Type="Single" Name="X" Nullable="false" />
-    <Property Type="Single" Name="Y" Nullable="false" />
-    <Property Type="Single" Name="Z" Nullable="false" />
-    <NavigationProperty Name="Ribline" Relationship="HullShell.RiblineRiblinePoints" FromRole="RiblinePoints" ToRole="Ribline" />
+    <NavigationProperty Name="Point" Relationship="HullShell.RiblinePointsPoint" FromRole="RiblinePoints" ToRole="Point" />
+    <NavigationProperty Name="StdHullShell" Relationship="HullShell.StdHullShellRiblinePoints" FromRole="RiblinePoints" ToRole="StdHullShell" />
   </EntityType>
-  <Association Name="RiblineRiblinePoints">
-    <End Type="HullShell.Ribline" Role="Ribline" Multiplicity="1" />
-    <End Type="HullShell.RiblinePoints" Role="RiblinePoints" Multiplicity="*" />
-  </Association>
   <Association Name="ProcessingEquipmentModelingParameter">
     <End Type="HullShell.ProcessingEquipment" Role="ProcessingEquipment" Multiplicity="1" />
     <End Type="HullShell.ModelingParameter" Role="ModelingParameter" Multiplicity="*" />
@@ -339,7 +329,6 @@
     <Property Type="String" Name="PixelSize" Nullable="true" />
     <Property Type="Double" Name="StdPrecision" Nullable="false" />
     <NavigationProperty Name="ModelingParameter" Relationship="HullShell.DetectEquipmentModelingParameter" FromRole="DetectEquipment" ToRole="ModelingParameter" />
-    <Property Type="String" Name="DeviceKind" Nullable="false" />
   </EntityType>
   <Association Name="DetectEquipmentModelingParameter">
     <End Type="HullShell.DetectEquipment" Role="DetectEquipment" Multiplicity="1" />
@@ -347,20 +336,17 @@
   </Association>
   <Association Name="ModelingParameterScanPoints">
     <End Type="HullShell.ModelingParameter" Role="ModelingParameter" Multiplicity="1" />
-    <End Type="HullShell.ScanPoints" Role="ScanPoints" Multiplicity="*" />
-  </Association>
-  <Association Name="stdHullShellRibline">
-    <End Type="HullShell.StdHullShell" Role="stdHullShell" Multiplicity="1" />
-    <End Type="HullShell.Ribline" Role="Ribline" Multiplicity="*" />
+    <End Type="HullShell.ScanPoints" Role="ScanPoints" Multiplicity="0..1" />
   </Association>
   <EntityType Name="Admins">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Type="Int32" Name="Id" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-    <Property Type="String" Name="UerName" Nullable="false" />
+    <Property Type="String" Name="UserName" Nullable="false" />
     <Property Type="String" Name="PassWod" Nullable="false" />
     <NavigationProperty Name="ModelingParameter" Relationship="HullShell.AdminsModelingParameter" FromRole="Admins" ToRole="ModelingParameter" />
+    <Property Type="String" Name="Role" Nullable="false" />
   </EntityType>
   <EntityType Name="DefectsList">
     <Key>
@@ -374,17 +360,20 @@
   </EntityType>
   <Association Name="ModelingParameterDefectsList">
     <End Type="HullShell.ModelingParameter" Role="ModelingParameter" Multiplicity="1" />
-    <End Type="HullShell.DefectsList" Role="DefectsList" Multiplicity="*" />
+    <End Type="HullShell.DefectsList" Role="DefectsList" Multiplicity="0..1" />
   </Association>
   <EntityType Name="ResilienceFactor">
+    <Documentation>
+      <LongDescription>回弹系数</LongDescription>
+    </Documentation>
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Type="Int32" Name="Id" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-    <Property Type="String" Name="ResilienCoefficient" Nullable="false" />
-    <Property Type="String" Name="CurvatureRange" Nullable="false" />
-    <Property Type="String" Name="WidthRange" Nullable="false" />
-    <Property Type="String" Name="Curvature" Nullable="false" />
+    <Property Type="Double" Name="ResilienCoefficient" Nullable="false" />
+    <Property Type="Double" Name="CurvatureRange" Nullable="false" />
+    <Property Type="Double" Name="WidthRange" Nullable="false" />
+    <Property Type="Double" Name="Curvature" Nullable="false" />
     <NavigationProperty Name="stdHullShell" Relationship="HullShell.stdHullShellResilienceFactor" FromRole="ResilienceFactor" ToRole="stdHullShell" />
   </EntityType>
   <Association Name="AdminsModelingParameter">
@@ -394,5 +383,120 @@
   <Association Name="stdHullShellResilienceFactor">
     <End Type="HullShell.StdHullShell" Role="stdHullShell" Multiplicity="1" />
     <End Type="HullShell.ResilienceFactor" Role="ResilienceFactor" Multiplicity="0..1" />
+  </Association>
+  <EntityType Name="Point">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="Double" Name="X" Nullable="false" />
+    <Property Type="Double" Name="Y" Nullable="false" />
+    <Property Type="Double" Name="Z" Nullable="false" />
+    <NavigationProperty Name="ScanPoints" Relationship="HullShell.ScanPointsPoint" FromRole="Point" ToRole="ScanPoints" />
+    <NavigationProperty Name="TheoryPoints" Relationship="HullShell.TheoryPointsPoint" FromRole="Point" ToRole="TheoryPoints" />
+    <NavigationProperty Name="ExcessPoints" Relationship="HullShell.ExcessPointsPoint" FromRole="Point" ToRole="ExcessPoints" />
+    <NavigationProperty Name="EdgeEdgePoints" Relationship="HullShell.EdgeEdgePointsPoint" FromRole="Point" ToRole="EdgeEdgePoints" />
+    <NavigationProperty Name="RiblinePoints" Relationship="HullShell.RiblinePointsPoint" FromRole="Point" ToRole="RiblinePoints" />
+  </EntityType>
+  <Association Name="ScanPointsPoint">
+    <End Type="HullShell.ScanPoints" Role="ScanPoints" Multiplicity="0..1" />
+    <End Type="HullShell.Point" Role="Point" Multiplicity="*" />
+  </Association>
+  <Association Name="TheoryPointsPoint">
+    <End Type="HullShell.TheoryPoints" Role="TheoryPoints" Multiplicity="0..1" />
+    <End Type="HullShell.Point" Role="Point" Multiplicity="*" />
+  </Association>
+  <Association Name="ExcessPointsPoint">
+    <End Type="HullShell.ExcessPoints" Role="ExcessPoints" Multiplicity="0..1" />
+    <End Type="HullShell.Point" Role="Point" Multiplicity="*" />
+  </Association>
+  <Association Name="EdgeEdgePointsPoint">
+    <End Type="HullShell.EdgeEdgePoints" Role="EdgeEdgePoints" Multiplicity="0..1" />
+    <End Type="HullShell.Point" Role="Point" Multiplicity="*" />
+  </Association>
+  <Association Name="RiblinePointsPoint">
+    <End Type="HullShell.RiblinePoints" Role="RiblinePoints" Multiplicity="0..1" />
+    <End Type="HullShell.Point" Role="Point" Multiplicity="*" />
+  </Association>
+  <EntityType Name="AdjustShapeFile">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="String" Name="FileName" Nullable="false" />
+    <NavigationProperty Name="HeightValueList" Relationship="HullShell.AdjustShapeFileHeightValueList" FromRole="AdjustShapeFile" ToRole="HeightValueList" />
+    <NavigationProperty Name="ModelingParameter" Relationship="HullShell.ModelingParameterAdjustShapeFile" FromRole="AdjustShapeFile" ToRole="ModelingParameter" />
+  </EntityType>
+  <EntityType Name="HeightValueList">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="Int32" Name="R" Nullable="false" />
+    <Property Type="Int32" Name="C" Nullable="false" />
+    <Property Type="Double" Name="Z" Nullable="false" />
+    <NavigationProperty Name="InterpolationFile" Relationship="HullShell.InterpolationFileHeightValueList" FromRole="HeightValueList" ToRole="InterpolationFile" />
+    <NavigationProperty Name="AdjustShapeFile" Relationship="HullShell.AdjustShapeFileHeightValueList" FromRole="HeightValueList" ToRole="AdjustShapeFile" />
+  </EntityType>
+  <EntityType Name="InterpolationFile">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="String" Name="FileName" Nullable="false" />
+    <NavigationProperty Name="ModelingParameter" Relationship="HullShell.ModelingParameterInterpolationFile" FromRole="InterpolationFile" ToRole="ModelingParameter" />
+    <NavigationProperty Name="HeightValueList" Relationship="HullShell.InterpolationFileHeightValueList" FromRole="InterpolationFile" ToRole="HeightValueList" />
+  </EntityType>
+  <Association Name="ModelingParameterInterpolationFile">
+    <End Type="HullShell.ModelingParameter" Role="ModelingParameter" Multiplicity="1" />
+    <End Type="HullShell.InterpolationFile" Role="InterpolationFile" Multiplicity="0..1" />
+  </Association>
+  <Association Name="InterpolationFileHeightValueList">
+    <End Type="HullShell.InterpolationFile" Role="InterpolationFile" Multiplicity="0..1" />
+    <End Type="HullShell.HeightValueList" Role="HeightValueList" Multiplicity="*" />
+  </Association>
+  <Association Name="AdjustShapeFileHeightValueList">
+    <End Type="HullShell.AdjustShapeFile" Role="AdjustShapeFile" Multiplicity="0..1" />
+    <End Type="HullShell.HeightValueList" Role="HeightValueList" Multiplicity="*" />
+  </Association>
+  <Association Name="StdHullShellRiblinePoints">
+    <End Type="HullShell.StdHullShell" Role="StdHullShell" Multiplicity="1" />
+    <End Type="HullShell.RiblinePoints" Role="RiblinePoints" Multiplicity="0..1" />
+  </Association>
+  <Association Name="StdHullShellExcessPoints">
+    <End Type="HullShell.StdHullShell" Role="StdHullShell" Multiplicity="1" />
+    <End Type="HullShell.ExcessPoints" Role="ExcessPoints" Multiplicity="0..1" />
+  </Association>
+  <Association Name="StdHullShellEdgeEdgePoints">
+    <End Type="HullShell.StdHullShell" Role="StdHullShell" Multiplicity="1" />
+    <End Type="HullShell.EdgeEdgePoints" Role="EdgeEdgePoints" Multiplicity="0..1" />
+  </Association>
+  <EntityType Name="BoundingBox">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="Double" Name="x_Dir" Nullable="false" />
+    <Property Type="Double" Name="y_Dir" Nullable="false" />
+    <Property Type="Double" Name="z_Dir" Nullable="false" />
+    <Property Type="Double" Name="x_Min" Nullable="false" />
+    <Property Type="Double" Name="y_Min" Nullable="false" />
+    <Property Type="Double" Name="z_Min" Nullable="false" />
+    <Property Type="Double" Name="x_Max" Nullable="false" />
+    <Property Type="Double" Name="y_Max" Nullable="false" />
+    <Property Type="Double" Name="z_Max" Nullable="false" />
+    <NavigationProperty Name="StdHullShell" Relationship="HullShell.StdHullShellBoundingBox" FromRole="BoundingBox" ToRole="StdHullShell" />
+  </EntityType>
+  <Association Name="StdHullShellBoundingBox">
+    <End Type="HullShell.StdHullShell" Role="StdHullShell" Multiplicity="1" />
+    <End Type="HullShell.BoundingBox" Role="BoundingBox" Multiplicity="0..1" />
+  </Association>
+  <Association Name="ModelingParameterAdjustShapeFile">
+    <End Type="HullShell.ModelingParameter" Role="ModelingParameter" Multiplicity="1" />
+    <End Type="HullShell.AdjustShapeFile" Role="AdjustShapeFile" Multiplicity="0..1" />
+  </Association>
+  <Association Name="StdHullShellModelingParameter">
+    <End Type="HullShell.StdHullShell" Role="StdHullShell" Multiplicity="1" />
+    <End Type="HullShell.ModelingParameter" Role="ModelingParameter" Multiplicity="*" />
   </Association>
 </Schema>

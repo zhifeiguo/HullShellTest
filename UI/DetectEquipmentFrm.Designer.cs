@@ -45,6 +45,7 @@
             this.DetectEquipmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.cmbObjectList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel.SuspendLayout();
             this.dockPanel1_Container.SuspendLayout();
@@ -61,6 +62,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DetectEquipmentBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // ribbonControl1
+            // 
+            // 
+            // 
+            // 
+            this.ribbonControl1.ExpandCollapseItem.Id = 0;
+            this.ribbonControl1.ExpandCollapseItem.Name = "";
+            this.ribbonControl1.Size = new System.Drawing.Size(1127, 184);
             // 
             // dockManager1
             // 
@@ -79,18 +89,20 @@
             this.dockPanel.Controls.Add(this.dockPanel1_Container);
             this.dockPanel.Dock = DevExpress.XtraBars.Docking.DockingStyle.Left;
             this.dockPanel.ID = new System.Guid("13fc3033-1726-49c8-87ec-205ffdda2eb5");
-            this.dockPanel.Location = new System.Drawing.Point(0, 151);
+            this.dockPanel.Location = new System.Drawing.Point(0, 184);
+            this.dockPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dockPanel.Name = "dockPanel";
             this.dockPanel.OriginalSize = new System.Drawing.Size(219, 200);
-            this.dockPanel.Size = new System.Drawing.Size(219, 304);
+            this.dockPanel.Size = new System.Drawing.Size(219, 531);
             this.dockPanel.Text = "详情";
             // 
             // dockPanel1_Container
             // 
             this.dockPanel1_Container.Controls.Add(this.layoutControl1);
-            this.dockPanel1_Container.Location = new System.Drawing.Point(4, 23);
+            this.dockPanel1_Container.Location = new System.Drawing.Point(4, 30);
+            this.dockPanel1_Container.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dockPanel1_Container.Name = "dockPanel1_Container";
-            this.dockPanel1_Container.Size = new System.Drawing.Size(211, 277);
+            this.dockPanel1_Container.Size = new System.Drawing.Size(211, 497);
             this.dockPanel1_Container.TabIndex = 0;
             // 
             // layoutControl1
@@ -101,42 +113,47 @@
             this.layoutControl1.Controls.Add(this.txtEquipmentName);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(549, 123, 384, 350);
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(211, 277);
+            this.layoutControl1.Size = new System.Drawing.Size(211, 497);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
             // txtPrecious
             // 
-            this.txtPrecious.Location = new System.Drawing.Point(87, 87);
+            this.txtPrecious.Location = new System.Drawing.Point(123, 108);
+            this.txtPrecious.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtPrecious.Name = "txtPrecious";
-            this.txtPrecious.Size = new System.Drawing.Size(112, 21);
+            this.txtPrecious.Size = new System.Drawing.Size(76, 28);
             this.txtPrecious.StyleController = this.layoutControl1;
             this.txtPrecious.TabIndex = 7;
             // 
             // txtPixelLength
             // 
-            this.txtPixelLength.Location = new System.Drawing.Point(87, 62);
+            this.txtPixelLength.Location = new System.Drawing.Point(123, 76);
+            this.txtPixelLength.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtPixelLength.Name = "txtPixelLength";
-            this.txtPixelLength.Size = new System.Drawing.Size(112, 21);
+            this.txtPixelLength.Size = new System.Drawing.Size(76, 28);
             this.txtPixelLength.StyleController = this.layoutControl1;
             this.txtPixelLength.TabIndex = 6;
             // 
             // txtCameraResolution
             // 
-            this.txtCameraResolution.Location = new System.Drawing.Point(87, 37);
+            this.txtCameraResolution.Location = new System.Drawing.Point(123, 44);
+            this.txtCameraResolution.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtCameraResolution.Name = "txtCameraResolution";
-            this.txtCameraResolution.Size = new System.Drawing.Size(112, 21);
+            this.txtCameraResolution.Size = new System.Drawing.Size(76, 28);
             this.txtCameraResolution.StyleController = this.layoutControl1;
             this.txtCameraResolution.TabIndex = 5;
             // 
             // txtEquipmentName
             // 
-            this.txtEquipmentName.Location = new System.Drawing.Point(87, 12);
+            this.txtEquipmentName.Location = new System.Drawing.Point(123, 12);
+            this.txtEquipmentName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtEquipmentName.Name = "txtEquipmentName";
-            this.txtEquipmentName.Size = new System.Drawing.Size(112, 21);
+            this.txtEquipmentName.Size = new System.Drawing.Size(76, 28);
             this.txtEquipmentName.StyleController = this.layoutControl1;
             this.txtEquipmentName.TabIndex = 4;
             // 
@@ -152,7 +169,7 @@
             this.layoutControlItem1});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(211, 277);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(211, 497);
             this.layoutControlGroup1.Text = "Root";
             this.layoutControlGroup1.TextVisible = false;
             // 
@@ -160,31 +177,31 @@
             // 
             this.CameraResolution.Control = this.txtCameraResolution;
             this.CameraResolution.CustomizationFormText = "layoutControlItem2";
-            this.CameraResolution.Location = new System.Drawing.Point(0, 25);
+            this.CameraResolution.Location = new System.Drawing.Point(0, 32);
             this.CameraResolution.Name = "CameraResolution";
-            this.CameraResolution.Size = new System.Drawing.Size(191, 25);
+            this.CameraResolution.Size = new System.Drawing.Size(191, 32);
             this.CameraResolution.Text = "相机分辨率";
-            this.CameraResolution.TextSize = new System.Drawing.Size(72, 14);
+            this.CameraResolution.TextSize = new System.Drawing.Size(108, 22);
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.txtPixelLength;
             this.layoutControlItem3.CustomizationFormText = "layoutControlItem3";
-            this.layoutControlItem3.Location = new System.Drawing.Point(0, 50);
+            this.layoutControlItem3.Location = new System.Drawing.Point(0, 64);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(191, 25);
+            this.layoutControlItem3.Size = new System.Drawing.Size(191, 32);
             this.layoutControlItem3.Text = "像素尺寸";
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(72, 14);
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(108, 22);
             // 
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.txtPrecious;
             this.layoutControlItem4.CustomizationFormText = "layoutControlItem4";
-            this.layoutControlItem4.Location = new System.Drawing.Point(0, 75);
+            this.layoutControlItem4.Location = new System.Drawing.Point(0, 96);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(191, 182);
+            this.layoutControlItem4.Size = new System.Drawing.Size(191, 381);
             this.layoutControlItem4.Text = "标定精度";
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(72, 14);
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(108, 22);
             // 
             // layoutControlItem1
             // 
@@ -192,9 +209,9 @@
             this.layoutControlItem1.CustomizationFormText = "layoutControlItem1";
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(191, 25);
+            this.layoutControlItem1.Size = new System.Drawing.Size(191, 32);
             this.layoutControlItem1.Text = "检测设备名字";
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(72, 14);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(108, 22);
             // 
             // DetectEquipmentBindingSource
             // 
@@ -206,14 +223,17 @@
             // 
             // DetectEquipmentFrm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(789, 455);
+            this.ClientSize = new System.Drawing.Size(1127, 715);
             this.Controls.Add(this.dockPanel);
+            this.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.Name = "DetectEquipmentFrm";
             this.Text = "检测设备信息管理";
+            this.Controls.SetChildIndex(this.ribbonControl1, 0);
             this.Controls.SetChildIndex(this.dockPanel, 0);
             ((System.ComponentModel.ISupportInitialize)(this.cmbObjectList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).EndInit();
             this.dockPanel.ResumeLayout(false);
             this.dockPanel1_Container.ResumeLayout(false);

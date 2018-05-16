@@ -13,13 +13,10 @@ namespace HullShellTest.DAL
         {
             using (HullShellContainer hs = new HullShellContainer())
             {
-                Software sf = new Software 
-                {
-                    SoftwareName=sw.SoftWareName,
-                    RegisterAlgorithm=sw.RegisterAlgorithm,
-                    DiffComputer=sw.DiffComputer,
-                    SurfaceReconstruction=sw.SurfaceReconstruction
-                };
+                Software sf = new Software { SoftwareName = sw.SoftWareName,
+                RegisterAlgorithm = sw.RegisterAlgorithm,
+                DiffComputer = sw.DiffComputer,
+                SurfaceReconstruction = sw.SurfaceReconstruction };
 
                 hs.AddToSoftwareSet(sf);
 
@@ -36,7 +33,6 @@ namespace HullShellTest.DAL
                 hs.DeleteObject(sf);
 
                 return hs.SaveChanges();
-
             }
         }
         //根据id删除
@@ -64,7 +60,6 @@ namespace HullShellTest.DAL
                 sf.SurfaceReconstruction = sw.SurfaceReconstruction;
 
                 return hs.SaveChanges();
-
             }
         }
         //根据Id修改
@@ -80,7 +75,6 @@ namespace HullShellTest.DAL
                 sf.SurfaceReconstruction = sw.SurfaceReconstruction;
 
                 return hs.SaveChanges();
-
             }
         }
 
@@ -91,7 +85,7 @@ namespace HullShellTest.DAL
             {
                 Software sf = hs.SoftwareSet.Where(s => s.SoftwareName == _name).FirstOrDefault();
 
-                SoftWareCls sw=new SoftWareCls();
+                SoftWareCls sw = new SoftWareCls();
                 sw.Id = sf.Id;
                 sw.SoftWareName = sf.SoftwareName;
                 sw.RegisterAlgorithm = sf.RegisterAlgorithm;
@@ -99,7 +93,6 @@ namespace HullShellTest.DAL
                 sw.SurfaceReconstruction = sf.SurfaceReconstruction;
 
                 return sw;
-
             }
         }
 
@@ -117,7 +110,6 @@ namespace HullShellTest.DAL
                 sw.SurfaceReconstruction = sf.SurfaceReconstruction;
 
                 return sw;
-
             }
         }
 
@@ -132,29 +124,23 @@ namespace HullShellTest.DAL
 
                 foreach (var item in SfList)
                 {
-                    adc.Add(new SoftWareCls
-                    {
-                        Id = item.Id,
-                        SoftWareName=item.SoftwareName,
-                        RegisterAlgorithm=item.RegisterAlgorithm,
-                        DiffComputer=item.DiffComputer,
-                        SurfaceReconstruction=item.SurfaceReconstruction
-                    });
+                    adc.Add(new SoftWareCls { Id = item.Id,
+                    SoftWareName = item.SoftwareName,
+                    RegisterAlgorithm = item.RegisterAlgorithm,
+                    DiffComputer = item.DiffComputer,
+                    SurfaceReconstruction = item.SurfaceReconstruction });
                 }
 
                 return adc;
             }
-
         }
 
         //清空
         public static int ClearSoftware()
         {
-
             using (HullShellContainer hs = new HullShellContainer())
             {
-
-                List<Software> SfList = hs.SoftwareSet.Where(s => s.Id >=0 ).ToList();
+                List<Software> SfList = hs.SoftwareSet.Where(s => s.Id >= 0 ).ToList();
 
                 for (int i = 0; i < SfList.Count; i++)
                 {
@@ -162,12 +148,7 @@ namespace HullShellTest.DAL
                 }
 
                 return hs.SaveChanges();
-
-
             }
-
         }
-
-
     }
 }

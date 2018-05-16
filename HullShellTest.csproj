@@ -23,6 +23,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -78,6 +79,7 @@
     <Reference Include="DevExpress.XtraGrid.v11.1, Version=11.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v11.1, Version=11.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraRichEdit.v11.1, Version=11.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraTreeList.v11.1, Version=11.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
@@ -115,6 +117,7 @@
       <DependentUpon>HullShell.edmx</DependentUpon>
     </Compile>
     <Compile Include="ModelData\Extent\ModelParamterBasicCls.cs" />
+    <Compile Include="ModelData\Extent\PtsCloud.cs" />
     <Compile Include="ModelData\Extent\StdHullBasicInformationCls.cs" />
     <Compile Include="ModelData\HeightValuesCls.cs" />
     <Compile Include="ModelData\InterpolationFileCls.cs" />
@@ -194,7 +197,11 @@
     <Compile Include="UI\TemplateFrm.Designer.cs">
       <DependentUpon>TemplateFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utils\PointXYZ.cs" />
+    <Compile Include="Utils\PointXYZRGB.cs" />
+    <Compile Include="Utils\ReadFile.cs" />
     <Compile Include="Utils\Utils.cs" />
+    <Compile Include="Utils\WriteFile.cs" />
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="HullShell.edmx">
@@ -206,10 +213,70 @@
     <None Include="App.Config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Properties\DataSources\AdjustShapeFile.datasource" />
     <None Include="Properties\DataSources\Admins.datasource" />
+    <None Include="Properties\DataSources\BoundingBox.datasource" />
+    <None Include="Properties\DataSources\DefectsList.datasource" />
+    <None Include="Properties\DataSources\DetectEquipment.datasource" />
+    <None Include="Properties\DataSources\EdgeEdgePoints.datasource" />
+    <None Include="Properties\DataSources\ExcessPoints.datasource" />
+    <None Include="Properties\DataSources\FirstPoint.datasource" />
+    <None Include="Properties\DataSources\HeightValueList.datasource" />
+    <None Include="Properties\DataSources\HeightValues.datasource" />
+    <None Include="Properties\DataSources\HullShellContainer.datasource" />
+    <None Include="Properties\DataSources\HullShellTest.DAL.AdjustShapeFileDAL.datasource" />
+    <None Include="Properties\DataSources\HullShellTest.DAL.AdminsDAL.datasource" />
+    <None Include="Properties\DataSources\HullShellTest.DAL.DefectsListDAL.datasource" />
+    <None Include="Properties\DataSources\HullShellTest.DAL.DetectEquipmentDAL.datasource" />
+    <None Include="Properties\DataSources\HullShellTest.DAL.MaterialDAL.datasource" />
+    <None Include="Properties\DataSources\HullShellTest.DAL.ModelParameterDAL.datasource" />
+    <None Include="Properties\DataSources\HullShellTest.DAL.ProcessEquipmentDAL.datasource" />
+    <None Include="Properties\DataSources\HullShellTest.DAL.SoftwareDAL.datasource" />
+    <None Include="Properties\DataSources\HullShellTest.DAL.StdHullShellDAL.datasource" />
+    <None Include="Properties\DataSources\HullShellTest.ModelData.AdjustShapeFileCls.datasource" />
     <None Include="Properties\DataSources\HullShellTest.ModelData.AdminsCls.datasource" />
+    <None Include="Properties\DataSources\HullShellTest.ModelData.DefectsListCls.datasource" />
     <None Include="Properties\DataSources\HullShellTest.ModelData.DetectEquipmentCls.datasource" />
+    <None Include="Properties\DataSources\HullShellTest.ModelData.Extent.ModelParamterBasicCls.datasource" />
+    <None Include="Properties\DataSources\HullShellTest.ModelData.Extent.StdHullBasicInformationCls.datasource" />
+    <None Include="Properties\DataSources\HullShellTest.ModelData.HeightValuesCls.datasource" />
+    <None Include="Properties\DataSources\HullShellTest.ModelData.InterpolationFileCls.datasource" />
+    <None Include="Properties\DataSources\HullShellTest.ModelData.MaterialCls.datasource" />
+    <None Include="Properties\DataSources\HullShellTest.ModelData.ModelParameterCls.datasource" />
+    <None Include="Properties\DataSources\HullShellTest.ModelData.PointCls.datasource" />
+    <None Include="Properties\DataSources\HullShellTest.ModelData.ProcessEquipmentCls.datasource" />
+    <None Include="Properties\DataSources\HullShellTest.ModelData.ResilienceFactorCls.datasource" />
+    <None Include="Properties\DataSources\HullShellTest.ModelData.RiblineCls.datasource" />
+    <None Include="Properties\DataSources\HullShellTest.ModelData.ScanPointsCls.datasource" />
     <None Include="Properties\DataSources\HullShellTest.ModelData.SoftWareCls.datasource" />
+    <None Include="Properties\DataSources\HullShellTest.ModelData.StdHullShellCls.datasource" />
+    <None Include="Properties\DataSources\HullShellTest.ModelData.TheoryPointsCls.datasource" />
+    <None Include="Properties\DataSources\HullShellTest.Properties.Resources.datasource" />
+    <None Include="Properties\DataSources\HullShellTest.Properties.Settings.datasource" />
+    <None Include="Properties\DataSources\HullShellTest.UI.AdminsFrm.datasource" />
+    <None Include="Properties\DataSources\HullShellTest.UI.DetectEquipmentFrm.datasource" />
+    <None Include="Properties\DataSources\HullShellTest.UI.MainForm.datasource" />
+    <None Include="Properties\DataSources\HullShellTest.UI.MaterialFrm.datasource" />
+    <None Include="Properties\DataSources\HullShellTest.UI.ProcessEquipmentFrm.datasource" />
+    <None Include="Properties\DataSources\HullShellTest.UI.ProcessParameterFrm.datasource" />
+    <None Include="Properties\DataSources\HullShellTest.UI.SoftwareFrm.datasource" />
+    <None Include="Properties\DataSources\HullShellTest.UI.StdHullFrm.datasource" />
+    <None Include="Properties\DataSources\HullShellTest.UI.TemplateFrm.datasource" />
+    <None Include="Properties\DataSources\HullShellTest.Utils.Utils.datasource" />
+    <None Include="Properties\DataSources\InterpolationFile.datasource" />
+    <None Include="Properties\DataSources\Material.datasource" />
+    <None Include="Properties\DataSources\MiddlePoint.datasource" />
+    <None Include="Properties\DataSources\ModelingParameter.datasource" />
+    <None Include="Properties\DataSources\Point.datasource" />
+    <None Include="Properties\DataSources\ProcessingEquipment.datasource" />
+    <None Include="Properties\DataSources\Program.datasource" />
+    <None Include="Properties\DataSources\ResilienceFactor.datasource" />
+    <None Include="Properties\DataSources\RiblinePoints.datasource" />
+    <None Include="Properties\DataSources\ScanPoints.datasource" />
+    <None Include="Properties\DataSources\SecondPoint.datasource" />
+    <None Include="Properties\DataSources\Software.datasource" />
+    <None Include="Properties\DataSources\StdHullShell.datasource" />
+    <None Include="Properties\DataSources\TheoryPoints.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -219,7 +286,18 @@
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="HullShell.edmx.sql" />
+    <None Include="Resources\file_broken.png" />
+    <None Include="Resources\20120425014309243_easyicon_cn_32.png" />
+    <None Include="Resources\grid1.png" />
+    <None Include="Resources\nfs_mount.png" />
+    <None Include="Resources\ModelMerge_32x32.png" />
+    <None Include="Resources\scan_16.png" />
+    <None Include="Resources\Action_Export.png" />
+    <None Include="Resources\pointCloud.png" />
+    <None Include="Resources\file.png" />
+    <None Include="Resources\scan_32.png" />
+    <None Include="Resources\Action_Inline_Edit.png" />
+    <None Include="Resources\ModelEditor_IndexDown.png" />
     <None Include="Resources\image.jpg" />
     <None Include="Resources\保存.png" />
     <None Include="Resources\40.png" />
@@ -264,6 +342,9 @@
     <EmbeddedResource Include="UI\TemplateFrm.resx">
       <DependentUpon>TemplateFrm.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="HullShell.edmx.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

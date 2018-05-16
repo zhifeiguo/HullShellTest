@@ -21,7 +21,6 @@ namespace HullShellTest.UI
             this.layoutControlGroup1.Enabled = false;
 
             Init_decBox();
-
         }
 
         public DetectEquipmentCls dec;
@@ -34,7 +33,7 @@ namespace HullShellTest.UI
                 this.cmbObjectList.Items.Clear();
 
                 List<DetectEquipmentCls> deList = DetectEquipmentDAL.GetAllDetectEquipments();
-                foreach(var item in deList)
+                foreach (var item in deList)
                 {
                     this.cmbObjectList.Items.Add(item.MeasureDeviceName);
                 }
@@ -90,8 +89,6 @@ namespace HullShellTest.UI
             {
                 return false;
             }
-
-
         }
 
 
@@ -100,7 +97,7 @@ namespace HullShellTest.UI
         {
             try
             {
-                 if (AddorModify==AddOrModifyEnum.Add)
+                if (AddorModify == AddOrModifyEnum.Add)
                 {
                     dec = new DetectEquipmentCls();
                     dec.MeasureDeviceName = txtEquipmentName.Text.ToString();
@@ -127,39 +124,38 @@ namespace HullShellTest.UI
                     dec = new DetectEquipmentCls();
 
                     return true;
-
                 }
-                 else if (AddorModify == AddOrModifyEnum.Modify)
-                {
-                    dec.MeasureDeviceName = this.txtEquipmentName.Text.ToString();
-                    dec.CameraResolution = this.txtCameraResolution.Text.ToString();
-                    dec.PixelSize = this.txtPixelLength.Text. ToString();
-                    dec.StdPrecision = Convert.ToDouble(this.txtPrecious.Text.ToString());
+                else
+                    if (AddorModify == AddOrModifyEnum.Modify)
+                    {
+                        dec.MeasureDeviceName = this.txtEquipmentName.Text.ToString();
+                        dec.CameraResolution = this.txtCameraResolution.Text.ToString();
+                        dec.PixelSize = this.txtPixelLength.Text. ToString();
+                        dec.StdPrecision = Convert.ToDouble(this.txtPrecious.Text.ToString());
 
-                    DetectEquipmentDAL.ModifyDetectEquipmentById(dec);
+                        DetectEquipmentDAL.ModifyDetectEquipmentById(dec);
 
-                    this.layoutControlGroup1.Enabled = false;
+                        this.layoutControlGroup1.Enabled = false;
 
-                    //this.txtPrecious.Text = "";
-                    //this.txtCameraResolution.Text = "";
-                    //this.txtEquipmentName.Text = "";
-                    //this.txtPixelLength.Text = "";
+                        //this.txtPrecious.Text = "";
+                        //this.txtCameraResolution.Text = "";
+                        //this.txtEquipmentName.Text = "";
+                        //this.txtPixelLength.Text = "";
 
-                    MessageBox.Show("修改成功！");
+                        MessageBox.Show("修改成功！");
 
-                    dec = new DetectEquipmentCls();
+                        dec = new DetectEquipmentCls();
 
-                    return true;
-                }
-                 else
-                 {
-                     return false;
-                 }
-
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
             }
             catch (System.Exception ex)
             {
-            	return false;
+                return false;
             }
         }
 
@@ -167,14 +163,14 @@ namespace HullShellTest.UI
         {
             try
             {
-                dec=new DetectEquipmentCls();
+                dec = new DetectEquipmentCls();
 
                 string decName = this.ItemObjectList.EditValue.ToString();
-                dec=DetectEquipmentDAL.QueryDetectEquipmentByName(decName);
+                dec = DetectEquipmentDAL.QueryDetectEquipmentByName(decName);
 
                 DetectEquipmentBindingSource.DataSource = dec;
 
-                this.gridControl1.DataSource=DetectEquipmentBindingSource;
+                this.gridControl1.DataSource = DetectEquipmentBindingSource;
 
                 dec = new DetectEquipmentCls();
 
@@ -214,7 +210,7 @@ namespace HullShellTest.UI
             }
             catch (System.Exception ex)
             {
-            	return false;
+                return false;
             }
         }
 
@@ -223,10 +219,10 @@ namespace HullShellTest.UI
             try
             {
                 dec = new DetectEquipmentCls();
-                int[] rows=this.gridView1.GetSelectedRows();
+                int[] rows = this.gridView1.GetSelectedRows();
                 dec = (DetectEquipmentCls)this.gridView1.GetRow(rows[0]);
 
-                this.txtEquipmentName.Text=dec.MeasureDeviceName;
+                this.txtEquipmentName.Text = dec.MeasureDeviceName;
                 this.txtCameraResolution.Text = dec.CameraResolution;
                 this.txtPixelLength.Text = dec.PixelSize;
                 this.txtPrecious.Text = dec.StdPrecision.ToString();
@@ -239,6 +235,5 @@ namespace HullShellTest.UI
                 return false;
             }
         }
-
     }
 }

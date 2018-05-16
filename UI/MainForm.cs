@@ -59,5 +59,12 @@ namespace HullShellTest.UI
             shfrm.MdiParent = this;
             shfrm.Show();
         }
+
+        private void btn_ProcessParameter_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ProcessParameterFrm shfrm = new ProcessParameterFrm();
+            shfrm.MdiParent = this;
+            shfrm.Show();
+        }
     }
 }

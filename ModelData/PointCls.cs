@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.ComponentModel;
 
 namespace HullShellTest.ModelData
 {
@@ -14,15 +15,52 @@ namespace HullShellTest.ModelData
             z = 0;
         }
 
-        public PointCls(double a,double b,double c)
+        public PointCls(double a, double b, double c)
         {
             x = a;
             y = b;
             z = c;
         }
 
-        public double x;
-        public double y;
-        public double z;
+        private double _x;
+        [DisplayName("X")]
+        public double x
+        {
+            get
+            {
+                return _x;
+            }
+            set
+            {
+                _x = value;
+            }
+        }
+
+        private double _y;
+        [DisplayName("Y")]
+        public double y
+        {
+            get
+            {
+                return _y;
+            }
+            set
+            {
+                _y = value;
+            }
+        }
+        private double _z;
+        [DisplayName("Z")]
+        public double z
+        {
+            get
+            {
+                return _z;
+            }
+            set
+            {
+                _z = value;
+            }
+        }
     }
 }

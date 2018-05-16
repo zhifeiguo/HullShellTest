@@ -10,16 +10,22 @@ namespace HullShellTest.ModelData
         public ScanPointsCls()
         {
             SPList = new List<PointCls>();
+            FileName = "";
         }
 
         private string _FileName;
         public string FileName
         {
-            get { return _FileName; }
-            set { _FileName = value; }
+            get
+            {
+                return _FileName;
+            }
+            set
+            {
+                _FileName = value;
+            }
         }
 
         public List<PointCls> SPList;
-
     }
 }
