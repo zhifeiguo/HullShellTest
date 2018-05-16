@@ -25,7 +25,8 @@ namespace HullShellTest.DAL
 
                 x_Max = StdShell.Pt_Max.x,
                 y_Max = StdShell.Pt_Max.y,
-                z_Max = StdShell.Pt_Max.z };
+                z_Max = StdShell.Pt_Max.z 
+                };
 
                 //增加回弹属性
                 ResilienceFactor rf = new ResilienceFactor() { ResilienCoefficient = StdShell.rfc.ResilienCoefficient,

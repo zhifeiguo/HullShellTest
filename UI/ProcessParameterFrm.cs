@@ -38,23 +38,139 @@ namespace HullShellTest.UI
             this.cbxProcessEquipment.Text = "";
             this.cbxWorker.Text = "";
 
+            treeListStdHullName.Nodes.Clear();
+
             init_TreeList();
             AddtreelistNode();
+
+            this.layoutControlGroup1.Enabled = false;
+            this.layoutControlGroup2.Enabled = false;
+
+            this.treeListStdHullName.FocusedNode = null;
+            ModelParameterDAL.QueryModelParameter();
         }
 
-         public List<StdHull> StdHullList=new List<StdHull>();
+         public string local_stdhullname;
+
+        public  override bool  AddData()
+        {
+            this.layoutControlGroup1.Enabled = true;
+            this.layoutControlGroup2.Enabled = true;
+
+ 	        return base.AddData();
+        }
+
+        public override bool SaveDataA()
+        {
+            try
+            {
+                if (AddorModify == AddOrModifyEnum.Add)
+                {
+                    ModelParamterBasicCls mpcls = new ModelParamterBasicCls();
+
+                    mpcls.ProcessNumbers = Convert.ToInt32(this.txtProcessTime.Text.ToString());
+                    mpcls.EnvTemperation = Convert.ToDouble(this.txtTemperature.Text.ToString());
+                    mpcls.RecordTime = DateTime.Now;
+                    mpcls.Coefficient = Convert.ToDouble(this.txtCofficient.Text.ToString());
+                    mpcls.ResilienceValue = Convert.ToDouble(this.textResValue.Text.ToString());
+                    mpcls.StdHullName = this.local_stdhullname;
+
+                    mpcls.SoftwareName = this.cbxSoftwareInfo.Text.ToString();
+                    mpcls.DetectEquipmentName = this.cbxMeasureDevice.Text.ToString();
+                    mpcls.ProcessEquipmentName = this.cbxProcessEquipment.Text.ToString();
+                    mpcls.UserName = this.cbxWorker.Text.ToString();
+
+                    int re=ModelParameterDAL.AddModelParameter(mpcls);
+
+                    //macls = new MaterialCls();
+
+                    //macls.MaterialName = this.txtMaterialName.Text.ToString();
+                    //macls.ElasticModulus = Convert.ToDouble(this.txtElasticModulus.Text.ToString());
+                    //macls.TensileStrength = Convert.ToDouble(this.txtTensileStrength.Text.ToString());
+                    //macls.YieldSrength = Convert.ToDouble(this.txtYieldSrength.Text.ToString());
+                    //macls.UltimateElongation = Convert.ToDouble(this.txtUltimateElongation.Text.ToString());
+                    //macls.ReductionOfArea = Convert.ToDouble(this.txtReductionOfArea.Text.ToString());
+                    //macls.HardenablityValue = Convert.ToDouble(this.txtHardenablityValue.Text.ToString());
+                    //macls.StrainOfWidthAndThickness = Convert.ToDouble(this.txtStrainOfWidthAndThickness.Text.ToString());
+
+                    //int re = MaterialDAL.AddMaterial(macls);
+
+                    if (re> 0)
+                    {
+                        //MaterialBindingSource.DataSource = macls;
+                        //this.gridControl1.DataSource = MaterialBindingSource;
+
+                        //this.layoutControlGroup1.Enabled = false;
+
+                        //this.txtMaterialName.Text = "";
+                        //this.txtElasticModulus.Text = "";
+                        //this.txtTensileStrength.Text = "";
+                        //this.txtYieldSrength.Text = "";
+                        //this.txtUltimateElongation.Text = "";
+                        //this.txtReductionOfArea.Text = "";
+                        //this.txtHardenablityValue.Text = "";
+                        //this.txtStrainOfWidthAndThickness.Text = "";
+
+                        //init_cmbBox();
+
+                        MessageBox.Show("加工参数增加成功！");
+
+                        return true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("加工参数增加失败！");
+
+                        return false;
+                    }
+                }
+                else
+                    if (AddorModify == AddOrModifyEnum.Modify)
+                    {
+                        //macls.MaterialName = this.txtMaterialName.Text.ToString();
+                        //macls.ElasticModulus = Convert.ToDouble(this.txtElasticModulus.Text.ToString());
+                        //macls.TensileStrength = Convert.ToDouble(this.txtTensileStrength.Text.ToString());
+                        //macls.YieldSrength = Convert.ToDouble(this.txtYieldSrength.Text.ToString());
+                        //macls.UltimateElongation = Convert.ToDouble(this.txtUltimateElongation.Text.ToString());
+                        //macls.ReductionOfArea = Convert.ToDouble(this.txtReductionOfArea.Text.ToString());
+                        //macls.HardenablityValue = Convert.ToDouble(this.txtHardenablityValue.Text.ToString());
+                        //macls.StrainOfWidthAndThickness = Convert.ToDouble(this.txtStrainOfWidthAndThickness.Text.ToString());
+
+                        //MaterialDAL.ModifyMaterialByid(macls);
+
+                        //this.layoutControlGroup1.Enabled = false;
+
+                        //init_cmbBox();
+
+
+                        return true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("加工参数添加/修改失败！");
+                        return false;
+                    }
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show("加工参数添加失败：{0}！", ex.Message.ToString());
+                return false;
+            }
+        }
+
+         public List<StdHullTreeList> StdHullList = new List<StdHullTreeList>();
 
         private void init_TreeList()
         {
             //初始化理论曲板列表
             DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumnOrder = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             treeListColumnOrder.Caption = "序号";
-            treeListColumnOrder.FieldName = "ID";
+            treeListColumnOrder.FieldName = "OrderID";
             treeListColumnOrder.MinWidth = 25;
             treeListColumnOrder.Name = "treeListColumnOrder";
             treeListColumnOrder.Visible = true;
             treeListColumnOrder.VisibleIndex = 0;
-            treeListColumnOrder.Width = 50;
+            treeListColumnOrder.Width = 25;
 
             DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumnStdHull = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             treeListColumnStdHull.Caption = "理论曲板名称";
@@ -66,18 +182,9 @@ namespace HullShellTest.UI
             treeListColumnOrder.MinWidth = 38;
             treeListColumnOrder.Width = 111;
 
-            #region
-            //DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumnStatisticValue = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            //treeListColumnStatisticValue.Caption = "选择";
-            ////treeListColumnStatisticValue.ColumnEdit = DevExpress.XtraEditors.CheckEdit;
-            //treeListColumnStatisticValue.FieldName = "IsChecked";
-            //treeListColumnStatisticValue.Name = "treeListColumnStatisticValue";
-            //treeListColumnStatisticValue.Visible = true;
-            //treeListColumnStatisticValue.VisibleIndex = 1;
-            #endregion
-
             this.treeListStdHullName.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
                 treeListColumnOrder,treeListColumnStdHull});
+
             this.treeListStdHullName.Nodes.Clear();
             this.treeListStdHullName.Refresh();
 
@@ -90,27 +197,57 @@ namespace HullShellTest.UI
             this.treeListStdHullName.OptionsBehavior.Editable = false;
             this.treeListStdHullName.OptionsBehavior.DragNodes = true;
             this.treeListStdHullName.OptionsSelection.MultiSelect = false;
-
-            treeListStdHullName.DataSource = StdHullList;
-            treeListStdHullName.Nodes.Clear();
-            treeListStdHullName.RefreshDataSource();
+            this.treeListStdHullName.ExpandAll();
         }
 
         public void AddtreelistNode()
         {
+            this.treeListStdHullName.Nodes.Clear();
+
             int i = 0;
+
             List<StdHullBasicInformationCls> StdHullBisList = StdHullShellDAL.GetAllStdHullShell();
 
             foreach (var val in StdHullBisList)
             {
-                StdHullList.Add(new StdHull
+                #region
+                //StdHullList.Add(new StdHullTreeList
+                //{
+                //    OrderID=i,
+                //    StdHullName=val.PlateModel,
+                //    ID=1
+                //    //ParentID=1
+                //});
+
+                //i++;
+                #endregion
+
+                TreeListNode nd = treeListStdHullName.AppendNode(new Object[]{val.Id.ToString(),val.PlateModel.ToString()},null);
+
+                List<string> childName = ModelParameterDAL.QueryModelParameter(val.PlateModel.ToString());
+
+                if (childName.Count == 0)
                 {
-                    ID=i,
-                    StdHullName=val.PlateModel
-                    //IsChecked=false
-                });
-                i++;
+                    continue;
+                }
+                else
+                {
+                    for(int j=0;j<childName.Count();j++)
+                    {
+
+                        treeListStdHullName.AppendNode(new Object[] { i.ToString(), childName[i].ToString() }, nd);
+                    }
+                }
+
+
             }
+
+            //treeListStdHullName.DataSource = StdHullList;
+
+
+            //treeListStdHullName.RefreshDataSource();
+
+            treeListStdHullName.ExpandAll();
         }
 
         private void creatMainLayerNode(string layerName, bool check)
@@ -193,35 +330,55 @@ namespace HullShellTest.UI
 
         }
 
+        private void treeListStdHullName_AfterFocusNode(object sender, DevExpress.XtraTreeList.NodeEventArgs e)
+        {
+            //MessageBox.Show("good!");
+
+            if(this.treeListStdHullName.FocusedNode==null)
+            {
+                return;
+            }
+            this.local_stdhullname = treeListStdHullName.Selection[0].GetDisplayText(1).ToString();
+
+            //MessageBox.Show(local_stdhullname);
+        }
+
     }
 
-    public class StdHull
+    public class StdHullTreeList
     {
-        public StdHull()
+        //public StdHullTreeList()
+        //{
+
+        //}
+
+        private int _OrderID;
+        public int OrderID
         {
+            get { return _OrderID; }
+            set { _OrderID = value; }
         }
 
-        private int _ID;
-        public int ID
-        {
-            get { return _ID; }
-            set { _ID = value; }
-        }
-
-        private string _StdHullName;
+        private string _StdHullName=string.Empty;
         public string StdHullName
         {
             get { return _StdHullName; }
             set { _StdHullName = value; }
         }
 
-        //private bool _IsChecked;
-        //public bool IsChecked
-        //{
-        //    get { return _IsChecked; }
-        //    set { _IsChecked = value; }
-        //}
+        private int m_iID = -1;  //子节点
+        public int ID
+        {
+            get { return m_iID; }
+            set { m_iID = value; }
+        }
 
+        private int m_iPartentID = -1; //父节点
+        public int ParentID
+        {
+            get { return m_iPartentID; }
+            set { m_iPartentID = value; }
+        }
 
     }
 

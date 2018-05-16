@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using HullShellTest.ModelData;
+using HullShellTest.ModelData.Extent;
 
 namespace HullShellTest.DAL
 {
@@ -108,6 +109,38 @@ namespace HullShellTest.DAL
         //    }
         //}
 
+        //增加
+        public static int AddModelParameter(ModelParamterBasicCls mpc)
+        {
+            using (HullShellContainer hs = new HullShellContainer())
+            {
+                ModelingParameter mp = new ModelingParameter
+                {
+                    //基本属性
+                    ProcessNumbers = mpc.ProcessNumbers,
+                    EnvTemperation = mpc.EnvTemperation,
+                    RecordTime = mpc.RecordTime,
+                    Coefficient = mpc.Coefficient,
+                    ResilienceValue = mpc._ResilienceValue,
+                    //索引属性
+                    StdHullShell = hs.StdHullShellSet.Where(s => s.PlateModel == mpc.StdHullName).FirstOrDefault(),
+                    ProcessingEquipment = hs.ProcessingEquipmentSet.Where(s => s.EquipMentName == mpc.ProcessEquipmentName).FirstOrDefault(),
+                    Software = hs.SoftwareSet.Where(s => s.SoftwareName == mpc.SoftwareName).FirstOrDefault(),
+                    DetectEquipment = hs.DetectEquipmentSet.Where(s => s.DetectEquipmentName == mpc.DetectEquipmentName).FirstOrDefault(),
+                    Admins = hs.AdminsSet.Where(a => a.UserName == mpc.UserName).FirstOrDefault(),
+
+                    //关联属性
+                    //ScanPoints = spts,
+                    //AdjustShapeFile = asf,
+                    //InterpolationFile = _if,
+                    //DefectsList = dlc,
+                };
+
+                hs.AddToModelingParameterSet(mp);
+
+                return hs.SaveChanges();
+            }
+        }
         ////删除
         //public int DeleteModelParameter(string _name,int time)
         //{
@@ -214,6 +247,55 @@ namespace HullShellTest.DAL
         //    }
 
         //}
+
+
+        //查询加工数据
+        public static List<string> QueryModelParameter(string StdHullName)
+        {
+            using (HullShellContainer hs = new HullShellContainer())
+            {
+                //hs.ModelingParameterSet.
+
+                int _Id = hs.StdHullShellSet.Where(s => s.PlateModel == StdHullName).FirstOrDefault().Id;
+
+                StdHullShell shs = hs.StdHullShellSet.Where(s => s.PlateModel == StdHullName).FirstOrDefault();
+
+                List<ModelingParameter> mpL=shs.ModelingParameter.ToList();
+
+                int x=shs.ModelingParameter.ToList().Count();
+
+                //shs.ModelingParameter.Load();
+
+
+                ModelingParameter mp = hs.ModelingParameterSet.Where(m=>m.Id>0).FirstOrDefault();
+
+                List<ModelingParameter> mpList = hs.ModelingParameterSet.Where(m => m.StdHullShell.Id == _Id).ToList();
+
+                List<string> namestr = new List<string>();
+
+                //List<ModelingParameter> mpList = hs.StdHullShellSet.Where(a => a.Id == _Id).FirstOrDefault().ModelingParameter.ToList();
+
+                for (int i = 0; i < mpList.Count; i++)
+                {
+                    namestr.Add("加工:"+mpList[i].Id);
+                }
+
+                //ExcessPoints eeps = shs.ExcessPoints;
+                //List<Point> eepList = eeps.Point.ToList();
+
+                return namestr;
+            }
+        }
+
+        //查询加工数据
+        public static void QueryModelParameter()
+        {
+            using (HullShellContainer hs = new HullShellContainer())
+            {
+                ModelingParameter mp = hs.ModelingParameterSet.Where(m => m.Id > 0).FirstOrDefault();
+            }
+        }
+
 
     }
 }

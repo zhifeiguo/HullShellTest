@@ -208,11 +208,11 @@
             this.btn_OpenProcessFile,
             this.btn_StdPoints,
             this.btn_StdPointsExport});
-            this.ribbonControl1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.ribbonControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ribbonControl1.MaxItemId = 22;
             this.ribbonControl1.PageCategories.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageCategory[] {
             this.ribbonPageCategory1});
-            this.ribbonControl1.Size = new System.Drawing.Size(1283, 184);
+            this.ribbonControl1.Size = new System.Drawing.Size(898, 151);
             // 
             // dockManager1
             // 
@@ -234,10 +234,11 @@
             this.panelContainer1.Controls.Add(this.dpOtherInfo);
             this.panelContainer1.Dock = DevExpress.XtraBars.Docking.DockingStyle.Left;
             this.panelContainer1.ID = new System.Guid("9990b582-a3f7-4a00-aa2e-d2b6edccfc82");
-            this.panelContainer1.Location = new System.Drawing.Point(0, 184);
+            this.panelContainer1.Location = new System.Drawing.Point(0, 151);
+            this.panelContainer1.Margin = new System.Windows.Forms.Padding(2);
             this.panelContainer1.Name = "panelContainer1";
             this.panelContainer1.OriginalSize = new System.Drawing.Size(272, 200);
-            this.panelContainer1.Size = new System.Drawing.Size(272, 676);
+            this.panelContainer1.Size = new System.Drawing.Size(272, 347);
             this.panelContainer1.Text = "panelContainer1";
             // 
             // dpBasicInformation
@@ -246,19 +247,17 @@
             this.dpBasicInformation.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
             this.dpBasicInformation.ID = new System.Guid("03003b71-6ac6-46f4-b386-24f2e7521868");
             this.dpBasicInformation.Location = new System.Drawing.Point(0, 0);
-            this.dpBasicInformation.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dpBasicInformation.Name = "dpBasicInformation";
-            this.dpBasicInformation.OriginalSize = new System.Drawing.Size(200, 200);
-            this.dpBasicInformation.Size = new System.Drawing.Size(272, 296);
+            this.dpBasicInformation.OriginalSize = new System.Drawing.Size(190, 188);
+            this.dpBasicInformation.Size = new System.Drawing.Size(272, 187);
             this.dpBasicInformation.Text = "基本信息";
             // 
             // dockPanel1_Container
             // 
             this.dockPanel1_Container.Controls.Add(this.layoutControl1);
-            this.dockPanel1_Container.Location = new System.Drawing.Point(4, 30);
-            this.dockPanel1_Container.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dockPanel1_Container.Location = new System.Drawing.Point(4, 23);
             this.dockPanel1_Container.Name = "dockPanel1_Container";
-            this.dockPanel1_Container.Size = new System.Drawing.Size(264, 262);
+            this.dockPanel1_Container.Size = new System.Drawing.Size(264, 160);
             this.dockPanel1_Container.TabIndex = 0;
             // 
             // layoutControl1
@@ -278,126 +277,114 @@
             this.layoutControl1.Controls.Add(this.textPlateName);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(264, 262);
+            this.layoutControl1.Size = new System.Drawing.Size(264, 160);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
             // cbxMaterialName
             // 
             this.cbxMaterialName.FormattingEnabled = true;
-            this.cbxMaterialName.Location = new System.Drawing.Point(111, 228);
+            this.cbxMaterialName.Location = new System.Drawing.Point(79, 312);
+            this.cbxMaterialName.Margin = new System.Windows.Forms.Padding(2);
             this.cbxMaterialName.Name = "cbxMaterialName";
-            this.cbxMaterialName.Size = new System.Drawing.Size(115, 30);
+            this.cbxMaterialName.Size = new System.Drawing.Size(156, 22);
             this.cbxMaterialName.TabIndex = 17;
             // 
             // textShipName
             // 
-            this.textShipName.Location = new System.Drawing.Point(111, 196);
-            this.textShipName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textShipName.Location = new System.Drawing.Point(79, 287);
             this.textShipName.Name = "textShipName";
-            this.textShipName.Size = new System.Drawing.Size(115, 28);
+            this.textShipName.Size = new System.Drawing.Size(156, 21);
             this.textShipName.StyleController = this.layoutControl1;
             this.textShipName.TabIndex = 15;
             // 
             // textLength2
             // 
-            this.textLength2.Location = new System.Drawing.Point(111, 164);
-            this.textLength2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textLength2.Location = new System.Drawing.Point(79, 262);
             this.textLength2.Name = "textLength2";
-            this.textLength2.Size = new System.Drawing.Size(115, 28);
+            this.textLength2.Size = new System.Drawing.Size(156, 21);
             this.textLength2.StyleController = this.layoutControl1;
             this.textLength2.TabIndex = 14;
             // 
             // textWidth2
             // 
-            this.textWidth2.Location = new System.Drawing.Point(111, 132);
-            this.textWidth2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textWidth2.Location = new System.Drawing.Point(79, 237);
             this.textWidth2.Name = "textWidth2";
-            this.textWidth2.Size = new System.Drawing.Size(115, 28);
+            this.textWidth2.Size = new System.Drawing.Size(156, 21);
             this.textWidth2.StyleController = this.layoutControl1;
             this.textWidth2.TabIndex = 13;
             // 
             // textPlateMode
             // 
-            this.textPlateMode.Location = new System.Drawing.Point(111, 100);
-            this.textPlateMode.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textPlateMode.Location = new System.Drawing.Point(79, 212);
             this.textPlateMode.Name = "textPlateMode";
-            this.textPlateMode.Size = new System.Drawing.Size(115, 28);
+            this.textPlateMode.Size = new System.Drawing.Size(156, 21);
             this.textPlateMode.StyleController = this.layoutControl1;
             this.textPlateMode.TabIndex = 12;
             // 
             // textCurve2
             // 
-            this.textCurve2.Location = new System.Drawing.Point(111, 68);
-            this.textCurve2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textCurve2.Location = new System.Drawing.Point(79, 187);
             this.textCurve2.Name = "textCurve2";
-            this.textCurve2.Size = new System.Drawing.Size(115, 28);
+            this.textCurve2.Size = new System.Drawing.Size(156, 21);
             this.textCurve2.StyleController = this.layoutControl1;
             this.textCurve2.TabIndex = 11;
             // 
             // textEdgeCount
             // 
-            this.textEdgeCount.Location = new System.Drawing.Point(111, 36);
-            this.textEdgeCount.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textEdgeCount.Location = new System.Drawing.Point(79, 162);
             this.textEdgeCount.Name = "textEdgeCount";
-            this.textEdgeCount.Size = new System.Drawing.Size(115, 28);
+            this.textEdgeCount.Size = new System.Drawing.Size(156, 21);
             this.textEdgeCount.StyleController = this.layoutControl1;
             this.textEdgeCount.TabIndex = 10;
             // 
             // textRiblineCount
             // 
-            this.textRiblineCount.Location = new System.Drawing.Point(111, 4);
-            this.textRiblineCount.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textRiblineCount.Location = new System.Drawing.Point(79, 137);
             this.textRiblineCount.Name = "textRiblineCount";
-            this.textRiblineCount.Size = new System.Drawing.Size(115, 28);
+            this.textRiblineCount.Size = new System.Drawing.Size(156, 21);
             this.textRiblineCount.StyleController = this.layoutControl1;
             this.textRiblineCount.TabIndex = 9;
             // 
             // textCurve1
             // 
-            this.textCurve1.Location = new System.Drawing.Point(111, -28);
-            this.textCurve1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textCurve1.Location = new System.Drawing.Point(79, 112);
             this.textCurve1.Name = "textCurve1";
-            this.textCurve1.Size = new System.Drawing.Size(115, 28);
+            this.textCurve1.Size = new System.Drawing.Size(156, 21);
             this.textCurve1.StyleController = this.layoutControl1;
             this.textCurve1.TabIndex = 8;
             // 
             // textLength1
             // 
-            this.textLength1.Location = new System.Drawing.Point(111, -60);
-            this.textLength1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textLength1.Location = new System.Drawing.Point(79, 87);
             this.textLength1.Name = "textLength1";
-            this.textLength1.Size = new System.Drawing.Size(115, 28);
+            this.textLength1.Size = new System.Drawing.Size(156, 21);
             this.textLength1.StyleController = this.layoutControl1;
             this.textLength1.TabIndex = 7;
             // 
             // textWidth1
             // 
-            this.textWidth1.Location = new System.Drawing.Point(111, -92);
-            this.textWidth1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textWidth1.Location = new System.Drawing.Point(79, 62);
             this.textWidth1.Name = "textWidth1";
-            this.textWidth1.Size = new System.Drawing.Size(115, 28);
+            this.textWidth1.Size = new System.Drawing.Size(156, 21);
             this.textWidth1.StyleController = this.layoutControl1;
             this.textWidth1.TabIndex = 6;
             // 
             // textThickness
             // 
-            this.textThickness.Location = new System.Drawing.Point(111, -124);
-            this.textThickness.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textThickness.Location = new System.Drawing.Point(79, 37);
             this.textThickness.Name = "textThickness";
-            this.textThickness.Size = new System.Drawing.Size(115, 28);
+            this.textThickness.Size = new System.Drawing.Size(156, 21);
             this.textThickness.StyleController = this.layoutControl1;
             this.textThickness.TabIndex = 5;
             // 
             // textPlateName
             // 
-            this.textPlateName.Location = new System.Drawing.Point(111, -156);
-            this.textPlateName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textPlateName.Location = new System.Drawing.Point(79, 12);
             this.textPlateName.Name = "textPlateName";
-            this.textPlateName.Size = new System.Drawing.Size(115, 28);
+            this.textPlateName.Size = new System.Drawing.Size(156, 21);
             this.textPlateName.StyleController = this.layoutControl1;
             this.textPlateName.TabIndex = 4;
             // 
@@ -420,9 +407,9 @@
             this.layoutControlItem11,
             this.layoutControlItem12,
             this.layoutControlItem23});
-            this.layoutControlGroup1.Location = new System.Drawing.Point(0, -168);
+            this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(238, 430);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(247, 345);
             this.layoutControlGroup1.Text = "layoutControlGroup1";
             this.layoutControlGroup1.TextVisible = false;
             // 
@@ -432,129 +419,129 @@
             this.layoutControlItem1.CustomizationFormText = "layoutControlItem1";
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(218, 32);
+            this.layoutControlItem1.Size = new System.Drawing.Size(227, 25);
             this.layoutControlItem1.Text = "曲板名称:";
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(96, 22);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(64, 14);
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.textThickness;
             this.layoutControlItem2.CustomizationFormText = "layoutControlItem2";
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 32);
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 25);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(218, 32);
+            this.layoutControlItem2.Size = new System.Drawing.Size(227, 25);
             this.layoutControlItem2.Text = "厚度:";
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(96, 22);
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(64, 14);
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.textWidth1;
             this.layoutControlItem3.CustomizationFormText = "layoutControlItem3";
-            this.layoutControlItem3.Location = new System.Drawing.Point(0, 64);
+            this.layoutControlItem3.Location = new System.Drawing.Point(0, 50);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(218, 32);
+            this.layoutControlItem3.Size = new System.Drawing.Size(227, 25);
             this.layoutControlItem3.Text = "宽度1:";
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(96, 22);
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(64, 14);
             // 
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.textLength1;
             this.layoutControlItem4.CustomizationFormText = "layoutControlItem4";
-            this.layoutControlItem4.Location = new System.Drawing.Point(0, 96);
+            this.layoutControlItem4.Location = new System.Drawing.Point(0, 75);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(218, 32);
+            this.layoutControlItem4.Size = new System.Drawing.Size(227, 25);
             this.layoutControlItem4.Text = "长度1:";
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(96, 22);
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(64, 14);
             // 
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.textCurve1;
             this.layoutControlItem5.CustomizationFormText = "layoutControlItem5";
-            this.layoutControlItem5.Location = new System.Drawing.Point(0, 128);
+            this.layoutControlItem5.Location = new System.Drawing.Point(0, 100);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(218, 32);
+            this.layoutControlItem5.Size = new System.Drawing.Size(227, 25);
             this.layoutControlItem5.Text = "横向曲率:";
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(96, 22);
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(64, 14);
             // 
             // layoutControlItem6
             // 
             this.layoutControlItem6.Control = this.textRiblineCount;
             this.layoutControlItem6.CustomizationFormText = "layoutControlItem6";
-            this.layoutControlItem6.Location = new System.Drawing.Point(0, 160);
+            this.layoutControlItem6.Location = new System.Drawing.Point(0, 125);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(218, 32);
+            this.layoutControlItem6.Size = new System.Drawing.Size(227, 25);
             this.layoutControlItem6.Text = "肋位线数目:";
-            this.layoutControlItem6.TextSize = new System.Drawing.Size(96, 22);
+            this.layoutControlItem6.TextSize = new System.Drawing.Size(64, 14);
             // 
             // layoutControlItem7
             // 
             this.layoutControlItem7.Control = this.textEdgeCount;
             this.layoutControlItem7.CustomizationFormText = "layoutControlItem7";
-            this.layoutControlItem7.Location = new System.Drawing.Point(0, 192);
+            this.layoutControlItem7.Location = new System.Drawing.Point(0, 150);
             this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(218, 32);
+            this.layoutControlItem7.Size = new System.Drawing.Size(227, 25);
             this.layoutControlItem7.Text = "边数:";
-            this.layoutControlItem7.TextSize = new System.Drawing.Size(96, 22);
+            this.layoutControlItem7.TextSize = new System.Drawing.Size(64, 14);
             // 
             // layoutControlItem8
             // 
             this.layoutControlItem8.Control = this.textCurve2;
             this.layoutControlItem8.CustomizationFormText = "layoutControlItem8";
-            this.layoutControlItem8.Location = new System.Drawing.Point(0, 224);
+            this.layoutControlItem8.Location = new System.Drawing.Point(0, 175);
             this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(218, 32);
+            this.layoutControlItem8.Size = new System.Drawing.Size(227, 25);
             this.layoutControlItem8.Text = "纵向曲率:";
-            this.layoutControlItem8.TextSize = new System.Drawing.Size(96, 22);
+            this.layoutControlItem8.TextSize = new System.Drawing.Size(64, 14);
             // 
             // layoutControlItem9
             // 
             this.layoutControlItem9.Control = this.textPlateMode;
             this.layoutControlItem9.CustomizationFormText = "layoutControlItem9";
-            this.layoutControlItem9.Location = new System.Drawing.Point(0, 256);
+            this.layoutControlItem9.Location = new System.Drawing.Point(0, 200);
             this.layoutControlItem9.Name = "layoutControlItem9";
-            this.layoutControlItem9.Size = new System.Drawing.Size(218, 32);
+            this.layoutControlItem9.Size = new System.Drawing.Size(227, 25);
             this.layoutControlItem9.Text = "曲板类型:";
-            this.layoutControlItem9.TextSize = new System.Drawing.Size(96, 22);
+            this.layoutControlItem9.TextSize = new System.Drawing.Size(64, 14);
             // 
             // layoutControlItem10
             // 
             this.layoutControlItem10.Control = this.textWidth2;
             this.layoutControlItem10.CustomizationFormText = "layoutControlItem10";
-            this.layoutControlItem10.Location = new System.Drawing.Point(0, 288);
+            this.layoutControlItem10.Location = new System.Drawing.Point(0, 225);
             this.layoutControlItem10.Name = "layoutControlItem10";
-            this.layoutControlItem10.Size = new System.Drawing.Size(218, 32);
+            this.layoutControlItem10.Size = new System.Drawing.Size(227, 25);
             this.layoutControlItem10.Text = "宽度2:";
-            this.layoutControlItem10.TextSize = new System.Drawing.Size(96, 22);
+            this.layoutControlItem10.TextSize = new System.Drawing.Size(64, 14);
             // 
             // layoutControlItem11
             // 
             this.layoutControlItem11.Control = this.textLength2;
             this.layoutControlItem11.CustomizationFormText = "layoutControlItem11";
-            this.layoutControlItem11.Location = new System.Drawing.Point(0, 320);
+            this.layoutControlItem11.Location = new System.Drawing.Point(0, 250);
             this.layoutControlItem11.Name = "layoutControlItem11";
-            this.layoutControlItem11.Size = new System.Drawing.Size(218, 32);
+            this.layoutControlItem11.Size = new System.Drawing.Size(227, 25);
             this.layoutControlItem11.Text = "长度2:";
-            this.layoutControlItem11.TextSize = new System.Drawing.Size(96, 22);
+            this.layoutControlItem11.TextSize = new System.Drawing.Size(64, 14);
             // 
             // layoutControlItem12
             // 
             this.layoutControlItem12.Control = this.textShipName;
             this.layoutControlItem12.CustomizationFormText = "layoutControlItem12";
-            this.layoutControlItem12.Location = new System.Drawing.Point(0, 352);
+            this.layoutControlItem12.Location = new System.Drawing.Point(0, 275);
             this.layoutControlItem12.Name = "layoutControlItem12";
-            this.layoutControlItem12.Size = new System.Drawing.Size(218, 32);
+            this.layoutControlItem12.Size = new System.Drawing.Size(227, 25);
             this.layoutControlItem12.Text = "船舶名称:";
-            this.layoutControlItem12.TextSize = new System.Drawing.Size(96, 22);
+            this.layoutControlItem12.TextSize = new System.Drawing.Size(64, 14);
             // 
             // layoutControlItem23
             // 
             this.layoutControlItem23.Control = this.cbxMaterialName;
             this.layoutControlItem23.CustomizationFormText = "材料名称：";
-            this.layoutControlItem23.Location = new System.Drawing.Point(0, 384);
+            this.layoutControlItem23.Location = new System.Drawing.Point(0, 300);
             this.layoutControlItem23.Name = "layoutControlItem23";
-            this.layoutControlItem23.Size = new System.Drawing.Size(218, 26);
+            this.layoutControlItem23.Size = new System.Drawing.Size(227, 25);
             this.layoutControlItem23.Text = "材料名称：";
-            this.layoutControlItem23.TextSize = new System.Drawing.Size(96, 22);
+            this.layoutControlItem23.TextSize = new System.Drawing.Size(64, 14);
             // 
             // dpOtherInfo
             // 
@@ -562,20 +549,18 @@
             this.dpOtherInfo.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
             this.dpOtherInfo.FloatVertical = true;
             this.dpOtherInfo.ID = new System.Guid("ade9a24e-d47c-44ef-aee2-205e84edc6cb");
-            this.dpOtherInfo.Location = new System.Drawing.Point(0, 296);
-            this.dpOtherInfo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dpOtherInfo.Location = new System.Drawing.Point(0, 187);
             this.dpOtherInfo.Name = "dpOtherInfo";
-            this.dpOtherInfo.OriginalSize = new System.Drawing.Size(264, 606);
-            this.dpOtherInfo.Size = new System.Drawing.Size(272, 380);
+            this.dpOtherInfo.OriginalSize = new System.Drawing.Size(190, 242);
+            this.dpOtherInfo.Size = new System.Drawing.Size(272, 160);
             this.dpOtherInfo.Text = "其他信息";
             // 
             // dockPanel3_Container
             // 
             this.dockPanel3_Container.Controls.Add(this.layoutControl2);
-            this.dockPanel3_Container.Location = new System.Drawing.Point(4, 30);
-            this.dockPanel3_Container.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dockPanel3_Container.Location = new System.Drawing.Point(4, 23);
             this.dockPanel3_Container.Name = "dockPanel3_Container";
-            this.dockPanel3_Container.Size = new System.Drawing.Size(264, 346);
+            this.dockPanel3_Container.Size = new System.Drawing.Size(264, 133);
             this.dockPanel3_Container.TabIndex = 0;
             // 
             // layoutControl2
@@ -589,74 +574,66 @@
             this.layoutControl2.Controls.Add(this.txtDir);
             this.layoutControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl2.Location = new System.Drawing.Point(0, 0);
-            this.layoutControl2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.layoutControl2.Name = "layoutControl2";
             this.layoutControl2.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(580, 147, 250, 350);
             this.layoutControl2.Root = this.layoutControlGroup2;
-            this.layoutControl2.Size = new System.Drawing.Size(264, 346);
+            this.layoutControl2.Size = new System.Drawing.Size(264, 133);
             this.layoutControl2.TabIndex = 0;
             this.layoutControl2.Text = "layoutControl2";
             // 
             // txtCurve
             // 
-            this.txtCurve.Location = new System.Drawing.Point(117, 296);
-            this.txtCurve.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtCurve.Location = new System.Drawing.Point(87, 240);
             this.txtCurve.Name = "txtCurve";
-            this.txtCurve.Size = new System.Drawing.Size(97, 28);
+            this.txtCurve.Size = new System.Drawing.Size(136, 21);
             this.txtCurve.StyleController = this.layoutControl2;
             this.txtCurve.TabIndex = 10;
             // 
             // txtWidthRange
             // 
-            this.txtWidthRange.Location = new System.Drawing.Point(117, 264);
-            this.txtWidthRange.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtWidthRange.Location = new System.Drawing.Point(87, 215);
             this.txtWidthRange.Name = "txtWidthRange";
-            this.txtWidthRange.Size = new System.Drawing.Size(97, 28);
+            this.txtWidthRange.Size = new System.Drawing.Size(136, 21);
             this.txtWidthRange.StyleController = this.layoutControl2;
             this.txtWidthRange.TabIndex = 9;
             // 
             // txtCurveRange
             // 
-            this.txtCurveRange.Location = new System.Drawing.Point(117, 232);
-            this.txtCurveRange.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtCurveRange.Location = new System.Drawing.Point(87, 190);
             this.txtCurveRange.Name = "txtCurveRange";
-            this.txtCurveRange.Size = new System.Drawing.Size(97, 28);
+            this.txtCurveRange.Size = new System.Drawing.Size(136, 21);
             this.txtCurveRange.StyleController = this.layoutControl2;
             this.txtCurveRange.TabIndex = 8;
             // 
             // txtResilienceFactor
             // 
-            this.txtResilienceFactor.Location = new System.Drawing.Point(117, 200);
-            this.txtResilienceFactor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtResilienceFactor.Location = new System.Drawing.Point(87, 165);
             this.txtResilienceFactor.Name = "txtResilienceFactor";
-            this.txtResilienceFactor.Size = new System.Drawing.Size(97, 28);
+            this.txtResilienceFactor.Size = new System.Drawing.Size(136, 21);
             this.txtResilienceFactor.StyleController = this.layoutControl2;
             this.txtResilienceFactor.TabIndex = 7;
             // 
             // txtMax
             // 
-            this.txtMax.Location = new System.Drawing.Point(117, 116);
-            this.txtMax.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtMax.Location = new System.Drawing.Point(87, 95);
             this.txtMax.Name = "txtMax";
-            this.txtMax.Size = new System.Drawing.Size(97, 28);
+            this.txtMax.Size = new System.Drawing.Size(136, 21);
             this.txtMax.StyleController = this.layoutControl2;
             this.txtMax.TabIndex = 6;
             // 
             // txtMin
             // 
-            this.txtMin.Location = new System.Drawing.Point(117, 84);
-            this.txtMin.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtMin.Location = new System.Drawing.Point(87, 70);
             this.txtMin.Name = "txtMin";
-            this.txtMin.Size = new System.Drawing.Size(97, 28);
+            this.txtMin.Size = new System.Drawing.Size(136, 21);
             this.txtMin.StyleController = this.layoutControl2;
             this.txtMin.TabIndex = 5;
             // 
             // txtDir
             // 
-            this.txtDir.Location = new System.Drawing.Point(117, 52);
-            this.txtDir.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtDir.Location = new System.Drawing.Point(87, 45);
             this.txtDir.Name = "txtDir";
-            this.txtDir.Size = new System.Drawing.Size(97, 28);
+            this.txtDir.Size = new System.Drawing.Size(136, 21);
             this.txtDir.StyleController = this.layoutControl2;
             this.txtDir.TabIndex = 4;
             // 
@@ -670,7 +647,7 @@
             this.layoutControlGroup4});
             this.layoutControlGroup2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup2.Name = "layoutControlGroup2";
-            this.layoutControlGroup2.Size = new System.Drawing.Size(238, 348);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(247, 285);
             this.layoutControlGroup2.Text = "layoutControlGroup2";
             this.layoutControlGroup2.TextVisible = false;
             // 
@@ -683,7 +660,7 @@
             this.layoutControlItem15});
             this.layoutControlGroup3.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup3.Name = "layoutControlGroup3";
-            this.layoutControlGroup3.Size = new System.Drawing.Size(218, 148);
+            this.layoutControlGroup3.Size = new System.Drawing.Size(227, 120);
             this.layoutControlGroup3.Text = "包围盒信息";
             // 
             // layoutControlItem13
@@ -692,29 +669,29 @@
             this.layoutControlItem13.CustomizationFormText = "layoutControlItem13";
             this.layoutControlItem13.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem13.Name = "layoutControlItem13";
-            this.layoutControlItem13.Size = new System.Drawing.Size(194, 32);
+            this.layoutControlItem13.Size = new System.Drawing.Size(203, 25);
             this.layoutControlItem13.Text = "方向向量:";
-            this.layoutControlItem13.TextSize = new System.Drawing.Size(90, 22);
+            this.layoutControlItem13.TextSize = new System.Drawing.Size(60, 14);
             // 
             // layoutControlItem14
             // 
             this.layoutControlItem14.Control = this.txtMin;
             this.layoutControlItem14.CustomizationFormText = "layoutControlItem14";
-            this.layoutControlItem14.Location = new System.Drawing.Point(0, 32);
+            this.layoutControlItem14.Location = new System.Drawing.Point(0, 25);
             this.layoutControlItem14.Name = "layoutControlItem14";
-            this.layoutControlItem14.Size = new System.Drawing.Size(194, 32);
+            this.layoutControlItem14.Size = new System.Drawing.Size(203, 25);
             this.layoutControlItem14.Text = "最小点:";
-            this.layoutControlItem14.TextSize = new System.Drawing.Size(90, 22);
+            this.layoutControlItem14.TextSize = new System.Drawing.Size(60, 14);
             // 
             // layoutControlItem15
             // 
             this.layoutControlItem15.Control = this.txtMax;
             this.layoutControlItem15.CustomizationFormText = "layoutControlItem15";
-            this.layoutControlItem15.Location = new System.Drawing.Point(0, 64);
+            this.layoutControlItem15.Location = new System.Drawing.Point(0, 50);
             this.layoutControlItem15.Name = "layoutControlItem15";
-            this.layoutControlItem15.Size = new System.Drawing.Size(194, 32);
+            this.layoutControlItem15.Size = new System.Drawing.Size(203, 25);
             this.layoutControlItem15.Text = "最大点:";
-            this.layoutControlItem15.TextSize = new System.Drawing.Size(90, 22);
+            this.layoutControlItem15.TextSize = new System.Drawing.Size(60, 14);
             // 
             // layoutControlGroup4
             // 
@@ -724,9 +701,9 @@
             this.layoutControlItem17,
             this.layoutControlItem18,
             this.layoutControlItem19});
-            this.layoutControlGroup4.Location = new System.Drawing.Point(0, 148);
+            this.layoutControlGroup4.Location = new System.Drawing.Point(0, 120);
             this.layoutControlGroup4.Name = "layoutControlGroup4";
-            this.layoutControlGroup4.Size = new System.Drawing.Size(218, 180);
+            this.layoutControlGroup4.Size = new System.Drawing.Size(227, 145);
             this.layoutControlGroup4.Text = "回弹信息";
             // 
             // layoutControlItem16
@@ -735,39 +712,39 @@
             this.layoutControlItem16.CustomizationFormText = "layoutControlItem16";
             this.layoutControlItem16.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem16.Name = "layoutControlItem16";
-            this.layoutControlItem16.Size = new System.Drawing.Size(194, 32);
+            this.layoutControlItem16.Size = new System.Drawing.Size(203, 25);
             this.layoutControlItem16.Text = "回弹系数:";
-            this.layoutControlItem16.TextSize = new System.Drawing.Size(90, 22);
+            this.layoutControlItem16.TextSize = new System.Drawing.Size(60, 14);
             // 
             // layoutControlItem17
             // 
             this.layoutControlItem17.Control = this.txtCurveRange;
             this.layoutControlItem17.CustomizationFormText = "layoutControlItem17";
-            this.layoutControlItem17.Location = new System.Drawing.Point(0, 32);
+            this.layoutControlItem17.Location = new System.Drawing.Point(0, 25);
             this.layoutControlItem17.Name = "layoutControlItem17";
-            this.layoutControlItem17.Size = new System.Drawing.Size(194, 32);
+            this.layoutControlItem17.Size = new System.Drawing.Size(203, 25);
             this.layoutControlItem17.Text = "曲率范围:";
-            this.layoutControlItem17.TextSize = new System.Drawing.Size(90, 22);
+            this.layoutControlItem17.TextSize = new System.Drawing.Size(60, 14);
             // 
             // layoutControlItem18
             // 
             this.layoutControlItem18.Control = this.txtWidthRange;
             this.layoutControlItem18.CustomizationFormText = "layoutControlItem18";
-            this.layoutControlItem18.Location = new System.Drawing.Point(0, 64);
+            this.layoutControlItem18.Location = new System.Drawing.Point(0, 50);
             this.layoutControlItem18.Name = "layoutControlItem18";
-            this.layoutControlItem18.Size = new System.Drawing.Size(194, 32);
+            this.layoutControlItem18.Size = new System.Drawing.Size(203, 25);
             this.layoutControlItem18.Text = "宽度范围：";
-            this.layoutControlItem18.TextSize = new System.Drawing.Size(90, 22);
+            this.layoutControlItem18.TextSize = new System.Drawing.Size(60, 14);
             // 
             // layoutControlItem19
             // 
             this.layoutControlItem19.Control = this.txtCurve;
             this.layoutControlItem19.CustomizationFormText = "layoutControlItem19";
-            this.layoutControlItem19.Location = new System.Drawing.Point(0, 96);
+            this.layoutControlItem19.Location = new System.Drawing.Point(0, 75);
             this.layoutControlItem19.Name = "layoutControlItem19";
-            this.layoutControlItem19.Size = new System.Drawing.Size(194, 32);
+            this.layoutControlItem19.Size = new System.Drawing.Size(203, 25);
             this.layoutControlItem19.Text = "曲率：";
-            this.layoutControlItem19.TextSize = new System.Drawing.Size(90, 22);
+            this.layoutControlItem19.TextSize = new System.Drawing.Size(60, 14);
             // 
             // panelContainer2
             // 
@@ -777,10 +754,11 @@
             this.panelContainer2.Dock = DevExpress.XtraBars.Docking.DockingStyle.Bottom;
             this.panelContainer2.FloatVertical = true;
             this.panelContainer2.ID = new System.Guid("e99a4b14-105c-40dd-9594-3f1c335fe813");
-            this.panelContainer2.Location = new System.Drawing.Point(272, 628);
+            this.panelContainer2.Location = new System.Drawing.Point(272, 266);
+            this.panelContainer2.Margin = new System.Windows.Forms.Padding(2);
             this.panelContainer2.Name = "panelContainer2";
             this.panelContainer2.OriginalSize = new System.Drawing.Size(200, 232);
-            this.panelContainer2.Size = new System.Drawing.Size(1011, 232);
+            this.panelContainer2.Size = new System.Drawing.Size(626, 232);
             this.panelContainer2.Tabbed = true;
             this.panelContainer2.Text = "panelContainer2";
             // 
@@ -790,11 +768,10 @@
             this.dpPointsCloud.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
             this.dpPointsCloud.FloatVertical = true;
             this.dpPointsCloud.ID = new System.Guid("c9b32abf-7ad8-4533-b35a-1968703ff85b");
-            this.dpPointsCloud.Location = new System.Drawing.Point(4, 30);
-            this.dpPointsCloud.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dpPointsCloud.Location = new System.Drawing.Point(4, 23);
             this.dpPointsCloud.Name = "dpPointsCloud";
-            this.dpPointsCloud.OriginalSize = new System.Drawing.Size(200, 200);
-            this.dpPointsCloud.Size = new System.Drawing.Size(1003, 162);
+            this.dpPointsCloud.OriginalSize = new System.Drawing.Size(702, 103);
+            this.dpPointsCloud.Size = new System.Drawing.Size(618, 177);
             this.dpPointsCloud.Text = "理论点云数据";
             // 
             // dockPanel2_Container
@@ -802,9 +779,8 @@
             this.dockPanel2_Container.Controls.Add(this.panelControl1);
             this.dockPanel2_Container.Controls.Add(this.gridControl2);
             this.dockPanel2_Container.Location = new System.Drawing.Point(0, 0);
-            this.dockPanel2_Container.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dockPanel2_Container.Name = "dockPanel2_Container";
-            this.dockPanel2_Container.Size = new System.Drawing.Size(1003, 162);
+            this.dockPanel2_Container.Size = new System.Drawing.Size(618, 177);
             this.dockPanel2_Container.TabIndex = 0;
             // 
             // panelControl1
@@ -812,9 +788,8 @@
             this.panelControl1.Controls.Add(this.layoutControl3);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
-            this.panelControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(120, 162);
+            this.panelControl1.Size = new System.Drawing.Size(0, 177);
             this.panelControl1.TabIndex = 0;
             // 
             // layoutControl3
@@ -823,36 +798,32 @@
             this.layoutControl3.Controls.Add(this.txtPointsCloumn);
             this.layoutControl3.Controls.Add(this.cbxStdPoints);
             this.layoutControl3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl3.Location = new System.Drawing.Point(2, 2);
-            this.layoutControl3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.layoutControl3.Location = new System.Drawing.Point(1, 2);
             this.layoutControl3.Name = "layoutControl3";
             this.layoutControl3.Root = this.layoutControlGroup5;
-            this.layoutControl3.Size = new System.Drawing.Size(116, 158);
+            this.layoutControl3.Size = new System.Drawing.Size(0, 173);
             this.layoutControl3.TabIndex = 0;
             this.layoutControl3.Text = "layoutControl3";
             // 
             // txtPointRow
             // 
-            this.txtPointRow.Location = new System.Drawing.Point(93, 44);
-            this.txtPointRow.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtPointRow.Location = new System.Drawing.Point(67, 37);
             this.txtPointRow.Name = "txtPointRow";
-            this.txtPointRow.Size = new System.Drawing.Size(50, 28);
+            this.txtPointRow.Size = new System.Drawing.Size(50, 21);
             this.txtPointRow.StyleController = this.layoutControl3;
             this.txtPointRow.TabIndex = 3;
             // 
             // txtPointsCloumn
             // 
-            this.txtPointsCloumn.Location = new System.Drawing.Point(93, 76);
-            this.txtPointsCloumn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtPointsCloumn.Location = new System.Drawing.Point(67, 62);
             this.txtPointsCloumn.Name = "txtPointsCloumn";
-            this.txtPointsCloumn.Size = new System.Drawing.Size(50, 28);
+            this.txtPointsCloumn.Size = new System.Drawing.Size(50, 21);
             this.txtPointsCloumn.StyleController = this.layoutControl3;
             this.txtPointsCloumn.TabIndex = 2;
             // 
             // cbxStdPoints
             // 
-            this.cbxStdPoints.Location = new System.Drawing.Point(93, 12);
-            this.cbxStdPoints.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cbxStdPoints.Location = new System.Drawing.Point(67, 12);
             this.cbxStdPoints.Name = "cbxStdPoints";
             this.cbxStdPoints.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -861,7 +832,7 @@
             "余量点云",
             "边边交点",
             "类位线点云"});
-            this.cbxStdPoints.Size = new System.Drawing.Size(50, 28);
+            this.cbxStdPoints.Size = new System.Drawing.Size(50, 21);
             this.cbxStdPoints.StyleController = this.layoutControl3;
             this.cbxStdPoints.TabIndex = 0;
             this.cbxStdPoints.SelectedIndexChanged += new System.EventHandler(this.cbxStdPoints_SelectedIndexChanged);
@@ -878,7 +849,7 @@
             this.layoutControlItem21});
             this.layoutControlGroup5.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup5.Name = "layoutControlGroup5";
-            this.layoutControlGroup5.Size = new System.Drawing.Size(155, 132);
+            this.layoutControlGroup5.Size = new System.Drawing.Size(129, 156);
             this.layoutControlGroup5.Text = "layoutControlGroup5";
             this.layoutControlGroup5.TextVisible = false;
             // 
@@ -886,21 +857,21 @@
             // 
             this.layoutControlItem20.Control = this.txtPointRow;
             this.layoutControlItem20.CustomizationFormText = "点云行数:";
-            this.layoutControlItem20.Location = new System.Drawing.Point(0, 32);
+            this.layoutControlItem20.Location = new System.Drawing.Point(0, 25);
             this.layoutControlItem20.Name = "layoutControlItem20";
-            this.layoutControlItem20.Size = new System.Drawing.Size(135, 32);
+            this.layoutControlItem20.Size = new System.Drawing.Size(109, 25);
             this.layoutControlItem20.Text = "点云行数:";
-            this.layoutControlItem20.TextSize = new System.Drawing.Size(78, 22);
+            this.layoutControlItem20.TextSize = new System.Drawing.Size(52, 14);
             // 
             // layoutControlItem22
             // 
             this.layoutControlItem22.Control = this.txtPointsCloumn;
             this.layoutControlItem22.CustomizationFormText = "点云列数";
-            this.layoutControlItem22.Location = new System.Drawing.Point(0, 64);
+            this.layoutControlItem22.Location = new System.Drawing.Point(0, 50);
             this.layoutControlItem22.Name = "layoutControlItem22";
-            this.layoutControlItem22.Size = new System.Drawing.Size(135, 48);
+            this.layoutControlItem22.Size = new System.Drawing.Size(109, 86);
             this.layoutControlItem22.Text = "点云列数";
-            this.layoutControlItem22.TextSize = new System.Drawing.Size(78, 22);
+            this.layoutControlItem22.TextSize = new System.Drawing.Size(52, 14);
             // 
             // layoutControlItem21
             // 
@@ -908,19 +879,17 @@
             this.layoutControlItem21.CustomizationFormText = "点云类别:";
             this.layoutControlItem21.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem21.Name = "layoutControlItem21";
-            this.layoutControlItem21.Size = new System.Drawing.Size(135, 32);
+            this.layoutControlItem21.Size = new System.Drawing.Size(109, 25);
             this.layoutControlItem21.Text = "点云类别:";
-            this.layoutControlItem21.TextSize = new System.Drawing.Size(78, 22);
+            this.layoutControlItem21.TextSize = new System.Drawing.Size(52, 14);
             // 
             // gridControl2
             // 
             this.gridControl2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.gridControl2.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.gridControl2.Location = new System.Drawing.Point(120, 0);
+            this.gridControl2.Location = new System.Drawing.Point(0, 0);
             this.gridControl2.MainView = this.gridView2;
-            this.gridControl2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.gridControl2.Name = "gridControl2";
-            this.gridControl2.Size = new System.Drawing.Size(883, 162);
+            this.gridControl2.Size = new System.Drawing.Size(618, 177);
             this.gridControl2.TabIndex = 0;
             this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -935,28 +904,32 @@
             this.dpScanPoints.Controls.Add(this.controlContainer1);
             this.dpScanPoints.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
             this.dpScanPoints.ID = new System.Guid("ef886ebd-e0b4-42c2-9dcd-f4c7bac4c9c7");
-            this.dpScanPoints.Location = new System.Drawing.Point(4, 30);
+            this.dpScanPoints.Location = new System.Drawing.Point(4, 23);
+            this.dpScanPoints.Margin = new System.Windows.Forms.Padding(2);
             this.dpScanPoints.Name = "dpScanPoints";
-            this.dpScanPoints.OriginalSize = new System.Drawing.Size(200, 200);
-            this.dpScanPoints.Size = new System.Drawing.Size(1003, 162);
+            this.dpScanPoints.OriginalSize = new System.Drawing.Size(702, 103);
+            this.dpScanPoints.Size = new System.Drawing.Size(618, 177);
             this.dpScanPoints.Text = "测量点云数据";
             // 
             // controlContainer1
             // 
             this.controlContainer1.Controls.Add(this.gridControl3);
             this.controlContainer1.Location = new System.Drawing.Point(0, 0);
+            this.controlContainer1.Margin = new System.Windows.Forms.Padding(2);
             this.controlContainer1.Name = "controlContainer1";
-            this.controlContainer1.Size = new System.Drawing.Size(1003, 162);
+            this.controlContainer1.Size = new System.Drawing.Size(618, 177);
             this.controlContainer1.TabIndex = 0;
             // 
             // gridControl3
             // 
             this.gridControl3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl3.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2);
             this.gridControl3.Location = new System.Drawing.Point(0, 0);
             this.gridControl3.MainView = this.gridView3;
+            this.gridControl3.Margin = new System.Windows.Forms.Padding(2);
             this.gridControl3.MenuManager = this.ribbonControl1;
             this.gridControl3.Name = "gridControl3";
-            this.gridControl3.Size = new System.Drawing.Size(1003, 162);
+            this.gridControl3.Size = new System.Drawing.Size(618, 177);
             this.gridControl3.TabIndex = 0;
             this.gridControl3.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView3});
@@ -971,19 +944,17 @@
             this.dockPanel4.Controls.Add(this.dockPanel4_Container);
             this.dockPanel4.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
             this.dockPanel4.ID = new System.Guid("0b1e3a48-1f6f-43eb-9d0a-71b8fd237993");
-            this.dockPanel4.Location = new System.Drawing.Point(272, 184);
-            this.dockPanel4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dockPanel4.Location = new System.Drawing.Point(272, 151);
             this.dockPanel4.Name = "dockPanel4";
             this.dockPanel4.OriginalSize = new System.Drawing.Size(1053, 200);
-            this.dockPanel4.Size = new System.Drawing.Size(1011, 444);
+            this.dockPanel4.Size = new System.Drawing.Size(626, 115);
             this.dockPanel4.Text = "dockPanel4";
             // 
             // dockPanel4_Container
             // 
-            this.dockPanel4_Container.Location = new System.Drawing.Point(4, 30);
-            this.dockPanel4_Container.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dockPanel4_Container.Location = new System.Drawing.Point(4, 23);
             this.dockPanel4_Container.Name = "dockPanel4_Container";
-            this.dockPanel4_Container.Size = new System.Drawing.Size(1003, 410);
+            this.dockPanel4_Container.Size = new System.Drawing.Size(618, 88);
             this.dockPanel4_Container.TabIndex = 0;
             // 
             // StdHullBindingSource
@@ -1069,13 +1040,13 @@
             // 
             // StdHullFrm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1283, 860);
+            this.ClientSize = new System.Drawing.Size(898, 498);
             this.Controls.Add(this.dockPanel4);
             this.Controls.Add(this.panelContainer2);
             this.Controls.Add(this.panelContainer1);
-            this.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "StdHullFrm";
             this.Text = "理论曲板信息";
             this.Controls.SetChildIndex(this.ribbonControl1, 0);

@@ -2,13 +2,30 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.ComponentModel;
 
 namespace HullShellTest.ModelData.Extent
 {
     public class ModelParamterBasicCls
     {
+        //索引
+        private int _Id;
+        [DisplayName("索引")]
+        public int Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                _Id = value;
+            }
+        }
+
         //加工次数
         private int _ProcessNumbers;
+        [DisplayName("加工次数")]
         public int ProcessNumbers
         {
             get
@@ -23,6 +40,7 @@ namespace HullShellTest.ModelData.Extent
 
         //环境温度
         private double _EnvTemperation;
+        [DisplayName("环境温度")]
         public double EnvTemperation
         {
             get
@@ -37,6 +55,7 @@ namespace HullShellTest.ModelData.Extent
 
         //记录时间
         private DateTime _RecordTime;
+        [DisplayName("记录时间")]
         public DateTime RecordTime
         {
             get
@@ -51,6 +70,7 @@ namespace HullShellTest.ModelData.Extent
 
         //系数
         private Double _Coefficient;
+        [DisplayName("逼近系数")]
         public double Coefficient
         {
             get
@@ -65,6 +85,7 @@ namespace HullShellTest.ModelData.Extent
 
         //回弹量,此处取均值
         public double _ResilienceValue;
+        [DisplayName("回弹值")]
         public double ResilienceValue
         {
             get
@@ -79,6 +100,7 @@ namespace HullShellTest.ModelData.Extent
 
         //理论板名称
         private string _StdHullName;
+        [DisplayName("理论板名称")]
         public string StdHullName
         {
             get
@@ -93,6 +115,7 @@ namespace HullShellTest.ModelData.Extent
 
         //作业人员姓名
         private string _UserName;
+        [DisplayName("作业人员姓名")]
         public string UserName
         {
             get
@@ -107,6 +130,7 @@ namespace HullShellTest.ModelData.Extent
 
         //测量软件
         private string _SoftwareName;
+      [DisplayName("测量软件")]
         public string SoftwareName
         {
             get
@@ -121,6 +145,7 @@ namespace HullShellTest.ModelData.Extent
 
         //检测设备
         private string _DetectEquipmentName;
+        [DisplayName("检测设备")]
         public string DetectEquipmentName
         {
             get
@@ -135,6 +160,7 @@ namespace HullShellTest.ModelData.Extent
 
         //加工设备
         private string _ProcessEquipmentName;
+        [DisplayName("加工设备")]
         public string ProcessEquipmentName
         {
             get

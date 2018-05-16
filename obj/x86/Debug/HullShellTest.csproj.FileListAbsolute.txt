@@ -23,3 +23,20 @@ D:\project\vsproject\HullShellTest\obj\x86\Debug\HullShellTest.exe.licenses
 D:\project\vsproject\HullShellTest\obj\x86\Debug\HullShellTest.exe
 D:\project\vsproject\HullShellTest\obj\x86\Debug\HullShellTest.pdb
 D:\project\vsproject\HullShellTest\obj\x86\Debug\HullShellTest.UI.ProcessParameterFrm.resources
+E:\Files Saved\VS2010Prject\HullShellTest\obj\x86\Debug\HullShellTest.Properties.Resources.resources
+E:\Files Saved\VS2010Prject\HullShellTest\obj\x86\Debug\HullShellTest.UI.AdminsFrm.resources
+E:\Files Saved\VS2010Prject\HullShellTest\obj\x86\Debug\HullShellTest.UI.DetectEquipmentFrm.resources
+E:\Files Saved\VS2010Prject\HullShellTest\obj\x86\Debug\HullShellTest.UI.MainForm.resources
+E:\Files Saved\VS2010Prject\HullShellTest\obj\x86\Debug\HullShellTest.UI.MaterialFrm.resources
+E:\Files Saved\VS2010Prject\HullShellTest\obj\x86\Debug\HullShellTest.UI.ProcessEquipmentFrm.resources
+E:\Files Saved\VS2010Prject\HullShellTest\obj\x86\Debug\HullShellTest.UI.ProcessParameterFrm.resources
+E:\Files Saved\VS2010Prject\HullShellTest\obj\x86\Debug\HullShellTest.UI.SoftwareFrm.resources
+E:\Files Saved\VS2010Prject\HullShellTest\obj\x86\Debug\HullShellTest.UI.StdHullFrm.resources
+E:\Files Saved\VS2010Prject\HullShellTest\obj\x86\Debug\HullShellTest.UI.TemplateFrm.resources
+E:\Files Saved\VS2010Prject\HullShellTest\obj\x86\Debug\HullShellTest.csproj.GenerateResource.Cache
+E:\Files Saved\VS2010Prject\HullShellTest\obj\x86\Debug\HullShellTest.exe
+E:\Files Saved\VS2010Prject\HullShellTest\obj\x86\Debug\HullShellTest.pdb
+E:\Files Saved\VS2010Prject\bin\win32\HullShellTest.exe.config
+E:\Files Saved\VS2010Prject\bin\win32\HullShellTest.exe
+E:\Files Saved\VS2010Prject\bin\win32\HullShellTest.pdb
+E:\Files Saved\VS2010Prject\HullShellTest\obj\x86\Debug\HullShellTest.exe.licenses
