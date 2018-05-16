@@ -133,6 +133,7 @@
             this.btn_ProcessParameter.Id = 7;
             this.btn_ProcessParameter.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btn_ProcessParameter.LargeGlyph")));
             this.btn_ProcessParameter.Name = "btn_ProcessParameter";
+            this.btn_ProcessParameter.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_ProcessParameter_ItemClick);
             // 
             // ribbonPage1
             // 

@@ -336,7 +336,7 @@
   </Association>
   <Association Name="ModelingParameterScanPoints">
     <End Type="HullShell.ModelingParameter" Role="ModelingParameter" Multiplicity="1" />
-    <End Type="HullShell.ScanPoints" Role="ScanPoints" Multiplicity="1" />
+    <End Type="HullShell.ScanPoints" Role="ScanPoints" Multiplicity="0..1" />
   </Association>
   <EntityType Name="Admins">
     <Key>
@@ -493,7 +493,7 @@
   </Association>
   <Association Name="ModelingParameterAdjustShapeFile">
     <End Type="HullShell.ModelingParameter" Role="ModelingParameter" Multiplicity="1" />
-    <End Type="HullShell.AdjustShapeFile" Role="AdjustShapeFile" Multiplicity="1" />
+    <End Type="HullShell.AdjustShapeFile" Role="AdjustShapeFile" Multiplicity="0..1" />
   </Association>
   <Association Name="StdHullShellModelingParameter">
     <End Type="HullShell.StdHullShell" Role="StdHullShell" Multiplicity="1" />

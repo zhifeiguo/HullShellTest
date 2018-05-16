@@ -398,18 +398,51 @@ namespace HullShellTest.UI
                 }
                 else if (AddorModify == AddOrModifyEnum.Modify)
                 {
-        //            pecls.ProcessEquipmentName = this.textEquipmentName.Text.ToString();
-        //            pecls.DirverMode = this.txtDriveMode.Text.ToString();
-        //            pecls.PressureHeadLength = Convert.ToInt32(this.txtPressureSize.Text.ToString());
-        //            pecls.UpDieHeadNumber = Convert.ToInt32(this.txtUpCount.Text.ToString());
-        //            pecls.DownDieHeadNumber = Convert.ToInt32(this.txtDownCount.Text.ToString());
+                    #region
+                    //pecls.ProcessEquipmentName = this.textEquipmentName.Text.ToString();
+                    //pecls.DirverMode = this.txtDriveMode.Text.ToString();
+                    //pecls.PressureHeadLength = Convert.ToInt32(this.txtPressureSize.Text.ToString());
+                    //pecls.UpDieHeadNumber = Convert.ToInt32(this.txtUpCount.Text.ToString());
+                    //pecls.DownDieHeadNumber = Convert.ToInt32(this.txtDownCount.Text.ToString());
 
-        //            ProcessEquipmentDAL.ModifyProcessEquipmentById(pecls);
+                    //ProcessEquipmentDAL.ModifyProcessEquipmentById(pecls);
 
-        //            this.layoutControlGroup1.Enabled = false;
+                    //this.layoutControlGroup1.Enabled = false;
 
-        //            init_cmbBox();
+                    //init_cmbBox();
+                    #endregion
 
+                    //添加基本信息
+                   // StdHullBis = new StdHullBasicInformationCls();
+
+                    StdHullBis.PlateModel = this.textPlateName.Text.ToString();
+                    StdHullBis.Thickness = Convert.ToInt32(this.textThickness.Text.ToString());
+                    StdHullBis.Width1 = Convert.ToInt32(this.textWidth1.Text.ToString());
+                    StdHullBis.Width2 = Convert.ToInt32(this.textWidth2.Text.ToString());
+                    StdHullBis.Length1 = Convert.ToInt32(this.textLength1.Text.ToString());
+                    StdHullBis.Length2 = Convert.ToInt32(this.textLength2.Text.ToString());
+                    StdHullBis.TransverseCurvate = Convert.ToInt32(this.textCurve1.Text.ToString());
+                    StdHullBis.LongitudinalCurvature = Convert.ToInt32(this.textCurve2.Text.ToString());
+                    StdHullBis.SideCount = Convert.ToInt32(this.textEdgeCount.Text.ToString());
+                    StdHullBis.RiblineCount = Convert.ToInt32(this.textRiblineCount.Text.ToString());
+                    StdHullBis.ShipName = this.textShipName.Text.ToString();
+                    StdHullBis.MaterialName = this.cbxMaterialName.Text.ToString();
+                    StdHullBis.CurvePlateKind = this.textPlateMode.Text.ToString();
+
+                    StdHullCls.StdHullBasicInfo = StdHullBis;
+
+                    //添加回弹属性
+                    ResilienceFactorCls rfcls = new ResilienceFactorCls();
+                    rfcls.Curvature = Convert.ToDouble(this.txtCurve.Text.ToString());
+                    rfcls.CurvatureRange = Convert.ToDouble(this.txtCurveRange.Text.ToString());
+                    rfcls.ResilienCoefficient = Convert.ToDouble(this.txtResilienceFactor.Text.ToString());
+                    rfcls.WidthRange = Convert.ToDouble(this.txtWidthRange.Text.ToString());
+
+                    StdHullCls.rfc = rfcls;
+
+                    StdHullShellDAL.ModifyStdHullShellById(StdHullCls);
+
+                    RefreshData();
 
                     return true;
                 }
@@ -426,61 +459,70 @@ namespace HullShellTest.UI
             }
         }
 
-        ////删除
-        //public override bool DeleteData()
-        //{
-        //    try
-        //    {
-        //        if (XtraMessageBox.Show("是否删除选中的数据？", "友情提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
-        //        {
+        //删除
+        public override bool DeleteData()
+        {
+            int re = -1;
 
-        //            pecls = new ProcessEquipmentCls();
+            try
+            {
+                if (XtraMessageBox.Show("是否删除选中的数据？", "友情提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                {
+                    StdHullBis = new StdHullBasicInformationCls();
 
-        //            int[] rows = gridView1.GetSelectedRows();
+                    int[] rows = gridView1.GetSelectedRows();
 
-        //            for (int i = 0; i < rows.Length; i++)
-        //            {
-        //                pecls = (ProcessEquipmentCls)gridView1.GetRow(rows[i]);
-        //                ProcessEquipmentDAL.DeleteProcessEquipmentById(pecls.Id);
-        //            }
-        //        }
+                    for (int i = 0; i < rows.Length; i++)
+                    {
+                        StdHullBis = (StdHullBasicInformationCls)gridView1.GetRow(rows[i]);
+                        re = StdHullShellDAL.DeleteStdHullShellById(StdHullBis.Id);
+                    }
+                }
 
-        //        //QueryAll();
+                //QueryAll();
 
-        //        init_cmbBox();
+                if(re>0)
+                {
+                    MessageBox.Show("删除成功!");
+                }
 
-        //        return true;
-        //    }
-        //    catch (System.Exception ex)
-        //    {
-        //        return false;
-        //    }
+                init_cmbBox();
 
+                return true;
+            }
+            catch (System.Exception ex)
+            {
+                return false;
+            }
+        }
 
-        //    //return base.DeleteData();
-        //}
+        public override bool RefreshData()
+        {
+            try
+            {
+                string UserName = this.ItemObjectList.EditValue.ToString();
 
-        //public override bool RefreshData()
-        //{
-        //    try
-        //    {
-        //        string UserName = this.ItemObjectList.EditValue.ToString();
+                StdHullBasicInformationCls val = StdHullShellDAL.GetStdHullBasicInfoByName(UserName);
+                ResilienceFactorCls rfcls=StdHullShellDAL.GeteResilienceFactorById(val.Id);
 
-        //        ProcessEquipmentCls val = ProcessEquipmentDAL.QueryProcessEquipmentByName(UserName);
+                StdHullBindingSource.DataSource = val;
 
-        //        ProcessEquipmentBindingSource.DataSource = val;
+                gridControl1.DataSource = StdHullBindingSource;
 
-        //        gridControl1.DataSource = ProcessEquipmentBindingSource;
+                this.txtResilienceFactor.Text = rfcls.ResilienCoefficient.ToString();
+                this.txtWidthRange.Text = rfcls.WidthRange.ToString();
+                this.txtCurve.Text = rfcls.Curvature.ToString();
+                this.txtCurveRange.Text = rfcls.CurvatureRange.ToString();
 
-        //        return true;
-        //    }
-        //    catch (System.Exception ex)
-        //    {
-        //        return false;
-        //    }
-        //}
+                return true;
+            }
+            catch (System.Exception ex)
+            {
+                return false;
+            }
+        }
 
-        ////修改
+        //修改
         public override bool ModifyData()
         {
             try
@@ -496,29 +538,48 @@ namespace HullShellTest.UI
             }
         }
 
-        ////选择记录
-        //public override bool SelectRecord()
-        //{
-        //    try
-        //    {
-        //        pecls = new ProcessEquipmentCls();
+        //选择记录
+        public override bool SelectRecord()
+        {
+            try
+            {
+                StdHullBis = new StdHullBasicInformationCls();
 
-        //        int[] rows = gridView1.GetSelectedRows();
-        //        pecls = (ProcessEquipmentCls)gridView1.GetRow(rows[0]);
+                int[] rows = gridView1.GetSelectedRows();
+                StdHullBis = (StdHullBasicInformationCls)gridView1.GetRow(rows[0]);
+                //StdHullBis.Id = StdHullShellDAL.GetStdHullBasicInfoByName(StdHullBis.PlateModel).Id;
+                //基本信息
+                this.textPlateName.Text = StdHullBis.PlateModel;
+                this.textThickness.Text = Convert.ToString(StdHullBis.Thickness.ToString());
+                this.textWidth1.Text = StdHullBis.Width1.ToString();
+                this.textLength1.Text = StdHullBis.Length1.ToString();
+                this.textCurve1.Text = StdHullBis.TransverseCurvate.ToString();
+                this.textCurve2.Text = StdHullBis.LongitudinalCurvature.ToString();
+                this.textPlateMode.Text = StdHullBis.PlateModel.ToString();
+                this.textWidth2.Text = StdHullBis.Width1.ToString();
+                this.textLength2.Text = StdHullBis.Length2.ToString();
+                this.textShipName.Text = StdHullBis.ShipName.ToString();
+                this.cbxMaterialName.Text = StdHullBis.MaterialName.ToString();
 
-        //        textEquipmentName.Text = pecls.ProcessEquipmentName;
-        //        txtDriveMode.Text = pecls.DirverMode;
-        //        txtPressureSize.Text = pecls.PressureHeadLength.ToString();
-        //        txtDownCount.Text = pecls.DownDieHeadNumber.ToString();
-        //        txtUpCount.Text = pecls.UpDieHeadNumber.ToString();
+                this.textEdgeCount.Text = StdHullBis.SideCount.ToString();
+                this.textRiblineCount.Text = StdHullBis.RiblineCount.ToString();
 
-        //        return true;
-        //    }
-        //    catch (System.Exception ex)
-        //    {
-        //        return false;
-        //    }
-        //}
+                int HullId = StdHullShellDAL.GetStdHullBasicInfoByName(StdHullBis.PlateModel).Id;
+                ResilienceFactorCls rfcls = StdHullShellDAL.GeteResilienceFactorById(HullId);
+
+                //回弹属性
+                this.txtResilienceFactor.Text = rfcls.ResilienCoefficient.ToString();
+                this.txtWidthRange.Text = rfcls.WidthRange.ToString();
+                this.txtCurve.Text = rfcls.Curvature.ToString();
+                this.txtCurveRange.Text = rfcls.CurvatureRange.ToString();
+
+                return true;
+            }
+            catch (System.Exception ex)
+            {
+                return false;
+            }
+        }
 
 
 

@@ -118,7 +118,7 @@ namespace HullShellTest.DAL
             }
         }
 
-        //删除 Name
+        //删除 ByName
         public static int DeleteStdHullShellByName(string _name)
         {
             using (HullShellContainer hs = new HullShellContainer())
@@ -171,7 +171,7 @@ namespace HullShellTest.DAL
             }
         }
 
-        //删除，Id
+        //删除，ById
         public static int DeleteStdHullShellById(int Id)
         {
             using (HullShellContainer hs = new HullShellContainer())
@@ -179,10 +179,13 @@ namespace HullShellTest.DAL
                 StdHullShell shs = hs.StdHullShellSet.Where(s => s.Id == Id).FirstOrDefault();
 
                 //删除包围盒
+                shs.BoundingBoxReference.Load();
                 BoundingBox boundbox = shs.BoundingBox;
                 hs.DeleteObject(boundbox);
 
                 //删除理论点
+                shs.TheoryPointsReference.Load();
+                shs.TheoryPoints.Point.Load();
                 TheoryPoints tps = shs.TheoryPoints;
                 List<Point> tpsList = tps.Point.ToList();
                 for (int i = 0; i < tpsList.Count; i++)
@@ -192,6 +195,8 @@ namespace HullShellTest.DAL
                 hs.DeleteObject(tps);
 
                 //删除肋位线点
+                shs.RiblinePointsReference.Load();
+                shs.RiblinePoints.Point.Load();
                 RiblinePoints rps = shs.RiblinePoints;
                 List<Point> rpList = rps.Point.ToList();
                 for (int i = 0; i < rpList.Count; i++)
@@ -201,7 +206,10 @@ namespace HullShellTest.DAL
                 hs.DeleteObject(rps);
 
                 //删除余量点
+                shs.ExcessPointsReference.Load();
+                shs.ExcessPoints.Point.Load();
                 ExcessPoints eeps = shs.ExcessPoints;
+
                 List<Point> eepList = eeps.Point.ToList();
                 for (int i = 0; i < eepList.Count; i++)
                 {
@@ -210,6 +218,8 @@ namespace HullShellTest.DAL
                 hs.DeleteObject(eeps);
 
                 //删除边角点
+                shs.EdgeEdgePointsReference.Load();
+                shs.EdgeEdgePoints.Point.Load();
                 EdgeEdgePoints exps = shs.EdgeEdgePoints;
                 List<Point> expList = exps.Point.ToList();
                 for (int i = 0; i < expList.Count; i++)
@@ -217,6 +227,10 @@ namespace HullShellTest.DAL
                     hs.DeleteObject(expList[i]);
                 }
                 hs.DeleteObject(exps);
+
+                shs.ResilienceFactorReference.Load();
+                ResilienceFactor rfc = shs.ResilienceFactor;
+                hs.DeleteObject(rfc);
 
                 hs.DeleteObject(shs);
 
@@ -264,6 +278,7 @@ namespace HullShellTest.DAL
         {
             using (HullShellContainer hs = new HullShellContainer())
             {
+                int re=-1;
                 StdHullShell shs = hs.StdHullShellSet.Where(s => s.Id == StdShell.StdHullBasicInfo.Id).FirstOrDefault();
 
                 shs.PlateModel = StdShell.StdHullBasicInfo.PlateModel;
@@ -272,30 +287,38 @@ namespace HullShellTest.DAL
                 shs.Length1 = StdShell.StdHullBasicInfo.Length1;
                 shs.TransverseCurvate = StdShell.StdHullBasicInfo.TransverseCurvate;
                 shs.RiblineAmount = StdShell.StdHullBasicInfo.RiblineCount;
+                shs.SideAmount = StdShell.StdHullBasicInfo.SideCount;
                 shs.LongitudinalCurvature = StdShell.StdHullBasicInfo.LongitudinalCurvature;
                 shs.CurvePlateKind = StdShell.StdHullBasicInfo.CurvePlateKind;
                 shs.Width2 = StdShell.StdHullBasicInfo.Width2;
                 shs.Length2 = StdShell.StdHullBasicInfo.Length2;
                 shs.ShipName = StdShell.StdHullBasicInfo.ShipName;
 
-                shs.BoundingBox.x_Dir = StdShell.Dir.x;
-                shs.BoundingBox.y_Dir = StdShell.Dir.y;
-                shs.BoundingBox.z_Dir = StdShell.Dir.z;
+                shs.ResilienceFactorReference.Load();
+                shs.ResilienceFactor.ResilienCoefficient = StdShell.rfc.ResilienCoefficient;
+                shs.ResilienceFactor.CurvatureRange = StdShell.rfc.CurvatureRange;
+                shs.ResilienceFactor.Curvature = StdShell.rfc.Curvature;
+                shs.ResilienceFactor.WidthRange = StdShell.rfc.WidthRange;
 
-                shs.BoundingBox.x_Min = StdShell.Pt_Min.x;
-                shs.BoundingBox.y_Min = StdShell.Pt_Min.y;
-                shs.BoundingBox.z_Min = StdShell.Pt_Min.z;
 
-                shs.BoundingBox.x_Max = StdShell.Pt_Max.x;
-                shs.BoundingBox.y_Max = StdShell.Pt_Max.y;
-                shs.BoundingBox.z_Max = StdShell.Pt_Max.z;
+                //shs.BoundingBox.x_Dir = StdShell.Dir.x;
+                //shs.BoundingBox.y_Dir = StdShell.Dir.y;
+                //shs.BoundingBox.z_Dir = StdShell.Dir.z;
 
-                return hs.SaveChanges();
+                //shs.BoundingBox.x_Min = StdShell.Pt_Min.x;
+                //shs.BoundingBox.y_Min = StdShell.Pt_Min.y;
+                //shs.BoundingBox.z_Min = StdShell.Pt_Min.z;
+
+                //shs.BoundingBox.x_Max = StdShell.Pt_Max.x;
+                //shs.BoundingBox.y_Max = StdShell.Pt_Max.y;
+                //shs.BoundingBox.z_Max = StdShell.Pt_Max.z;
+
+                return re=hs.SaveChanges();
             }
         }
 
         //查询
-        public StdHullShellCls QueryStdHullShell(string _name)
+        public StdHullShellCls QueryStdHullShellByName(string _name)
         {
             using (HullShellContainer hs = new HullShellContainer())
             {
@@ -389,8 +412,6 @@ namespace HullShellTest.DAL
 
                 List<StdHullShell> shsList = hs.StdHullShellSet.Where(p => p.Id >= 0).ToList();
 
-
-
                 for (int i = 0; i < shsList.Count; i++)
                 {
                     shsList[i].MaterialReference.Load();
@@ -418,5 +439,66 @@ namespace HullShellTest.DAL
                 return ShsCls;
             }
         }
-    }
+
+        //根据Name查询船板基本信息
+        public static StdHullBasicInformationCls GetStdHullBasicInfoByName(string _name)
+        {
+            using (HullShellContainer hs = new HullShellContainer())
+            {
+                //StdHullBasicInformationCls ShsCls = new StdHullBasicInformationCls();
+
+                int re = 0;
+
+                StdHullShell shs = hs.StdHullShellSet.Where(p => p.PlateModel == _name).FirstOrDefault();
+
+                shs.MaterialReference.Load();
+
+                StdHullBasicInformationCls StdHullBasic = new StdHullBasicInformationCls
+                {
+                    Id = shs.Id,
+                    PlateModel = shs.PlateModel,
+                    Thickness = shs.Thickness,
+                    Width1 = shs.Width1,
+                    Length1 = shs.Length1,
+                    Width2 = shs.Width2,
+                    Length2 = shs.Length2,
+                    SideCount = shs.SideAmount,
+                    RiblineCount = shs.RiblineAmount,
+                    TransverseCurvate = shs.TransverseCurvate,
+                    LongitudinalCurvature = shs.LongitudinalCurvature,
+                    CurvePlateKind = shs.CurvePlateKind,
+                    ShipName = shs.ShipName,
+                    MaterialName = shs.Material.MaterialName.ToString()
+                };
+
+                return StdHullBasic;
+            }
+        }
+
+        //获取回弹值信息
+        public static ResilienceFactorCls GeteResilienceFactorById(int _Id)
+        {
+            using (HullShellContainer hs = new HullShellContainer())
+            {
+                int re = 0;
+
+                StdHullShell shs = hs.StdHullShellSet.Where(p => p.Id == _Id).FirstOrDefault();
+
+                shs.ResilienceFactorReference.Load();
+
+                ResilienceFactorCls rf = new ResilienceFactorCls()
+                {
+                    Id=shs.ResilienceFactor.Id,
+                    ResilienCoefficient = shs.ResilienceFactor.ResilienCoefficient,
+                    CurvatureRange = shs.ResilienceFactor.CurvatureRange,
+                    WidthRange = shs.ResilienceFactor.WidthRange,
+                    Curvature = shs.ResilienceFactor.CurvatureRange
+                };
+
+                return rf;
+            }
+        }
+
+
+       }
 }

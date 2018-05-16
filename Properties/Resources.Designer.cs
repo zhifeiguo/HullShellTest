@@ -63,6 +63,16 @@ namespace HullShellTest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _20120425014309243_easyicon_cn_32 {
+            get {
+                object obj = ResourceManager.GetObject("20120425014309243_easyicon_cn_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _40 {
             get {
                 object obj = ResourceManager.GetObject("40", resourceCulture);
@@ -86,6 +96,16 @@ namespace HullShellTest.Properties {
         internal static System.Drawing.Bitmap Action_Edit_32x32 {
             get {
                 object obj = ResourceManager.GetObject("Action_Edit_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Action_Export {
+            get {
+                object obj = ResourceManager.GetObject("Action_Export", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -133,9 +153,29 @@ namespace HullShellTest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap file_broken {
+            get {
+                object obj = ResourceManager.GetObject("file_broken", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Folder___Open_32 {
             get {
                 object obj = ResourceManager.GetObject("Folder - Open_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap grid1 {
+            get {
+                object obj = ResourceManager.GetObject("grid1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -166,6 +206,46 @@ namespace HullShellTest.Properties {
         internal static System.Drawing.Bitmap ModelEditor_IndexDown {
             get {
                 object obj = ResourceManager.GetObject("ModelEditor_IndexDown", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ModelMerge_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("ModelMerge_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap nfs_mount {
+            get {
+                object obj = ResourceManager.GetObject("nfs_mount", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pointCloud {
+            get {
+                object obj = ResourceManager.GetObject("pointCloud", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap scan_16 {
+            get {
+                object obj = ResourceManager.GetObject("scan_16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

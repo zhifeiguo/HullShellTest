@@ -163,9 +163,7 @@
     <Property Name="ProcessingEquipment_Id" Type="int" Nullable="false" />
     <Property Name="Software_Id" Type="int" Nullable="false" />
     <Property Name="DetectEquipment_Id" Type="int" Nullable="false" />
-    <Property Name="ScanPoints_Id" Type="int" Nullable="false" />
     <Property Name="Admins_Id" Type="int" Nullable="false" />
-    <Property Name="AdjustShapeFile_Id" Type="int" Nullable="false" />
     <Property Name="StdHullShell_Id" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="ProcessingEquipmentSet">
@@ -195,6 +193,7 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="FileName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ModelingParameter_Id" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="TheoryPointsSet">
     <Key>
@@ -309,6 +308,7 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="FileName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ModelingParameter_Id" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="HeightValueListSet">
     <Key>
@@ -406,14 +406,14 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="ModelingParameterScanPoints">
-    <End Role="ModelingParameter" Type="HullShell.Store.ModelingParameterSet" Multiplicity="*" />
-    <End Role="ScanPoints" Type="HullShell.Store.ScanPointsSet" Multiplicity="1" />
+    <End Role="ModelingParameter" Type="HullShell.Store.ModelingParameterSet" Multiplicity="1" />
+    <End Role="ScanPoints" Type="HullShell.Store.ScanPointsSet" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="ScanPoints">
+      <Principal Role="ModelingParameter">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="ModelingParameter">
-        <PropertyRef Name="ScanPoints_Id" />
+      <Dependent Role="ScanPoints">
+        <PropertyRef Name="ModelingParameter_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -598,14 +598,14 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="ModelingParameterAdjustShapeFile">
-    <End Role="ModelingParameter" Type="HullShell.Store.ModelingParameterSet" Multiplicity="*" />
-    <End Role="AdjustShapeFile" Type="HullShell.Store.AdjustShapeFileSet" Multiplicity="1" />
+    <End Role="ModelingParameter" Type="HullShell.Store.ModelingParameterSet" Multiplicity="1" />
+    <End Role="AdjustShapeFile" Type="HullShell.Store.AdjustShapeFileSet" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="AdjustShapeFile">
+      <Principal Role="ModelingParameter">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="ModelingParameter">
-        <PropertyRef Name="AdjustShapeFile_Id" />
+      <Dependent Role="AdjustShapeFile">
+        <PropertyRef Name="ModelingParameter_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

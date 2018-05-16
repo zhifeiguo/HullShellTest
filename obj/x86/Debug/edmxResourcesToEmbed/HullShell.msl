@@ -269,11 +269,11 @@
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="ModelingParameterScanPoints" TypeName="HullShell.ModelingParameterScanPoints" StoreEntitySet="ModelingParameterSet">
-      <EndProperty Name="ScanPoints">
-        <ScalarProperty Name="Id" ColumnName="ScanPoints_Id" />
-      </EndProperty>
+    <AssociationSetMapping Name="ModelingParameterScanPoints" TypeName="HullShell.ModelingParameterScanPoints" StoreEntitySet="ScanPointsSet">
       <EndProperty Name="ModelingParameter">
+        <ScalarProperty Name="Id" ColumnName="ModelingParameter_Id" />
+      </EndProperty>
+      <EndProperty Name="ScanPoints">
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
     </AssociationSetMapping>
@@ -404,11 +404,11 @@
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="ModelingParameterAdjustShapeFile" TypeName="HullShell.ModelingParameterAdjustShapeFile" StoreEntitySet="ModelingParameterSet">
-      <EndProperty Name="AdjustShapeFile">
-        <ScalarProperty Name="Id" ColumnName="AdjustShapeFile_Id" />
-      </EndProperty>
+    <AssociationSetMapping Name="ModelingParameterAdjustShapeFile" TypeName="HullShell.ModelingParameterAdjustShapeFile" StoreEntitySet="AdjustShapeFileSet">
       <EndProperty Name="ModelingParameter">
+        <ScalarProperty Name="Id" ColumnName="ModelingParameter_Id" />
+      </EndProperty>
+      <EndProperty Name="AdjustShapeFile">
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
     </AssociationSetMapping>

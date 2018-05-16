@@ -15,7 +15,6 @@ D:\project\vsproject\HullShellTest\obj\x86\Debug\HullShellTest.UI.DetectEquipmen
 D:\project\vsproject\HullShellTest\obj\x86\Debug\HullShellTest.UI.MainForm.resources
 D:\project\vsproject\HullShellTest\obj\x86\Debug\HullShellTest.UI.MaterialFrm.resources
 D:\project\vsproject\HullShellTest\obj\x86\Debug\HullShellTest.UI.ProcessEquipmentFrm.resources
-D:\project\vsproject\HullShellTest\obj\x86\Debug\HullShellTest.UI.ProcessParameterFrm.resources
 D:\project\vsproject\HullShellTest\obj\x86\Debug\HullShellTest.UI.SoftwareFrm.resources
 D:\project\vsproject\HullShellTest\obj\x86\Debug\HullShellTest.UI.StdHullFrm.resources
 D:\project\vsproject\HullShellTest\obj\x86\Debug\HullShellTest.UI.TemplateFrm.resources
@@ -23,3 +22,4 @@ D:\project\vsproject\HullShellTest\obj\x86\Debug\HullShellTest.csproj.GenerateRe
 D:\project\vsproject\HullShellTest\obj\x86\Debug\HullShellTest.exe.licenses
 D:\project\vsproject\HullShellTest\obj\x86\Debug\HullShellTest.exe
 D:\project\vsproject\HullShellTest\obj\x86\Debug\HullShellTest.pdb
+D:\project\vsproject\HullShellTest\obj\x86\Debug\HullShellTest.UI.ProcessParameterFrm.resources
