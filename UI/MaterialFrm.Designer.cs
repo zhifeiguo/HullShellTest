@@ -32,49 +32,49 @@
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
-            this.MaterialBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.txtMaterialName = new DevExpress.XtraEditors.TextEdit();
-            this.MaterialName = new DevExpress.XtraLayout.LayoutControlItem();
-            this.txtElasticModulus = new DevExpress.XtraEditors.TextEdit();
-            this.ElasticModulus = new DevExpress.XtraLayout.LayoutControlItem();
-            this.txtYieldSrength = new DevExpress.XtraEditors.TextEdit();
-            this.YieldSrength = new DevExpress.XtraLayout.LayoutControlItem();
-            this.txtTensileStrength = new DevExpress.XtraEditors.TextEdit();
-            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.txtUltimateElongation = new DevExpress.XtraEditors.TextEdit();
-            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.txtReductionOfArea = new DevExpress.XtraEditors.TextEdit();
-            this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.txtHardenablityValue = new DevExpress.XtraEditors.TextEdit();
-            this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.txtStrainOfWidthAndThickness = new DevExpress.XtraEditors.TextEdit();
+            this.txtHardenablityValue = new DevExpress.XtraEditors.TextEdit();
+            this.txtReductionOfArea = new DevExpress.XtraEditors.TextEdit();
+            this.txtUltimateElongation = new DevExpress.XtraEditors.TextEdit();
+            this.txtTensileStrength = new DevExpress.XtraEditors.TextEdit();
+            this.txtYieldSrength = new DevExpress.XtraEditors.TextEdit();
+            this.txtElasticModulus = new DevExpress.XtraEditors.TextEdit();
+            this.txtMaterialName = new DevExpress.XtraEditors.TextEdit();
+            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.MaterialName = new DevExpress.XtraLayout.LayoutControlItem();
+            this.ElasticModulus = new DevExpress.XtraLayout.LayoutControlItem();
+            this.YieldSrength = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.MaterialBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.cmbObjectList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
             this.dockPanel1_Container.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.MaterialBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMaterialName.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MaterialName)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtElasticModulus.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ElasticModulus)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtYieldSrength.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.YieldSrength)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTensileStrength.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtUltimateElongation.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtReductionOfArea.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtHardenablityValue.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtStrainOfWidthAndThickness.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtHardenablityValue.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtReductionOfArea.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtUltimateElongation.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTensileStrength.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtYieldSrength.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtElasticModulus.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMaterialName.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MaterialName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ElasticModulus)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.YieldSrength)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MaterialBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dockManager1
@@ -126,6 +126,70 @@
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
+            // txtStrainOfWidthAndThickness
+            // 
+            this.txtStrainOfWidthAndThickness.Location = new System.Drawing.Point(87, 187);
+            this.txtStrainOfWidthAndThickness.Name = "txtStrainOfWidthAndThickness";
+            this.txtStrainOfWidthAndThickness.Size = new System.Drawing.Size(134, 21);
+            this.txtStrainOfWidthAndThickness.StyleController = this.layoutControl1;
+            this.txtStrainOfWidthAndThickness.TabIndex = 11;
+            // 
+            // txtHardenablityValue
+            // 
+            this.txtHardenablityValue.Location = new System.Drawing.Point(87, 162);
+            this.txtHardenablityValue.Name = "txtHardenablityValue";
+            this.txtHardenablityValue.Size = new System.Drawing.Size(134, 21);
+            this.txtHardenablityValue.StyleController = this.layoutControl1;
+            this.txtHardenablityValue.TabIndex = 10;
+            // 
+            // txtReductionOfArea
+            // 
+            this.txtReductionOfArea.Location = new System.Drawing.Point(87, 137);
+            this.txtReductionOfArea.Name = "txtReductionOfArea";
+            this.txtReductionOfArea.Size = new System.Drawing.Size(134, 21);
+            this.txtReductionOfArea.StyleController = this.layoutControl1;
+            this.txtReductionOfArea.TabIndex = 9;
+            // 
+            // txtUltimateElongation
+            // 
+            this.txtUltimateElongation.Location = new System.Drawing.Point(87, 112);
+            this.txtUltimateElongation.Name = "txtUltimateElongation";
+            this.txtUltimateElongation.Size = new System.Drawing.Size(134, 21);
+            this.txtUltimateElongation.StyleController = this.layoutControl1;
+            this.txtUltimateElongation.TabIndex = 8;
+            // 
+            // txtTensileStrength
+            // 
+            this.txtTensileStrength.Location = new System.Drawing.Point(87, 87);
+            this.txtTensileStrength.Name = "txtTensileStrength";
+            this.txtTensileStrength.Size = new System.Drawing.Size(134, 21);
+            this.txtTensileStrength.StyleController = this.layoutControl1;
+            this.txtTensileStrength.TabIndex = 7;
+            // 
+            // txtYieldSrength
+            // 
+            this.txtYieldSrength.Location = new System.Drawing.Point(87, 62);
+            this.txtYieldSrength.Name = "txtYieldSrength";
+            this.txtYieldSrength.Size = new System.Drawing.Size(134, 21);
+            this.txtYieldSrength.StyleController = this.layoutControl1;
+            this.txtYieldSrength.TabIndex = 6;
+            // 
+            // txtElasticModulus
+            // 
+            this.txtElasticModulus.Location = new System.Drawing.Point(87, 37);
+            this.txtElasticModulus.Name = "txtElasticModulus";
+            this.txtElasticModulus.Size = new System.Drawing.Size(134, 21);
+            this.txtElasticModulus.StyleController = this.layoutControl1;
+            this.txtElasticModulus.TabIndex = 5;
+            // 
+            // txtMaterialName
+            // 
+            this.txtMaterialName.Location = new System.Drawing.Point(87, 12);
+            this.txtMaterialName.Name = "txtMaterialName";
+            this.txtMaterialName.Size = new System.Drawing.Size(134, 21);
+            this.txtMaterialName.StyleController = this.layoutControl1;
+            this.txtMaterialName.TabIndex = 4;
+            // 
             // layoutControlGroup1
             // 
             this.layoutControlGroup1.CustomizationFormText = "layoutControlGroup1";
@@ -146,15 +210,6 @@
             this.layoutControlGroup1.Text = "layoutControlGroup1";
             this.layoutControlGroup1.TextVisible = false;
             // 
-            // txtMaterialName
-            // 
-            this.txtMaterialName.Location = new System.Drawing.Point(88, 12);
-            //this.txtMaterialName.MenuManager = this.ribbonControl1;
-            this.txtMaterialName.Name = "txtMaterialName";
-            this.txtMaterialName.Size = new System.Drawing.Size(133, 21);
-            this.txtMaterialName.StyleController = this.layoutControl1;
-            this.txtMaterialName.TabIndex = 4;
-            // 
             // MaterialName
             // 
             this.MaterialName.Control = this.txtMaterialName;
@@ -164,15 +219,6 @@
             this.MaterialName.Size = new System.Drawing.Size(213, 25);
             this.MaterialName.Text = "材料名称";
             this.MaterialName.TextSize = new System.Drawing.Size(72, 14);
-            // 
-            // txtElasticModulus
-            // 
-            this.txtElasticModulus.Location = new System.Drawing.Point(88, 37);
-            //this.txtElasticModulus.MenuManager = this.ribbonControl1;
-            this.txtElasticModulus.Name = "txtElasticModulus";
-            this.txtElasticModulus.Size = new System.Drawing.Size(133, 21);
-            this.txtElasticModulus.StyleController = this.layoutControl1;
-            this.txtElasticModulus.TabIndex = 5;
             // 
             // ElasticModulus
             // 
@@ -184,15 +230,6 @@
             this.ElasticModulus.Text = "弹性模量";
             this.ElasticModulus.TextSize = new System.Drawing.Size(72, 14);
             // 
-            // txtYieldSrength
-            // 
-            this.txtYieldSrength.Location = new System.Drawing.Point(88, 62);
-            //this.txtYieldSrength.MenuManager = this.ribbonControl1;
-            this.txtYieldSrength.Name = "txtYieldSrength";
-            this.txtYieldSrength.Size = new System.Drawing.Size(133, 21);
-            this.txtYieldSrength.StyleController = this.layoutControl1;
-            this.txtYieldSrength.TabIndex = 6;
-            // 
             // YieldSrength
             // 
             this.YieldSrength.Control = this.txtYieldSrength;
@@ -202,15 +239,6 @@
             this.YieldSrength.Size = new System.Drawing.Size(213, 25);
             this.YieldSrength.Text = "屈服强度";
             this.YieldSrength.TextSize = new System.Drawing.Size(72, 14);
-            // 
-            // txtTensileStrength
-            // 
-            this.txtTensileStrength.Location = new System.Drawing.Point(88, 87);
-            //this.txtTensileStrength.MenuManager = this.ribbonControl1;
-            this.txtTensileStrength.Name = "txtTensileStrength";
-            this.txtTensileStrength.Size = new System.Drawing.Size(133, 21);
-            this.txtTensileStrength.StyleController = this.layoutControl1;
-            this.txtTensileStrength.TabIndex = 7;
             // 
             // layoutControlItem4
             // 
@@ -222,15 +250,6 @@
             this.layoutControlItem4.Text = "抗拉强度";
             this.layoutControlItem4.TextSize = new System.Drawing.Size(72, 14);
             // 
-            // txtUltimateElongation
-            // 
-            this.txtUltimateElongation.Location = new System.Drawing.Point(88, 112);
-           // this.txtUltimateElongation.MenuManager = this.ribbonControl1;
-            this.txtUltimateElongation.Name = "txtUltimateElongation";
-            this.txtUltimateElongation.Size = new System.Drawing.Size(133, 21);
-            this.txtUltimateElongation.StyleController = this.layoutControl1;
-            this.txtUltimateElongation.TabIndex = 8;
-            // 
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.txtUltimateElongation;
@@ -240,15 +259,6 @@
             this.layoutControlItem5.Size = new System.Drawing.Size(213, 25);
             this.layoutControlItem5.Text = "极限伸长量";
             this.layoutControlItem5.TextSize = new System.Drawing.Size(72, 14);
-            // 
-            // txtReductionOfArea
-            // 
-            this.txtReductionOfArea.Location = new System.Drawing.Point(88, 137);
-            //this.txtReductionOfArea.MenuManager = this.ribbonControl1;
-            this.txtReductionOfArea.Name = "txtReductionOfArea";
-            this.txtReductionOfArea.Size = new System.Drawing.Size(133, 21);
-            this.txtReductionOfArea.StyleController = this.layoutControl1;
-            this.txtReductionOfArea.TabIndex = 9;
             // 
             // layoutControlItem6
             // 
@@ -260,15 +270,6 @@
             this.layoutControlItem6.Text = "断面收缩率";
             this.layoutControlItem6.TextSize = new System.Drawing.Size(72, 14);
             // 
-            // txtHardenablityValue
-            // 
-            this.txtHardenablityValue.Location = new System.Drawing.Point(88, 162);
-            //this.txtHardenablityValue.MenuManager = this.ribbonControl1;
-            this.txtHardenablityValue.Name = "txtHardenablityValue";
-            this.txtHardenablityValue.Size = new System.Drawing.Size(133, 21);
-            this.txtHardenablityValue.StyleController = this.layoutControl1;
-            this.txtHardenablityValue.TabIndex = 10;
-            // 
             // layoutControlItem7
             // 
             this.layoutControlItem7.Control = this.txtHardenablityValue;
@@ -278,15 +279,6 @@
             this.layoutControlItem7.Size = new System.Drawing.Size(213, 25);
             this.layoutControlItem7.Text = "硬化指数";
             this.layoutControlItem7.TextSize = new System.Drawing.Size(72, 14);
-            // 
-            // txtStrainOfWidthAndThickness
-            // 
-            this.txtStrainOfWidthAndThickness.Location = new System.Drawing.Point(88, 187);
-            //this.txtStrainOfWidthAndThickness.MenuManager = this.ribbonControl1;
-            this.txtStrainOfWidthAndThickness.Name = "txtStrainOfWidthAndThickness";
-            this.txtStrainOfWidthAndThickness.Size = new System.Drawing.Size(133, 21);
-            this.txtStrainOfWidthAndThickness.StyleController = this.layoutControl1;
-            this.txtStrainOfWidthAndThickness.TabIndex = 11;
             // 
             // layoutControlItem8
             // 
@@ -311,26 +303,26 @@
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).EndInit();
             this.dockPanel1.ResumeLayout(false);
             this.dockPanel1_Container.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.MaterialBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMaterialName.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MaterialName)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtElasticModulus.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ElasticModulus)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtYieldSrength.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.YieldSrength)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTensileStrength.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtUltimateElongation.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtReductionOfArea.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtHardenablityValue.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtStrainOfWidthAndThickness.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtHardenablityValue.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtReductionOfArea.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtUltimateElongation.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTensileStrength.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtYieldSrength.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtElasticModulus.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMaterialName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MaterialName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ElasticModulus)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.YieldSrength)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MaterialBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

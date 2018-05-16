@@ -1591,7 +1591,7 @@
         <EntityTypeShape EntityType="HullShell.ExcessPoints" Width="1.5" PointX="5.5" PointY="6" Height="1.5879931640624996" IsExpanded="true" />
         <EntityTypeShape EntityType="HullShell.EdgeEdgePoints" Width="1.5" PointX="7.5" PointY="7.125" Height="1.3969734700520817" IsExpanded="true" />
         <EntityTypeShape EntityType="HullShell.FirstPoint" PointX="0.5" PointY="5.5" Width="1.5" Height="0.4" IsExpanded="false" />
-        <EntityTypeShape EntityType="HullShell.SecondPoint" PointX="0.625" PointY="4" Width="1.5" Height="0.4" IsExpanded="false" />
+        <EntityTypeShape EntityType="HullShell.SecondPoint" PointX="0.875" PointY="4" Width="1.5" Height="0.4" IsExpanded="false" />
         <EntityTypeShape EntityType="HullShell.MiddlePoint" PointX="0.5" PointY="4.75" Width="1.5" Height="0.4" IsExpanded="false" />
         <EntityTypeShape EntityType="HullShell.RiblinePoints" Width="1.5" PointX="4" PointY="4" Height="1.5879931640624996" IsExpanded="true" />
         <AssociationConnector Association="HullShell.ProcessingEquipmentModelingParameter">
