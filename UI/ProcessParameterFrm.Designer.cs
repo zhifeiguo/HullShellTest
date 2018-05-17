@@ -34,32 +34,28 @@
             this.dockPanel2_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.treeListStdHullName = new DevExpress.XtraTreeList.TreeList();
             this.panelContainer2 = new DevExpress.XtraBars.Docking.DockPanel();
-            this.dockPanel4 = new DevExpress.XtraBars.Docking.DockPanel();
-            this.dockPanel4_Container = new DevExpress.XtraBars.Docking.ControlContainer();
-            this.InterpolationGridControl = new DevExpress.XtraGrid.GridControl();
-            this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.txtTemperature = new DevExpress.XtraEditors.TextEdit();
             this.cbxWorker = new System.Windows.Forms.ComboBox();
             this.cbxSoftwareInfo = new System.Windows.Forms.ComboBox();
             this.cbxMeasureDevice = new System.Windows.Forms.ComboBox();
             this.cbxProcessEquipment = new System.Windows.Forms.ComboBox();
-            this.textEdit4 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit3 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
-            this.timeEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.textResValue = new DevExpress.XtraEditors.TextEdit();
+            this.txtCofficient = new DevExpress.XtraEditors.TextEdit();
+            this.txtRecordTime = new DevExpress.XtraEditors.TextEdit();
+            this.txtProcessTime = new DevExpress.XtraEditors.TextEdit();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.txtTemperature1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.dockPanel3 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel3_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
@@ -74,6 +70,10 @@
             this.dockPanel5_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.ModelGridControl = new DevExpress.XtraGrid.GridControl();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.dockPanel4 = new DevExpress.XtraBars.Docking.DockPanel();
+            this.dockPanel4_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+            this.InterpolationGridControl = new DevExpress.XtraGrid.GridControl();
+            this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.ribbonPageCategory1 = new DevExpress.XtraBars.Ribbon.RibbonPageCategory();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -84,6 +84,7 @@
             this.btn_PreciousTest = new DevExpress.XtraBars.BarButtonItem();
             this.btn_Test = new DevExpress.XtraBars.BarButtonItem();
             this.btn_ProcessGuide = new DevExpress.XtraBars.BarButtonItem();
+            this.ModelParameterBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.cmbObjectList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
@@ -91,29 +92,25 @@
             this.dockPanel2_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.treeListStdHullName)).BeginInit();
             this.panelContainer2.SuspendLayout();
-            this.dockPanel4.SuspendLayout();
-            this.dockPanel4_Container.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.InterpolationGridControl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
             this.dockPanel1.SuspendLayout();
             this.dockPanel1_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.timeEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTemperature.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textResValue.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCofficient.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRecordTime.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtProcessTime.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTemperature1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             this.dockPanel3.SuspendLayout();
             this.dockPanel3_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).BeginInit();
@@ -126,6 +123,11 @@
             this.dockPanel5_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ModelGridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+            this.dockPanel4.SuspendLayout();
+            this.dockPanel4_Container.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.InterpolationGridControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ModelParameterBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonControl1
@@ -142,11 +144,11 @@
             this.btn_PreciousTest,
             this.btn_Test,
             this.btn_ProcessGuide});
-            this.ribbonControl1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.ribbonControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ribbonControl1.MaxItemId = 20;
             this.ribbonControl1.PageCategories.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageCategory[] {
             this.ribbonPageCategory1});
-            this.ribbonControl1.Size = new System.Drawing.Size(887, 184);
+            this.ribbonControl1.Size = new System.Drawing.Size(853, 151);
             // 
             // dockManager1
             // 
@@ -166,31 +168,35 @@
             this.dockPanel2.Controls.Add(this.dockPanel2_Container);
             this.dockPanel2.Dock = DevExpress.XtraBars.Docking.DockingStyle.Left;
             this.dockPanel2.ID = new System.Guid("5df55814-1e29-418a-80d7-cd6fddf60d77");
-            this.dockPanel2.Location = new System.Drawing.Point(0, 184);
+            this.dockPanel2.Location = new System.Drawing.Point(0, 151);
+            this.dockPanel2.Margin = new System.Windows.Forms.Padding(2);
             this.dockPanel2.Name = "dockPanel2";
-            this.dockPanel2.OriginalSize = new System.Drawing.Size(310, 200);
-            this.dockPanel2.Size = new System.Drawing.Size(310, 415);
+            this.dockPanel2.OriginalSize = new System.Drawing.Size(246, 200);
+            this.dockPanel2.Size = new System.Drawing.Size(246, 276);
             this.dockPanel2.Text = "理论曲板集合";
             // 
             // dockPanel2_Container
             // 
             this.dockPanel2_Container.Controls.Add(this.treeListStdHullName);
-            this.dockPanel2_Container.Location = new System.Drawing.Point(4, 30);
+            this.dockPanel2_Container.Location = new System.Drawing.Point(4, 23);
+            this.dockPanel2_Container.Margin = new System.Windows.Forms.Padding(2);
             this.dockPanel2_Container.Name = "dockPanel2_Container";
-            this.dockPanel2_Container.Size = new System.Drawing.Size(302, 381);
+            this.dockPanel2_Container.Size = new System.Drawing.Size(238, 249);
             this.dockPanel2_Container.TabIndex = 0;
             // 
             // treeListStdHullName
             // 
             this.treeListStdHullName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeListStdHullName.Location = new System.Drawing.Point(0, 0);
+            this.treeListStdHullName.Margin = new System.Windows.Forms.Padding(2);
             this.treeListStdHullName.Name = "treeListStdHullName";
-            this.treeListStdHullName.Size = new System.Drawing.Size(302, 381);
+            this.treeListStdHullName.Size = new System.Drawing.Size(238, 249);
             this.treeListStdHullName.TabIndex = 0;
+            this.treeListStdHullName.AfterFocusNode += new DevExpress.XtraTreeList.NodeEventHandler(this.treeListStdHullName_AfterFocusNode);
             // 
             // panelContainer2
             // 
-            this.panelContainer2.ActiveChild = this.dockPanel4;
+            this.panelContainer2.ActiveChild = this.dockPanel1;
             this.panelContainer2.Controls.Add(this.dockPanel1);
             this.panelContainer2.Controls.Add(this.dockPanel3);
             this.panelContainer2.Controls.Add(this.dockPanel5);
@@ -198,48 +204,13 @@
             this.panelContainer2.Dock = DevExpress.XtraBars.Docking.DockingStyle.Bottom;
             this.panelContainer2.FloatVertical = true;
             this.panelContainer2.ID = new System.Guid("c99613b1-3b27-4592-a365-87b5978e6ea9");
-            this.panelContainer2.Location = new System.Drawing.Point(310, 367);
+            this.panelContainer2.Location = new System.Drawing.Point(246, 206);
+            this.panelContainer2.Margin = new System.Windows.Forms.Padding(2);
             this.panelContainer2.Name = "panelContainer2";
-            this.panelContainer2.OriginalSize = new System.Drawing.Size(200, 232);
-            this.panelContainer2.Size = new System.Drawing.Size(577, 232);
+            this.panelContainer2.OriginalSize = new System.Drawing.Size(200, 221);
+            this.panelContainer2.Size = new System.Drawing.Size(607, 221);
             this.panelContainer2.Tabbed = true;
             this.panelContainer2.Text = "panelContainer2";
-            // 
-            // dockPanel4
-            // 
-            this.dockPanel4.Controls.Add(this.dockPanel4_Container);
-            this.dockPanel4.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
-            this.dockPanel4.ID = new System.Guid("3e0fc7d6-58c0-471e-a6ab-a39ba021f460");
-            this.dockPanel4.Location = new System.Drawing.Point(4, 30);
-            this.dockPanel4.Name = "dockPanel4";
-            this.dockPanel4.OriginalSize = new System.Drawing.Size(569, 162);
-            this.dockPanel4.Size = new System.Drawing.Size(569, 162);
-            this.dockPanel4.Text = "插值文件";
-            // 
-            // dockPanel4_Container
-            // 
-            this.dockPanel4_Container.Controls.Add(this.InterpolationGridControl);
-            this.dockPanel4_Container.Location = new System.Drawing.Point(0, 0);
-            this.dockPanel4_Container.Name = "dockPanel4_Container";
-            this.dockPanel4_Container.Size = new System.Drawing.Size(569, 162);
-            this.dockPanel4_Container.TabIndex = 0;
-            // 
-            // InterpolationGridControl
-            // 
-            this.InterpolationGridControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.InterpolationGridControl.Location = new System.Drawing.Point(0, 0);
-            this.InterpolationGridControl.MainView = this.gridView3;
-            this.InterpolationGridControl.MenuManager = this.ribbonControl1;
-            this.InterpolationGridControl.Name = "InterpolationGridControl";
-            this.InterpolationGridControl.Size = new System.Drawing.Size(569, 162);
-            this.InterpolationGridControl.TabIndex = 0;
-            this.InterpolationGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView3});
-            // 
-            // gridView3
-            // 
-            this.gridView3.GridControl = this.InterpolationGridControl;
-            this.gridView3.Name = "gridView3";
             // 
             // dockPanel1
             // 
@@ -247,119 +218,126 @@
             this.dockPanel1.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
             this.dockPanel1.FloatVertical = true;
             this.dockPanel1.ID = new System.Guid("c8a928d9-d52c-49cd-903d-c1fcaee3f6b8");
-            this.dockPanel1.Location = new System.Drawing.Point(4, 30);
+            this.dockPanel1.Location = new System.Drawing.Point(4, 23);
+            this.dockPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.dockPanel1.Name = "dockPanel1";
-            this.dockPanel1.OriginalSize = new System.Drawing.Size(569, 162);
-            this.dockPanel1.Size = new System.Drawing.Size(569, 162);
+            this.dockPanel1.OriginalSize = new System.Drawing.Size(468, 166);
+            this.dockPanel1.Size = new System.Drawing.Size(599, 166);
             this.dockPanel1.Text = "基本参数";
             // 
             // dockPanel1_Container
             // 
             this.dockPanel1_Container.Controls.Add(this.layoutControl1);
             this.dockPanel1_Container.Location = new System.Drawing.Point(0, 0);
+            this.dockPanel1_Container.Margin = new System.Windows.Forms.Padding(2);
             this.dockPanel1_Container.Name = "dockPanel1_Container";
-            this.dockPanel1_Container.Size = new System.Drawing.Size(569, 162);
+            this.dockPanel1_Container.Size = new System.Drawing.Size(599, 166);
             this.dockPanel1_Container.TabIndex = 0;
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.txtTemperature);
             this.layoutControl1.Controls.Add(this.cbxWorker);
             this.layoutControl1.Controls.Add(this.cbxSoftwareInfo);
             this.layoutControl1.Controls.Add(this.cbxMeasureDevice);
             this.layoutControl1.Controls.Add(this.cbxProcessEquipment);
-            this.layoutControl1.Controls.Add(this.textEdit4);
-            this.layoutControl1.Controls.Add(this.textEdit3);
-            this.layoutControl1.Controls.Add(this.textEdit2);
-            this.layoutControl1.Controls.Add(this.textEdit1);
-            this.layoutControl1.Controls.Add(this.timeEdit1);
+            this.layoutControl1.Controls.Add(this.textResValue);
+            this.layoutControl1.Controls.Add(this.txtCofficient);
+            this.layoutControl1.Controls.Add(this.txtRecordTime);
+            this.layoutControl1.Controls.Add(this.txtProcessTime);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControl1.Margin = new System.Windows.Forms.Padding(2);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(569, 162);
+            this.layoutControl1.Size = new System.Drawing.Size(599, 166);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
+            // 
+            // txtTemperature
+            // 
+            this.txtTemperature.Location = new System.Drawing.Point(192, 12);
+            this.txtTemperature.MenuManager = this.ribbonControl1;
+            this.txtTemperature.Name = "txtTemperature";
+            this.txtTemperature.Size = new System.Drawing.Size(50, 21);
+            this.txtTemperature.StyleController = this.layoutControl1;
+            this.txtTemperature.TabIndex = 13;
             // 
             // cbxWorker
             // 
             this.cbxWorker.FormattingEnabled = true;
-            this.cbxWorker.Location = new System.Drawing.Point(105, 186);
+            this.cbxWorker.Location = new System.Drawing.Point(386, 62);
+            this.cbxWorker.Margin = new System.Windows.Forms.Padding(2);
             this.cbxWorker.Name = "cbxWorker";
-            this.cbxWorker.Size = new System.Drawing.Size(452, 30);
+            this.cbxWorker.Size = new System.Drawing.Size(207, 22);
             this.cbxWorker.TabIndex = 12;
             // 
             // cbxSoftwareInfo
             // 
             this.cbxSoftwareInfo.FormattingEnabled = true;
-            this.cbxSoftwareInfo.Location = new System.Drawing.Point(105, 160);
+            this.cbxSoftwareInfo.Location = new System.Drawing.Point(75, 62);
+            this.cbxSoftwareInfo.Margin = new System.Windows.Forms.Padding(2);
             this.cbxSoftwareInfo.Name = "cbxSoftwareInfo";
-            this.cbxSoftwareInfo.Size = new System.Drawing.Size(452, 30);
+            this.cbxSoftwareInfo.Size = new System.Drawing.Size(244, 22);
             this.cbxSoftwareInfo.TabIndex = 11;
             // 
             // cbxMeasureDevice
             // 
             this.cbxMeasureDevice.FormattingEnabled = true;
-            this.cbxMeasureDevice.Location = new System.Drawing.Point(105, 134);
+            this.cbxMeasureDevice.Location = new System.Drawing.Point(386, 37);
+            this.cbxMeasureDevice.Margin = new System.Windows.Forms.Padding(2);
             this.cbxMeasureDevice.Name = "cbxMeasureDevice";
-            this.cbxMeasureDevice.Size = new System.Drawing.Size(452, 30);
+            this.cbxMeasureDevice.Size = new System.Drawing.Size(207, 22);
             this.cbxMeasureDevice.TabIndex = 10;
             // 
             // cbxProcessEquipment
             // 
             this.cbxProcessEquipment.FormattingEnabled = true;
-            this.cbxProcessEquipment.Location = new System.Drawing.Point(105, 108);
+            this.cbxProcessEquipment.Location = new System.Drawing.Point(75, 37);
+            this.cbxProcessEquipment.Margin = new System.Windows.Forms.Padding(2);
             this.cbxProcessEquipment.Name = "cbxProcessEquipment";
-            this.cbxProcessEquipment.Size = new System.Drawing.Size(452, 30);
+            this.cbxProcessEquipment.Size = new System.Drawing.Size(244, 22);
             this.cbxProcessEquipment.TabIndex = 9;
             // 
-            // textEdit4
+            // textResValue
             // 
-            this.textEdit4.Location = new System.Drawing.Point(105, 76);
-            this.textEdit4.MenuManager = this.ribbonControl1;
-            this.textEdit4.Name = "textEdit4";
-            this.textEdit4.Size = new System.Drawing.Size(452, 28);
-            this.textEdit4.StyleController = this.layoutControl1;
-            this.textEdit4.TabIndex = 8;
+            this.textResValue.Location = new System.Drawing.Point(543, 12);
+            this.textResValue.Margin = new System.Windows.Forms.Padding(2);
+            this.textResValue.MenuManager = this.ribbonControl1;
+            this.textResValue.Name = "textResValue";
+            this.textResValue.Size = new System.Drawing.Size(50, 21);
+            this.textResValue.StyleController = this.layoutControl1;
+            this.textResValue.TabIndex = 8;
             // 
-            // textEdit3
+            // txtCofficient
             // 
-            this.textEdit3.Location = new System.Drawing.Point(379, 44);
-            this.textEdit3.MenuManager = this.ribbonControl1;
-            this.textEdit3.Name = "textEdit3";
-            this.textEdit3.Size = new System.Drawing.Size(178, 28);
-            this.textEdit3.StyleController = this.layoutControl1;
-            this.textEdit3.TabIndex = 7;
+            this.txtCofficient.Location = new System.Drawing.Point(426, 12);
+            this.txtCofficient.Margin = new System.Windows.Forms.Padding(2);
+            this.txtCofficient.MenuManager = this.ribbonControl1;
+            this.txtCofficient.Name = "txtCofficient";
+            this.txtCofficient.Size = new System.Drawing.Size(50, 21);
+            this.txtCofficient.StyleController = this.layoutControl1;
+            this.txtCofficient.TabIndex = 7;
             // 
-            // textEdit2
+            // txtRecordTime
             // 
-            this.textEdit2.Location = new System.Drawing.Point(105, 44);
-            this.textEdit2.MenuManager = this.ribbonControl1;
-            this.textEdit2.Name = "textEdit2";
-            this.textEdit2.Size = new System.Drawing.Size(177, 28);
-            this.textEdit2.StyleController = this.layoutControl1;
-            this.textEdit2.TabIndex = 6;
+            this.txtRecordTime.Location = new System.Drawing.Point(309, 12);
+            this.txtRecordTime.Margin = new System.Windows.Forms.Padding(2);
+            this.txtRecordTime.MenuManager = this.ribbonControl1;
+            this.txtRecordTime.Name = "txtRecordTime";
+            this.txtRecordTime.Size = new System.Drawing.Size(50, 21);
+            this.txtRecordTime.StyleController = this.layoutControl1;
+            this.txtRecordTime.TabIndex = 6;
             // 
-            // textEdit1
+            // txtProcessTime
             // 
-            this.textEdit1.Location = new System.Drawing.Point(105, 12);
-            this.textEdit1.MenuManager = this.ribbonControl1;
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(177, 28);
-            this.textEdit1.StyleController = this.layoutControl1;
-            this.textEdit1.TabIndex = 4;
-            // 
-            // timeEdit1
-            // 
-            this.timeEdit1.EditValue = "";
-            this.timeEdit1.Location = new System.Drawing.Point(379, 12);
-            this.timeEdit1.MenuManager = this.ribbonControl1;
-            this.timeEdit1.Name = "timeEdit1";
-            this.timeEdit1.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered;
-            this.timeEdit1.Properties.Mask.EditMask = "T";
-            this.timeEdit1.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTime;
-            this.timeEdit1.Size = new System.Drawing.Size(178, 28);
-            this.timeEdit1.StyleController = this.layoutControl1;
-            this.timeEdit1.TabIndex = 5;
+            this.txtProcessTime.Location = new System.Drawing.Point(75, 12);
+            this.txtProcessTime.Margin = new System.Windows.Forms.Padding(2);
+            this.txtProcessTime.MenuManager = this.ribbonControl1;
+            this.txtProcessTime.Name = "txtProcessTime";
+            this.txtProcessTime.Size = new System.Drawing.Size(50, 21);
+            this.txtProcessTime.StyleController = this.layoutControl1;
+            this.txtProcessTime.TabIndex = 4;
             // 
             // layoutControlGroup1
             // 
@@ -368,109 +346,109 @@
             this.layoutControlGroup1.GroupBordersVisible = false;
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem1,
+            this.layoutControlItem4,
             this.layoutControlItem3,
-            this.layoutControlItem5,
             this.layoutControlItem6,
             this.layoutControlItem7,
+            this.layoutControlItem5,
             this.layoutControlItem8,
             this.layoutControlItem9,
-            this.layoutControlItem2,
-            this.layoutControlItem4});
+            this.txtTemperature1});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(569, 220);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(605, 149);
             this.layoutControlGroup1.Text = "layoutControlGroup1";
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem1
             // 
-            this.layoutControlItem1.Control = this.textEdit1;
+            this.layoutControlItem1.Control = this.txtProcessTime;
             this.layoutControlItem1.CustomizationFormText = "layoutControlItem1";
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(274, 32);
+            this.layoutControlItem1.Size = new System.Drawing.Size(117, 25);
             this.layoutControlItem1.Text = "加工次数：";
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(90, 22);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(60, 14);
+            // 
+            // layoutControlItem4
+            // 
+            this.layoutControlItem4.Control = this.txtCofficient;
+            this.layoutControlItem4.CustomizationFormText = "layoutControlItem4";
+            this.layoutControlItem4.Location = new System.Drawing.Point(351, 0);
+            this.layoutControlItem4.Name = "layoutControlItem4";
+            this.layoutControlItem4.Size = new System.Drawing.Size(117, 25);
+            this.layoutControlItem4.Text = "逼近系数：";
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(60, 14);
             // 
             // layoutControlItem3
             // 
-            this.layoutControlItem3.Control = this.textEdit2;
+            this.layoutControlItem3.Control = this.txtRecordTime;
             this.layoutControlItem3.CustomizationFormText = "layoutControlItem3";
-            this.layoutControlItem3.Location = new System.Drawing.Point(0, 32);
+            this.layoutControlItem3.Location = new System.Drawing.Point(234, 0);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(274, 32);
+            this.layoutControlItem3.Size = new System.Drawing.Size(117, 25);
             this.layoutControlItem3.Text = "记录时间：";
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(90, 22);
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(60, 14);
             // 
-            // layoutControlItem5
+            // txtTemperature1
             // 
-            this.layoutControlItem5.Control = this.textEdit4;
-            this.layoutControlItem5.CustomizationFormText = "layoutControlItem5";
-            this.layoutControlItem5.Location = new System.Drawing.Point(0, 64);
-            this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(549, 32);
-            this.layoutControlItem5.Text = "回弹量：";
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(90, 22);
+            this.txtTemperature1.Control = this.txtTemperature;
+            this.txtTemperature1.CustomizationFormText = "环境温度:";
+            this.txtTemperature1.Location = new System.Drawing.Point(117, 0);
+            this.txtTemperature1.Name = "txtTemperature1";
+            this.txtTemperature1.Size = new System.Drawing.Size(117, 25);
+            this.txtTemperature1.Text = "环境温度:";
+            this.txtTemperature1.TextSize = new System.Drawing.Size(60, 14);
             // 
             // layoutControlItem6
             // 
             this.layoutControlItem6.Control = this.cbxProcessEquipment;
             this.layoutControlItem6.CustomizationFormText = "layoutControlItem6";
-            this.layoutControlItem6.Location = new System.Drawing.Point(0, 96);
+            this.layoutControlItem6.Location = new System.Drawing.Point(0, 25);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(549, 26);
+            this.layoutControlItem6.Size = new System.Drawing.Size(311, 25);
             this.layoutControlItem6.Text = "加工设备:";
-            this.layoutControlItem6.TextSize = new System.Drawing.Size(90, 22);
+            this.layoutControlItem6.TextSize = new System.Drawing.Size(60, 14);
             // 
             // layoutControlItem7
             // 
             this.layoutControlItem7.Control = this.cbxMeasureDevice;
             this.layoutControlItem7.CustomizationFormText = "layoutControlItem7";
-            this.layoutControlItem7.Location = new System.Drawing.Point(0, 122);
+            this.layoutControlItem7.Location = new System.Drawing.Point(311, 25);
             this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(549, 26);
+            this.layoutControlItem7.Size = new System.Drawing.Size(274, 25);
             this.layoutControlItem7.Text = "测量设备：";
-            this.layoutControlItem7.TextSize = new System.Drawing.Size(90, 22);
+            this.layoutControlItem7.TextSize = new System.Drawing.Size(60, 14);
+            // 
+            // layoutControlItem5
+            // 
+            this.layoutControlItem5.Control = this.textResValue;
+            this.layoutControlItem5.CustomizationFormText = "layoutControlItem5";
+            this.layoutControlItem5.Location = new System.Drawing.Point(468, 0);
+            this.layoutControlItem5.Name = "layoutControlItem5";
+            this.layoutControlItem5.Size = new System.Drawing.Size(117, 25);
+            this.layoutControlItem5.Text = "回弹量：";
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(60, 14);
             // 
             // layoutControlItem8
             // 
             this.layoutControlItem8.Control = this.cbxSoftwareInfo;
             this.layoutControlItem8.CustomizationFormText = "layoutControlItem8";
-            this.layoutControlItem8.Location = new System.Drawing.Point(0, 148);
+            this.layoutControlItem8.Location = new System.Drawing.Point(0, 50);
             this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(549, 26);
+            this.layoutControlItem8.Size = new System.Drawing.Size(311, 79);
             this.layoutControlItem8.Text = "软件信息:";
-            this.layoutControlItem8.TextSize = new System.Drawing.Size(90, 22);
+            this.layoutControlItem8.TextSize = new System.Drawing.Size(60, 14);
             // 
             // layoutControlItem9
             // 
             this.layoutControlItem9.Control = this.cbxWorker;
             this.layoutControlItem9.CustomizationFormText = "layoutControlItem9";
-            this.layoutControlItem9.Location = new System.Drawing.Point(0, 174);
+            this.layoutControlItem9.Location = new System.Drawing.Point(311, 50);
             this.layoutControlItem9.Name = "layoutControlItem9";
-            this.layoutControlItem9.Size = new System.Drawing.Size(549, 26);
+            this.layoutControlItem9.Size = new System.Drawing.Size(274, 79);
             this.layoutControlItem9.Text = "作业人员:";
-            this.layoutControlItem9.TextSize = new System.Drawing.Size(90, 22);
-            // 
-            // layoutControlItem2
-            // 
-            this.layoutControlItem2.Control = this.timeEdit1;
-            this.layoutControlItem2.CustomizationFormText = "layoutControlItem2";
-            this.layoutControlItem2.Location = new System.Drawing.Point(274, 0);
-            this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(275, 32);
-            this.layoutControlItem2.Text = "环境温度：";
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(90, 22);
-            // 
-            // layoutControlItem4
-            // 
-            this.layoutControlItem4.Control = this.textEdit3;
-            this.layoutControlItem4.CustomizationFormText = "layoutControlItem4";
-            this.layoutControlItem4.Location = new System.Drawing.Point(274, 32);
-            this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(275, 32);
-            this.layoutControlItem4.Text = "逼近系数：";
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(90, 22);
+            this.layoutControlItem9.TextSize = new System.Drawing.Size(60, 14);
             // 
             // dockPanel3
             // 
@@ -478,18 +456,20 @@
             this.dockPanel3.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
             this.dockPanel3.FloatVertical = true;
             this.dockPanel3.ID = new System.Guid("ac47266b-8446-4bba-a32a-57a2f7c7cbb7");
-            this.dockPanel3.Location = new System.Drawing.Point(4, 30);
+            this.dockPanel3.Location = new System.Drawing.Point(4, 23);
+            this.dockPanel3.Margin = new System.Windows.Forms.Padding(2);
             this.dockPanel3.Name = "dockPanel3";
-            this.dockPanel3.OriginalSize = new System.Drawing.Size(569, 162);
-            this.dockPanel3.Size = new System.Drawing.Size(569, 162);
+            this.dockPanel3.OriginalSize = new System.Drawing.Size(468, 166);
+            this.dockPanel3.Size = new System.Drawing.Size(599, 166);
             this.dockPanel3.Text = "缺陷表";
             // 
             // dockPanel3_Container
             // 
             this.dockPanel3_Container.Controls.Add(this.layoutControl2);
             this.dockPanel3_Container.Location = new System.Drawing.Point(0, 0);
+            this.dockPanel3_Container.Margin = new System.Windows.Forms.Padding(2);
             this.dockPanel3_Container.Name = "dockPanel3_Container";
-            this.dockPanel3_Container.Size = new System.Drawing.Size(569, 162);
+            this.dockPanel3_Container.Size = new System.Drawing.Size(599, 166);
             this.dockPanel3_Container.TabIndex = 0;
             // 
             // layoutControl2
@@ -499,31 +479,35 @@
             this.layoutControl2.Controls.Add(this.textBox1);
             this.layoutControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl2.Location = new System.Drawing.Point(0, 0);
+            this.layoutControl2.Margin = new System.Windows.Forms.Padding(2);
             this.layoutControl2.Name = "layoutControl2";
             this.layoutControl2.Root = this.layoutControlGroup2;
-            this.layoutControl2.Size = new System.Drawing.Size(569, 162);
+            this.layoutControl2.Size = new System.Drawing.Size(599, 166);
             this.layoutControl2.TabIndex = 0;
             this.layoutControl2.Text = "layoutControl2";
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(105, 64);
+            this.textBox3.Location = new System.Drawing.Point(75, 60);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(2);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(452, 22);
+            this.textBox3.Size = new System.Drawing.Size(512, 20);
             this.textBox3.TabIndex = 6;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(105, 38);
+            this.textBox2.Location = new System.Drawing.Point(75, 36);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(452, 22);
+            this.textBox2.Size = new System.Drawing.Size(512, 20);
             this.textBox2.TabIndex = 5;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(105, 12);
+            this.textBox1.Location = new System.Drawing.Point(75, 12);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(452, 22);
+            this.textBox1.Size = new System.Drawing.Size(512, 20);
             this.textBox1.TabIndex = 4;
             // 
             // layoutControlGroup2
@@ -537,7 +521,7 @@
             this.layoutControlItem10});
             this.layoutControlGroup2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup2.Name = "layoutControlGroup2";
-            this.layoutControlGroup2.Size = new System.Drawing.Size(569, 162);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(599, 166);
             this.layoutControlGroup2.Text = "layoutControlGroup2";
             this.layoutControlGroup2.TextVisible = false;
             // 
@@ -545,21 +529,21 @@
             // 
             this.layoutControlItem11.Control = this.textBox2;
             this.layoutControlItem11.CustomizationFormText = "缺陷原因：";
-            this.layoutControlItem11.Location = new System.Drawing.Point(0, 26);
+            this.layoutControlItem11.Location = new System.Drawing.Point(0, 24);
             this.layoutControlItem11.Name = "layoutControlItem11";
-            this.layoutControlItem11.Size = new System.Drawing.Size(549, 26);
+            this.layoutControlItem11.Size = new System.Drawing.Size(579, 24);
             this.layoutControlItem11.Text = "缺陷原因：";
-            this.layoutControlItem11.TextSize = new System.Drawing.Size(90, 22);
+            this.layoutControlItem11.TextSize = new System.Drawing.Size(60, 14);
             // 
             // layoutControlItem12
             // 
             this.layoutControlItem12.Control = this.textBox3;
             this.layoutControlItem12.CustomizationFormText = "解决方案：";
-            this.layoutControlItem12.Location = new System.Drawing.Point(0, 52);
+            this.layoutControlItem12.Location = new System.Drawing.Point(0, 48);
             this.layoutControlItem12.Name = "layoutControlItem12";
-            this.layoutControlItem12.Size = new System.Drawing.Size(549, 90);
+            this.layoutControlItem12.Size = new System.Drawing.Size(579, 98);
             this.layoutControlItem12.Text = "解决方案：";
-            this.layoutControlItem12.TextSize = new System.Drawing.Size(90, 22);
+            this.layoutControlItem12.TextSize = new System.Drawing.Size(60, 14);
             // 
             // layoutControlItem10
             // 
@@ -567,37 +551,41 @@
             this.layoutControlItem10.CustomizationFormText = "缺陷名：";
             this.layoutControlItem10.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem10.Name = "layoutControlItem10";
-            this.layoutControlItem10.Size = new System.Drawing.Size(549, 26);
+            this.layoutControlItem10.Size = new System.Drawing.Size(579, 24);
             this.layoutControlItem10.Text = "缺陷名：";
-            this.layoutControlItem10.TextSize = new System.Drawing.Size(90, 22);
+            this.layoutControlItem10.TextSize = new System.Drawing.Size(60, 14);
             // 
             // dockPanel5
             // 
             this.dockPanel5.Controls.Add(this.dockPanel5_Container);
             this.dockPanel5.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
             this.dockPanel5.ID = new System.Guid("8aab0719-8174-4763-8b8f-17b02225c4dd");
-            this.dockPanel5.Location = new System.Drawing.Point(4, 30);
+            this.dockPanel5.Location = new System.Drawing.Point(4, 23);
+            this.dockPanel5.Margin = new System.Windows.Forms.Padding(2);
             this.dockPanel5.Name = "dockPanel5";
-            this.dockPanel5.OriginalSize = new System.Drawing.Size(569, 162);
-            this.dockPanel5.Size = new System.Drawing.Size(569, 162);
+            this.dockPanel5.OriginalSize = new System.Drawing.Size(468, 166);
+            this.dockPanel5.Size = new System.Drawing.Size(599, 166);
             this.dockPanel5.Text = "调型文件";
             // 
             // dockPanel5_Container
             // 
             this.dockPanel5_Container.Controls.Add(this.ModelGridControl);
             this.dockPanel5_Container.Location = new System.Drawing.Point(0, 0);
+            this.dockPanel5_Container.Margin = new System.Windows.Forms.Padding(2);
             this.dockPanel5_Container.Name = "dockPanel5_Container";
-            this.dockPanel5_Container.Size = new System.Drawing.Size(569, 162);
+            this.dockPanel5_Container.Size = new System.Drawing.Size(599, 166);
             this.dockPanel5_Container.TabIndex = 0;
             // 
             // ModelGridControl
             // 
             this.ModelGridControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ModelGridControl.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2);
             this.ModelGridControl.Location = new System.Drawing.Point(0, 0);
             this.ModelGridControl.MainView = this.gridView2;
+            this.ModelGridControl.Margin = new System.Windows.Forms.Padding(2);
             this.ModelGridControl.MenuManager = this.ribbonControl1;
             this.ModelGridControl.Name = "ModelGridControl";
-            this.ModelGridControl.Size = new System.Drawing.Size(569, 162);
+            this.ModelGridControl.Size = new System.Drawing.Size(599, 166);
             this.ModelGridControl.TabIndex = 0;
             this.ModelGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -606,6 +594,46 @@
             // 
             this.gridView2.GridControl = this.ModelGridControl;
             this.gridView2.Name = "gridView2";
+            // 
+            // dockPanel4
+            // 
+            this.dockPanel4.Controls.Add(this.dockPanel4_Container);
+            this.dockPanel4.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
+            this.dockPanel4.ID = new System.Guid("3e0fc7d6-58c0-471e-a6ab-a39ba021f460");
+            this.dockPanel4.Location = new System.Drawing.Point(4, 23);
+            this.dockPanel4.Margin = new System.Windows.Forms.Padding(2);
+            this.dockPanel4.Name = "dockPanel4";
+            this.dockPanel4.OriginalSize = new System.Drawing.Size(468, 166);
+            this.dockPanel4.Size = new System.Drawing.Size(599, 166);
+            this.dockPanel4.Text = "插值文件";
+            // 
+            // dockPanel4_Container
+            // 
+            this.dockPanel4_Container.Controls.Add(this.InterpolationGridControl);
+            this.dockPanel4_Container.Location = new System.Drawing.Point(0, 0);
+            this.dockPanel4_Container.Margin = new System.Windows.Forms.Padding(2);
+            this.dockPanel4_Container.Name = "dockPanel4_Container";
+            this.dockPanel4_Container.Size = new System.Drawing.Size(599, 166);
+            this.dockPanel4_Container.TabIndex = 0;
+            // 
+            // InterpolationGridControl
+            // 
+            this.InterpolationGridControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.InterpolationGridControl.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2);
+            this.InterpolationGridControl.Location = new System.Drawing.Point(0, 0);
+            this.InterpolationGridControl.MainView = this.gridView3;
+            this.InterpolationGridControl.Margin = new System.Windows.Forms.Padding(2);
+            this.InterpolationGridControl.MenuManager = this.ribbonControl1;
+            this.InterpolationGridControl.Name = "InterpolationGridControl";
+            this.InterpolationGridControl.Size = new System.Drawing.Size(599, 166);
+            this.InterpolationGridControl.TabIndex = 0;
+            this.InterpolationGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView3});
+            // 
+            // gridView3
+            // 
+            this.gridView3.GridControl = this.InterpolationGridControl;
+            this.gridView3.Name = "gridView3";
             // 
             // ribbonPageCategory1
             // 
@@ -683,14 +711,18 @@
             this.btn_ProcessGuide.LargeGlyph = global::HullShellTest.Properties.Resources.file_broken;
             this.btn_ProcessGuide.Name = "btn_ProcessGuide";
             // 
+            // ModelParameterBindingSource
+            // 
+            this.ModelParameterBindingSource.DataSource = typeof(HullShellTest.ModelData.Extent.ModelParamterBasicCls);
+            // 
             // ProcessParameterFrm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(887, 599);
+            this.ClientSize = new System.Drawing.Size(853, 427);
             this.Controls.Add(this.panelContainer2);
             this.Controls.Add(this.dockPanel2);
-            this.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ProcessParameterFrm";
             this.Text = "工艺参数管理";
             this.Controls.SetChildIndex(this.ribbonControl1, 0);
@@ -703,29 +735,25 @@
             this.dockPanel2_Container.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.treeListStdHullName)).EndInit();
             this.panelContainer2.ResumeLayout(false);
-            this.dockPanel4.ResumeLayout(false);
-            this.dockPanel4_Container.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.InterpolationGridControl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
             this.dockPanel1.ResumeLayout(false);
             this.dockPanel1_Container.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.timeEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTemperature.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textResValue.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCofficient.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRecordTime.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtProcessTime.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTemperature1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             this.dockPanel3.ResumeLayout(false);
             this.dockPanel3_Container.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).EndInit();
@@ -738,6 +766,11 @@
             this.dockPanel5_Container.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ModelGridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+            this.dockPanel4.ResumeLayout(false);
+            this.dockPanel4_Container.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.InterpolationGridControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ModelParameterBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -752,13 +785,12 @@
         private DevExpress.XtraBars.Docking.DockPanel dockPanel1;
         private DevExpress.XtraBars.Docking.ControlContainer dockPanel1_Container;
         private DevExpress.XtraLayout.LayoutControl layoutControl1;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
+        private DevExpress.XtraEditors.TextEdit txtProcessTime;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
-        private DevExpress.XtraEditors.TextEdit textEdit4;
-        private DevExpress.XtraEditors.TextEdit textEdit3;
-        private DevExpress.XtraEditors.TextEdit textEdit2;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
+        private DevExpress.XtraEditors.TextEdit textResValue;
+        private DevExpress.XtraEditors.TextEdit txtCofficient;
+        private DevExpress.XtraEditors.TextEdit txtRecordTime;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
@@ -770,7 +802,6 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem9;
-        private DevExpress.XtraEditors.TextEdit timeEdit1;
         private DevExpress.XtraTreeList.TreeList treeListStdHullName;
         private DevExpress.XtraBars.Docking.DockPanel dockPanel4;
         private DevExpress.XtraBars.Docking.ControlContainer dockPanel4_Container;
@@ -799,5 +830,8 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem10;
         private DevExpress.XtraGrid.GridControl ModelGridControl;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
+        private System.Windows.Forms.BindingSource ModelParameterBindingSource;
+        private DevExpress.XtraEditors.TextEdit txtTemperature;
+        private DevExpress.XtraLayout.LayoutControlItem txtTemperature1;
     }
 }
