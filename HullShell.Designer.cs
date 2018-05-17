@@ -34,7 +34,7 @@
 [assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("HullShell", "StdHullShellModelingParameter", "StdHullShell", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(HullShellTest.StdHullShell), "ModelingParameter", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HullShellTest.ModelingParameter))]
 
 // Original file name:
-// Generation date: 5/16/2018 10:53:20 AM
+// Generation date: 5/16/2018 7:54:03 PM
 namespace HullShellTest
 {
     
