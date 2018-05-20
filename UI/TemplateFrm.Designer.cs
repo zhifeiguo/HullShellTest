@@ -296,8 +296,8 @@
         public DevExpress.XtraEditors.Repository.RepositoryItemComboBox cmbObjectList;
         protected internal DevExpress.XtraGrid.GridControl gridControl1;
         protected internal DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraBars.BarButtonItem btn_All;
-        private DevExpress.XtraBars.BarStaticItem barStaticItem1;
         protected internal DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl1;
+        protected internal DevExpress.XtraBars.BarButtonItem btn_All;
+        protected internal DevExpress.XtraBars.BarStaticItem barStaticItem1;
     }
 }

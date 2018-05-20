@@ -260,16 +260,17 @@ namespace HullShellTest.DAL
 
                 StdHullShell shs = hs.StdHullShellSet.Where(s => s.PlateModel == StdHullName).FirstOrDefault();
 
-                List<ModelingParameter> mpL=shs.ModelingParameter.ToList();
+                shs.ModelingParameter.Load();
+
+                List<ModelingParameter> mpList=shs.ModelingParameter.ToList();
 
                 int x=shs.ModelingParameter.ToList().Count();
 
                 //shs.ModelingParameter.Load();
 
+                //ModelingParameter mp = hs.ModelingParameterSet.Where(m=>m.Id>0).FirstOrDefault();
 
-                ModelingParameter mp = hs.ModelingParameterSet.Where(m=>m.Id>0).FirstOrDefault();
-
-                List<ModelingParameter> mpList = hs.ModelingParameterSet.Where(m => m.StdHullShell.Id == _Id).ToList();
+               // List<ModelingParameter> mpList = hs.ModelingParameterSet.Where(m => m.StdHullShell.Id == _Id).ToList();
 
                 List<string> namestr = new List<string>();
 
@@ -286,6 +287,125 @@ namespace HullShellTest.DAL
                 return namestr;
             }
         }
+
+        //准确查询
+        public static ModelParamterBasicCls QueryModelParameterByNameAndNo(string StdHullName1,int No)
+        {
+            using (HullShellContainer hs = new HullShellContainer())
+            {
+
+                int _Id = hs.StdHullShellSet.Where(s => s.PlateModel == StdHullName1).FirstOrDefault().Id;
+
+                StdHullShell shs = hs.StdHullShellSet.Where(s => s.PlateModel == StdHullName1).FirstOrDefault();
+
+                shs.ModelingParameter.Load();
+
+                List<ModelingParameter> mpList = shs.ModelingParameter.ToList();
+
+                ModelingParameter mp=shs.ModelingParameter.Where(m=>m.ProcessNumbers==No).FirstOrDefault();
+
+                mp.ProcessingEquipmentReference.Load();
+                mp.SoftwareReference.Load();
+                mp.DetectEquipmentReference.Load();
+                mp.AdminsReference.Load();
+                
+
+               return new ModelParamterBasicCls
+                {
+                    Id=mp.Id,
+                    ProcessNumbers=mp.ProcessNumbers,
+                    EnvTemperation=mp.EnvTemperation,
+                    RecordTime=mp.RecordTime,
+                    Coefficient=mp.Coefficient,
+                    ResilienceValue=mp.ResilienceValue,
+                    StdHullName = StdHullName1,
+                    UserName=mp.Admins.UserName,
+                    SoftwareName=mp.Software.SoftwareName,
+                    DetectEquipmentName=mp.DetectEquipment.DetectEquipmentName,
+
+                    ProcessEquipmentName=mp.ProcessingEquipment.EquipMentName
+                };
+            }
+        }
+
+        //准确查询缺陷
+        public static DefectsListCls QueryModelParameterDefects(string StdHullName1, int No)
+        {
+            using (HullShellContainer hs = new HullShellContainer())
+            {
+
+                int _Id = hs.StdHullShellSet.Where(s => s.PlateModel == StdHullName1).FirstOrDefault().Id;
+
+                StdHullShell shs = hs.StdHullShellSet.Where(s => s.PlateModel == StdHullName1).FirstOrDefault();
+
+                shs.ModelingParameter.Load();
+
+                List<ModelingParameter> mpList = shs.ModelingParameter.ToList();
+
+                ModelingParameter mp = shs.ModelingParameter.Where(m => m.ProcessNumbers == No).FirstOrDefault();
+
+                mp.DefectsListReference.Load();
+
+                DefectsList dl = mp.DefectsList;
+
+                if (dl == null)
+                {
+                    return null;
+                }
+
+                return new DefectsListCls
+                {
+                    DefectName=mp.DefectsList.DefectName,
+                    DefectReason=mp.DefectsList.DefectReason,
+                    Slution=mp.DefectsList.Solution
+                };
+            }
+        }
+
+        //添加缺陷信息
+        public static bool AddDefects(string StdHullName1, int No,DefectsListCls dfc)
+        {
+            using (HullShellContainer hs = new HullShellContainer())
+            {
+
+                int _Id = hs.StdHullShellSet.Where(s => s.PlateModel == StdHullName1).FirstOrDefault().Id;
+
+                StdHullShell shs = hs.StdHullShellSet.Where(s => s.PlateModel == StdHullName1).FirstOrDefault();
+
+                shs.ModelingParameter.Load();
+
+                List<ModelingParameter> mpList = shs.ModelingParameter.ToList();
+
+                ModelingParameter mp = shs.ModelingParameter.Where(m => m.ProcessNumbers == No).FirstOrDefault();
+
+                mp.DefectsListReference.Load();
+
+                DefectsList dl = mp.DefectsList;
+
+                if (dl == null)
+                {
+                    dl = new DefectsList
+                    {
+                        DefectName=dfc.DefectName.ToString(),
+                        DefectReason=dfc.DefectReason,
+                        Solution=dfc.Slution
+                    };
+
+                    dl.ModelingParameter = mp;
+
+                    hs.AddToDefectsListSet(dl);
+                    hs.SaveChanges();
+
+                    return true;
+                }
+
+                else
+                {
+                    return false;
+                }
+            }
+        }
+
 
         //查询加工数据
         public static void QueryModelParameter()

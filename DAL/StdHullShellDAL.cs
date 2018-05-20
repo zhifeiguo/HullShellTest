@@ -476,6 +476,30 @@ namespace HullShellTest.DAL
             }
         }
 
+
+
+        //根据Name查询船板的名字
+        public static bool IsContainTheStdHull(string _name)
+        {
+            using (HullShellContainer hs = new HullShellContainer())
+            {
+
+                int re = 0;
+
+                StdHullShell shs = hs.StdHullShellSet.Where(p => p.PlateModel == _name).FirstOrDefault();
+
+                if (shs != null)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+                   
+            }
+        }
+
         //获取回弹值信息
         public static ResilienceFactorCls GeteResilienceFactorById(int _Id)
         {

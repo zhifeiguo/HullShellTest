@@ -1581,7 +1581,7 @@
     </edmx:Options>
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram Name="HullShell" DisplayType="true" xmlns="http://schemas.microsoft.com/ado/2007/06/edmx" ZoomLevel="66">
+      <Diagram Name="HullShell" DisplayType="true" xmlns="http://schemas.microsoft.com/ado/2007/06/edmx" ZoomLevel="86">
         <EntityTypeShape EntityType="HullShell.StdHullShell" Width="2.75" PointX="12.5" PointY="4" Height="4.2622688802083317" IsExpanded="true" />
         <EntityTypeShape EntityType="HullShell.Material" Width="2.75" PointX="12.75" PointY="0.5" Height="2.9251310221354156" IsExpanded="true" />
         <AssociationConnector Association="HullShell.MaterialHullShell">

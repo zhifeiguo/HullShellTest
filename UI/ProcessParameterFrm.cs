@@ -10,6 +10,7 @@ using HullShellTest.ModelData;
 using HullShellTest.DAL;
 using HullShellTest.ModelData.Extent;
 using DevExpress.XtraTreeList.Nodes;
+using HullShellTest.Utils;
 
 namespace HullShellTest.UI
 {
@@ -48,9 +49,21 @@ namespace HullShellTest.UI
 
             this.treeListStdHullName.FocusedNode = null;
             ModelParameterDAL.QueryModelParameter();
+
+            unable_Control();
+
         }
 
-         public string local_stdhullname;
+         public string local_stdhullname=null;
+
+         public bool unable_Control()
+         {
+             base.btn_All.Enabled = false;
+             base.ItemObjectList.Enabled = false;
+             base.barStaticItem1.Enabled = false;
+
+             return true;
+         }
 
         public  override bool  AddData()
         {
@@ -67,6 +80,15 @@ namespace HullShellTest.UI
                 if (AddorModify == AddOrModifyEnum.Add)
                 {
                     ModelParamterBasicCls mpcls = new ModelParamterBasicCls();
+
+                    //数据验证
+                    bool isHave = StdHullShellDAL.IsContainTheStdHull(local_stdhullname);
+
+                    if (!isHave)
+                    {
+                        MessageBox.Show("不存在此钢板，请重新选择！");
+                        return false;
+                    }
 
                     mpcls.ProcessNumbers = Convert.ToInt32(this.txtProcessTime.Text.ToString());
                     mpcls.EnvTemperation = Convert.ToDouble(this.txtTemperature.Text.ToString());
@@ -97,6 +119,23 @@ namespace HullShellTest.UI
 
                     if (re> 0)
                     {
+
+                        ModelParameterBindingSource.DataSource = mpcls;
+                        this.gridControl1.DataSource = ModelParameterBindingSource;
+
+                        this.txtProcessTime.Text = "";
+                        this.txtTemperature.Text = "";
+                        this.txtCofficient.Text = "";
+                        this.textResValue.Text = "";
+                        this.cbxSoftwareInfo.Text = "";
+                        this.cbxMeasureDevice.Text = "";
+                        this.cbxWorker.Text = "";
+                        this.cbxProcessEquipment.Text = "";
+
+
+                        AddtreelistNode();
+
+                        #region
                         //MaterialBindingSource.DataSource = macls;
                         //this.gridControl1.DataSource = MaterialBindingSource;
 
@@ -112,6 +151,7 @@ namespace HullShellTest.UI
                         //this.txtStrainOfWidthAndThickness.Text = "";
 
                         //init_cmbBox();
+                        #endregion
 
                         MessageBox.Show("加工参数增加成功！");
 
@@ -127,6 +167,8 @@ namespace HullShellTest.UI
                 else
                     if (AddorModify == AddOrModifyEnum.Modify)
                     {
+
+
                         //macls.MaterialName = this.txtMaterialName.Text.ToString();
                         //macls.ElasticModulus = Convert.ToDouble(this.txtElasticModulus.Text.ToString());
                         //macls.TensileStrength = Convert.ToDouble(this.txtTensileStrength.Text.ToString());
@@ -154,6 +196,52 @@ namespace HullShellTest.UI
             catch (System.Exception ex)
             {
                 MessageBox.Show("加工参数添加失败：{0}！", ex.Message.ToString());
+                return false;
+            }
+        }
+
+
+        public override bool ModifyData()
+        {
+            try
+            {
+                TreeListNode nd = this.treeListStdHullName.Selection[0];
+
+                if (nd == null)
+                {
+                    MessageBox.Show("请选择一个节点！");
+                    return false;
+                }
+
+                else if(nd.HasChildren)
+                {
+                    MessageBox.Show("请选择一个子节点！");
+                    return false;
+                }
+
+                ModelParamterBasicCls mpbs=(ModelParamterBasicCls)this.gridControl1.DataSource;
+
+                if (mpbs == null)
+                {
+                    MessageBox.Show("请选择一个记录！");
+                    return false;
+                }
+
+
+                this.txtProcessTime.Text = Convert.ToString(mpbs.ProcessNumbers);
+                this.txtProcessTime.Text = Convert.ToString(mpbs.ProcessNumbers);
+                this.txtProcessTime.Text = Convert.ToString(mpbs.ProcessNumbers);
+                this.txtProcessTime.Text = Convert.ToString(mpbs.ProcessNumbers);
+                this.txtProcessTime.Text = Convert.ToString(mpbs.ProcessNumbers);
+
+
+                this.layoutControlGroup1.Enabled = true;
+                this.layoutControlGroup2.Enabled = true;
+
+                return true;
+            }
+            catch (System.Exception ex)
+            {
                 return false;
             }
         }
@@ -202,6 +290,7 @@ namespace HullShellTest.UI
 
         public void AddtreelistNode()
         {
+
             this.treeListStdHullName.Nodes.Clear();
 
             int i = 0;
@@ -235,7 +324,7 @@ namespace HullShellTest.UI
                     for(int j=0;j<childName.Count();j++)
                     {
 
-                        treeListStdHullName.AppendNode(new Object[] { i.ToString(), childName[i].ToString() }, nd);
+                        treeListStdHullName.AppendNode(new Object[] { j.ToString(), childName[j].ToString() }, nd);
                     }
                 }
 
@@ -315,9 +404,29 @@ namespace HullShellTest.UI
             return true;
         }
 
+        public ScanPointsCls sPtCls = new ScanPointsCls();
         private void btn_ImportScanPoints_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            //OpenFileDialog ofd = new OpenFileDialog();
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.InitialDirectory = "D:\\";//注意这里写路径时要用c:\\而不是c:\
+            //openFileDialog.Filter = "文本文件|*.*|C#文件|*.cs|所有文件|*.*";
+            openFileDialog.Filter = "点云文件|*.asc|文本文件|*.txt|所有文件|*.*";
+            openFileDialog.RestoreDirectory = true;
+            openFileDialog.FilterIndex = 1;
+            string fName;
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                fName = openFileDialog.FileName;
 
+                sPtCls = ReadFile.ReadScanPts(fName);
+            }
+
+
+            ScanPointsBindingSource.DataSource = sPtCls.SPList;
+            ScanPointsGridControl.DataSource = ScanPointsBindingSource;
+
+            this.dpScanPoints.Show();
         }
 
         private void btn_ImportModelFile_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -332,7 +441,6 @@ namespace HullShellTest.UI
 
         private void treeListStdHullName_AfterFocusNode(object sender, DevExpress.XtraTreeList.NodeEventArgs e)
         {
-            //MessageBox.Show("good!");
 
             if(this.treeListStdHullName.FocusedNode==null)
             {
@@ -340,8 +448,106 @@ namespace HullShellTest.UI
             }
             this.local_stdhullname = treeListStdHullName.Selection[0].GetDisplayText(1).ToString();
 
-            //MessageBox.Show(local_stdhullname);
+
+
         }
+
+        //保存选择的点云文件
+        public string StdHullName;
+        public string ProcessNumber;
+
+        public ModelParamterBasicCls mpcls = new ModelParamterBasicCls();
+
+        private void btn_View_Click(object sender, EventArgs e)
+        {
+            TreeListNode nd = this.treeListStdHullName.Selection[0];
+
+            if (nd == null)
+            {
+                MessageBox.Show("请选择一个数据节点！");
+                return;
+            }
+
+            if(nd.HasChildren)
+            {
+                MessageBox.Show("请选择一个子节点！");
+                return;
+            }
+
+           StdHullName = nd.ParentNode.GetDisplayText(1).ToString();
+           ProcessNumber = nd.GetDisplayText(1).ToString().Split(':')[1];
+           
+           mpcls = ModelParameterDAL.QueryModelParameterByNameAndNo(StdHullName, Convert.ToInt32(ProcessNumber));
+           ModelParameterBindingSource.DataSource = ModelParameterDAL.QueryModelParameterByNameAndNo(StdHullName, Convert.ToInt32(ProcessNumber));
+           gridControl1.DataSource = ModelParameterBindingSource;
+             
+           DefectsListCls dlc = ModelParameterDAL.QueryModelParameterDefects(StdHullName,Convert.ToInt32(ProcessNumber));
+          
+            if (dlc == null)
+           {
+               MessageBox.Show("不存在缺陷列表！");
+               return;
+           }
+
+           this.textDefectName.Text = dlc.DefectName;
+           this.textReason .Text= dlc.DefectReason;
+           this.textSolution.Text = dlc.Slution;
+
+           this.dockPanel1.Show();
+
+        }
+
+        private void btn_Clear_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_AddDefects_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+            TreeListNode nd = this.treeListStdHullName.Selection[0];
+
+            if (nd == null)
+            {
+                MessageBox.Show("请选择一个节点！");
+            }
+
+            if (nd.HasChildren)
+            {
+                MessageBox.Show("请选择一个子节点！");
+                return;
+            }
+
+
+            DefectsListCls defcls = new DefectsListCls
+            {
+                DefectName=this.textDefectName.Text,
+                DefectReason=this.textReason.Text,
+                Slution=this.textSolution.Text
+            };
+
+
+            string StdHullName = nd.ParentNode.GetDisplayText(1).ToString();
+            string ProcessNumber = nd.GetDisplayText(1).ToString().Split(':')[1];
+
+            bool isAdd=ModelParameterDAL.AddDefects(StdHullName,Convert.ToInt32(ProcessNumber),defcls);
+
+            this.layoutControl2.Enabled = false;
+            this.layoutControl1.Enabled = false;
+
+            if (isAdd)
+            {
+                MessageBox.Show("添加成功！");
+                return;
+            }
+            else
+            {
+                MessageBox.Show("添加失败！");
+                return;
+            }
+                        
+        }
+
 
     }
 

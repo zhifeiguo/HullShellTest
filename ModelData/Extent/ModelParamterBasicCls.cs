@@ -24,9 +24,9 @@ namespace HullShellTest.ModelData.Extent
         }
 
         //加工次数
-        private int _ProcessNumbers;
+        private int? _ProcessNumbers;
         [DisplayName("加工次数")]
-        public int ProcessNumbers
+        public int? ProcessNumbers
         {
             get
             {

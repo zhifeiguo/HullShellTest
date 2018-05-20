@@ -73,8 +73,8 @@
             // 
             this.ribbonControl1.ExpandCollapseItem.Id = 0;
             this.ribbonControl1.ExpandCollapseItem.Name = "";
-            this.ribbonControl1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            this.ribbonControl1.Size = new System.Drawing.Size(887, 184);
+            this.ribbonControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ribbonControl1.Size = new System.Drawing.Size(621, 151);
             // 
             // dockManager1
             // 
@@ -93,20 +93,18 @@
             this.dockPanel1.Controls.Add(this.dockPanel1_Container);
             this.dockPanel1.Dock = DevExpress.XtraBars.Docking.DockingStyle.Left;
             this.dockPanel1.ID = new System.Guid("4f6c7838-121f-4126-b6a7-307448ac809f");
-            this.dockPanel1.Location = new System.Drawing.Point(0, 184);
-            this.dockPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dockPanel1.Location = new System.Drawing.Point(0, 151);
             this.dockPanel1.Name = "dockPanel1";
             this.dockPanel1.OriginalSize = new System.Drawing.Size(227, 200);
-            this.dockPanel1.Size = new System.Drawing.Size(227, 415);
+            this.dockPanel1.Size = new System.Drawing.Size(227, 230);
             this.dockPanel1.Text = "详情";
             // 
             // dockPanel1_Container
             // 
             this.dockPanel1_Container.Controls.Add(this.layoutControl1);
-            this.dockPanel1_Container.Location = new System.Drawing.Point(4, 30);
-            this.dockPanel1_Container.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dockPanel1_Container.Location = new System.Drawing.Point(4, 23);
             this.dockPanel1_Container.Name = "dockPanel1_Container";
-            this.dockPanel1_Container.Size = new System.Drawing.Size(219, 381);
+            this.dockPanel1_Container.Size = new System.Drawing.Size(219, 203);
             this.dockPanel1_Container.TabIndex = 0;
             // 
             // layoutControl1
@@ -118,55 +116,49 @@
             this.layoutControl1.Controls.Add(this.textEquipmentName);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(219, 381);
+            this.layoutControl1.Size = new System.Drawing.Size(219, 203);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
             // txtDownCount
             // 
-            this.txtDownCount.Location = new System.Drawing.Point(123, 140);
-            this.txtDownCount.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtDownCount.Location = new System.Drawing.Point(87, 112);
             this.txtDownCount.Name = "txtDownCount";
-            this.txtDownCount.Size = new System.Drawing.Size(84, 28);
+            this.txtDownCount.Size = new System.Drawing.Size(120, 21);
             this.txtDownCount.StyleController = this.layoutControl1;
             this.txtDownCount.TabIndex = 8;
             // 
             // txtUpCount
             // 
-            this.txtUpCount.Location = new System.Drawing.Point(123, 108);
-            this.txtUpCount.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtUpCount.Location = new System.Drawing.Point(87, 87);
             this.txtUpCount.Name = "txtUpCount";
-            this.txtUpCount.Size = new System.Drawing.Size(84, 28);
+            this.txtUpCount.Size = new System.Drawing.Size(120, 21);
             this.txtUpCount.StyleController = this.layoutControl1;
             this.txtUpCount.TabIndex = 7;
             // 
             // txtDriveMode
             // 
-            this.txtDriveMode.Location = new System.Drawing.Point(123, 76);
-            this.txtDriveMode.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtDriveMode.Location = new System.Drawing.Point(87, 62);
             this.txtDriveMode.Name = "txtDriveMode";
-            this.txtDriveMode.Size = new System.Drawing.Size(84, 28);
+            this.txtDriveMode.Size = new System.Drawing.Size(120, 21);
             this.txtDriveMode.StyleController = this.layoutControl1;
             this.txtDriveMode.TabIndex = 6;
             // 
             // txtPressureSize
             // 
-            this.txtPressureSize.Location = new System.Drawing.Point(123, 44);
-            this.txtPressureSize.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtPressureSize.Location = new System.Drawing.Point(87, 37);
             this.txtPressureSize.Name = "txtPressureSize";
-            this.txtPressureSize.Size = new System.Drawing.Size(84, 28);
+            this.txtPressureSize.Size = new System.Drawing.Size(120, 21);
             this.txtPressureSize.StyleController = this.layoutControl1;
             this.txtPressureSize.TabIndex = 5;
             // 
             // textEquipmentName
             // 
-            this.textEquipmentName.Location = new System.Drawing.Point(123, 12);
-            this.textEquipmentName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textEquipmentName.Location = new System.Drawing.Point(87, 12);
             this.textEquipmentName.Name = "textEquipmentName";
-            this.textEquipmentName.Size = new System.Drawing.Size(84, 28);
+            this.textEquipmentName.Size = new System.Drawing.Size(120, 21);
             this.textEquipmentName.StyleController = this.layoutControl1;
             this.textEquipmentName.TabIndex = 4;
             // 
@@ -183,7 +175,7 @@
             this.layoutControlItem5});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(219, 381);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(219, 203);
             this.layoutControlGroup1.Text = "layoutControlGroup1";
             this.layoutControlGroup1.TextVisible = false;
             // 
@@ -193,57 +185,57 @@
             this.layoutControlItem1.CustomizationFormText = "设备名称";
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(199, 32);
+            this.layoutControlItem1.Size = new System.Drawing.Size(199, 25);
             this.layoutControlItem1.Text = "设备名称";
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(108, 22);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(72, 14);
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.txtPressureSize;
             this.layoutControlItem2.CustomizationFormText = "压头尺寸";
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 32);
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 25);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(199, 32);
+            this.layoutControlItem2.Size = new System.Drawing.Size(199, 25);
             this.layoutControlItem2.Text = "压头尺寸";
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(108, 22);
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(72, 14);
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.txtDriveMode;
             this.layoutControlItem3.CustomizationFormText = "驱动方式";
-            this.layoutControlItem3.Location = new System.Drawing.Point(0, 64);
+            this.layoutControlItem3.Location = new System.Drawing.Point(0, 50);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(199, 32);
+            this.layoutControlItem3.Size = new System.Drawing.Size(199, 25);
             this.layoutControlItem3.Text = "驱动方式";
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(108, 22);
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(72, 14);
             // 
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.txtUpCount;
             this.layoutControlItem4.CustomizationFormText = "上模压头数目";
-            this.layoutControlItem4.Location = new System.Drawing.Point(0, 96);
+            this.layoutControlItem4.Location = new System.Drawing.Point(0, 75);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(199, 32);
+            this.layoutControlItem4.Size = new System.Drawing.Size(199, 25);
             this.layoutControlItem4.Text = "上模压头数目";
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(108, 22);
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(72, 14);
             // 
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.txtDownCount;
             this.layoutControlItem5.CustomizationFormText = "下模压头数目";
-            this.layoutControlItem5.Location = new System.Drawing.Point(0, 128);
+            this.layoutControlItem5.Location = new System.Drawing.Point(0, 100);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(199, 233);
+            this.layoutControlItem5.Size = new System.Drawing.Size(199, 83);
             this.layoutControlItem5.Text = "下模压头数目";
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(108, 22);
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(72, 14);
             // 
             // ProcessEquipmentFrm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(887, 599);
+            this.ClientSize = new System.Drawing.Size(621, 381);
             this.Controls.Add(this.dockPanel1);
-            this.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ProcessEquipmentFrm";
             this.Text = "加工设备信息管理";
             this.Controls.SetChildIndex(this.ribbonControl1, 0);
